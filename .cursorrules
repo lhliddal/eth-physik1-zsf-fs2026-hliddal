@@ -10,7 +10,7 @@ Dieses Projekt ist strikt modular. Halte dich an folgende Regeln.
 - `MODULAR_SYSTEM.md`, `README.md`
 
 Alles andere gehört in einen der folgenden Ordner:
-- **`chapters/`** — Physik-Inhalt (ch00..ch11_*.tex)
+- **`chapters/`** — Physik-Inhalt (ch00..ch10_*.tex)
 - **`styles/`** — Layout/Farben/Boxen/Macros (modular nummeriert 00..70)
 - **`tests/`** — Lint- und Check-Skripte (`check_*.sh`, `run_test.sh`), Standalone-Testdokumente
 - **`scripts/`** — Helfer-Scripts (Python/Shell für Farbgenerierung etc.)

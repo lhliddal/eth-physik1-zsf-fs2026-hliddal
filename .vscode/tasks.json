@@ -10,15 +10,9 @@
     {
       "label": "LaTeX: Build main",
       "type": "shell",
-      "command": "latexmk",
+      "command": "make",
       "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-pdf",
-        "-outdir=.",
-        "-auxdir=build",
-        "main.tex"
+        "build"
       ],
       "dependsOn": "LaTeX: Check full main",
       "group": "build",

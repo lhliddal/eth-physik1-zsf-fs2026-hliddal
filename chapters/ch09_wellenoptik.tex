@@ -8,32 +8,44 @@
 Beschreibung von Licht als \ZSFkeyword{elektromagnetische Welle}. Umfasst \ZSFkeyword{Brechung}, \ZSFkeyword{Reflexion}, \ZSFkeyword{Polarisation} sowie wellenspezifische Phänomene wie \ZSFkeyword{Interferenz} und \ZSFkeyword{Gitterspektren}.
 \end{runintext}
 
+\begin{defbox}[Kenngrössen von Wellen]
+\ZSFfontBoxTitle
+\begin{ZSFtableFlat}{Y{0.4} Y{1.1} Y{1.5}}
+$T$ & \textbf{Periodendauer} & Zeit bis Welle sich wiederholt \\
+$\lambda$ & \textbf{Wellenlänge} & $\lambda = v \cdot T = \frac{v}{f}$ \newline Abstand zweier Wellenberge \\
+$f, \nu$ & \textbf{Frequenz} & $f = \frac{1}{T} = \frac{\omega}{2\pi} = \frac{v}{\lambda}$ \newline Schwingungen pro Sekunde \\
+$\omega$ & \textbf{Kreisfrequenz} & $\omega = 2\pi f = \frac{2\pi}{T}$ \newline Überstrichener Winkel pro Sekunde \\
+$v, c$ & \textbf{Phasengeschw.} & $v = f \lambda = \frac{\omega}{k}$ \newline Ausbreitungsgeschwindigkeit der Welle \\
+$k$ & \textbf{Wellenzahl} & $k = \frac{2\pi}{\lambda}$ \\
+$\varphi$ & \textbf{Phasenverschiebung}& Relativer Versatz zweier Wellen in $x$-Richtung \\
+\end{ZSFtableFlat}
+\end{defbox}
+
 \SubsectionBar*[sec:9-0]{Licht, Brechzahl, Polarisation}
 \begin{runintext}
 Grundlagen der Lichtausbreitung in verschiedenen Medien und Verhalten des elektrischen Feldvektors (\ZSFkeyword{Polarisation}).
 \end{runintext}
 \begin{formulabox}
 \[ c = 299\,792\,458\,\si{m/s} \]
-\[ c_n = \frac{c}{n} \quad n = \frac{c}{c_n} \quad \text{Brechzahl} \]
+\[ c_n = \frac{c}{n} \quad \lambda_n = \frac{\lambda_0}{n} \quad \text{Brechzahl} \]
+\formulanote{$c_n, \lambda_n$ = Lichtgeschw., Wellenlänge im Medium ($n=c/c_n$)}
 \formulasep
 \[ \theta_1' = \theta_1 \quad \text{Reflexion} \]
 \[ n_1\sin\theta_1 = n_2\sin\theta_2 \quad \text{Snellius} \]
 \[ I = \left(\frac{n_1-n_2}{n_1+n_2}\right)^2 I_0 \quad \text{reflekt. Intensität, senkrecht} \]
 \[ \sin\theta_{\mathrm{k}} = \frac{n_2}{n_1} \quad \text{Totalreflexion, $n_1>n_2$} \]
 \formulasep
+\[ I_1 = \frac{1}{2}I_0 \quad \text{unpolarisiert} \]
 \[ I_2 = I_1\,\cos^2\alpha \quad \text{Malus} \]
-\formulanote{Zweck: Lichtgeschwindigkeit; Brechzahl; Reflexion; Snellius; Totalreflexion; reflekt. Intensität; Malus (Polarisation).}
+\formulanote{Zweck: Lichtgeschwindigkeit; Brechzahl; Reflexion; Snellius; Totalreflexion; reflekt. Intensität; Polarisation. Malus: $\alpha$ Winkel zwischen Polarisatoren.}
 \end{formulabox}
 \begin{runintext}
-\ZSFkeyword{Dispersion}: $n(\lambda)$; Prisma zerlegt weißes Licht. Polarisation: \ZSFkeyword{linear}/\ZSFkeyword{zirkular}; Erzeugung durch Absorption, Streuung, Reflexion, \ZSFkeyword{Doppelbrechung}.
+\ZSFkeyword{Dispersion}: $n(\lambda)$; Prisma zerlegt weisses Licht. Polarisation: \ZSFkeyword{linear}/\ZSFkeyword{zirkular}; Erzeugung durch Absorption, Streuung, Reflexion, \ZSFkeyword{Doppelbrechung}.
 \end{runintext}
 
 \SubsectionBar[sec:9-1]{Interferenz, Gitter}
 \begin{runintext}
-Überlagerung von Lichtwellen: \ZSFkeyword{Konstruktive} und \ZSFkeyword{destruktive Interferenz} an Spalten und optischen Gittern durch \ZSFkeyword{Gangunterschiede}.
-\end{runintext}
-\begin{runintext}
-Konstante Phasendifferenz: konstruktiv $0$, $2\pi$, \ldots; destruktiv $\pi$, $3\pi$, \ldots
+Überlagerung: \ZSFkeyword{konstruktiv} bei $\delta=0,2\pi,\ldots$; \ZSFkeyword{destruktiv} bei $\pi,3\pi,\ldots$. Spalt/Gitter: nur \ZSFkeyword{Gangunterschied} $\Delta r$. Dünne Schicht: $\Delta r=2nd$ plus \ZSFkeyword{Phasensprung} $0$ oder $\pi$ pro Reflexion.
 \end{runintext}
 \begin{formulabox}
 \begin{longformula}
@@ -41,31 +53,40 @@ Konstante Phasendifferenz: konstruktiv $0$, $2\pi$, \ldots; destruktiv $\pi$, $3
 = \frac{\Delta r}{\lambda}\,360^\circ
 \end{longformula}
 \formulasep
-\[ d\,\sin\theta_m = m\,\lambda \quad m = 0,1,2,\ldots \quad \text{Maxima, in Phase} \]
-\[ d\,\sin\theta_m = \left(m-\frac{1}{2}\right)\lambda \quad m = 1,2,3,\ldots \quad \text{Minima, $180^\circ$} \]
+\[ d\,\sin\theta_m = m\,\lambda \quad m = 0,1,2,\ldots \quad \text{Maxima, Spalt} \]
+\[ d\,\sin\theta_m = \left(m-\frac{1}{2}\right)\lambda \quad m = 1,2,3,\ldots \quad \text{Minima, Spalt} \]
+\formulasep
+\[ y_m \approx \frac{m\,\lambda\,l}{d} \quad \text{$m$-tes Maximum auf Schirm} \]
+\[ \Delta y \approx \frac{\lambda\,l}{d} \quad \text{Abstand benachbarter Maxima} \]
 \formulasep
 \[ g\,\sin\theta_m = m\,\lambda \quad \text{Gitter} \]
 \[ \mathcal{A} = \frac{|\lambda|}{\Delta\lambda} = m\,N \quad \text{Auflösungsvermögen} \]
-\formulanote{Zweck: Phasendifferenz; Doppelspalt/Gitter Maxima/Minima; Auflösungsvermögen.}
+\formulasep
+\[ 2nd = m\,\lambda \quad \text{dünne Schicht, beide Reflexionen gleich} \]
+\[ 2nd = \left(m+\tfrac{1}{2}\right)\lambda \quad \text{dünne Schicht, genau eine mit $\pi$} \]
+\formulanote{$\Delta r$: Gangunterschied; $d$ Spaltabstand (Doppelspalt) bzw.\ Schichtdicke; $g$ Gitterkonstante ($\neq$ Gegenstandsweite Kap.~10). $m$ Ordnung, $\theta_m$ Beugungswinkel. Gitter: $N$ beleuchtete Streifen; $\mathcal{A}$ Auflösungsvermögen. Phasensprung $\pi$ bei Reflexion $n_{\mathrm{klein}}\!\to\! n_{\mathrm{gross}}$, sonst $0$. Schirm: $l$, $y_m$; $\sin\theta \approx y/l$.}
 \end{formulabox}
 \begin{runintext}
-\ZSFkeyword{Phasensprung} $\pi$ bei Reflexion an optisch dichterem Medium. \ZSFkeyword{Dünne Schichten}: Gangunterschied + Reflexionsphasen.
+\ZSFkeyword{Phasensprung} $\pi$ nur bei \ZSFkeyword{Reflexion} an optisch dichterem Medium ($n_1<n_2$); sonst $0$. Durchgang ohne Sprung.
 \end{runintext}
 
-\ZSFfig{graphics/Wellenlehre_Reflexion_Festes_Loses_Ende.png}{Reflexion: festes/loses Ende}{Festes Ende: Phasensprung $\pi$; loses Ende: keiner}
+\ZSFfig{graphics/Wellenlehre_Reflexion_Festes_Loses_Ende.png}{Reflexion: festes/loses Ende}{Festes Ende $\equiv$ optisch dichter: $\pi$; loses Ende $\equiv$ optisch dünner: keiner}
 
 \SubsectionBar[sec:9-2]{Beugung}
 \begin{runintext}
 Ablenkung und Ausbreitung von Licht an Kanten und Einzelspalten als Folge des \ZSFkeyword{Huygens'schen Prinzips}.
 \end{runintext}
 \begin{runintext}
-\ZSFkeyword{Huygens}: jeder Punkt der Wellenfront = \ZSFkeyword{Elementarwelle}. \ZSFkeyword{Fraunhofer}: großer Abstand oder Linse; \ZSFkeyword{Fresnel}: kleiner Abstand.
+\ZSFkeyword{Huygens}: jeder Punkt der Wellenfront = \ZSFkeyword{Elementarwelle}. Schirm weit weg ($l$ gross) oder Linse dazwischen: $\sin\theta \approx y/l$, $y$-Formeln unten gelten.
 \end{runintext}
 \begin{formulabox}
 \[ \sin\theta_1 = \frac{\lambda}{a} \quad \text{erstes Minimum Einzelspalt} \]
 \formulasep
 \[ a\,\sin\theta_m = m\,\lambda \quad m = 1,2,3,\ldots \quad \text{Nullstellen} \]
-\formulanote{Zweck: Beugung am Einzelspalt (erstes Minimum, Nullstellen).}
+\formulasep
+\[ y_1 \approx \frac{\lambda\,l}{a} \quad \text{erstes Minimum, Schirm} \]
+\[ 2y_1 \approx \frac{2\lambda\,l}{a} \quad \text{Breite zentrales Maximum} \]
+\formulanote{Zweck: Beugung am Einzelspalt. $a$ Spaltbreite; $l$ Abstand Spalt--Schirm; $\sin\theta \approx y/l$.}
 \end{formulabox}
 \begin{runintext}
 \ZSFkeyword{Doppelspalt}: Interferenzmuster, moduliert durch Einzelspalt-Beugung.
@@ -80,7 +101,7 @@ Zwei Quellen gerade noch aufgelöst, wenn Maximum der einen im ersten Minimum de
 \end{runintext}
 \begin{formulabox}
 \[ \alpha_{\mathrm{k}} = 1{,}22\,\frac{\lambda}{D} \quad \text{kreisförmige Öffnung $D$} \]
-\formulanote{Zweck: Rayleigh-Kriterium (Auflösungsgrenze kreisförmige Öffnung).}
+\formulanote{$D$ Öffnungsdurchmesser ($\neq$ Brechkraft $D=1/f$ in Kap.~10); $\alpha_{\mathrm{k}}$ minimale Winkelauflösung (Rayleigh-Kriterium).}
 \end{formulabox}
 
 % ============================================================

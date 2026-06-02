@@ -6,7 +6,7 @@ LaTeX-Formelsammlung für ETH Physik (Elektrizitätslehre & Optik), A4 Querforma
 Das Dokument ist **modular** aufgebaut:
 - `main.tex` — Skelett (30 Zeilen): `\documentclass` + `\input{preamble}` + `\input` je Kapitel
 - `preamble.tex` — alle Pakete, Farben, Makros, Box-Definitionen, hyperref (~327 Zeilen)
-- `chapters/ch00_zeichen.tex` … `chapters/ch11_quanten.tex` — je ein Kapitel als eigene Datei
+- `chapters/ch00_zeichen.tex` … `chapters/ch10_geometrisch.tex` — je ein Kapitel als eigene Datei
 Arbeitsumgebung: **macOS**, **VS Code** mit **LaTeX Workshop Extension** und **GitHub Copilot Agent**.
 
 **Zweck:** Prüfungsvorbereitung — die Formelsammlung wird direkt in der Physikprüfung verwendet.
@@ -65,9 +65,12 @@ Der Workspace liegt auf dem **Desktop** (nicht iCloud). Der Pfad kann Umlaute/Le
 - Build-Output: `build/` (Aux- und PDF-Dateien).
 
 **Agent-Build-Pflicht:** Agent-Tool-Edits schreiben direkt ins Filesystem, ohne VS Code Editor-Save-Event → LaTeX Workshop Auto-Build wird **nicht** getriggert. Nach jedem Edit immer manuell bauen:
+**WICHTIG:** Verwende IMMER den offiziellen Build-Weg:
+```bash
+make build
 ```
-latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=build -auxdir=build main.tex
-```
+Oder verwende das Tool `run_task` mit der Task ID `shell: LaTeX: Build main`.
+Führe `latexmk` **niemals** manuell im Terminal aus, um sicherzustellen, dass keine Build-Artefakte (wie `main.pdf`, `main.aux` etc.) im Root-Verzeichnis erstellt werden. Dies führt sofort zu einem Fehler beim \`make check\` (festgelegt in \`check_root_clean.sh\`).
 
 ## GitHub Naming & Release System (für KI-Agenten)
 
@@ -121,7 +124,7 @@ Der Nutzer verwendet folgende Kurzformen — immer korrekt zuordnen:
 | `\SubsectionBar[label]{Titel}` | Nummerierter Abschnitt mit farbigem Balken |
 | `\SubsectionBar*[label]{Titel}` | Unnummerierter Abschnitt |
 
-## Kapitelstruktur (Kap. 0–11)
+## Kapitelstruktur (Kap. 0–10)
 
 | Kap. | Titel |
 |---|---|
@@ -136,7 +139,6 @@ Der Nutzer verwendet folgende Kurzformen — immer korrekt zuordnen:
 | 8 | Maxwell-Gleichungen & EM-Wellen |
 | 9 | Wellenoptik |
 | 10 | Geometrische Optik |
-| 11 | Einführung in die Quantenphysik |
 
 ## Box-Typen
 
@@ -147,7 +149,7 @@ Der Nutzer verwendet folgende Kurzformen — immer korrekt zuordnen:
 | `warnbox[Titel]` | Rot hinterlegter Hinweis (ETH-Rot) |
 | `tablebox[Titel]` | Tabellenbox mit farbigem Titel |
 | `figbox[Titel]` | Grafikbox mit farbigem Titel |
-| `runintext` | Fließtext zwischen Boxen (kein Einzug) |
+| `runintext` | Fliesstext zwischen Boxen (kein Einzug) |
 | `longformula` | Mehrzeilige Formel (`aligned`) |
 
 ## Hilfs-Makros

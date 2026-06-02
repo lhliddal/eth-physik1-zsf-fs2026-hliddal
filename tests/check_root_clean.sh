@@ -7,8 +7,6 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 allowed_files=(
   "main.tex"
-  "main.pdf"
-  "main.synctex.gz"
   "physik1_fs2025_hliddal.pdf"
   "physik1_fs2025_hliddal.synctex.gz"
   "preamble.tex"

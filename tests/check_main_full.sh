@@ -18,7 +18,6 @@ required_chapters=(
   "chapters/ch08_maxwell"
   "chapters/ch09_wellenoptik"
   "chapters/ch10_geometrisch"
-  "chapters/ch11_quanten"
 )
 
 if [ ! -f "${MAIN_TEX}" ]; then

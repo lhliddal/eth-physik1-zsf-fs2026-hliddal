@@ -4,7 +4,7 @@ Diese Datei ist verbindlich für alle zukünftigen Änderungen an `ZSF_Physik_V3
 
 ## Ziel
 
-Eine 4-spaltige Physik-Zusammenfassung (Elektromagnetik, Optik, Quanten), die strikt modular organisiert ist und sich auf physikalischen Inhalt fokussiert. Layout, Farben und Boxen werden zentral gesteuert.
+Eine 4-spaltige Physik-Zusammenfassung (Elektromagnetik, Optik), die strikt modular organisiert ist und sich auf physikalischen Inhalt fokussiert. Layout, Farben und Boxen werden zentral gesteuert.
 
 ## Absolute Wichtigkeit
 
@@ -32,7 +32,7 @@ ZSF_Physik_V3/
 │                            formulabox (+ \formulasep), warnbox, runintext,
 │                            \ZSFItemHeading, PlaceholderGraphic
 │   └── 70_document_settings.tex  hyperref
-├── chapters/                13 Kapitel (ch00_zeichen, ch00_wichtige, ch01..ch11)
+├── chapters/                12 Kapitel (ch00_zeichen, ch00_wichtige, ch01..ch10)
 ├── graphics/                Physik-Bilder (PNG/JPG)
 ├── tests/                   check_main_full.sh, check_chapter_rules.sh, run_test.sh
 ├── scripts/                 Reserviert
@@ -199,9 +199,9 @@ definiert in `styles/50_typography_semantics.tex` (rendert als `\textbf{…}`, z
 - `runintext`, `defbox`, `warnbox` und vergleichbare Text-Boxen.
 - **Nicht** in Formeln, `\formulanote`, `\SubsectionBar`-Titeln oder `\StartChapter`.
 
-**Was auszeichnen:** echte Fachbegriffe — Gesetze (`Coulomb`, `Gauß-Gesetz`, `Biot-Savart`),
+**Was auszeichnen:** echte Fachbegriffe — Gesetze (`Coulomb`, `Gauss-Gesetz`, `Biot-Savart`),
 Effekte (`Lenz`, `Compton-Effekt`), Bauteile (`Kondensator`, `Transformator`), zentrale
-Größen (`Impedanz`, `Dipolmoment`). **Nicht** auszeichnen: generische Substantive (Kraft,
+Grossen (`Impedanz`, `Dipolmoment`). **Nicht** auszeichnen: generische Substantive (Kraft,
 Energie, Spannung, Ladung, Feld), Verben oder Füllwörter.
 
 **Dichte (Richtwert, damit das Schriftbild ruhig bleibt):**
