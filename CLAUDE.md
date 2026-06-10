@@ -1,4 +1,4 @@
-# ZSF Physik 1 — MODULAR_SYSTEM.md
+# ZSF Physik 1 — CLAUDE.md
 
 > AUTO-GENERATED — rules-hash:0c4d0a9349ab5482
 >
@@ -6,7 +6,7 @@
 > Nicht direkt bearbeiten. Änderungen: `rules/*.md` editieren → `make sync-rules`.
 > Drift-Check: `make check-rules`.
 
-Kompiliertes Regelwerk für Menschen (Pflichtdokumentation). Diese Datei ist eigenständig — sie enthält alle Projekt-Regeln für Tools, die nur `MODULAR_SYSTEM.md` lesen.
+Kompiliertes Regelwerk für Claude / Anthropic. Diese Datei ist eigenständig — sie enthält alle Projekt-Regeln für Tools, die nur `CLAUDE.md` lesen.
 
 ## Source of Truth
 

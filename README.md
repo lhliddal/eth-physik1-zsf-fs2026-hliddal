@@ -2,8 +2,8 @@
 
 ## Direktdownload
 
-- Neueste PDF im Repository: [physik1_fs2025_hliddal.pdf](./physik1_fs2025_hliddal.pdf)
-- Offizielle Versionen mit Assets/Hash: [GitHub Releases](https://github.com/lhliddal/eth-physik1-zsf-fs2025-hliddal/releases)
+- Neueste PDF im Repository: [physik1_fs2026_hliddal.pdf](./physik1_fs2026_hliddal.pdf)
+- Offizielle Versionen mit Assets/Hash: [GitHub Releases](https://github.com/lhliddal/eth-physik1-zsf-fs2026-hliddal/releases)
 
 ## Nutzung
 

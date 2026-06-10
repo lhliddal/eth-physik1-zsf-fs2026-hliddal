@@ -1,0 +1,25 @@
+---
+description: "ZSF Physik 1 — Projekt-Meta, Zweck, kritische Regeln (Sprache, Modularität, keine Inhaltsänderung ohne Befehl)"
+globs: ""
+alwaysApply: true
+decisionOwner: ai
+decisionStatus: final
+lastUpdatedBy: loris
+lastUpdatedAt: 2026-06-10
+---
+<!-- AUTO-GENERATED — rules-hash:0c4d0a9349ab5482 —
+     Quelle: rules/00_meta.md. Nicht direkt bearbeiten. Änderungen → `make sync-rules`. -->
+
+LaTeX-Zusammenfassung Physik 1 (D-MAVT FS2026). A4 Querformat, 4 Spalten, 8pt, strikt modular (`extarticle`). Layout, Farben und Boxen werden zentral in `styles/` gesteuert; Kapitel fokussieren sich vollständig auf Fach-Inhalt.
+
+**Zweck:** Prüfungsvorbereitung — wird direkt in der Prüfung verwendet. Schnelle Auffindbarkeit und visuelle Klarheit haben höchste Priorität.
+
+## Kritische Regeln
+
+- **Build-Befehl:** Nach jeder Änderung ausschließlich `make build` verwenden — keine alternativen oder abgekürzten Kommandos (`latexmk`, `pdflatex`, …). Erst nach erfolgreichem Build gilt eine Aufgabe als erledigt.
+- **Inhalte niemals ändern, kürzen oder vereinfachen** ohne expliziten Befehl.
+- Keine neuen Packages oder Makros ohne explizite Anfrage hinzufügen.
+- Stil und Struktur (Boxtypen, Farben, Abstände) konsistent mit bestehendem System halten.
+- **Modularität ist Pflicht:** Abstände, Farben, Makros, Strukturen gehören in `styles/*.tex`. Hardcodierte Werte direkt in Box-Definitionen oder Kapiteldateien sind verboten.
+- **Sprache:** Inhalte auf Deutsch. Technische Begriffe auf Englisch erlaubt. LaTeX-Labels, Befehle, Dateinamen auf Englisch.
+- Vor Commit: `make check` (Lint + Strukturtests + PDF-Identität + Rule-Drift).

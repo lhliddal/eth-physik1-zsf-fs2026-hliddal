@@ -1,0 +1,24 @@
+---
+description: "Spacing-Register (ZSFspace*), Gap-Makros (ZSFgap*), Section-Gap — keine rohen Spacing-/Break-Befehle in Kapiteln, Overflow-Vermeidung"
+globs: ["chapters/**/*.tex", "styles/30_layout_spacing.tex"]
+alwaysApply: false
+decisionOwner: ai
+decisionStatus: final
+lastUpdatedBy: loris
+lastUpdatedAt: 2026-06-10
+---
+
+Die 4 Spalten auf A4-Querformat sind schmal. Abstände zentral in `styles/30_layout_spacing.tex`. **Nie** hardcodierte `pt`-Werte in Kapiteln.
+
+## Abstands-Makros
+
+- **Box-intern:** `\ZSFspaceXS`, `\ZSFspaceS`, `\ZSFspaceM`, `\ZSFspaceL`
+- **Zwischen Blöcken (in Kapiteln erlaubt):** `\ZSFgapXS/S/M/L`, `\ZSFSectionGap`
+
+## Verbotene Abstände in Kapiteln
+
+`\vspace`, `\hspace`, `\newpage`, `\columnbreak` (Ausnahme: Anhang), `\nopagebreak`, `\smallskip`, `\medskip`, `\bigskip`, `\\[…]` — alle brechen den Linter.
+
+## Overflow vermeiden
+
+Größere Matrizen vertikal stapeln statt nebeneinander; lange Gleichungen über `aligned` umbrechen (max. eine Gleichung pro Zeile).

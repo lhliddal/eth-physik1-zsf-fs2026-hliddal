@@ -1,0 +1,36 @@
+---
+description: "Build-/Check-Workflow (make build/check/sync-rules/check-rules), Agent-Build-Pflicht nach jeder Änderung, Datei-Platzierung"
+globs: []
+alwaysApply: true
+decisionOwner: ai
+decisionStatus: final
+lastUpdatedBy: loris
+lastUpdatedAt: 2026-06-10
+---
+
+## Workflow-Befehle
+
+```bash
+make build                  # latexmk -> physik1_fs2026_hliddal.pdf (Aux nach build/)
+make check                  # check-main-full + check-chapters + check-root-clean
+                            #   + check-pdf-identity + lint + check-rule-authorship + check-rules
+make sync-rules             # rules/*.md -> MODULAR_SYSTEM.md, CLAUDE.md, AGENTS.md,
+                            #   .github/copilot-instructions.md, .cursor/rules/*.mdc
+make check-rules            # Drift-Check (Hash-Stempel) gegen rules/*.md
+make check-rule-authorship  # Pflicht-Frontmatter prüfen
+make clean                  # build/ + aux entfernen
+```
+
+Der Rule-Compiler liegt in `tools/sync-agent-rules.mjs` (Node 18+). Quellen sind `rules/*.md` mit YAML-Frontmatter.
+
+## Agent-Build-Pflicht
+
+Nach **jeder** Änderung sofort `make build` ausführen — immer genau dieser Befehl. Erst nach erfolgreichem Build gilt eine Aufgabe als erledigt.
+
+## Regeln ändern
+
+KI-Regeln **nie** direkt in `CLAUDE.md`/`AGENTS.md`/`MODULAR_SYSTEM.md`/`.github/copilot-instructions.md`/`.cursor/rules/*` editieren (alle auto-generiert). Stattdessen `rules/*.md` ändern → `make sync-rules` → `make check-rules` muss synchron melden.
+
+## Datei-Platzierung
+
+Root ist tabu für Fremd-Dateien (`tests/check_root_clean.sh` blockt). Neues gehört in `chapters/`, `styles/`, `tests/`, `scripts/`, `tools/`, `rules/`, `graphics/`, `_scratch/`.

@@ -1,0 +1,51 @@
+---
+description: "Verzeichnis-Architektur, Modul-Verantwortlichkeiten, Verbote in Kapiteln, Fork-Guardrails (keine Module/Tests löschen)"
+globs: "main.tex,preamble.tex,chapters/**/*.tex,styles/**/*.tex"
+alwaysApply: true
+decisionOwner: ai
+decisionStatus: final
+lastUpdatedBy: loris
+lastUpdatedAt: 2026-06-10
+---
+<!-- AUTO-GENERATED — rules-hash:0c4d0a9349ab5482 —
+     Quelle: rules/10_architecture.md. Nicht direkt bearbeiten. Änderungen → `make sync-rules`. -->
+
+Die Konfiguration ist modular organisiert. Bei Layout-Änderungen NICHT die Kapitel oder `preamble.tex` ändern, sondern das passende Modul in `styles/`.
+
+## Modul-Verantwortlichkeiten
+
+| Kategorie | Ort |
+|---|---|
+| Pakete | `styles/00_packages.tex` |
+| Math-Operatoren / Vektor-Makros | `styles/10_math.tex` |
+| Tabellen-Environments | `styles/20_tables.tex` |
+| Abstände, Layout, multicols | `styles/30_layout_spacing.tex` |
+| Farben, Kapitel-Paletten, Struktur-Makros | `styles/40_colors_structure.tex` |
+| Schrift / Semantik | `styles/50_typography_semantics.tex` |
+| Lesbarkeit (Hyphenation/Penalties) | `styles/55_readability.tex` |
+| Box-Umgebungen (tcolorbox) | `styles/60_boxes.tex` |
+| Dokument-Settings | `styles/70_document_settings.tex` |
+| PDF-Identity / Owner-Marker | `styles/75_pdf_identity.tex` |
+| Inhalte | `chapters/XX_*.tex` |
+| KI-Regelwerke (Quell-Wahrheit) | `rules/*.md` |
+
+`main.tex` = nur Document-Class + `\input{preamble}` + Kapitel-`\input`. `preamble.tex` = nur Loader für `styles/*.tex`.
+
+## Fork-Guardrails (verbindlich)
+
+- Module und Tests dürfen **nicht gelöscht** werden. Tabellen-Modul (`20_tables.tex`) und Tests (inkl. `check_pdf_identity.sh`) bleiben vollständig; `make check` muss `check-pdf-identity` enthalten.
+
+## Verboten in Kapitel-Dateien
+
+- Abstände: `\vspace`, `\hspace`, `\medskip`, `\bigskip`, `\smallskip`, `\newpage`, `\columnbreak`, `\nopagebreak` → stattdessen `\ZSFgapXS/S/M/L`, `\ZSFSectionGap`
+- Schrift/Hervorhebung direkt: `\textbf`, `\textit`, `\textsf`, `\scriptsize`, `\small`, `\large` → semantische Marker (siehe `20_boxes`)
+- Rohe Tabellen: `\begin{tabular}`, `\begin{tabularx}`, `\rowcolor`, `\rowcolors`, `\columncolor`, `\arrayrulecolor` → `ZSFtable*`
+- Strukturbefehle: `\section`, `\subsection`, `\chapter` → `\StartChapter` / `\StartFrontChapter` / `\SubsectionBar`
+- `\usepackage` → alles in `styles/00_packages.tex`
+- Hartkodierte Kapitelfarben → `\chaptercolor` / `\chaptercolorlight`
+
+## Verboten in Box-Definitionen (`styles/*.tex`)
+
+- Hardcodierte `pt`/`em`/`mm`-Werte → immer `\ZSFspace*`-Register
+- Direkte Schriftbefehle → immer `\ZSFfont*`-Makros
+- Direkte Farb-Tints → immer benannte `\colorlet`

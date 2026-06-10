@@ -1,0 +1,29 @@
+---
+description: "Naming-Konventionen (Repo, PDF, Tags), GitHub Actions (CI Build, Release), PDF-Identity als Single Source of Truth"
+globs: [".github/**", "Makefile", "tests/**", "styles/75_pdf_identity.tex", "README.md"]
+alwaysApply: false
+decisionOwner: ai
+decisionStatus: final
+lastUpdatedBy: loris
+lastUpdatedAt: 2026-06-10
+---
+
+## Namenskonventionen
+
+- **Repository:** `eth-physik1-zsf-fs2026-hliddal` (Muster: `eth-<fach>-zsf-<semester>-hliddal`)
+- **PDF:** `physik1_fs2026_hliddal.pdf` (Muster: `fach_semester_hliddal.pdf`)
+- **Semesterformat:** `fsYYYY` oder `hsYYYY`
+- **Release-Tags:** Semantic Versioning `vMAJOR.MINOR.PATCH`
+
+## GitHub Actions
+
+- **Workflow `CI Build`** (push/PR auf `main`): `make check` + `make build`, PDF als Artifact.
+- **Workflow `Release PDF`** (push auf Tag `v*`): `make check` + `make build` + `make release-proof`; Release mit PDF + SHA256.
+
+## PDF-Identity / Authentizität
+
+`styles/75_pdf_identity.tex` ist Single Source of Truth für `\ZSFOwnerNameASCII` (Author), `\ZSFOwnerID`, `\ZSFReleaseID`, `\ZSFBuildID` sowie Title/Subject/Keywords. `tests/check_pdf_identity.sh` prüft die Metadaten nach Build (Teil von `make check`) — der Test darf nicht entfernt werden.
+
+## Konsistenz bei Naming-Änderungen
+
+Naming-Patterns immer konsistent halten in: `Makefile`, `tests/check_root_clean.sh`, `styles/75_pdf_identity.tex`, `README.md`, `.github/workflows/*.yml`, `rules/70_github.md`.

@@ -1,0 +1,33 @@
+---
+description: "Didaktisches Prinzip für Inhalt/Erklärungen: nützlicher + intuitiver statt korrekter, Rezept-Charakter, Stolperfallen — keine eigenmächtigen Präzisierungen"
+globs: "chapters/**/*.tex"
+alwaysApply: true
+decisionOwner: ai
+decisionStatus: final
+lastUpdatedBy: loris
+lastUpdatedAt: 2026-06-10
+---
+<!-- AUTO-GENERATED — rules-hash:0c4d0a9349ab5482 —
+     Quelle: rules/80_didaktik.md. Nicht direkt bearbeiten. Änderungen → `make sync-rules`. -->
+
+Diese Regel betrifft **was** drinsteht und **wie** erklärt wird (nicht das Layout). Vollständige Leitlinie: `ZSF_DIDAKTIK_PRINZIP.md`.
+
+## Maßstab
+
+Die ZSF wird **direkt in der Prüfung** verwendet. Maßstab für jeden Satz:
+
+> Hilft das beim schnellen, sicheren Lösen von Prüfungsaufgaben?
+
+Nicht der Maßstab ist Vollständigkeit, Allgemeinheit oder lückenlose Strenge.
+
+## Kernregeln
+
+- **Ungenauigkeiten auf Kursniveau sind toleriert**, solange sie intuitiv tragfähig sind.
+- **Sonderfälle/Präzisierungen hinzuzufügen ist ein Fehler**, wenn sie die Aussage nur „wasserdicht", aber schwerer lesbar machen. Regel: nicht „korrekter" machen — sondern **nützlicher und intuitiver**.
+- Gute Erklärung: Rezept-Charakter (`procedure` + `\ProcStep`), konkretes Zahlenbeispiel, Intuition in einem Satz, Stolperfallen via `\ZSFdanger`, Querchecks zur Selbstkontrolle.
+
+## Konsequenz für KI-Assistenten
+
+- Beim Review/Bearbeiten **keine** mathematischen Sonderfälle, Ausnahmen oder Präzisierungen eigenmächtig ergänzen.
+- Erklärungen verbessern heißt: klarer formulieren, Beispiel/Intuition ergänzen, Stolperfalle markieren — **nicht** Korrektheit erhöhen.
+- Inhalte nie ohne expliziten Befehl ändern, kürzen oder „korrigieren" (siehe `00_meta`).

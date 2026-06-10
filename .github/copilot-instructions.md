@@ -1,207 +1,308 @@
-# ETH Physik – Formelsammlung (ZSF) · Copilot Instructions
+# ZSF Physik 1 — .github/copilot-instructions.md
 
-## Projektübersicht
+> AUTO-GENERATED — rules-hash:0c4d0a9349ab5482
+>
+> Quelle: `rules/*.md` (mit YAML-Frontmatter).
+> Nicht direkt bearbeiten. Änderungen: `rules/*.md` editieren → `make sync-rules`.
+> Drift-Check: `make check-rules`.
 
-LaTeX-Formelsammlung für ETH Physik (Elektrizitätslehre & Optik), A4 Querformat, 4 Spalten, 8pt.
-Das Dokument ist **modular** aufgebaut:
-- `main.tex` — Skelett (30 Zeilen): `\documentclass` + `\input{preamble}` + `\input` je Kapitel
-- `preamble.tex` — alle Pakete, Farben, Makros, Box-Definitionen, hyperref (~327 Zeilen)
-- `chapters/ch00_zeichen.tex` … `chapters/ch10_geometrisch.tex` — je ein Kapitel als eigene Datei
-Arbeitsumgebung: **macOS**, **VS Code** mit **LaTeX Workshop Extension** und **GitHub Copilot Agent**.
+Kompiliertes Regelwerk für GitHub Copilot. Diese Datei ist eigenständig — sie enthält alle Projekt-Regeln für Tools, die nur `.github/copilot-instructions.md` lesen.
 
-**Zweck:** Prüfungsvorbereitung — die Formelsammlung wird direkt in der Physikprüfung verwendet.
-**Priorität:** Schnelle Auffindbarkeit und klare Übersicht haben höchste Priorität. Inhalte müssen auf einen Blick lesbar und logisch strukturiert sein.
+## Source of Truth
 
-## Kritische Regeln
+Bei Konflikt zwischen dieser Datei und `rules/*.md` gewinnen die Quelldateien.
 
-- **Formeln niemals ändern, kürzen oder vereinfachen** ohne expliziten Befehl. Alle Formeln bleiben vollständig und wissenschaftlich korrekt.
+- `rules/00_meta.md`
+- `rules/10_architecture.md`
+- `rules/20_boxes.md`
+- `rules/30_spacing.md`
+- `rules/40_tables.md`
+- `rules/50_math.md`
+- `rules/60_workflow.md`
+- `rules/70_github.md`
+- `rules/80_didaktik.md`
+
+## Working Commands
+
+- `make build`        — latexmk → `$(PDF_BASENAME).pdf` (Aux-Files nach build/)
+- `make check`        — full check (main, chapters, root, pdf-identity, lint, rule-authorship, rules)
+- `make sync-rules`   — `rules/*.md` → alle Adapter regenerieren
+- `make check-rules`  — Drift-Check über Hash-Stempel
+
+## Operating Mode
+
+- Wenn dies die einzige geladene KI-Regel-Datei ist, gelten die kompilierten Regeln unten als verbindlich.
+- `alwaysApply: true`-Regeln sind Projekt-weit aktiv. `globs`-Scope-Regeln greifen nur bei passenden Pfaden.
+- Niemals diese Datei direkt editieren — immer `rules/*.md` ändern und neu kompilieren.
+
+## Rule Index
+
+- `00_meta.md` — Project-wide — ZSF Physik 1 — Projekt-Meta, Zweck, kritische Regeln (Sprache, Modularität, keine Inhaltsänderung ohne Befehl)
+- `10_architecture.md` — Project-wide; besonders relevant für `main.tex`, `preamble.tex`, `chapters/**/*.tex`, `styles/**/*.tex` — Verzeichnis-Architektur, Modul-Verantwortlichkeiten, Verbote in Kapiteln, Fork-Guardrails (keine Module/Tests löschen)
+- `20_boxes.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/60_boxes.tex`, `styles/40_colors_structure.tex`, `styles/50_typography_semantics.tex` — Box-Auswahl (defbox, tablebox, figbox, formulabox, warnbox, splitbox, runintext), Struktur-Makros, Inline-Marker (ZSFkeyword, ZSFconclusion)
+- `30_spacing.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/30_layout_spacing.tex` — Spacing-Register (ZSFspace*), Gap-Makros (ZSFgap*), Section-Gap — keine rohen Spacing-/Break-Befehle in Kapiteln, Overflow-Vermeidung
+- `40_tables.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/20_tables.tex` — Tabellen ausschließlich über ZSFtable/ZSFtableFlat/ZSFtablePlain, Spaltentypen L/C/R und Y/Z/Q/F, verbotene Roh-Tabellen-Befehle
+- `50_math.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/10_math.tex` — Math-Makros zentral in styles/10_math.tex (\\sgn, \\vect …); neue Operatoren nur dort, keine rohen \\operatorname/\\mathbb in Kapiteln
+- `60_workflow.md` — Project-wide — Build-/Check-Workflow (make build/check/sync-rules/check-rules), Agent-Build-Pflicht nach jeder Änderung, Datei-Platzierung
+- `70_github.md` — Scoped; gilt bei Änderungen an `.github/**`, `Makefile`, `tests/**`, `styles/75_pdf_identity.tex`, `README.md` — Naming-Konventionen (Repo, PDF, Tags), GitHub Actions (CI Build, Release), PDF-Identity als Single Source of Truth
+- `80_didaktik.md` — Project-wide; besonders relevant für `chapters/**/*.tex` — Didaktisches Prinzip für Inhalt/Erklärungen: nützlicher + intuitiver statt korrekter, Rezept-Charakter, Stolperfallen — keine eigenmächtigen Präzisierungen
+
+## Compiled Rules
+
+### `00_meta.md`
+
+- Quelle: `rules/00_meta.md`
+- Scope: Project-wide
+- Beschreibung: ZSF Physik 1 — Projekt-Meta, Zweck, kritische Regeln (Sprache, Modularität, keine Inhaltsänderung ohne Befehl)
+- Zuletzt aktualisiert: 2026-06-10 (loris)
+
+LaTeX-Zusammenfassung Physik 1 (D-MAVT FS2026). A4 Querformat, 4 Spalten, 8pt, strikt modular (`extarticle`). Layout, Farben und Boxen werden zentral in `styles/` gesteuert; Kapitel fokussieren sich vollständig auf Fach-Inhalt.
+
+**Zweck:** Prüfungsvorbereitung — wird direkt in der Prüfung verwendet. Schnelle Auffindbarkeit und visuelle Klarheit haben höchste Priorität.
+
+##### Kritische Regeln
+
+- **Build-Befehl:** Nach jeder Änderung ausschließlich `make build` verwenden — keine alternativen oder abgekürzten Kommandos (`latexmk`, `pdflatex`, …). Erst nach erfolgreichem Build gilt eine Aufgabe als erledigt.
+- **Inhalte niemals ändern, kürzen oder vereinfachen** ohne expliziten Befehl.
 - Keine neuen Packages oder Makros ohne explizite Anfrage hinzufügen.
 - Stil und Struktur (Boxtypen, Farben, Abstände) konsistent mit bestehendem System halten.
-- **Good Practice immer einhalten**: sauberer, lesbarer LaTeX-Code; bestehende Makros und Umgebungen konsequent nutzen statt Inline-Workarounds.
-- **Modularität ist Pflicht**: Alles, was sinnvoll modular umgesetzt werden kann (Abstände, Farben, Makros, Strukturen), **muss** modular sein — über zentrale Register, Makros oder Stile in `preamble.tex`. Hardcodierte Werte direkt in Box-Definitionen oder Kapiteldateien sind verboten. Ausnahmen nur wenn Modularisierung offensichtlich sinnlos wäre — dann zuerst fragen, nicht selbst entscheiden. Explizit anders geforderte Lösungen sind natürlich erlaubt.
-- **Modular denken**: Erweiterungen (neue Kapitel, Abschnitte, Boxen) so umsetzen, dass sie sich nahtlos ins bestehende System einfügen — neue Kapitel via `\StartChapter`, neue Abschnitte via `\SubsectionBar`, Inhalte in den passenden Box-Typen.
-- **`multicols`-Spaltenumbrüche**: In `multicols` löst `\penalty-10000` einen **Seitenumbruch** aus (nicht nur Spaltenumbruch!) und erzeugt leere Seiten. Kapitelumbrüche immer via `\columnbreak`. `\StartChapter` und `\StartFrontChapter` nutzen dafür den Counter `zsfFirstChap` als Flag (= 1 beim ersten Kapitel → kein Break; danach `\columnbreak`).
+- **Modularität ist Pflicht:** Abstände, Farben, Makros, Strukturen gehören in `styles/*.tex`. Hardcodierte Werte direkt in Box-Definitionen oder Kapiteldateien sind verboten.
+- **Sprache:** Inhalte auf Deutsch. Technische Begriffe auf Englisch erlaubt. LaTeX-Labels, Befehle, Dateinamen auf Englisch.
+- Vor Commit: `make check` (Lint + Strukturtests + PDF-Identität + Rule-Drift).
 
-## Modulare Philosophie — konkrete Regeln
+### `10_architecture.md`
 
-Das Dokument folgt dem Prinzip **Single Source of Truth**: Jeder Wert existiert genau an einem Ort und wird überall referenziert — nie dupliziert.
+- Quelle: `rules/10_architecture.md`
+- Scope: Project-wide; besonders relevant für `main.tex`, `preamble.tex`, `chapters/**/*.tex`, `styles/**/*.tex`
+- Beschreibung: Verzeichnis-Architektur, Modul-Verantwortlichkeiten, Verbote in Kapiteln, Fork-Guardrails (keine Module/Tests löschen)
+- Zuletzt aktualisiert: 2026-06-10 (loris)
 
-### Was wo hingehört
+Die Konfiguration ist modular organisiert. Bei Layout-Änderungen NICHT die Kapitel oder `preamble.tex` ändern, sondern das passende Modul in `styles/`.
 
-| Kategorie | Ort | Mittel |
-|---|---|---|
-| Abstände (vor/nach Boxen, Padding, Layout) | `preamble.tex` — Block `% SPACING` | `\newlength` + `\setlength` |
-| Schriftarten (Box-Typen, Titel, Notizen) | `preamble.tex` — Block `% FONTS` | `\newcommand{\ZSFfont...}` |
-| Farben (Paletten, Boxhintergründe) | `preamble.tex` — Block `% COLORS` | `\definecolor` / `\colorlet` |
-| Makros & Umgebungen | `preamble.tex` | `\newcommand` / `\newenvironment` |
-| Inhalte | `chapters/chXX_*.tex` | Nur Box-Umgebungen, keine Stil-Befehle |
+##### Modul-Verantwortlichkeiten
 
-### Verboten in Kapitel-Dateien
+| Kategorie | Ort |
+|---|---|
+| Pakete | `styles/00_packages.tex` |
+| Math-Operatoren / Vektor-Makros | `styles/10_math.tex` |
+| Tabellen-Environments | `styles/20_tables.tex` |
+| Abstände, Layout, multicols | `styles/30_layout_spacing.tex` |
+| Farben, Kapitel-Paletten, Struktur-Makros | `styles/40_colors_structure.tex` |
+| Schrift / Semantik | `styles/50_typography_semantics.tex` |
+| Lesbarkeit (Hyphenation/Penalties) | `styles/55_readability.tex` |
+| Box-Umgebungen (tcolorbox) | `styles/60_boxes.tex` |
+| Dokument-Settings | `styles/70_document_settings.tex` |
+| PDF-Identity / Owner-Marker | `styles/75_pdf_identity.tex` |
+| Inhalte | `chapters/XX_*.tex` |
+| KI-Regelwerke (Quell-Wahrheit) | `rules/*.md` |
 
-Folgende Befehle haben in `chapters/*.tex` nichts zu suchen — sie gehören in `preamble.tex`:
-- Abstände: `\vspace`, `\hspace`, `\medskip`, `\bigskip`, `\smallskip`
-- Schrift direkt: `\scriptsize`, `\small`, `\large`, `\sffamily`, `\bfseries`, `\itshape`, `\textit`, `\textbf`, `\textsf`
-- Layout-Hacks: `\noindent` (ausser innerhalb definierter Umgebungen), `\penalty`, `\columnbreak`
+`main.tex` = nur Document-Class + `\input{preamble}` + Kapitel-`\input`. `preamble.tex` = nur Loader für `styles/*.tex`.
 
-### Verboten in Box-Definitionen (`preamble.tex`)
+##### Fork-Guardrails (verbindlich)
 
-- Hardcodierte `pt`/`em`/`mm`-Werte für Abstände → immer `\ZSFskip...` / `\ZSFpad...` Register
-- Direkte Schriftbefehle → immer `\ZSFfont...` Makros
-- Direkte Farb-Tints wie `ETHRot!15` → immer benannte `\colorlet`
+- Module und Tests dürfen **nicht gelöscht** werden. Tabellen-Modul (`20_tables.tex`) und Tests (inkl. `check_pdf_identity.sh`) bleiben vollständig; `make check` muss `check-pdf-identity` enthalten.
 
-### Neue Elemente hinzufügen
+##### Verboten in Kapitel-Dateien
 
-- **Neuer globaler Abstand** → Register in `% SPACING`, dann in Box-Definition referenzieren
-- **Neue Schrift** → Makro in `% FONTS`, dann referenzieren
-- **Neue Farbe** → `\definecolor`/`\colorlet` in `% COLORS`, dann referenzieren
-- **Neues Kapitel** → via `\StartChapter` in neuer Datei `chapters/chXX_*.tex` mit `% !TEX root = ../main.tex` als erste Zeile, `\input` in `main.tex` ergänzen
+- Abstände: `\vspace`, `\hspace`, `\medskip`, `\bigskip`, `\smallskip`, `\newpage`, `\columnbreak`, `\nopagebreak` → stattdessen `\ZSFgapXS/S/M/L`, `\ZSFSectionGap`
+- Schrift/Hervorhebung direkt: `\textbf`, `\textit`, `\textsf`, `\scriptsize`, `\small`, `\large` → semantische Marker (siehe `20_boxes`)
+- Rohe Tabellen: `\begin{tabular}`, `\begin{tabularx}`, `\rowcolor`, `\rowcolors`, `\columncolor`, `\arrayrulecolor` → `ZSFtable*`
+- Strukturbefehle: `\section`, `\subsection`, `\chapter` → `\StartChapter` / `\StartFrontChapter` / `\SubsectionBar`
+- `\usepackage` → alles in `styles/00_packages.tex`
+- Hartkodierte Kapitelfarben → `\chaptercolor` / `\chaptercolorlight`
 
-## Build & Pfad-Eigenheiten
+##### Verboten in Box-Definitionen (`styles/*.tex`)
 
-Der Workspace liegt auf dem **Desktop** (nicht iCloud). Der Pfad kann Umlaute/Leerzeichen enthalten:
-- LaTeX Workshop verwendet `%DOCFILE%.tex` (relativer Pfad), **nicht** `%DOC%` oder `%TEX%`.
-- `autoBuild.cleanAndRetry` ist deaktiviert — würde mit absolutem Pfad abstürzen.
-- Kein Polling — nativer macOS FSEvents-Watcher ist ausreichend.
-- Build-Output: `build/` (Aux- und PDF-Dateien).
+- Hardcodierte `pt`/`em`/`mm`-Werte → immer `\ZSFspace*`-Register
+- Direkte Schriftbefehle → immer `\ZSFfont*`-Makros
+- Direkte Farb-Tints → immer benannte `\colorlet`
 
-**Agent-Build-Pflicht:** Agent-Tool-Edits schreiben direkt ins Filesystem, ohne VS Code Editor-Save-Event → LaTeX Workshop Auto-Build wird **nicht** getriggert. Nach jedem Edit immer manuell bauen:
-**WICHTIG:** Verwende IMMER den offiziellen Build-Weg:
+### `20_boxes.md`
+
+- Quelle: `rules/20_boxes.md`
+- Scope: Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/60_boxes.tex`, `styles/40_colors_structure.tex`, `styles/50_typography_semantics.tex`
+- Beschreibung: Box-Auswahl (defbox, tablebox, figbox, formulabox, warnbox, splitbox, runintext), Struktur-Makros, Inline-Marker (ZSFkeyword, ZSFconclusion)
+- Zuletzt aktualisiert: 2026-06-10 (loris)
+
+Für inhaltliche Darstellungen die vordefinierten Umgebungen nutzen.
+
+##### Box-Auswahl (real vorhanden)
+
+| Was wird ausgedrückt? | Box / Umgebung |
+| :--- | :--- |
+| Definition / Satz / Gesetz | `defbox[Titel]` |
+| Tabelle | `tablebox[Titel]` |
+| Abbildung | `figbox[Titel]` |
+| Formel(n), evtl. mit Kontext | `formulabox` (lange einzelne Formel: `longformula`) |
+| Warnung / Stolperfalle | `warnbox[Titel]` |
+| Bild + Text nebeneinander | `splitbox[fraction]` |
+| Reiner Fließtext-Block | `runintext` |
+
+##### Struktur-Makros
+
+- `\StartChapter[label]{Titel}` — nummeriertes Kapitel + Farbpalette
+- `\StartFrontChapter{Titel}` — unnummeriert (Front-Matter)
+- `\SubsectionBar[label]{Titel}` / `\SubsectionBar*{Titel}` — Abschnittsbalken (un/nummeriert)
+
+Niemals `\section` / `\subsection` / `\chapter` direkt.
+
+##### Inline-Marker
+
+- `\ZSFkeyword{Fachbegriff}` — zentrale Fachbegriffe im Fließtext, sparsam.
+- `\ZSFconclusion{Folgerung}` — leitet eine Folgerung ein.
+- Niemals `\textbf{}` / `\textit{}` zur semantischen Hervorhebung — die obigen Marker nutzen.
+
+##### Farb-Palette
+
+Kapitelfarben niemals hardcoden — nur `\chaptercolor` / `\chaptercolorlight`. Slot 0 ist dem Frontchapter vorbehalten.
+
+### `30_spacing.md`
+
+- Quelle: `rules/30_spacing.md`
+- Scope: Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/30_layout_spacing.tex`
+- Beschreibung: Spacing-Register (ZSFspace*), Gap-Makros (ZSFgap*), Section-Gap — keine rohen Spacing-/Break-Befehle in Kapiteln, Overflow-Vermeidung
+- Zuletzt aktualisiert: 2026-06-10 (loris)
+
+Die 4 Spalten auf A4-Querformat sind schmal. Abstände zentral in `styles/30_layout_spacing.tex`. **Nie** hardcodierte `pt`-Werte in Kapiteln.
+
+##### Abstands-Makros
+
+- **Box-intern:** `\ZSFspaceXS`, `\ZSFspaceS`, `\ZSFspaceM`, `\ZSFspaceL`
+- **Zwischen Blöcken (in Kapiteln erlaubt):** `\ZSFgapXS/S/M/L`, `\ZSFSectionGap`
+
+##### Verbotene Abstände in Kapiteln
+
+`\vspace`, `\hspace`, `\newpage`, `\columnbreak` (Ausnahme: Anhang), `\nopagebreak`, `\smallskip`, `\medskip`, `\bigskip`, `\\[…]` — alle brechen den Linter.
+
+##### Overflow vermeiden
+
+Größere Matrizen vertikal stapeln statt nebeneinander; lange Gleichungen über `aligned` umbrechen (max. eine Gleichung pro Zeile).
+
+### `40_tables.md`
+
+- Quelle: `rules/40_tables.md`
+- Scope: Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/20_tables.tex`
+- Beschreibung: Tabellen ausschließlich über ZSFtable/ZSFtableFlat/ZSFtablePlain, Spaltentypen L/C/R und Y/Z/Q/F, verbotene Roh-Tabellen-Befehle
+- Zuletzt aktualisiert: 2026-06-10 (loris)
+
+Tabellendesign ist entkoppelt. Formatierung direkt in Kapiteln ist verboten.
+
+##### Tabellen-Umgebungen
+
+- `\begin{ZSFtable}[font]{colspec}` — farbige Titelzeile + Zebra
+- `\begin{ZSFtableFlat}[font]{colspec}` — kein Header, Zebra ab Zeile 1
+- `\begin{ZSFtablePlain}[font]{colspec}` — ohne Zebra
+
+##### Spaltentypen
+
+- `L/C/R` — links/zentriert/rechts (gleichverteilt, umbricht)
+- `Y{n}` (links), `Z{n}` (zentriert), `Q{n}` (rechts) — proportional mit Faktor `n`
+- `F{n}` — proportionale, zentrierte Formelspalte
+
+##### Verboten in Kapiteln
+
+`tabular`, `tabularx`, `\rowcolor`, `\rowcolors`, `\columncolor`, `\arrayrulecolor` — Zebra/Linienfarbe kommen aus den `ZSFtable*`-Stilen.
+
+### `50_math.md`
+
+- Quelle: `rules/50_math.md`
+- Scope: Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/10_math.tex`
+- Beschreibung: Math-Makros zentral in styles/10_math.tex (\\sgn, \\vect …); neue Operatoren nur dort, keine rohen \\operatorname/\\mathbb in Kapiteln
+- Zuletzt aktualisiert: 2026-06-10 (loris)
+
+Mathematische Makros liegen zentral in `styles/10_math.tex`.
+
+- Vorhandene Makros nutzen: `\sgn`, `\vect{…}`.
+- Neue Operatoren/Symbole **nur** in `styles/10_math.tex` ergänzen (nach Rücksprache), nicht inline in Kapiteln.
+- Keine rohen `\operatorname{…}`-Wiederholungen in Kapiteln, wenn ein zentrales Makro existiert oder sinnvoll ist.
+- Lange Formeln über `aligned` umbrechen (siehe `30_spacing`).
+
+### `60_workflow.md`
+
+- Quelle: `rules/60_workflow.md`
+- Scope: Project-wide
+- Beschreibung: Build-/Check-Workflow (make build/check/sync-rules/check-rules), Agent-Build-Pflicht nach jeder Änderung, Datei-Platzierung
+- Zuletzt aktualisiert: 2026-06-10 (loris)
+
+##### Workflow-Befehle
+
 ```bash
-make build
+make build                  # latexmk -> physik1_fs2026_hliddal.pdf (Aux nach build/)
+make check                  # check-main-full + check-chapters + check-root-clean
+                            #   + check-pdf-identity + lint + check-rule-authorship + check-rules
+make sync-rules             # rules/*.md -> MODULAR_SYSTEM.md, CLAUDE.md, AGENTS.md,
+                            #   .github/copilot-instructions.md, .cursor/rules/*.mdc
+make check-rules            # Drift-Check (Hash-Stempel) gegen rules/*.md
+make check-rule-authorship  # Pflicht-Frontmatter prüfen
+make clean                  # build/ + aux entfernen
 ```
-Oder verwende das Tool `run_task` mit der Task ID `shell: LaTeX: Build main`.
-Führe `latexmk` **niemals** manuell im Terminal aus, um sicherzustellen, dass keine Build-Artefakte (wie `main.pdf`, `main.aux` etc.) im Root-Verzeichnis erstellt werden. Dies führt sofort zu einem Fehler beim \`make check\` (festgelegt in \`check_root_clean.sh\`).
 
-## GitHub Naming & Release System (für KI-Agenten)
+Der Rule-Compiler liegt in `tools/sync-agent-rules.mjs` (Node 18+). Quellen sind `rules/*.md` mit YAML-Frontmatter.
 
-### Namenskonventionen
+##### Agent-Build-Pflicht
 
-- **Repository-Muster:** `eth-<fach>-zsf-<semester>-hliddal`
-  - Beispiel: `eth-physik1-zsf-fs2025-hliddal`
-- **PDF-Muster im Root:** `<fach>_<semester>_hliddal.pdf`
-  - Beispiel: `physik1_fs2025_hliddal.pdf`
+Nach **jeder** Änderung sofort `make build` ausführen — immer genau dieser Befehl. Erst nach erfolgreichem Build gilt eine Aufgabe als erledigt.
+
+##### Regeln ändern
+
+KI-Regeln **nie** direkt in `CLAUDE.md`/`AGENTS.md`/`MODULAR_SYSTEM.md`/`.github/copilot-instructions.md`/`.cursor/rules/*` editieren (alle auto-generiert). Stattdessen `rules/*.md` ändern → `make sync-rules` → `make check-rules` muss synchron melden.
+
+##### Datei-Platzierung
+
+Root ist tabu für Fremd-Dateien (`tests/check_root_clean.sh` blockt). Neues gehört in `chapters/`, `styles/`, `tests/`, `scripts/`, `tools/`, `rules/`, `graphics/`, `_scratch/`.
+
+### `70_github.md`
+
+- Quelle: `rules/70_github.md`
+- Scope: Scoped; gilt bei Änderungen an `.github/**`, `Makefile`, `tests/**`, `styles/75_pdf_identity.tex`, `README.md`
+- Beschreibung: Naming-Konventionen (Repo, PDF, Tags), GitHub Actions (CI Build, Release), PDF-Identity als Single Source of Truth
+- Zuletzt aktualisiert: 2026-06-10 (loris)
+
+##### Namenskonventionen
+
+- **Repository:** `eth-physik1-zsf-fs2026-hliddal` (Muster: `eth-<fach>-zsf-<semester>-hliddal`)
+- **PDF:** `physik1_fs2026_hliddal.pdf` (Muster: `fach_semester_hliddal.pdf`)
 - **Semesterformat:** `fsYYYY` oder `hsYYYY`
-- **Release-Tags:** Semantic Versioning als `vMAJOR.MINOR.PATCH` (z. B. `v1.0.1`)
+- **Release-Tags:** Semantic Versioning `vMAJOR.MINOR.PATCH`
 
-### GitHub Actions System
+##### GitHub Actions
 
-- Workflow `CI Build` (push/PR auf `main`):
-  - führt `make check` und `make build` aus
-  - veröffentlicht die PDF als Artifact
-- Workflow `Release PDF` (push auf Tag `v*`):
-  - führt `make check`, `make build`, `make release-proof` aus
-  - erstellt GitHub Release mit:
-    - `physik1_fs2025_hliddal.pdf`
-    - `build/main.pdf.sha256`
+- **Workflow `CI Build`** (push/PR auf `main`): `make check` + `make build`, PDF als Artifact.
+- **Workflow `Release PDF`** (push auf Tag `v*`): `make check` + `make build` + `make release-proof`; Release mit PDF + SHA256.
 
-### Agent-Regeln für GitHub-Änderungen
+##### PDF-Identity / Authentizität
 
-- Änderungen an Naming-Patterns **immer** konsistent in:
-  - `Makefile`
-  - `tests/check_root_clean.sh`
-  - `README.md`
-  - `.github/workflows/*.yml`
-  - `.cursorrules` und dieser Datei
-- Release-Flow nie auf manuelle Uploads zurückbauen; automatisierte Assets beibehalten.
-- Bei Tag-Releases immer prüfen, dass PDF-Name und Hash-Datei mit den oben definierten Mustern übereinstimmen.
+`styles/75_pdf_identity.tex` ist Single Source of Truth für `\ZSFOwnerNameASCII` (Author), `\ZSFOwnerID`, `\ZSFReleaseID`, `\ZSFBuildID` sowie Title/Subject/Keywords. `tests/check_pdf_identity.sh` prüft die Metadaten nach Build (Teil von `make check`) — der Test darf nicht entfernt werden.
 
-## Benutzer-Kurzbezeichnungen für Balken/Titel
+##### Konsistenz bei Naming-Änderungen
 
-Der Nutzer verwendet folgende Kurzformen — immer korrekt zuordnen:
+Naming-Patterns immer konsistent halten in: `Makefile`, `tests/check_root_clean.sh`, `styles/75_pdf_identity.tex`, `README.md`, `.github/workflows/*.yml`, `rules/70_github.md`.
 
-| Kurzform | Auch genannt | LaTeX | Beschreibung |
-|---|---|---|---|
-| **tit1** | Titel1 | `\StartChapter{...}` → `chapterbar` | Hauptkapitel-Balken (volle Kapitelfarbe) |
-| **tit2** | Titel2 | `\SubsectionBar{...}` → `subsectionbar` | Unterkapitel-Balken (75% Kapitelfarbe) |
-| **tit3** | Titel3 | `\begin{defbox}[...]` → `zsftitlebox` | Definitionsbox mit farbigem Titelstreifen |
+### `80_didaktik.md`
 
-## Dokumentstruktur
+- Quelle: `rules/80_didaktik.md`
+- Scope: Project-wide; besonders relevant für `chapters/**/*.tex`
+- Beschreibung: Didaktisches Prinzip für Inhalt/Erklärungen: nützlicher + intuitiver statt korrekter, Rezept-Charakter, Stolperfallen — keine eigenmächtigen Präzisierungen
+- Zuletzt aktualisiert: 2026-06-10 (loris)
 
-| Makro | Verwendung |
-|---|---|
-| `\StartFrontChapter{Titel}` | Kapitel ohne Nummerierung (z.B. Zeichen & Einheiten) |
-| `\StartChapter{Titel}` | Kapitel mit auto-Nummerierung + Farbpalette |
-| `\SubsectionBar[label]{Titel}` | Nummerierter Abschnitt mit farbigem Balken |
-| `\SubsectionBar*[label]{Titel}` | Unnummerierter Abschnitt |
+Diese Regel betrifft **was** drinsteht und **wie** erklärt wird (nicht das Layout). Vollständige Leitlinie: `ZSF_DIDAKTIK_PRINZIP.md`.
 
-## Kapitelstruktur (Kap. 0–10)
+##### Maßstab
 
-| Kap. | Titel |
-|---|---|
-| 0 | Zeichen & Einheiten (SI) + Wichtige Formeln |
-| 1 | Elektrisches Feld |
-| 2 | Elektrisches Potenzial und Energie |
-| 3 | Kapazität und Dielektrika |
-| 4 | Gleichstromkreise |
-| 5 | Magnetfeld |
-| 6 | Elektromagnetische Induktion |
-| 7 | Wechselstromkreise |
-| 8 | Maxwell-Gleichungen & EM-Wellen |
-| 9 | Wellenoptik |
-| 10 | Geometrische Optik |
+Die ZSF wird **direkt in der Prüfung** verwendet. Maßstab für jeden Satz:
 
-## Box-Typen
+> Hilft das beim schnellen, sicheren Lösen von Prüfungsaufgaben?
 
-| Umgebung | Verwendung |
-|---|---|
-| `formulabox` | Farbig hinterlegte Formel-Box (Hauptinhalt) |
-| `defbox[Titel]` | Definition mit farbigem Titelbalken |
-| `warnbox[Titel]` | Rot hinterlegter Hinweis (ETH-Rot) |
-| `tablebox[Titel]` | Tabellenbox mit farbigem Titel |
-| `figbox[Titel]` | Grafikbox mit farbigem Titel |
-| `runintext` | Fliesstext zwischen Boxen (kein Einzug) |
-| `longformula` | Mehrzeilige Formel (`aligned`) |
+Nicht der Maßstab ist Vollständigkeit, Allgemeinheit oder lückenlose Strenge.
 
-## Hilfs-Makros
+##### Kernregeln
 
-| Makro | Verwendung |
-|---|---|
-| `\formulanote{...}` | Kursive Erklärung unter Formel in `formulabox` |
-| `\formulanoteabove{...}` | Wie `\formulanote`, aber oberhalb |
-| `\PlaceholderGraphic{Beschreibung}` | Platzhalter für noch fehlende Grafiken |
-| `\vect{x}` | Vektor-Notation (`\vec{x}`) |
-| `\sgn` | Signum-Operator |
+- **Ungenauigkeiten auf Kursniveau sind toleriert**, solange sie intuitiv tragfähig sind.
+- **Sonderfälle/Präzisierungen hinzuzufügen ist ein Fehler**, wenn sie die Aussage nur „wasserdicht", aber schwerer lesbar machen. Regel: nicht „korrekter" machen — sondern **nützlicher und intuitiver**.
+- Gute Erklärung: Rezept-Charakter (`procedure` + `\ProcStep`), konkretes Zahlenbeispiel, Intuition in einem Satz, Stolperfallen via `\ZSFdanger`, Querchecks zur Selbstkontrolle.
 
-## Farbpaletten-System
+##### Konsequenz für KI-Assistenten
 
-Kapitelfarben werden automatisch per `\SetChapterPaletteByNumber` gesetzt (Rainbow: Grün → Orange → Rot → Blau → Lila). Manuell überschreibbar mit `\SetChapterPalette{elektro|magneto|maxwell|optik}`.
-
-## Abstands-System
-
-Alle Abstände zentral in `preamble.tex` im Block `% SPACING — zentrale Stellschrauben` als `\newlength`-Register definiert. **Nie** hardcodierte `pt`-Werte in Box-Definitionen schreiben — immer Register verwenden.
-
-| Register | Bedeutung | Standardwert |
-|---|---|---|
-| `\ZSFcolumnsep` | Abstand zwischen Spalten | 4pt |
-| `\ZSFmulticolsep` | Vertikaler Rand multicols | 5pt |
-| `\ZSFemergencystretch` | Notfall-Streckung Zeilenumbruch | 2em |
-| `\ZSFskipChapterBefore` | Abstand VOR Kapitelbalken | 2pt |
-| `\ZSFskipChapterAfter` | Abstand NACH Kapitelbalken | 4pt |
-| `\ZSFskipSectionBefore` | Abstand VOR Abschnittsbalken | 14pt |
-| `\ZSFskipSectionAfter` | Abstand NACH Abschnittsbalken | 3pt |
-| `\ZSFskipBoxBefore` | Abstand VOR formulabox/defbox/warnbox/etc. | 2pt |
-| `\ZSFskipBoxAfter` | Abstand NACH formulabox/defbox/warnbox/etc. | 2pt |
-| `\ZSFbreakThreshold` | Mindesthöhe für `\BreakIfNotEnoughSpace` | 8\baselineskip |
-| `\ZSFpadInnerH` | left/right-Padding alle Boxen | 2pt |
-| `\ZSFpadInnerV` | top/bottom-Padding formulabox/subsectionbar/def | 2pt |
-| `\ZSFpadChapterV` | top/bottom-Padding Kapitelbalken | 3pt |
-| `\ZSFpadDefH` | left/right-Padding defbox | 3pt |
-| `\ZSFparskipInBox` | `\parskip` innerhalb Boxen | 1pt |
-| `\ZSFformulanoteSkip` | `\vspace` in `\formulanote` | 0.5pt |
-
-## Schrift-System
-
-Alle Box-Schriften zentral in `preamble.tex` im Block `% FONTS` als Makros definiert. **Nie** Schriftbefehle direkt in Box-Definitionen schreiben — immer Makros verwenden.
-
-| Makro | Verwendung | Wert |
-|---|---|---|
-| `\ZSFfontChapter` | Kapitelbalken | `\sffamily\bfseries\small` |
-| `\ZSFfontSection` | Abschnittsbalken | `\sffamily\scriptsize` |
-| `\ZSFfontBoxTitle` | Titel defbox/tablebox/figbox/warnbox | `\sffamily\scriptsize\bfseries` |
-| `\ZSFfontNote` | `\formulanote` / `\formulanoteabove` | `\scriptsize\itshape` |
-
-## siunitx-Konventionen
-
-- Dezimaltrennzeichen: Komma (`output-decimal-marker = {,}`)
-- Einheiten: `\si{...}`, Zahlenwert+Einheit: `\SI{...}{...}`
-- Einheitenbrüche: `per-mode = symbol`
+- Beim Review/Bearbeiten **keine** mathematischen Sonderfälle, Ausnahmen oder Präzisierungen eigenmächtig ergänzen.
+- Erklärungen verbessern heißt: klarer formulieren, Beispiel/Intuition ergänzen, Stolperfalle markieren — **nicht** Korrektheit erhöhen.
+- Inhalte nie ohne expliziten Befehl ändern, kürzen oder „korrigieren" (siehe `00_meta`).

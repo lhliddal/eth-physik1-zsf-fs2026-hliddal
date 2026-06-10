@@ -1,0 +1,27 @@
+---
+description: "Tabellen ausschließlich über ZSFtable/ZSFtableFlat/ZSFtablePlain, Spaltentypen L/C/R und Y/Z/Q/F, verbotene Roh-Tabellen-Befehle"
+globs: ["chapters/**/*.tex", "styles/20_tables.tex"]
+alwaysApply: false
+decisionOwner: ai
+decisionStatus: final
+lastUpdatedBy: loris
+lastUpdatedAt: 2026-06-10
+---
+
+Tabellendesign ist entkoppelt. Formatierung direkt in Kapiteln ist verboten.
+
+## Tabellen-Umgebungen
+
+- `\begin{ZSFtable}[font]{colspec}` — farbige Titelzeile + Zebra
+- `\begin{ZSFtableFlat}[font]{colspec}` — kein Header, Zebra ab Zeile 1
+- `\begin{ZSFtablePlain}[font]{colspec}` — ohne Zebra
+
+## Spaltentypen
+
+- `L/C/R` — links/zentriert/rechts (gleichverteilt, umbricht)
+- `Y{n}` (links), `Z{n}` (zentriert), `Q{n}` (rechts) — proportional mit Faktor `n`
+- `F{n}` — proportionale, zentrierte Formelspalte
+
+## Verboten in Kapiteln
+
+`tabular`, `tabularx`, `\rowcolor`, `\rowcolors`, `\columncolor`, `\arrayrulecolor` — Zebra/Linienfarbe kommen aus den `ZSFtable*`-Stilen.

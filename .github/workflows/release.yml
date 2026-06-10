@@ -41,5 +41,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            physik1_fs2025_hliddal.pdf
+            physik1_fs2026_hliddal.pdf
             build/main.pdf.sha256

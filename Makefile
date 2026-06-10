@@ -2,14 +2,14 @@ SHELL := /bin/bash
 
 MAIN := main.tex
 BUILD_DIR := build
-PDF_BASENAME ?= physik1_fs2025_hliddal
+PDF_BASENAME ?= physik1_fs2026_hliddal
 OUTPUT_PDF := $(PDF_BASENAME).pdf
 OUTPUT_SYNC := $(PDF_BASENAME).synctex.gz
 BUILD_STAMP ?= $(shell date -u +%Y%m%dT%H%M%SZ)
 GIT_COMMIT ?= $(shell git rev-parse --short HEAD 2>/dev/null || echo nogit)
 LATEX_DEFS := \def\ZSFBuildStamp{$(BUILD_STAMP)}\def\ZSFGitCommit{$(GIT_COMMIT)}
 
-.PHONY: build lint format check-main-full check-chapters check-root-clean check-pdf-identity check release-proof all test clean
+.PHONY: build lint format check-main-full check-chapters check-root-clean check-pdf-identity sync-rules check-rules check-rule-authorship check release-proof all test clean
 
 build:
 	latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=$(BUILD_DIR) -auxdir=$(BUILD_DIR) \
@@ -35,7 +35,16 @@ check-root-clean:
 check-pdf-identity:
 	PDF_FILE="$(OUTPUT_PDF)" ./tests/check_pdf_identity.sh
 
-check: check-main-full check-chapters check-root-clean lint check-pdf-identity
+sync-rules:
+	@node tools/sync-agent-rules.mjs
+
+check-rules:
+	@node tools/sync-agent-rules.mjs --check
+
+check-rule-authorship:
+	@node tools/check-rule-authorship.mjs
+
+check: check-main-full check-chapters check-root-clean check-pdf-identity lint check-rule-authorship check-rules
 
 release-proof:
 	@mkdir -p $(BUILD_DIR)
