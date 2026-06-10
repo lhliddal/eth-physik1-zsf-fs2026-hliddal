@@ -1,5 +1,5 @@
 ---
-description: "Didaktisches Prinzip für Inhalt/Erklärungen: nützlicher + intuitiver statt korrekter, Rezept-Charakter, Stolperfallen — keine eigenmächtigen Präzisierungen"
+description: "Didaktisches Prinzip für Inhalt/Erklärungen: nützlicher + intuitiver statt korrekter, Rezept-Charakter, Stolperfallen, scannbares Design + Übersichtlichkeit — keine eigenmächtigen Präzisierungen"
 globs: ["chapters/**/*.tex"]
 alwaysApply: true
 decisionOwner: ai
@@ -23,6 +23,12 @@ Nicht der Maßstab ist Vollständigkeit, Allgemeinheit oder lückenlose Strenge.
 - **Ungenauigkeiten auf Kursniveau sind toleriert**, solange sie intuitiv tragfähig sind.
 - **Sonderfälle/Präzisierungen hinzuzufügen ist ein Fehler**, wenn sie die Aussage nur „wasserdicht", aber schwerer lesbar machen. Regel: nicht „korrekter" machen — sondern **nützlicher und intuitiver**.
 - Gute Erklärung: Rezept-Charakter (`procedure` + `\ProcStep`), konkretes Zahlenbeispiel, Intuition in einem Satz, Stolperfallen via `\ZSFdanger`, Querchecks zur Selbstkontrolle.
+
+## Scannbarkeit & Übersichtlichkeit
+
+- **Scannbares Design ist Pflicht:** In der Prüfung wird nicht gelesen, sondern gesucht. Jede Information muss in Sekunden auffindbar sein — über Boxen, Titel, Marker und visuelle Struktur statt Fließtext.
+- **Übersichtlichkeit schlägt Dichte:** Lieber klar gegliederte Blöcke (Box pro Aussage, Tabelle statt Aufzählung im Text) als kompakte, aber unstrukturierte Absätze.
+- Lange Fließtext-Passagen sind ein Warnsignal — Inhalt in Tabellen oder einzelne Boxen umstrukturieren, sodass das Auge beim Überfliegen hängen bleibt.
 
 ## Konsequenz für KI-Assistenten
 

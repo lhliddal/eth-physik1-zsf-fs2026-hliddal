@@ -40,6 +40,41 @@
 % hier vornehmen (z.B. Farbe, Underline) -- nicht in Kapiteln.
 \newcommand{\ZSFkeyword}[1]{\textbf{#1}}
 \newcommand{\ZSFScriptRef}[1]{\hfill\textcolor{white!80}{\small (S.#1)}}
+
+% \ZSFref{label} — kompakter interner Querverweis, gerendert als "(→ 6.2)".
+% Verwendung:
+%   * wenn eine Stelle ein Verfahren/Gesetz nutzt, das in einem ANDEREN
+%     Kapitel erklaert wird.
+%   * NICHT fuer Delegationen im selben Kapitel und nicht fuer elementare
+%     Standardoperationen — sparsam einsetzen.
+% Ziel-Label via optionales Argument von \SubsectionBar/\StartChapter setzen:
+%   \SubsectionBar[sec:induktion-lenz]{Lenzsche Regel}
+% \ref* (hyperref) unterdrueckt den Link, Nummern bleiben automatisch korrekt.
+% Farbe = Palette-Farbe des ZIELkapitels (Wegweiser-Prinzip): wird automatisch
+% aus der Kapitelnummer der Referenz abgeleitet ("6.6" -> ChapterColor6).
+% Aufrecht + fett statt kursiv fuer maximale Lesbarkeit bei 6.7bp.
+\makeatletter
+\def\ZSF@refExtractFirst#1#2\@nil{#1}
+\def\ZSF@refExtractChap#1.#2\@nil{#1}
+% Bestimmt \ZSF@refTargetColor aus dem Label; Fallback auf die aktive
+% Kapitelfarbe im ersten latexmk-Pass (Label noch undefiniert).
+\newcommand{\ZSF@refComputeTargetColor}[1]{%
+  \@ifundefined{r@#1}{%
+    \edef\ZSF@refTargetColor{\chaptercolor}%
+  }{%
+    \edef\ZSF@refTargetNum{\expandafter\expandafter\expandafter
+      \ZSF@refExtractFirst\csname r@#1\endcsname\@nil}%
+    \edef\ZSF@refTargetColor{ChapterColor\expandafter\ZSF@refExtractChap\ZSF@refTargetNum.\@nil}%
+  }%
+}
+\newcommand{\ZSFref}[1]{%
+  \begingroup
+  \ZSF@refComputeTargetColor{#1}%
+  {\ZSFfontNote\upshape\bfseries\color{\ZSF@refTargetColor}($\rightarrow$\,\ref*{#1})}%
+  \endgroup
+}
+\makeatother
+
 \newcommand{\ZSFconclusion}[1]{%
   \par\vspace{-\parskip}\vspace{\ZSFspaceS}%
   \noindent$\Rightarrow$ #1%

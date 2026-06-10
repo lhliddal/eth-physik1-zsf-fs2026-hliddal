@@ -31,6 +31,14 @@ Nicht der Maßstab ist fachliche Vollständigkeit, Allgemeinheit oder lückenlos
 4. **Stolperfallen** als `\ZSFdanger{...}` — genau die Fehler, die man in der Prüfung macht.
 5. **Querchecks** als Selbstkontrolle (Plausibilitäts-/Konsistenzregeln).
 
+## Scannbarkeit & Übersichtlichkeit
+
+In der Prüfung wird die ZSF nicht gelesen, sondern **durchsucht**. Scannbares Design und Übersichtlichkeit sind deshalb harte Anforderungen:
+
+- Jede Information muss in Sekunden auffindbar sein — über Box-Titel, Marker und visuelle Struktur, nicht über Fließtext.
+- **Übersichtlichkeit schlägt Dichte:** Lieber klar gegliederte Blöcke (eine Box pro Aussage, Tabelle statt Aufzählung im Text) als kompakte, aber unstrukturierte Absätze.
+- Lange Fließtext-Passagen sind ein Warnsignal — solchen Inhalt in Tabellen oder einzelne Boxen umstrukturieren, sodass das Auge beim Überfliegen hängen bleibt.
+
 ## Wenn unsicher
 
 Im Zweifel **Nützlichkeit + Intuition vor Strenge**. Lieber eine knappe, leicht unscharfe Aussage, die in der Prüfung sofort anwendbar ist, als eine vollständige, die man unter Zeitdruck nicht parsen kann.

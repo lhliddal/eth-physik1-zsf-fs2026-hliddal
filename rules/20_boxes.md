@@ -32,8 +32,9 @@ Niemals `\section` / `\subsection` / `\chapter` direkt.
 
 ## Inline-Marker
 
-- `\ZSFkeyword{Fachbegriff}` — zentrale Fachbegriffe im Fließtext, sparsam.
+- `\ZSFkeyword{Fachbegriff}` — zentrale Fachbegriffe als **primäre Scan-Anker**, im Fließtext und direkt in Box-Inhalten; sparsam pro Block.
 - `\ZSFconclusion{Folgerung}` — leitet eine Folgerung ein.
+- `\ZSFref{label}` — Querverweis, gerendert als `(→ 6.6)` in der Farbe des Zielkapitels. Nur wenn eine Stelle ein Verfahren/Gesetz aus einem **anderen** Kapitel nutzt. Ziel-Label via `\SubsectionBar[sec:...]{Titel}`.
 - Niemals `\textbf{}` / `\textit{}` zur semantischen Hervorhebung — die obigen Marker nutzen.
 
 ## Farb-Palette

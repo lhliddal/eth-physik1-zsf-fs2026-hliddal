@@ -19,6 +19,7 @@ allowed_files=(
   "AGENTS.md"
   "MODULAR_SYSTEM.md"
   "ZSF_DIDAKTIK_PRINZIP.md"
+  "ZSF_IDEEN.md"
   "README.md"
 )
 
