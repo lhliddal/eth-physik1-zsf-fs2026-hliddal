@@ -7,7 +7,7 @@ decisionStatus: final
 lastUpdatedBy: loris
 lastUpdatedAt: 2026-06-10
 ---
-<!-- AUTO-GENERATED — rules-hash:3be09ae71ee64fd2 —
+<!-- AUTO-GENERATED — rules-hash:8e559dd0ca662066 —
      Quelle: rules/10_architecture.md. Nicht direkt bearbeiten. Änderungen → `make sync-rules`. -->
 
 Die Konfiguration ist modular organisiert. Bei Layout-Änderungen NICHT die Kapitel oder `preamble.tex` ändern, sondern das passende Modul in `styles/`.

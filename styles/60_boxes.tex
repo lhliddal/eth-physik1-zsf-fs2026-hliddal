@@ -135,6 +135,26 @@
 }}
 
 % ------------------------------------------------------------
+% Basis-Stil: Panel-Boxen mit Titelbalken (Goal-/Grid-System)
+% ------------------------------------------------------------
+\tcbset{zsfpanelbox/.style={
+  enhanced jigsaw,
+  colback=white,
+  colbacktitle=\BoxTitleColor,
+  colframe=\BoxTitleColor,
+  coltitle=\BoxTitleTextColor,
+  boxrule=\ZSFtableRuleWidth,
+  titlerule=0pt,
+  boxsep=0pt,
+  arc=\ZSFboxArc,
+  outer arc=\ZSFboxArc,
+  before skip=\ZSFtitleboxBeforeSkip,
+  after skip=\ZSFspaceS,
+  before={\ZSFConsumeAfterChapterBar},
+  zsftitlebar,
+}}
+
+% ------------------------------------------------------------
 % Basis-Stil: Titelboxen (defbox, tablebox, figbox, warnbox)
 % ------------------------------------------------------------
 % WICHTIG — Single Point of Truth fuer innere Padding:
@@ -333,3 +353,202 @@
   after skip=\ZSFspaceS,
   boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt
 }
+
+% ------------------------------------------------------------
+% Aussagen / Verfahren / Listen
+% ------------------------------------------------------------
+% statementbox: dezente Aussagebox mit linkem Farbbalken.
+\tcbset{zsfstatementstyle/.style={
+  enhanced jigsaw,
+  breakable=false,
+  colback=white,
+  colframe=white,
+  frame hidden,
+  borderline west={\ZSFstatementBarWidth}{0pt}{\StatementBarColor},
+  boxrule=0pt,
+  arc=0pt,
+  outer arc=0pt,
+  left=\ZSFstatementLeftPad,
+  right=\ZSFspaceS,
+  top=\ZSFspaceXS,
+  bottom=\ZSFspaceXS,
+  before skip=\ZSFtitleboxBeforeSkip,
+  after skip=\ZSFspaceS,
+  before={\ZSFConsumeAfterChapterBar},
+  before upper={\ZSFReadableAuto},
+}}
+
+\NewDocumentEnvironment{statementbox}{O{}}
+  {\begin{tcolorbox}[zsfstatementstyle]%
+   \if\relax\detokenize{#1}\relax\else
+     {\ZSFfontStatementTitle\color{\StatementTitleColor}#1}\par\vspace{\ZSFspaceXS}%
+   \fi\ignorespaces}
+  {\end{tcolorbox}}
+
+% procedure: nummerierte Schritt-Liste in einer statementbox.
+% Verwendung: \ProcStep{Titel}{Beschreibung}
+\NewDocumentEnvironment{procedure}{O{}}
+  {\begin{statementbox}[#1]%
+   \begin{enumerate}[
+     leftmargin=\ZSFprocLeftMargin,
+     labelsep=\ZSFprocLabelSep,
+     itemsep=\ZSFprocItemSep,
+     topsep=0pt,
+     parsep=0pt,
+     partopsep=0pt
+   ]}
+  {\end{enumerate}\end{statementbox}}
+\newcommand{\ProcStep}[2]{\item {\ZSFfontProcedureStep #1}\\[\ZSFprocStepGap]#2}
+
+% factlist: rahmenlose Liste von Definitions-/Eigenschaftsfakten.
+% Verwendung: \ZSFFact{Lead-in}{Beschreibung}
+\NewDocumentEnvironment{factlist}{}
+  {\begin{itemize}[
+     leftmargin=\ZSFfactLeftMargin,
+     labelsep=\ZSFfactLabelSep,
+     label={\textcolor{\StatementBarColor}{\textbullet}},
+     itemsep=\ZSFprocItemSep,
+     topsep=\ZSFspaceXS,
+     parsep=0pt,
+     partopsep=0pt
+   ]}
+  {\end{itemize}}
+\newcommand{\ZSFFact}[2]{\item {\ZSFfontFactLead #1}\,---\,#2}
+
+% propertylist: factlist innerhalb einer statementbox.
+\NewDocumentEnvironment{propertylist}{O{}}
+  {\begin{statementbox}[#1]\begin{itemize}[
+     leftmargin=\ZSFfactLeftMargin,
+     labelsep=\ZSFfactLabelSep,
+     itemsep=\ZSFprocItemSep,
+     topsep=0pt,
+     parsep=0pt,
+     partopsep=0pt
+   ]}
+  {\end{itemize}\end{statementbox}}
+
+% ------------------------------------------------------------
+% Goal-System: Bedingung -> Umformung -> Ziel
+% ------------------------------------------------------------
+\newtcolorbox{goalbox}[1][]{
+  zsfpanelbox,
+  breakable=false,
+  colback=white,
+  left=\ZSFspaceS,
+  right=\ZSFspaceS,
+  top=\ZSFtextMinPad,
+  bottom=\ZSFtextMinPad,
+  title={#1},
+  before upper={\parskip=\ZSFspaceS\centering},
+  after upper={\par},
+}
+
+\newtcbox{\GoalConditionBox}{%
+  on line,
+  enhanced,
+  boxrule=\ZSFemphasisRuleWidth,
+  colback=\GoalConditionBackColor,
+  colframe=\GoalConditionFrameColor,
+  borderline={\ZSFsubtleRuleWidth}{0pt}{\GoalConditionBorderColor},
+  arc=\ZSFboxArc,
+  left=\ZSFspaceXS,
+  right=\ZSFspaceXS,
+  top=\ZSFspaceXS,
+  bottom=\ZSFspaceXS,
+  nobeforeafter,
+  tcbox raise base,
+}
+
+\newtcbox{\GoalTargetBox}{%
+  on line,
+  enhanced,
+  boxrule=\ZSFtableRuleWidth,
+  colback=\GoalTargetBackColor,
+  colframe=\GoalTargetFrameColor,
+  arc=\ZSFboxArc,
+  left=\ZSFspaceXS,
+  right=\ZSFspaceXS,
+  top=\ZSFspaceXS,
+  bottom=\ZSFspaceXS,
+  nobeforeafter,
+  tcbox raise base,
+}
+
+\newcommand{\GoalCondition}[1]{\par\centering\GoalConditionBox{\ZSFfontNote #1}\par}
+\newcommand{\GoalStep}[1]{\par\centering$\displaystyle #1$\par}
+\newcommand{\GoalTarget}[1]{\par\centering\GoalTargetBox{$\displaystyle #1$}\par}
+\newcommand{\ZSFDerivationCase}[3]{%
+  \GoalCondition{#1}%
+  \GoalStep{#2 =}%
+  \GoalTarget{#3}%
+}
+\newcommand{\ZSFDerivationInlineCase}[3]{%
+  \GoalCondition{#1}%
+  \GoalStep{#2 = \GoalTargetBox{$\displaystyle #3$}}%
+}
+\newcommand{\GoalCard}[4][]{%
+  \begin{goalbox}[#1]
+    \GoalCondition{#2}
+    #3
+    \GoalTarget{#4}
+  \end{goalbox}%
+}
+\newcommand{\GoalPair}[8]{%
+  \begin{tcbraster}[raster columns=2, raster column skip=\ZSFspaceM, raster row skip=0pt, raster equal height]
+    \GoalCard[#1]{#2}{#3}{#4}
+    \GoalCard[#5]{#6}{#7}{#8}
+  \end{tcbraster}%
+}
+
+% Inline-Danger-Tag fuer Stolperfallen im Fliesstext.
+\newtcbox{\ZSFdanger}{
+  on line,
+  colback=DangerBackColor,
+  colframe=DangerBackColor,
+  coltext=DangerTextColor,
+  boxsep=\ZSFspaceXS,
+  left=\ZSFspaceS,
+  right=\ZSFspaceS,
+  top=\ZSFspaceXS,
+  bottom=\ZSFspaceXS,
+  boxrule=0pt,
+  arc=\ZSFboxArc,
+  fontupper=\ZSFfontDanger,
+}
+
+% ------------------------------------------------------------
+% Valuegrid: kompakte tabularray-Wertegrids in einer Panel-Box
+% ------------------------------------------------------------
+\newtcolorbox{compactgridbox}[1][]{
+  zsfpanelbox,
+  colframe=\CompactGridFrameColor,
+  breakable=false,
+  title={#1},
+  boxsep=0pt,
+  left=0pt,
+  right=0pt,
+  top=\ZSFtextMinPad,
+  bottom=\ZSFtextMinPad,
+  boxrule=\ZSFtableRuleWidth,
+}
+\newcommand{\ZSFvaluegridCommon}{
+  colsep=\ZSFvaluegridColSep,
+  rowsep=\ZSFvaluegridRowSep,
+  hlines,
+  vlines,
+  rows={valign=m}
+}
+\NewDocumentEnvironment{valuegrid}{m O{}}
+  {\begin{compactgridbox}[#2]\begin{tblr}{colspec={l *{#1}{c}},\ZSFvaluegridCommon}}
+  {\end{tblr}\end{compactgridbox}}
+\NewDocumentEnvironment{valuegridcustom}{m O{}}
+  {\begin{compactgridbox}[#2]\begin{tblr}{colspec={#1},\ZSFvaluegridCommon}}
+  {\end{tblr}\end{compactgridbox}}
+
+% Legacy-Aliase fuer fixe Datenspaltenzahlen.
+\NewDocumentEnvironment{valuegridtwo}{O{}}{\begin{valuegrid}{2}[#1]}{\end{valuegrid}}
+\NewDocumentEnvironment{valuegridthree}{O{}}{\begin{valuegrid}{3}[#1]}{\end{valuegrid}}
+\NewDocumentEnvironment{valuegridfour}{O{}}{\begin{valuegrid}{4}[#1]}{\end{valuegrid}}
+\NewDocumentEnvironment{valuegridfive}{O{}}{\begin{valuegrid}{5}[#1]}{\end{valuegrid}}
+\NewDocumentEnvironment{valuegridsix}{O{}}{\begin{valuegrid}{6}[#1]}{\end{valuegrid}}
+\NewDocumentEnvironment{valuegridseven}{O{}}{\begin{valuegrid}{7}[#1]}{\end{valuegrid}}

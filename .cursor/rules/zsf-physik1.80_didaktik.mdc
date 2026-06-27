@@ -7,7 +7,7 @@ decisionStatus: final
 lastUpdatedBy: loris
 lastUpdatedAt: 2026-06-10
 ---
-<!-- AUTO-GENERATED — rules-hash:3be09ae71ee64fd2 —
+<!-- AUTO-GENERATED — rules-hash:8e559dd0ca662066 —
      Quelle: rules/80_didaktik.md. Nicht direkt bearbeiten. Änderungen → `make sync-rules`. -->
 
 Diese Regel betrifft **was** drinsteht und **wie** erklärt wird (nicht das Layout). Vollständige Leitlinie: `ZSF_DIDAKTIK_PRINZIP.md`.

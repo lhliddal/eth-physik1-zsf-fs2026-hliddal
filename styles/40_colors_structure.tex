@@ -67,6 +67,14 @@
 % ------------------------------------------------------------
 \definecolor{ETHRot}{HTML}{CC0000}
 \colorlet{WarnboxBack}{ETHRot!15}
+\colorlet{DangerBackColor}{ETHRot!85!black}
+\colorlet{DangerTextColor}{white}
+
+% Semantisches Formel-Highlighting (kapitelunabhaengig, siehe \ZSFmhlA/B/C/D).
+\definecolor{MathHLPrimary}{HTML}{00796B}    % Quelle / gegeben / erster Strang
+\definecolor{MathHLSecondary}{HTML}{C2410C}  % Gegenstueck / abgeleitet / zweiter Strang
+\definecolor{MathHLTertiary}{HTML}{A50D68}   % dritter paralleler Strang (sparsam)
+\definecolor{MathHLTarget}{HTML}{1D4ED8}     % Ziel / Endform / Resultat
 
 % Farben für textVorBox / textNachBox (Text-Box-Bindungen)
 \definecolor{TextVorBoxColor}{HTML}{0A0A1E}  % Sehr dunkles Blau (einleitend)
@@ -84,6 +92,16 @@
 \newcommand{\BoxTitleTextColor}{TextVorBoxColor}        % Titeltext-Farbe (dunkel auf Pastell)
 \newcommand{\BoxBackColor}{\chaptercolorlight!8}        % Sehr sanfter Box-Hintergrund
 \newcommand{\BoxFrameColor}{\chaptercolorlight!25}      % Rahmen in der Farbe des vorherigen Hintergrunds
+
+% Aussage-, Ziel- und Grid-Boxen.
+\newcommand{\StatementBarColor}{\chaptercolor}
+\newcommand{\StatementTitleColor}{\chaptercolor}
+\newcommand{\GoalConditionBackColor}{white}
+\newcommand{\GoalConditionFrameColor}{\chaptercolorlight!22}
+\newcommand{\GoalConditionBorderColor}{black}
+\newcommand{\GoalTargetBackColor}{\chaptercolorlight!22}
+\newcommand{\GoalTargetFrameColor}{\chaptercolor}
+\newcommand{\CompactGridFrameColor}{black!20}
 
 % ------------------------------------------------------------
 % Palette-Selektoren

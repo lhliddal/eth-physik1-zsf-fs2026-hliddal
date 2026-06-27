@@ -1,6 +1,6 @@
 # ZSF Physik 1 — AGENTS.md
 
-> AUTO-GENERATED — rules-hash:3be09ae71ee64fd2
+> AUTO-GENERATED — rules-hash:8e559dd0ca662066
 >
 > Quelle: `rules/*.md` (mit YAML-Frontmatter).
 > Nicht direkt bearbeiten. Änderungen: `rules/*.md` editieren → `make sync-rules`.
@@ -39,10 +39,10 @@ Bei Konflikt zwischen dieser Datei und `rules/*.md` gewinnen die Quelldateien.
 
 - `00_meta.md` — Project-wide — ZSF Physik 1 — Projekt-Meta, Zweck, kritische Regeln (Sprache, Modularität, keine Inhaltsänderung ohne Befehl)
 - `10_architecture.md` — Project-wide; besonders relevant für `main.tex`, `preamble.tex`, `chapters/**/*.tex`, `styles/**/*.tex` — Verzeichnis-Architektur, Modul-Verantwortlichkeiten, Verbote in Kapiteln, Fork-Guardrails (keine Module/Tests löschen)
-- `20_boxes.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/60_boxes.tex`, `styles/40_colors_structure.tex`, `styles/50_typography_semantics.tex` — Box-Auswahl (defbox, tablebox, figbox, formulabox, warnbox, splitbox, runintext), Struktur-Makros, Inline-Marker (ZSFkeyword, ZSFconclusion)
+- `20_boxes.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/60_boxes.tex`, `styles/40_colors_structure.tex`, `styles/50_typography_semantics.tex` — Box-Auswahl (Decision Tree), Struktur-Makros (StartChapter, SubsectionBar), Inline-Marker (ZSFkeyword, ZSFdanger, ZSFconclusion), Formel-Highlighting
 - `30_spacing.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/30_layout_spacing.tex` — Spacing-Register (ZSFspace*), Gap-Makros (ZSFgap*), Section-Gap — keine rohen Spacing-/Break-Befehle in Kapiteln, Overflow-Vermeidung
 - `40_tables.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/20_tables.tex` — Tabellen ausschließlich über ZSFtable/ZSFtableFlat/ZSFtablePlain, Spaltentypen L/C/R und Y/Z/Q/F, verbotene Roh-Tabellen-Befehle
-- `50_math.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/10_math.tex` — Math-Makros zentral in styles/10_math.tex (\\sgn, \\vect …); neue Operatoren nur dort, keine rohen \\operatorname/\\mathbb in Kapiteln
+- `50_math.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/10_math.tex` — Math-Makros zentral in styles/10_math.tex (\\sgn, \\vect, ZSFmhlA/B/C/D); neue Operatoren nur dort, keine rohen \\operatorname/\\mathbb in Kapiteln
 - `60_workflow.md` — Project-wide — Build-/Check-Workflow (make build/check/sync-rules/check-rules), Agent-Build-Pflicht nach jeder Änderung, Datei-Platzierung
 - `70_github.md` — Scoped; gilt bei Änderungen an `.github/**`, `Makefile`, `tests/**`, `styles/75_pdf_identity.tex`, `README.md` — Naming-Konventionen (Repo, PDF, Tags), GitHub Actions (CI Build, Release), PDF-Identity als Single Source of Truth
 - `80_didaktik.md` — Project-wide; besonders relevant für `chapters/**/*.tex` — Didaktisches Prinzip für Inhalt/Erklärungen: nützlicher + intuitiver statt korrekter, Rezept-Charakter, Stolperfallen, scannbares Design + Übersichtlichkeit — keine eigenmächtigen Präzisierungen
@@ -121,22 +121,34 @@ Die Konfiguration ist modular organisiert. Bei Layout-Änderungen NICHT die Kapi
 
 - Quelle: `rules/20_boxes.md`
 - Scope: Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/60_boxes.tex`, `styles/40_colors_structure.tex`, `styles/50_typography_semantics.tex`
-- Beschreibung: Box-Auswahl (defbox, tablebox, figbox, formulabox, warnbox, splitbox, runintext), Struktur-Makros, Inline-Marker (ZSFkeyword, ZSFconclusion)
-- Zuletzt aktualisiert: 2026-06-10 (loris)
+- Beschreibung: Box-Auswahl (Decision Tree), Struktur-Makros (StartChapter, SubsectionBar), Inline-Marker (ZSFkeyword, ZSFdanger, ZSFconclusion), Formel-Highlighting
+- Zuletzt aktualisiert: 2026-06-27 (codex)
 
 Für inhaltliche Darstellungen die vordefinierten Umgebungen nutzen.
 
-##### Box-Auswahl (real vorhanden)
+##### Box-Auswahl (Decision Tree)
 
 | Was wird ausgedrückt? | Box / Umgebung |
 | :--- | :--- |
 | Definition / Satz / Gesetz | `defbox[Titel]` |
 | Tabelle | `tablebox[Titel]` |
 | Abbildung | `figbox[Titel]` |
-| Formel(n), evtl. mit Kontext | `formulabox` (lange einzelne Formel: `longformula`) |
+| Formel(n), evtl. mit Kontext | `formulabox` |
 | Warnung / Stolperfalle | `warnbox[Titel]` |
+| Eigenschaft / kurze Aussage | `statementbox[Titel]` |
+| Schritt-für-Schritt-Verfahren | `procedure[Titel]` + `\ProcStep` |
+| Lose Faktenliste | `factlist` + `\ZSFFact` |
+| Faktenliste mit Rahmen + Titel | `propertylist[Titel]` + `\ZSFFact` |
+| Wertetabelle (kompakt) | `valuegrid{n}[Titel]` |
+| Ziele / Bedingungen (kompaktes Grid) | `goalbox`, `compactgridbox` |
 | Bild + Text nebeneinander | `splitbox[fraction]` |
 | Reiner Fließtext-Block | `runintext` |
+
+##### Nutzungsregeln
+
+- **defbox vs. statementbox:** Im Zweifel `defbox` für gewichtige Gesetze, Definitionen und zentrale Sätze verwenden. `statementbox` (dezenter linker Farbbalken) für kleinere Aussagen, Bemerkungen oder kompakte Eigenschaften.
+- **Formel-Grouping:** Mehrere verwandte Formeln gehen in **eine** `formulabox` mit `\formulasep` (graue Trennlinie) und optionalen Beschreibungen via `\formulanote`. Für gleichwertige Fälle: `\ZSFItemHeading{Fall A}`.
+- **Bilder:** Ausschließlich über `figbox` + `\ZSFfig{path}{Titel}{Caption}` oder `\ZSFfigside{path}{Titel}{Inhalt}`. Niemals nackte `\includegraphics`-Befehle in Kapiteln.
 
 ##### Struktur-Makros
 
@@ -149,9 +161,23 @@ Niemals `\section` / `\subsection` / `\chapter` direkt.
 ##### Inline-Marker
 
 - `\ZSFkeyword{Fachbegriff}` — zentrale Fachbegriffe als **primäre Scan-Anker**, im Fließtext und direkt in Box-Inhalten; sparsam pro Block.
+- `\ZSFdanger{Achtung-Text}` — Inline-Pill für Stolperfallen / kritische Ausnahmen.
 - `\ZSFconclusion{Folgerung}` — leitet eine Folgerung ein.
 - `\ZSFref{label}` — Querverweis, gerendert als `(→ 6.6)` in der Farbe des Zielkapitels. Nur wenn eine Stelle ein Verfahren/Gesetz aus einem **anderen** Kapitel nutzt. Ziel-Label via `\SubsectionBar[sec:...]{Titel}`.
 - Niemals `\textbf{}` / `\textit{}` zur semantischen Hervorhebung — die obigen Marker nutzen.
+
+##### Semantisches Formel-Highlighting
+
+Experimentelles System, um Zusammenhänge über mehrere Formeln oder Verfahrensschritte hinweg sichtbar zu machen. Es ist bewusst klein gehalten und darf nicht als Dekoration verwendet werden.
+
+| Makro | Rolle |
+|---|---|
+| `\ZSFmhlA{...}` | Quelle / gegeben / erster Strang |
+| `\ZSFmhlB{...}` | Gegenstück / abgeleitet / zweiter Strang |
+| `\ZSFmhlD{...}` | dritter paralleler Strang, nur wenn wirklich nötig |
+| `\ZSFmhlC{...}` | Ziel / Endform / Resultat |
+
+Nur einsetzen, wenn die farbliche Verbindung fachlich eindeutig stimmt. `\ZSFmhlD` ist kein Standardmarker; nur verwenden, wenn drei gleichwertige Stränge gleichzeitig verfolgt werden müssen und `\ZSFmhlC` weiterhin als Ziel/Resultat gebraucht wird.
 
 ##### Farb-Palette
 
@@ -208,12 +234,13 @@ Tabellendesign ist entkoppelt. Formatierung direkt in Kapiteln ist verboten.
 
 - Quelle: `rules/50_math.md`
 - Scope: Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/10_math.tex`
-- Beschreibung: Math-Makros zentral in styles/10_math.tex (\\sgn, \\vect …); neue Operatoren nur dort, keine rohen \\operatorname/\\mathbb in Kapiteln
-- Zuletzt aktualisiert: 2026-06-10 (loris)
+- Beschreibung: Math-Makros zentral in styles/10_math.tex (\\sgn, \\vect, ZSFmhlA/B/C/D); neue Operatoren nur dort, keine rohen \\operatorname/\\mathbb in Kapiteln
+- Zuletzt aktualisiert: 2026-06-27 (codex)
 
 Mathematische Makros liegen zentral in `styles/10_math.tex`.
 
 - Vorhandene Makros nutzen: `\sgn`, `\vect{…}`.
+- Formel-Highlighting nur semantisch einsetzen: `\ZSFmhlA{...}` (Quelle/gegeben), `\ZSFmhlB{...}` (Gegenstück/zweiter Strang), `\ZSFmhlD{...}` (dritter Strang, selten), `\ZSFmhlC{...}` (Ziel/Resultat).
 - Neue Operatoren/Symbole **nur** in `styles/10_math.tex` ergänzen (nach Rücksprache), nicht inline in Kapiteln.
 - Keine rohen `\operatorname{…}`-Wiederholungen in Kapiteln, wenn ein zentrales Makro existiert oder sinnvoll ist.
 - Lange Formeln über `aligned` umbrechen (siehe `30_spacing`).

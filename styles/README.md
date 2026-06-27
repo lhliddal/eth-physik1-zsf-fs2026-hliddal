@@ -2,14 +2,14 @@
 
 Dieses Verzeichnis enthält das modulare Style-System, das von `preamble.tex` geladen wird.
 
-- `00_packages.tex`: Paket-Imports und Paket-Level-Setup (siunitx, tcolorbox, geometry, …)
-- `10_math.tex`: Math-Operatoren und Vektor-Macros (Physik-spezifisch)
+- `00_packages.tex`: Paket-Imports und Paket-Level-Setup (siunitx, tabularx, tabularray, tcolorbox, geometry, …)
+- `10_math.tex`: Math-Operatoren, Vektor-Macros und semantisches Formel-Highlighting (Physik-spezifisch)
 - `20_tables.tex`: Reserviert für Tabellen-Helfer
 - `30_layout_spacing.tex`: Layout-Grundlagen, 4-Level-Spacing-Scale und Physik-spezifische Skips
 - `40_colors_structure.tex`: Named Theme-Palettes (Elektro/Magneto/Maxwell/Optik), Index-Palette (12 Kapitel), Kapitel-Start-Orchestrierung
 - `50_typography_semantics.tex`: Schriftmakros für Balken und Box-Titel
 - `55_readability.tex`: Intelligente Zeilenumbruch-Steuerung (Flattersatz + TeX-Penalties) für Fliesstext in schmalen Spalten
-- `60_boxes.tex`: tcolorbox-Stile, chapterbar, subsectionbar, defbox, tablebox, figbox, formulabox, warnbox, runintext
+- `60_boxes.tex`: tcolorbox-Stile, chapterbar, subsectionbar, defbox, tablebox, figbox, formulabox, warnbox, runintext, statementbox/procedure/factlist/propertylist, goalbox, valuegrid, ZSFdanger
 - `70_document_settings.tex`: hyperref-Farben
 
 Chapter-Dateien bleiben inhaltsfokussiert; Layout und Styling laufen über diese Module.

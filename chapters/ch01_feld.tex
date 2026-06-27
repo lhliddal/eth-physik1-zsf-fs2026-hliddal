@@ -38,18 +38,15 @@ Kraft von $q_1$ auf $q_2$ im Abstand $r$; $\hat{r}$ von $q_1$ nach $q_2$.
 \begin{runintext}
 Formeln für das elektrische Feld durch eine oder viele Ladungen; nützlich, wenn Feldstärken in Punkten und die Überlagerung mehrerer Ladungen gefragt sind.
 \end{runintext}
-\begin{defbox}[Elektrisches Feld]
-Quotient Kraft/\ZSFkeyword{Probeladung}: $\vec{E} = \vec{F}/q_0$.
-\end{defbox}
 \begin{formulabox}
 \[ \vec{E} = \frac{\vec{F}}{q_0} \]
-\formulanote{Zweck: Definition des E-Felds (Kraft pro Probeladung).}
+\formulanote{Zweck: E-Feld Definition (Kraft $\vec{F}$ pro Probeladung $q_0$).}
 \formulasep
 \[ \vec{E} = \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r^2}\,\hat{r} \quad \text{Punktladung} \]
 \formulanote{Zweck: E-Feld einer Punktladung.}
 \formulasep
 \[ \vec{E} = \sum_i \vec{E}_i = \sum_i \frac{1}{4\pi\varepsilon_0}\,\frac{q_i}{r_i^2}\,\hat{r}_i \quad \text{Superposition} \]
-\formulanote{Zweck: E-Feld durch Überlagerung mehrerer Ladungen.}
+\formulanote{Zweck: Superposition (E-Feld mehrerer Punktladungen).}
 \end{formulabox}
 \begin{runintext}
 \ZSFkeyword{Feldlinien}: von + nach $-$; Dichte $\propto$ Feldstärke.
@@ -81,9 +78,12 @@ Formeln für \ZSFkeyword{Dipolmoment}, \ZSFkeyword{Drehmoment} und Energie eines
 \formulasep
 \[ E_{\mathrm{pot}} = -\vec{p}\cdot\vec{E} + U_0 \quad \text{($U_0$ oft $=0$)} \]
 \formulanote{Zweck: Potenzielle Energie des Dipols im E-Feld.}
+\formulasep
+\[ \vec{E}_{\mathrm{axial}} \approx \frac{1}{4\pi\varepsilon_0}\frac{2\vec{p}}{r^3}, \quad \vec{E}_{\mathrm{quer}} \approx -\frac{1}{4\pi\varepsilon_0}\frac{\vec{p}}{r^3} \quad (r \gg \ell) \]
+\formulanote{Zweck: Dipol-Fernfeld auf Achse (axial) und quer dazu (Mittelsenkrechte).}
 \end{formulabox}
 \begin{runintext}
-Fernfeld $\propto p/r^3$. \ZSFkeyword{Polare Moleküle}: permanentes $\vec{p}$; nichtpolar: induzierbar.
+\ZSFkeyword{Polare Moleküle}: permanentes $\vec{p}$; nichtpolar: induzierbar.
 \end{runintext}
 
 \begin{minipage}{\linewidth}
@@ -98,6 +98,20 @@ Formel, um das E-Feld \ZSFkeyword{kontinuierlicher Ladungsverteilungen} (Volumen
 \begin{runintext}
 $\mathrm{d}q = \rho\,\mathrm{d}V$ (Raum), $\mathrm{d}q = \sigma\,\mathrm{d}A$ (Fläche), $\mathrm{d}q = \lambda\,\mathrm{d}\ell$ (Linie).
 \end{runintext}
+\begin{procedure}[Rezept zur E-Feld-Herleitung]
+  \ProcStep{Ladungselement aufstellen}{%
+    \[ \mathrm{d}q = \lambda\,\mathrm{d}x \quad / \quad \sigma\,\mathrm{d}A \quad / \quad \rho\,\mathrm{d}V \]
+  }
+  \ProcStep{Symmetrien nutzen \& Komponenten zerlegen}{%
+    Nur relevante Feldrichtung betrachten.
+    \[ \mathrm{d}E_x = \mathrm{d}E \cos\theta = \frac{1}{4\pi\varepsilon_0}\,\frac{\mathrm{d}q}{r^2}\cos\theta \]
+    \formulanote{Tipp: Drücke $r$, $x$ und $\cos\theta$ geometrisch aus (oft über Winkel $\vartheta$, siehe Winkelparametrisierung \ZSFref{chap:wichtige}).}
+  }
+  \ProcStep{Aufintegrieren}{%
+    Grenzen bestimmen und integrieren.
+    \[ E_x = \int \mathrm{d}E_x \]
+  }
+\end{procedure}
 \end{minipage}
 
 \SubsectionBar[sec:1-5]{Elektrischer Fluss}
@@ -106,7 +120,7 @@ Formel für den \ZSFkeyword{elektrischen Fluss} durch eine Fläche; brauchst du,
 \end{runintext}
 \begin{formulabox}
 \[ \Phi_{\mathrm{el}} = \lim_{\Delta A_i\to 0} \sum_i \vec{E}_i\cdot\Delta\vec{A}_i = \int_A \vec{E}\cdot\mathrm{d}\vec{A} \]
-\formulanote{Zweck: Elektrischer Fluss durch Fläche $A$.}
+\formulanote{Zweck: Elektrischer Fluss durch Fläche $A$ (anschaulich: Nettozahl der Feldlinien durch $A$).}
 \end{formulabox}
 
 \SubsectionBar[sec:1-6]{Gauss}
@@ -117,6 +131,14 @@ Integralform des \ZSFkeyword{Gauss-Gesetzes} und Randwerte am Leiter; nützlich 
 \[ \Phi_{\mathrm{el}} = \oint_A \vec{E}\cdot\mathrm{d}\vec{A} = \oint_A E_n\,\mathrm{d}A = \frac{q_{\mathrm{innen}}}{\varepsilon_0} \]
 \formulanote{Zweck: Gauss'sches Gesetz; Fluss $\propto$ eingeschlossene Ladung.}
 \end{formulabox}
+
+\begin{figbox}[Visualisierung Gauss'sches Gesetz]
+\centering
+\includegraphics[width=\linewidth, keepaspectratio]{graphics/gauss_flux_explanation.png}
+\ZSFfigcaption{Netto-Fluss $\Phi_{\mathrm{el}}$ (austretende Feldlinien) hängt nur von eingeschlossener Netto-Ladung ab.}
+\end{figbox}
+\ZSFgapS
+
 \begin{formulabox}
 \[
 \begin{gathered}
@@ -128,12 +150,12 @@ Integralform des \ZSFkeyword{Gauss-Gesetzes} und Randwerte am Leiter; nützlich 
 \formulanote{Zweck: Vereinfachte Gauss-Form bei Kugelsymmetrie; kein neues Gesetz.}
 \end{formulabox}
 \begin{runintext}
-\ZSFkeyword{Leiter}: Ladung nur auf Oberfläche; im Inneren $\rho=0$.
+\ZSFkeyword{Leiter}: Gesamte Ladung sitzt auf der Oberfläche; im Inneren gilt $E=0$ und $q=0$.
 \end{runintext}
 \begin{formulabox}
 \[ \Delta E_n = E_{n,+} - E_{n,-} = \frac{\sigma}{\varepsilon_0} \quad \text{Unstetigkeit} \]
 \[ E_n = \frac{\sigma}{\varepsilon_0} \quad \text{unmittelbar außerhalb Leiter} \]
-\formulanote{Zweck: Normalkomponente des E-Felds an geladener Oberfläche (Leiter).}
+\formulanote{Zweck: Feld-Sprung ($\Delta E_n$) beim Durchqueren einer geladenen Fläche. Am Leiter gilt $E_{n,-}=0$ (innen) $\implies E_n = \frac{\sigma}{\varepsilon_0}$ (aussen).}
 \end{formulabox}
 
 \SubsectionBar[sec:1-7]{Symmetrische Felder}
@@ -200,5 +222,17 @@ E = \dfrac{1}{4\pi\varepsilon_0}\,\dfrac{q}{r^2}\;\text{für $r>r_K$};\quad E=0\
 \]
 \formulanote{Aus Gau\ss{}: nur die eingeschlossene Ladung traegt bei, daher waechst $E$ im Inneren linear mit $r$.}
 \end{formulabox}
+
+\ZSFgapS
+\begin{procedure}[Ortsabhängige Ladungsdichte $\rho(r)$]
+  \ProcStep{Eingeschlossene Ladung für $r<R$}{%
+    \ZSFdanger{Achtung:} Falls $\rho = \rho(r)$, zuerst die eingeschlossene Ladung bis zum aktuellen Radius bestimmen.
+    \[ q_{\mathrm{in}}(r) = 4\pi \int_0^r \rho(r') (r')^2\,\mathrm{d}r' \]
+  }
+  \ProcStep{E-Feld innen bestimmen}{%
+    \[ E_{\mathrm{innen}}(r) = \frac{q_{\mathrm{in}}(r)}{4\pi\varepsilon_0 r^2} = \frac{1}{\varepsilon_0 r^2}\int_0^r \rho(r') (r')^2\,\mathrm{d}r' \]
+    \formulanote{Aussen ($r > R$): Das Feld verhält sich wie eine Punktladung mit der Gesamtladung $Q = q_{\mathrm{in}}(R)$ im Ursprung.}
+  }
+\end{procedure}
 
 % ============================================================

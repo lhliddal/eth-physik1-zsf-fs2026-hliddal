@@ -2,7 +2,7 @@
 % SECTION 0: WICHTIGE FORMELN
 % ============================================================
 
-\StartChapterOnNewColumn{Wichtige Formeln}
+\StartChapterOnNewColumn[chap:wichtige]{Wichtige Formeln}
 
 \begin{runintext}
 Kompakter Querschnitt zentraler Beziehungen aus den Kapiteln 1--11.
@@ -40,7 +40,7 @@ E = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}, \hfill & r > R \\
 \varphi = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r}, \hfill & r > R
 \end{cases}
 \]
-\formulanote{Zweck: E-Feld \& Potenzial einer geladenen Kugelschale.}
+\formulanote{Zweck: E-Feld \& Potenzial einer Kugelschale. \ZSFkeyword{Erden}: Zwingt Potenzial auf $\varphi = 0$ ($\infty$-Speicher). Bei \ZSFkeyword{Influenz} (geerdet): zugewandte Seite lädt sich entgegengesetzt, abgewandte bleibt neutral (Ladungsabfluss).}
 \end{formulabox}
 
 \begin{runintext}
@@ -97,25 +97,27 @@ Magnetostatik: Kraft auf bewegte Ladungen, Magnetfeld von Strömen und das Geset
 \begin{runintext}
 \ZSFkeyword{Winkelparametrisierung}: Geniales Rezept für Integrale über Linienleiter ($\vec{E}, \vec{B}$). Wandelt die unschöne Integration über den Ort $x$ in eine simple trigonometrische Integration über den Winkel $\vartheta$ um.
 \end{runintext}
-\begin{formulabox}
-\textbf{1. Substitution:} ($h$ = Lotabstand, $\vartheta$ = Winkel relativ zum Lot)
-\[ \begin{aligned}
-    x &= h \cdot \tan\vartheta \quad\implies\quad \mathrm{d}x = \frac{h}{\cos^2\vartheta}\,\mathrm{d}\vartheta \\[1ex]
-    r &= \frac{h}{\cos\vartheta} \quad\implies\quad \frac{\mathrm{d}x}{r^2} = \frac{1}{h}\,\mathrm{d}\vartheta
-\end{aligned} \]
-\formulasep
-\textbf{2. Elektrisches Feld ($\vec{E}$) einer Linienladung $\lambda$:}
-\[ \begin{aligned}
-    E_{\parallel} &= \frac{\lambda}{4\pi\varepsilon_0 h} \int_{\vartheta_1}^{\vartheta_2} \sin\vartheta\,\mathrm{d}\vartheta = \frac{\lambda}{4\pi\varepsilon_0 h} \Bigl[-\cos\vartheta\Bigr]_{\vartheta_1}^{\vartheta_2} \\[2ex]
-    E_{\perp} &= \frac{\lambda}{4\pi\varepsilon_0 h} \int_{\vartheta_1}^{\vartheta_2} \cos\vartheta\,\mathrm{d}\vartheta = \frac{\lambda}{4\pi\varepsilon_0 h} \Bigl[\sin\vartheta\Bigr]_{\vartheta_1}^{\vartheta_2}
-\end{aligned} \]
-\formulasep
-\textbf{3. Magnetfeld ($\vec{B}$) eines geraden Stromleiters $I$:}
-\[
-    B = \frac{\mu_0 I}{4\pi h} \int_{\vartheta_1}^{\vartheta_2} \cos\vartheta\,\mathrm{d}\vartheta = \frac{\mu_0 I}{4\pi h} \Bigl[\sin\vartheta\Bigr]_{\vartheta_1}^{\vartheta_2}
-\]
-\formulanote{Unendlicher Leiter ($\vartheta \in [-\pi/2, \pi/2]$): $E_{\perp} = \frac{\lambda}{2\pi\varepsilon_0 h}$, $B = \frac{\mu_0 I}{2\pi h}$. Komponente $E_{\parallel}$ hebt sich auf.}
-\end{formulabox}
+\begin{procedure}[Winkelparametrisierung]
+  \ProcStep{Substitution}{%
+    $h$ = Lotabstand, $\vartheta$ = Winkel relativ zum Lot.
+    \[ \begin{aligned}
+        x &= h \cdot \tan\vartheta \quad\implies\quad \mathrm{d}x = \frac{h}{\cos^2\vartheta}\,\mathrm{d}\vartheta \\[1ex]
+        r &= \frac{h}{\cos\vartheta} \quad\implies\quad \frac{\mathrm{d}x}{r^2} = \frac{1}{h}\,\mathrm{d}\vartheta
+    \end{aligned} \]
+  }
+  \ProcStep{E-Feld einer Linienladung $\lambda$}{%
+    \[ \begin{aligned}
+        E_{\parallel} &= \frac{\lambda}{4\pi\varepsilon_0 h} \int_{\vartheta_1}^{\vartheta_2} \sin\vartheta\,\mathrm{d}\vartheta = \frac{\lambda}{4\pi\varepsilon_0 h} \Bigl[-\cos\vartheta\Bigr]_{\vartheta_1}^{\vartheta_2} \\[2ex]
+        E_{\perp} &= \frac{\lambda}{4\pi\varepsilon_0 h} \int_{\vartheta_1}^{\vartheta_2} \cos\vartheta\,\mathrm{d}\vartheta = \frac{\lambda}{4\pi\varepsilon_0 h} \Bigl[\sin\vartheta\Bigr]_{\vartheta_1}^{\vartheta_2}
+    \end{aligned} \]
+  }
+  \ProcStep{B-Feld eines geraden Stromleiters $I$}{%
+    \[
+        B = \frac{\mu_0 I}{4\pi h} \int_{\vartheta_1}^{\vartheta_2} \cos\vartheta\,\mathrm{d}\vartheta = \frac{\mu_0 I}{4\pi h} \Bigl[\sin\vartheta\Bigr]_{\vartheta_1}^{\vartheta_2}
+    \]
+    \formulanote{Unendlicher Leiter ($\vartheta \in [-\pi/2, \pi/2]$): $E_{\perp} = \frac{\lambda}{2\pi\varepsilon_0 h}$, $B = \frac{\mu_0 I}{2\pi h}$. Komponente $E_{\parallel}$ hebt sich auf.}
+  }
+\end{procedure}
 
 \begin{runintext}
 Elektromagnetische Induktion nach Faraday und Energie im Magnetfeld einer Spule.
@@ -136,7 +138,7 @@ Wechselstrom: Widerstände von Spule/Kondensator, Eigenfrequenz eines Schwingkre
 \[ X_L = \omega L, \quad X_C = 1/(\omega C), \quad \omega_0 = 1/\sqrt{LC} \quad \text{LC} \]
 \formulasep
 \[ U_2/U_1 = n_2/n_1 \quad \text{Transformator} \]
-\formulanote{Zweck: Umrechnung Frequenz/Kreisfrequenz; Blindwiderstände; LC-Eigenfrequenz; Transformator-Übersetzung.}
+\formulanote{Zweck: Umrechnung Frequenz ($\nu, f$) / Kreisfrequenz $\omega$ (Achtung: Frequenz $\nu \neq v$); Blindwiderstände; LC-Eigenfrequenz; Transformator-Übersetzung.}
 \end{formulabox}
 
 \begin{runintext}
