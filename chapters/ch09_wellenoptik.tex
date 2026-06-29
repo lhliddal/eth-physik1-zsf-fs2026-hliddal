@@ -5,7 +5,7 @@
 \StartChapter{Wellenoptik}
 
 \begin{runintext}
-Beschreibung von Licht als \ZSFkeyword{elektromagnetische Welle}. Umfasst \ZSFkeyword{Brechung}, \ZSFkeyword{Reflexion}, \ZSFkeyword{Polarisation} sowie wellenspezifische Phänomene wie \ZSFkeyword{Interferenz} und \ZSFkeyword{Gitterspektren}.
+Beschreibung von Licht als \ZSFkeyword[Elektromagnetische Welle]{elektromagnetische Welle}. Umfasst \ZSFkeyword{Brechung}, \ZSFkeyword{Reflexion}, \ZSFkeyword{Polarisation} sowie wellenspezifische Phänomene wie \ZSFkeyword{Interferenz} und \ZSFkeyword[Gitterspektrum]{Gitterspektren}.
 \end{runintext}
 
 \begin{defbox}[Kenngrössen von Wellen]
@@ -22,6 +22,10 @@ $\varphi$ & \textbf{Phasenversch.} & Relativer Versatz zweier Wellen in $x$-Rich
 \end{defbox}
 
 \SubsectionBar*[sec:light-refraction-polarization]{Licht, Brechzahl, Polarisation}
+\ZSFindex{Brechzahl}
+\ZSFindexsee{Brechungsindex}{Brechzahl}
+\ZSFindex{Totalreflexion}
+\ZSFindex{Malus'sches Gesetz}
 \begin{runintext}
 Grundlagen der Lichtausbreitung in verschiedenen Medien und Verhalten des elektrischen Feldvektors (\ZSFkeyword{Polarisation}).
 \end{runintext}
@@ -42,9 +46,9 @@ Grundlagen der Lichtausbreitung in verschiedenen Medien und Verhalten des elektr
 \end{formulabox}
 \begin{runintext}
 \ZSFkeyword{Dispersion}: $n(\lambda)$; kurze Wellenlängen (blau/violett) werden stärker gebrochen/abgelenkt als lange (rot) (z.\,B.\ Prisma).
-\ZSFkeyword{Polarisation}: Ausrichtung des \ZSFkeyword{elektrischen Feldvektors}. \ZSFkeyword{linear}: schwingt entlang einer Achse; \ZSFkeyword{zirkular}: der \ZSFkeyword{elektrische Feldvektor} rotiert (beschreibt Helix/Spirale) in Ausbreitungsrichtung (Energiefluss $\vec{S}$ verläuft geradlinig).
+\ZSFkeyword{Polarisation}: Ausrichtung des \ZSFkeyword*{elektrischen Feldvektors}. \ZSFkeyword*{linear}: schwingt entlang einer Achse; \ZSFkeyword*{zirkular}: der \ZSFkeyword*{elektrische Feldvektor} rotiert (beschreibt Helix/Spirale) in Ausbreitungsrichtung (Energiefluss $\vec{S}$ verläuft geradlinig).
 \ZSFkeyword{Brewster-Winkel}: Bei Einfall unter $\theta_{\mathrm{p}}$ stehen reflektierter und gebrochener Strahl senkrecht aufeinander ($\theta_{\mathrm{p}} + \theta_2 = 90^\circ$). Der reflektierte Strahl ist vollständig linear polarisiert (senkrecht zur Einfallsebene, s-polarisiert).
-Erzeugung durch Absorption (unpolarisiertes Licht verliert die Hälfte der Intensität $I_1 = \frac{1}{2}I_0$, da die Orientierung des \ZSFkeyword{elektrischen Feldes} zufällig variiert), Streuung, Reflexion, \ZSFkeyword{Doppelbrechung}.
+Erzeugung durch Absorption (unpolarisiertes Licht verliert die Hälfte der Intensität $I_1 = \frac{1}{2}I_0$, da die Orientierung des \ZSFkeyword[Elektrisches Feld]{elektrischen Feldes} zufällig variiert), Streuung, Reflexion, \ZSFkeyword{Doppelbrechung}.
 \end{runintext}
 
 \ZSFfig{graphics/Wellenoptik_Brechung_Totalreflexion.png}{Lichtbrechung \& Totalreflexion}{Brechung bei $\theta_1 < \theta_{\mathrm{k}}$, Grenzwinkel bei $\theta_{\mathrm{k}}$ ($\theta_2 = 90^\circ$), Totalreflexion bei $\theta_1 > \theta_{\mathrm{k}}$ (Übergang optisch dicht $n_1 \to$ dünn $n_2$).}
@@ -55,7 +59,7 @@ Erzeugung durch Absorption (unpolarisiertes Licht verliert die Hälfte der Inten
 
 \SubsectionBar[sec:interference-grating]{Interferenz, Gitter}
 \begin{runintext}
-Überlagerung: \ZSFkeyword{konstruktiv} bei $\delta=0,2\pi,\ldots$; \ZSFkeyword{destruktiv} bei $\pi,3\pi,\ldots$. Spalt/Gitter: nur \ZSFkeyword{Gangunterschied} $\Delta r$. Dünne Schicht: $\Delta r=2nd$ plus \ZSFkeyword{Phasensprung} $0$ oder $\pi$ pro Reflexion.
+Überlagerung: \ZSFkeyword*{konstruktiv} bei $\delta=0,2\pi,\ldots$; \ZSFkeyword*{destruktiv} bei $\pi,3\pi,\ldots$. Spalt/Gitter: nur \ZSFkeyword{Gangunterschied} $\Delta r$. Dünne Schicht: $\Delta r=2nd$ plus \ZSFkeyword{Phasensprung} $0$ oder $\pi$ pro Reflexion.
 \end{runintext}
 \begin{formulabox}
 \begin{longformula}
@@ -85,11 +89,12 @@ Erzeugung durch Absorption (unpolarisiertes Licht verliert die Hälfte der Inten
 \ZSFfig{graphics/Wellenlehre_Reflexion_Festes_Loses_Ende.png}{Reflexion: festes/loses Ende}{Festes Ende $\equiv$ optisch dichter: $\pi$; loses Ende $\equiv$ optisch dünner: keiner}
 
 \SubsectionBar[sec:diffraction]{Beugung}
+\ZSFindex{Beugung}
 \begin{runintext}
-Ablenkung und Ausbreitung von Licht an Kanten und Einzelspalten als Folge des \ZSFkeyword{Huygens'schen Prinzips}.
+Ablenkung und Ausbreitung von Licht an Kanten und Einzelspalten als Folge des \ZSFkeyword[Huygens'sches Prinzip]{Huygens'schen Prinzips}.
 \end{runintext}
 \begin{runintext}
-\ZSFkeyword{Huygens}: jeder Punkt der Wellenfront = \ZSFkeyword{Elementarwelle}. Schirm weit weg ($l$ gross) oder Linse dazwischen: $\sin\theta \approx y/l$, $y$-Formeln unten gelten.
+\ZSFkeyword[Huygens'sches Prinzip]{Huygens}: jeder Punkt der Wellenfront = \ZSFkeyword{Elementarwelle}. Schirm weit weg ($l$ gross) oder Linse dazwischen: $\sin\theta \approx y/l$, $y$-Formeln unten gelten.
 \end{runintext}
 \begin{formulabox}
 \[ \sin\theta_1 = \frac{\lambda}{a} \quad \text{erstes Minimum Einzelspalt} \]
@@ -105,6 +110,7 @@ Ablenkung und Ausbreitung von Licht an Kanten und Einzelspalten als Folge des \Z
 \end{runintext}
 
 \SubsectionBar[sec:rayleigh-criterion]{Rayleigh}
+\ZSFindex{Rayleigh-Kriterium}
 \begin{runintext}
 Die Beugung an runden Öffnungen (Teleskope, Auge) limitiert das maximale optische \ZSFkeyword{Auflösungsvermögen}.
 \end{runintext}

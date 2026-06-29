@@ -5,7 +5,7 @@
 \StartChapter{Wechselstromkreise}
 
 \begin{runintext}
-Analyse von Stromkreisen bei \ZSFkeyword{sinusförmigen Spannungen}. Wichtige Konzepte umfassen \ZSFkeyword{Effektivwerte}, Blind- und Scheinwiderstände (\ZSFkeyword{Impedanz}) bei Spulen und Kondensatoren, sowie Leistung und oszillierende \ZSFkeyword{LC-Netzwerke}.
+Analyse von Stromkreisen bei \ZSFkeyword[Wechselspannung]{sinusförmigen Spannungen}. Wichtige Konzepte umfassen \ZSFkeyword[Effektivwert]{Effektivwerte}, Blind- und Scheinwiderstände (\ZSFkeyword{Impedanz}) bei Spulen und Kondensatoren, sowie Leistung und oszillierende \ZSFkeyword[LC-Netzwerk]{LC-Netzwerke}.
 \end{runintext}
 
 \SubsectionBar[sec:ac-voltage-rms]{Wechselspannung, Effektiv}
@@ -32,6 +32,7 @@ Grundlagen des Wechselstroms: Sinus-Signal, Peak-Strom und der zeitliche \ZSFkey
 \end{formulabox}
 
 \SubsectionBar[sec:reactance]{Blindwiderstände}
+\ZSFindex{Blindwiderstand}
 \begin{runintext}
 Der elektrische Widerstand von Spule und Kondensator für Wechselströme (zur Speicherung temporärer Energieanteile ohne Wirkleistungsverbrauch) und deren \ZSFkeyword{Phasenverschiebung}.
 \end{runintext}
@@ -56,6 +57,7 @@ Der elektrische Widerstand von Spule und Kondensator für Wechselströme (zur Sp
 \end{factlist}
 
 \SubsectionBar[sec:impedance]{Impedanz}
+\ZSFindexsee{Scheinwiderstand}{Impedanz}
 \begin{runintext}
 \ZSFkeyword{Impedanz} $Z$: frequenzabhängiger Gesamtwiderstand einer Wechselstrommasche, welcher Wirk- und Blindanteile vereint; Phasenbeziehungen via \ZSFkeyword{Zeigerdiagramm}.
 \end{runintext}
@@ -93,6 +95,9 @@ $<0 \to$ kapazitiv (Kondensator überwiegt, Strom eilt voraus).\\
 \end{warnbox}
 
 \SubsectionBar[sec:average-power]{Mittlere Leistung}
+\ZSFindex{Blindleistung}
+\ZSFindex{Scheinleistung}
+\ZSFindex{Leistungsfaktor}
 \begin{runintext}
 Warum Spule und Kondensator die Energie nur hin- und herschieben und nur der Ohm'sche Widerstand Energie in Wärme umwandelt (\ZSFkeyword{Wirkleistung}).
 \end{runintext}
@@ -113,8 +118,9 @@ Warum Spule und Kondensator die Energie nur hin- und herschieben und nur der Ohm
 \end{formulabox}
 
 \SubsectionBar[sec:transformers]{Transformatoren}
+\ZSFindex{Transformator}
 \begin{runintext}
-Hoch- oder Heruntertransformieren von Wechselspannungen mithilfe zweier \ZSFkeyword{magnetisch gekoppelter Spulen} (\ZSFkeyword{Primär-} und \ZSFkeyword{Sekundärseite}).
+Hoch- oder Heruntertransformieren von Wechselspannungen mithilfe zweier \ZSFkeyword*{magnetisch gekoppelter Spulen} (\ZSFkeyword*{Primär-} und \ZSFkeyword*{Sekundärseite}).
 \end{runintext}
 \begin{formulabox}
 \[ U_2 = \frac{n_2}{n_1}\,U_1 \quad (1 = \text{Primär\,/\,Netz},\ 2 = \text{Sekundär\,/\,Gerät}) \]

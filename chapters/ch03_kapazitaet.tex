@@ -5,15 +5,15 @@
 \StartChapter{Kapazität und Dielektrika}
 
 \begin{runintext}
-Formeln zu \ZSFkeyword{Kapazitäten} und \ZSFkeyword{Dielektrika}: Definition der Kapazität, typische Geometrien (Platte, Zylinder, Kugel), gespeicherte Energie und \ZSFkeyword{Energiedichte}, \ZSFkeyword{Reihen-} und \ZSFkeyword{Parallelschaltungen} sowie Einfluss von Dielektrika. Nützlich bei Aufgaben zu \ZSFkeyword{Kondensatoren}, Energiespeicherung, Schaltungen und Feldänderungen durch Materialeinbau.
+Formeln zu \ZSFkeyword[Kapazität]{Kapazitäten} und \ZSFkeyword{Dielektrika}: Definition der Kapazität, typische Geometrien (Platte, Zylinder, Kugel), gespeicherte Energie und \ZSFkeyword{Energiedichte}, \ZSFkeyword[Reihenschaltung]{Reihen-} und \ZSFkeyword[Parallelschaltung]{Parallelschaltungen} sowie Einfluss von Dielektrika. Nützlich bei Aufgaben zu \ZSFkeyword[Kondensator]{Kondensatoren}, Energiespeicherung, Schaltungen und Feldänderungen durch Materialeinbau.
 \end{runintext}
 
 \SubsectionBar[sec:capacitance]{Kapazität}
 \begin{runintext}
-Grundformeln für Spannung und \ZSFkeyword{Kapazität} von \ZSFkeyword{Kondensatoren}; nützlich, wenn aus Ladung und Spannung die Kapazität oder umgekehrt gesucht ist.
+Grundformeln für Spannung und \ZSFkeyword{Kapazität} von \ZSFkeyword[Kondensator]{Kondensatoren}; nützlich, wenn aus Ladung und Spannung die Kapazität oder umgekehrt gesucht ist.
 \end{runintext}
 \begin{defbox}[Kondensator]
-Zwei \ZSFkeyword{isolierte Leiter} mit gleich grosser, entgegengesetzter Ladung; speichert Ladung und Energie.
+Zwei \ZSFkeyword*{isolierte Leiter} mit gleich grosser, entgegengesetzter Ladung; speichert Ladung und Energie.
 \end{defbox}
 \begin{formulabox}
 \[ U = \overbrace{\varphi_b - \varphi_a}^{\text{Potentialdiff.}} \quad \text{Spannung } [\si{V}] \]
@@ -41,8 +41,11 @@ Formeln für Energie und \ZSFkeyword{Energiedichte} im Kondensatorfeld; nützlic
 \end{formulabox}
 
 \SubsectionBar[sec:capacitor-geometries]{Platte, Zylinder, Kugel}
+\ZSFindex{Plattenkondensator}
+\ZSFindex{Zylinderkondensator}
+\ZSFindex{Kugelkondensator}
 \begin{runintext}
-Spezielle Kapazitäten typischer Geometrien; brauchst du bei Aufgaben zu einzelnen realen Kondensatoren (\ZSFkeyword{Platte}, \ZSFkeyword{Koaxkabel}, \ZSFkeyword{Kugel}).
+Spezielle Kapazitäten typischer Geometrien; brauchst du bei Aufgaben zu einzelnen realen Kondensatoren (\ZSFkeyword*{Platte}, \ZSFkeyword{Koaxkabel}, \ZSFkeyword*{Kugel}).
 \end{runintext}
 
 \begin{defbox}[Plattenkondensator (Fläche $A$, Abstand $d$)]
@@ -89,8 +92,9 @@ Spezielle Kapazitäten typischer Geometrien; brauchst du bei Aufgaben zu einzeln
 
 \begin{minipage}{\linewidth}
 \SubsectionBar[sec:capacitors-series]{Reihenschaltung}
+\ZSFindexsee{Serienschaltung}{Reihenschaltung}
 \begin{runintext}
-Ersatzkapazität bei \ZSFkeyword{Serie}. Gleiche Ladung, Spannungen addieren sich (\ZSFkeyword{Maschenregel} $\sum U_k = 0$).
+Ersatzkapazität bei \ZSFkeyword[Reihenschaltung]{Serie}. Gleiche Ladung, Spannungen addieren sich (\ZSFkeyword{Maschenregel} $\sum U_k = 0$).
 \end{runintext}
 \begin{defbox}[Serienschaltung]
 \begin{splitbox}[0.45]
@@ -115,7 +119,7 @@ Ersatzkapazität bei \ZSFkeyword{Serie}. Gleiche Ladung, Spannungen addieren sic
 \begin{minipage}{\linewidth}
 \SubsectionBar*[sec:capacitors-parallel]{Parallelschaltung}
 \begin{runintext}
-Ersatzkapazität bei \ZSFkeyword{Parallel}. Gleicher Spannungsabfall, Ladungen addieren sich.
+Ersatzkapazität bei \ZSFkeyword[Parallelschaltung]{Parallel}. Gleicher Spannungsabfall, Ladungen addieren sich.
 \end{runintext}
 \begin{defbox}[Parallelschaltung]
 \begin{splitbox}[0.45]
@@ -135,6 +139,7 @@ Ersatzkapazität bei \ZSFkeyword{Parallel}. Gleicher Spannungsabfall, Ladungen a
 \end{minipage}
 
 \SubsectionBar[sec:dielectrics]{Dielektrika}
+\ZSFindex{Dielektrizitätskonstante}
 \begin{runintext}
 Formeln, wie isolierende Materialien (\ZSFkeyword{Dielektrika}) das Feld und die Kapazität verändern; nützlich beim Einbau von Medien zwischen Platten.
 \end{runintext}
@@ -146,11 +151,11 @@ Formeln, wie isolierende Materialien (\ZSFkeyword{Dielektrika}) das Feld und die
 \formulanote{Zweck: Kapazität $C$ mit Dielektrikum steigt gegenüber Vakuumkapazität $C_0$ um $\varepsilon_{\mathrm{rel}}$ (rel. Dielektrizitätskonstante).}
 \end{formulabox}
 \begin{propertylist}[Verhalten beim Einschub eines Dielektrikums]
-  \ZSFFact{Mit Spannungsquelle}{Spannung $U$ bleibt konstant. $C$ steigt proportional zu $\varepsilon_{\mathrm{rel}}$. Damit fliesst Ladung nach ($q$ steigt). Das \ZSFkeyword{elektrische Feld} $\vec{E}$ bleibt konstant ($E = U/d$).}
-  \ZSFFact{Ohne Spannungsquelle}{Ladung $q$ bleibt konstant (kann nicht ab- oder zufliessen). $C$ steigt. Spannung $U$ sinkt ($U=q/C$), und das \ZSFkeyword{elektrische Feld} sinkt proportional ($E = E_0 / \varepsilon_{\mathrm{rel}}$).}
+  \ZSFFact{Mit Spannungsquelle}{Spannung $U$ bleibt konstant. $C$ steigt proportional zu $\varepsilon_{\mathrm{rel}}$. Damit fliesst Ladung nach ($q$ steigt). Das \ZSFkeyword[Elektrisches Feld]{elektrische Feld} $\vec{E}$ bleibt konstant ($E = U/d$).}
+  \ZSFFact{Ohne Spannungsquelle}{Ladung $q$ bleibt konstant (kann nicht ab- oder zufliessen). $C$ steigt. Spannung $U$ sinkt ($U=q/C$), und das \ZSFkeyword[Elektrisches Feld]{elektrische Feld} sinkt proportional ($E = E_0 / \varepsilon_{\mathrm{rel}}$).}
 \end{propertylist}
 \begin{runintext}
-Mikroskopisch: \ZSFkeyword{Dipole} richten sich aus, erzeugen Gegenfeld. Anwendung: höhere Kapazität, \ZSFkeyword{Durchschlagfestigkeit}, mechanische Trennung.
+Mikroskopisch: \ZSFkeyword[Dipol]{Dipole} richten sich aus, erzeugen Gegenfeld. Anwendung: höhere Kapazität, \ZSFkeyword{Durchschlagfestigkeit}, mechanische Trennung.
 \end{runintext}
 
 \ZSFfig{graphics/Kondensator_mit_und_ohne_Dielektrikum.jpg}{Mit/ohne Dielektrikum}{Polarisierte Dipole schwächen $\vec{E}$ im Inneren}

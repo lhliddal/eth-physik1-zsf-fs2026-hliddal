@@ -5,12 +5,12 @@
 \StartChapter{Elektromagnetische Induktion}
 
 \begin{runintext}
-Zusammenhang zwischen zeitlich veränderlichen Magnetfeldern und induzierten elektrischen Spannungen. Kernthemas sind der \ZSFkeyword{magnetische Fluss}, das \ZSFkeyword{Faraday'sche Gesetz}, die \ZSFkeyword{Lenz'sche Regel} sowie induktive Bauteile und deren Energiedichte.
+Zusammenhang zwischen zeitlich veränderlichen Magnetfeldern und induzierten elektrischen Spannungen. Kernthemas sind der \ZSFkeyword[Magnetischer Fluss]{magnetische Fluss}, das \ZSFkeyword[Faraday'sches Gesetz]{Faraday'sche Gesetz}, die \ZSFkeyword{Lenz'sche Regel} sowie induktive Bauteile und deren Energiedichte.
 \end{runintext}
 
 \SubsectionBar[sec:magnetic-flux]{Magnetischer Fluss}
 \begin{runintext}
-Das "Zählen" der Magnetfeldlinien durch eine vorgegebene Querschnittsfläche; die entscheidende Grosse zur Berechnung von \ZSFkeyword{Induktionsphänomenen}.
+Das "Zählen" der Magnetfeldlinien durch eine vorgegebene Querschnittsfläche; die entscheidende Grosse zur Berechnung von \ZSFkeyword*{Induktionsphänomenen}.
 \end{runintext}
 \begin{formulabox}
 \[ \Phi_{\mathrm{mag}} = \int_A \vec{B}\cdot\mathrm{d}\vec{A} \quad \text{pro Windung} \]
@@ -26,7 +26,7 @@ Das "Zählen" der Magnetfeldlinien durch eine vorgegebene Querschnittsfläche; d
 
 \SubsectionBar[sec:faradays-law]{Faraday}
 \begin{runintext}
-Das \ZSFkeyword{Induktionsgesetz}: Jede Änderung des \ZSFkeyword{magnetischen Flusses} ruft eine \ZSFkeyword{Ringspannung} (und damit ein \ZSFkeyword{elektrisches Feld}) hervor.
+Das \ZSFkeyword{Induktionsgesetz}: Jede Änderung des \ZSFkeyword[Magnetischer Fluss]{magnetischen Flusses} ruft eine \ZSFkeyword{Ringspannung} (und damit ein \ZSFkeyword[Elektrisches Feld]{elektrisches Feld}) hervor.
 \end{runintext}
 
 \ZSFfig{graphics/Induktion_Leiterschleife_Flaechenaenderung_Delta_A_v.png}{{Bewegter Stab, Flächenänderung}}{$\Delta A=\ell\,v\,\Delta t$ liefert $U_{\text{ind}}=-B\ell v$}
@@ -57,12 +57,12 @@ Das \ZSFkeyword{Induktionsgesetz}: Jede Änderung des \ZSFkeyword{magnetischen F
 Wichtige Regel, um aus der \ZSFkeyword{Energieerhaltung} schnell die Richtung des induzierten Stromes zu bestimmen.
 \end{runintext}
 \begin{defbox}[Lenz'sche Regel]
-Induktionsspannung und -strom wirken ihrer \ZSFkeyword{Ursache entgegen}. Oder: Der durch Flussänderung induzierte Strom erzeugt einen Fluss, der der Änderung entgegenwirkt.
+Induktionsspannung und -strom wirken ihrer \ZSFkeyword*{Ursache entgegen}. Oder: Der durch Flussänderung induzierte Strom erzeugt einen Fluss, der der Änderung entgegenwirkt.
 \end{defbox}
 
 \SubsectionBar[sec:self-mutual-inductance]{Selbst-, Gegeninduktion}
 \begin{runintext}
-Die \ZSFkeyword{Induktivität} beschreibt die Eigenschaft von Spulen und Leitern, den Stromfluss aufgrund des selbstaufgebauten oder externen Magnetfeldes zu trägen (\ZSFkeyword{Selbst-} und \ZSFkeyword{Gegeninduktion}).
+Die \ZSFkeyword{Induktivität} beschreibt die Eigenschaft von Spulen und Leitern, den Stromfluss aufgrund des selbstaufgebauten oder externen Magnetfeldes zu trägen (\ZSFkeyword[Selbstinduktion]{Selbst-} und \ZSFkeyword{Gegeninduktion}).
 \end{runintext}
 \begin{formulabox}
 \[ L = \frac{n\,\Phi_{\mathrm{mag}}}{I} \]
@@ -87,6 +87,7 @@ Die \ZSFkeyword{Induktivität} beschreibt die Eigenschaft von Spulen und Leitern
 \end{formulabox}
 
 \SubsectionBar[sec:rl-circuits]{RL-Schaltungen}
+\ZSFindex{RL-Kreis}
 \begin{runintext}
 Zeitabhängiges Anwachsen und Abklingen von Strömen in einem Schaltkreis mit \ZSFkeyword{Spule} und Serienwiderstand.
 \end{runintext}
@@ -101,8 +102,9 @@ Zeitabhängiges Anwachsen und Abklingen von Strömen in einem Schaltkreis mit \Z
 \end{formulabox}
 
 \SubsectionBar[sec:magnetic-field-energy]{Energie Magnetfeld}
+\ZSFindex{Magnetische Feldenergie}
 \begin{runintext}
-Die im Magnetfeld und besonders in \ZSFkeyword{Induktivitäten} (wie Spulen) zwischengespeicherte Energie, welche nach Abbau den Strom noch fliessen lässt.
+Die im Magnetfeld und besonders in \ZSFkeyword[Induktivität]{Induktivitäten} (wie Spulen) zwischengespeicherte Energie, welche nach Abbau den Strom noch fliessen lässt.
 \end{runintext}
 \begin{formulabox}
 \[ E_{\mathrm{mag}} = \frac{1}{2}\,L\,I^2 \]
@@ -113,12 +115,13 @@ Die im Magnetfeld und besonders in \ZSFkeyword{Induktivitäten} (wie Spulen) zwi
 \end{formulabox}
 
 \SubsectionBar[sec:eddy-currents]{Wirbelströme}
+\ZSFindex{Wirbelstrom}
 \begin{runintext}
-Induzierte kreisförmige Ströme in massiven Leitern bei einer Änderung des \ZSFkeyword{magnetischen Flusses}.
+Induzierte kreisförmige Ströme in massiven Leitern bei einer Änderung des \ZSFkeyword[Magnetischer Fluss]{magnetischen Flusses}.
 \end{runintext}
 \begin{statementbox}[Effekte \& Gegenmaßnahmen]
-\ZSFkeyword{Energieverlust}: Die Ströme erzeugen Joule'sche Wärme. Gegenmaßnahme in Transformatoren: \ZSFkeyword{lamellierte} (geblechte) Eisenkerne. \ZSFgapXS
-\ZSFkeyword{Bremswirkung}: Induzierte Ströme erzeugen ein Gegenfeld, das der Bewegung entgegenwirkt (Lenz'sche Regel). Anwendung: \ZSFkeyword{Wirbelstrombremse}.
+\ZSFkeyword*{Energieverlust}: Die Ströme erzeugen Joule'sche Wärme. Gegenmaßnahme in Transformatoren: \ZSFkeyword*{lamellierte} (geblechte) Eisenkerne. \ZSFgapXS
+\ZSFkeyword*{Bremswirkung}: Induzierte Ströme erzeugen ein Gegenfeld, das der Bewegung entgegenwirkt (Lenz'sche Regel). Anwendung: \ZSFkeyword{Wirbelstrombremse}.
 \end{statementbox}
 
 % ============================================================

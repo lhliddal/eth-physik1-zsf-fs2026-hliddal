@@ -5,15 +5,15 @@
 \StartChapter{Gleichstromkreise}
 
 \begin{runintext}
-Formeln zu Strömen und Spannungen in Gleichstromschaltungen: Definition von \ZSFkeyword{Strom} und \ZSFkeyword{Stromdichte}, \ZSFkeyword{Ohm'sches Gesetz}, Widerstände, Leistung, reale Spannungsquellen, \ZSFkeyword{Kirchhoff-Regeln}, Ersatzwiderstände und \ZSFkeyword{RC-Zeitkonstanten}. Nützlich bei allen Aufgaben zu einfachen und zusammengesetzten Gleichstromkreisen, Messgeräten und Ent- bzw.\ Aufladung von Kondensatoren.
+Formeln zu Strömen und Spannungen in Gleichstromschaltungen: Definition von \ZSFkeyword{Strom} und \ZSFkeyword{Stromdichte}, \ZSFkeyword{Ohm'sches Gesetz}, Widerstände, Leistung, reale Spannungsquellen, \ZSFkeyword{Kirchhoff-Regeln}, Ersatzwiderstände und \ZSFkeyword[RC-Zeitkonstante]{RC-Zeitkonstanten}. Nützlich bei allen Aufgaben zu einfachen und zusammengesetzten Gleichstromkreisen, Messgeräten und Ent- bzw.\ Aufladung von Kondensatoren.
 \end{runintext}
 
 \SubsectionBar[sec:current-drift]{Strom, Drift}
 \begin{runintext}
-Zusammenhänge zwischen \ZSFkeyword{mikroskopischer Ladungsbewegung} und makroskopischem Strom; wichtig für das Verständnis des Ladungstransports.
+Zusammenhänge zwischen \ZSFkeyword*{mikroskopischer Ladungsbewegung} und makroskopischem Strom; wichtig für das Verständnis des Ladungstransports.
 \end{runintext}
 \begin{defbox}[Elektrischer Strom]
-Rate des \ZSFkeyword{Ladungsflusses} durch Querschnittsfläche.
+Rate des \ZSFkeyword*{Ladungsflusses} durch Querschnittsfläche.
 \end{defbox}
 \begin{formulabox}
 \begin{longformula}
@@ -33,8 +33,11 @@ $N$: Anzahl Teilchen (z.\,B.\ Elektronen), $e$: \ZSFkeyword{Elementarladung}, $n
 \end{runintext}
 
 \SubsectionBar[sec:ohms-law]{Ohm}
+\ZSFindex[Leitfahigkeit]{Leitfähigkeit}
+\ZSFindex{Widerstand}
+\ZSFindex{Spezifischer Widerstand}
 \begin{runintext}
-Das \ZSFkeyword{Ohm'sche Gesetz} und die Berechnung von Widerständen aus Materialeigenschaften; zentral für die Analyse von Stromkreisen.
+Das \ZSFkeyword[Ohm'sches Gesetz]{Ohm'sche Gesetz} und die Berechnung von Widerständen aus Materialeigenschaften; zentral für die Analyse von Stromkreisen.
 \end{runintext}
 \begin{formulabox}
 \[ R = \frac{U}{I} \quad \text{($[R] = \Omega = \text{V/A}$)} \]
@@ -63,7 +66,7 @@ $\ell$: Länge, $A$: Querschnitt, $\rho$: spez.\ Widerstand, $\sigma$: Leitfähi
 
 \SubsectionBar[sec:electric-power]{Leistung}
 \begin{runintext}
-Berechnung von \ZSFkeyword{elektrischer Leistung} und umgesetzter Energie; grundlegend für Leistungsbilanzen und Erwärmung von Bauteilen.
+Berechnung von \ZSFkeyword[Leistung]{elektrischer Leistung} und umgesetzter Energie; grundlegend für Leistungsbilanzen und Erwärmung von Bauteilen.
 \end{runintext}
 \begin{formulabox}
 \[ P = \frac{\mathrm{d}E}{\mathrm{d}t} \quad \text{allgemeine Definition} \]
@@ -78,6 +81,7 @@ Berechnung von \ZSFkeyword{elektrischer Leistung} und umgesetzter Energie; grund
 
 \begin{minipage}{\linewidth}
 \SubsectionBar[sec:kirchhoff-current]{Knotenregel}
+\ZSFindex{Knotenregel}
 \begin{runintext}
 Summe der zufliessenden Ströme ist gleich der Summe der abfliessenden Ströme an einer \ZSFkeyword{Verzweigung}.
 \end{runintext}
@@ -96,8 +100,9 @@ Summe der zufliessenden Ströme ist gleich der Summe der abfliessenden Ströme a
 
 \begin{minipage}{\linewidth}
 \SubsectionBar[sec:kirchhoff-voltage]{Maschenregel}
+\ZSFindex{Innenwiderstand}
 \begin{runintext}
-Die Summe aller Spannungsabfälle in einer geschlossenen Schleife (\ZSFkeyword{Masche}) ist null.
+Die Summe aller Spannungsabfälle in einer geschlossenen Schleife (\ZSFkeyword[Maschenregel]{Masche}) ist null.
 \end{runintext}
 \begin{defbox}[Maschenregel]
 \begin{splitbox}[0.4]
@@ -115,8 +120,9 @@ Die Summe aller Spannungsabfälle in einer geschlossenen Schleife (\ZSFkeyword{M
 \end{minipage}
 
 \SubsectionBar[sec:equivalent-resistance]{Ersatzwiderstände}
+\ZSFindex{Ersatzwiderstand}
 \begin{runintext}
-Regeln zur Kombination von \ZSFkeyword{in Reihe} und \ZSFkeyword{parallel} geschalteten Widerständen zur einfachen Reduktion von Teilschaltungen.
+Regeln zur Kombination von \ZSFkeyword[Reihenschaltung]{in Reihe} und \ZSFkeyword[Parallelschaltung]{parallel} geschalteten Widerständen zur einfachen Reduktion von Teilschaltungen.
 \end{runintext}
 \begin{formulabox}
 \[ R = R_1 + R_2 + R_3 + \cdots \quad \text{Reihe} \]
@@ -128,7 +134,7 @@ Regeln zur Kombination von \ZSFkeyword{in Reihe} und \ZSFkeyword{parallel} gesch
 
 \SubsectionBar[sec:rc-circuits]{RC-Kreise}
 \begin{runintext}
-Zeitabhängiges Verhalten von Strom und Ladung beim \ZSFkeyword{Auf-} und \ZSFkeyword{Entladen} von Kondensatoren über Widerstände.
+Zeitabhängiges Verhalten von Strom und Ladung beim \ZSFkeyword[Aufladung]{Auf-} und \ZSFkeyword[Entladung]{Entladen} von Kondensatoren über Widerstände.
 \end{runintext}
 \begin{runintext}
 \ZSFkeyword{Amperemeter}: kleiner $R$, in Reihe. \ZSFkeyword{Voltmeter}: grosser $R$, parallel. \ZSFkeyword{Ohmmeter}: Batterie + Galvanometer + $R$.

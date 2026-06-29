@@ -5,7 +5,7 @@
 \StartChapter{Magnetfeld}
 
 \begin{runintext}
-Grundlagen des \ZSFkeyword{Magnetfelds}: magnetische Kräfte auf bewegte Ladungen und Ströme, die Erzeugung von \ZSFkeyword{B-Feldern} durch Leiter (\ZSFkeyword{Biot-Savart}, \ZSFkeyword{Ampère}) sowie magnetische Eigenschaften der Materie. Zentral für Aufgaben zur Teilchenablenkung und Felderzeugung.
+Grundlagen des \ZSFkeyword[Magnetfeld]{Magnetfelds}: magnetische Kräfte auf bewegte Ladungen und Ströme, die Erzeugung von \ZSFkeyword[Magnetfeld]{B-Feldern} durch Leiter (\ZSFkeyword{Biot-Savart}, \ZSFkeyword{Ampère}) sowie magnetische Eigenschaften der Materie. Zentral für Aufgaben zur Teilchenablenkung und Felderzeugung.
 \end{runintext}
 \begin{runintext}
 \ZSFkeyword{Feldlinien} bilden immer geschlossene Schleifen (keine magnetischen Monopole).
@@ -13,7 +13,7 @@ Grundlagen des \ZSFkeyword{Magnetfelds}: magnetische Kräfte auf bewegte Ladunge
 
 \SubsectionBar[sec:lorentz-force]{Lorentz}
 \begin{runintext}
-Die elementare \ZSFkeyword{Kraft} auf Einzelteilchen und Leiterstücke im externen Magnetfeld; wichtig für prinzipielle Krafteinwirkungen.
+Die elementare \ZSFkeyword[Lorentzkraft]{Kraft} auf Einzelteilchen und Leiterstücke im externen Magnetfeld; wichtig für prinzipielle Krafteinwirkungen.
 \end{runintext}
 
 \ZSFfig{graphics/Elektromagnetismus_Rechte_Hand_Regel_Lorentzkraft_Vektoren.png}{Rechte-Hand-Regel}{Daumen $\vec{v}$, Zeige $\vec{B}$, Mittel $\vec{F}$ (für $+q$)}
@@ -45,8 +45,10 @@ Die elementare \ZSFkeyword{Kraft} auf Einzelteilchen und Leiterstücke im extern
 \end{defbox}
 
 \SubsectionBar[sec:particle-in-bfield]{Teilchen im B-Feld}
+\ZSFindex{Wien-Filter}
+\ZSFindexsee{Geschwindigkeitsfilter}{Wien-Filter}
 \begin{runintext}
-Dynamik von geladenen Teilchen in Magnetfeldern, speziell \ZSFkeyword{Kreisbahnen} und \ZSFkeyword{Massenspektrometrie}.
+Dynamik von geladenen Teilchen in Magnetfeldern, speziell \ZSFkeyword[Kreisbahn]{Kreisbahnen} und \ZSFkeyword[Massenspektrometer]{Massenspektrometrie}.
 \end{runintext}
 \begin{runintext}
 Senkrecht zu $\vec{B}$: \ZSFkeyword{Kreisbahn}; Periode/Frequenz unabhängig von $r$ und $v$.
@@ -79,7 +81,7 @@ Senkrecht zu $\vec{B}$: \ZSFkeyword{Kreisbahn}; Periode/Frequenz unabhängig von
 
 \SubsectionBar[sec:magnetic-moment-torque]{Moment, Drehmoment}
 \begin{runintext}
-Wirkung von Magnetfeldern auf \ZSFkeyword{Stromschleifen} (\ZSFkeyword{magnetische Dipole}); relevant z.\,B. für Elektromotoren.
+Wirkung von Magnetfeldern auf \ZSFkeyword[Stromschleife]{Stromschleifen} (\ZSFkeyword[Magnetischer Dipol]{magnetische Dipole}); relevant z.\,B. für Elektromotoren.
 \end{runintext}
 
 \ZSFfig{graphics/Magnetismus_Drehmoment_Leiterschleife_Homogenfeld.png}{Drehmoment Leiterschleife}{Schleife richtet sich parallel zu $\vec{B}$ aus ($\vec{M}=\vec{\mu}\times\vec{B}$)}
@@ -97,6 +99,8 @@ Homogenes $\vec{B}$: resultierende Kraft auf Schleife $=0$.
 \end{runintext}
 
 \SubsectionBar[sec:biot-savart]{Biot-Savart}
+\ZSFindex{Solenoid}
+\ZSFindex{Toroid}
 \begin{runintext}
 Das grundlegende Gesetz zur Berechnung des Magnetfelds aus einer beliebigen \ZSFkeyword{Stromverteilung}; nützlich für spezielle Geometrien.
 \end{runintext}
@@ -160,10 +164,10 @@ $\hat{r}$: Einheitsvektor von der Quelle (Ladung $q$ bzw. Stromelement $\mathrm{
 
 \SubsectionBar[sec:amperes-law]{Ampère}
 \begin{runintext}
-Berechnung des Magnetfelds bei \ZSFkeyword{hoher Symmetrie} (lange Leiter, Spulen) durch das \ZSFkeyword{Linienintegral} der magnetischen Feldstärke.
+Berechnung des Magnetfelds bei \ZSFkeyword*{hoher Symmetrie} (lange Leiter, Spulen) durch das \ZSFkeyword{Linienintegral} der magnetischen Feldstärke.
 \end{runintext}
 \begin{runintext}
-\ZSFkeyword{Feldlinien}: geschlossene Schleifen oder bis Unendlich; \ZSFkeyword{keine magnetischen Monopole}.
+\ZSFkeyword{Feldlinien}: geschlossene Schleifen oder bis Unendlich; \ZSFkeyword*{keine magnetischen Monopole}.
 \end{runintext}
 
 \begin{figbox}[{Ampère-Umlauf um Spule}]
@@ -183,8 +187,10 @@ Gültig für stetige Ströme; nützlich bei hoher Symmetrie.
 \end{runintext}
 
 \SubsectionBar[sec:magnetism-in-matter]{Magnetismus Materie}
+\ZSFindex{Magnetisierung}
+\ZSFindex[Magnetische Suszeptibilitat]{Magnetische Suszeptibilität}
 \begin{runintext}
-Wie verschiedene Materialien (\ZSFkeyword{Para-}, \ZSFkeyword{Ferro-}, \ZSFkeyword{Diamagnete}) externes Magnetfeld verstärken oder schwächen.
+Wie verschiedene Materialien (\ZSFkeyword[Paramagnetismus]{Para-}, \ZSFkeyword[Ferromagnetismus]{Ferro-}, \ZSFkeyword[Diamagnetismus]{Diamagnete}) externes Magnetfeld verstärken oder schwächen.
 \end{runintext}
 \begin{runintext}
 Para-, Ferro-, Diamagnetismus. $\vec{M}$: magnetisches Dipolmoment pro Volumen.
@@ -217,7 +223,7 @@ Para-, Ferro-, Diamagnetismus. $\vec{M}$: magnetisches Dipolmoment pro Volumen.
 \formulanote{Zweck: Curie-Gesetz (paramagnetisch, schwaches Feld).}
 \end{formulabox}
 \begin{runintext}
-\ZSFkeyword{Paramagnetisch}: $\chi_{\mathrm{mag}}>0$ (leicht feldverstärkend, T-abhängig). \ZSFkeyword{Diamagnetisch}: $\chi_{\mathrm{mag}}<0$ (leicht feldschwächend, Supraleiter $-1$). \ZSFkeyword{Ferromagnetisch}: sehr starke Verstärkung, \ZSFkeyword{Hysterese}, Weiss'sche Bezirke (kann permanent magnetisiert werden).
+\ZSFkeyword[Paramagnetismus]{Paramagnetisch}: $\chi_{\mathrm{mag}}>0$ (leicht feldverstärkend, T-abhängig). \ZSFkeyword[Diamagnetismus]{Diamagnetisch}: $\chi_{\mathrm{mag}}<0$ (leicht feldschwächend, Supraleiter $-1$). \ZSFkeyword[Ferromagnetismus]{Ferromagnetisch}: sehr starke Verstärkung, \ZSFkeyword{Hysterese}, Weiss'sche Bezirke (kann permanent magnetisiert werden).
 \end{runintext}
 
 % ============================================================

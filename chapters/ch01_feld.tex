@@ -5,15 +5,16 @@
 \StartChapter{Elektrisches Feld}
 
 \begin{runintext}
-Formeln zu Kräften und Feldern von Punktladungen und Ladungsverteilungen: \ZSFkeyword{Coulomb-Kraft}, elektrisches Feld einzelner und vieler Ladungen, \ZSFkeyword{Dipole}, Feldlinien, Fluss und \ZSFkeyword{Gauss-Gesetz}. Nützlich bei Aufgaben mit Ladungen, Feldverläufen, Fluss und Symmetrie-Gauss-Flächen.
+Formeln zu Kräften und Feldern von Punktladungen und Ladungsverteilungen: \ZSFkeyword{Coulomb-Kraft}, elektrisches Feld einzelner und vieler Ladungen, \ZSFkeyword[Dipol]{Dipole}, Feldlinien, Fluss und \ZSFkeyword{Gauss-Gesetz}. Nützlich bei Aufgaben mit Ladungen, Feldverläufen, Fluss und Symmetrie-Gauss-Flächen.
 \end{runintext}
 
 \SubsectionBar[sec:coulomb-charge]{Ladung, Coulomb}
+\ZSFindex{Coulomb'sches Gesetz}
 \begin{runintext}
-Formeln für Ladungsmengen und die Kraft zwischen zwei \ZSFkeyword{Punktladungen}; brauchst du, wenn in Aufgaben einzelne Ladungen und ihre Wechselwirkung im Abstand $r$ vorkommen.
+Formeln für Ladungsmengen und die Kraft zwischen zwei \ZSFkeyword[Punktladung]{Punktladungen}; brauchst du, wenn in Aufgaben einzelne Ladungen und ihre Wechselwirkung im Abstand $r$ vorkommen.
 \end{runintext}
 \begin{defbox}[Elementarladung]
-\ZSFkeyword{Quantisierung}: Ladung in Vielfachen von $e$. Elektron: $-e$, Proton: $+e$.
+\ZSFkeyword[Ladungsquantisierung]{Quantisierung}: Ladung in Vielfachen von $e$. Elektron: $-e$, Proton: $+e$.
 \end{defbox}
 \begin{formulabox}
 \[ e = 1{,}60 \times 10^{-19}\,\si{C} \]
@@ -35,6 +36,7 @@ Kraft von $q_1$ auf $q_2$ im Abstand $r$; $\hat{r}$ von $q_1$ nach $q_2$.
 \end{formulabox}
 
 \SubsectionBar[sec:efield-superposition]{Elektrisches Feld, Superposition}
+\ZSFindex{Superposition}
 \begin{runintext}
 Formeln für das elektrische Feld durch eine oder viele Ladungen; nützlich, wenn Feldstärken in Punkten und die Überlagerung mehrerer Ladungen gefragt sind.
 \end{runintext}
@@ -58,7 +60,7 @@ Formeln für das elektrische Feld durch eine oder viele Ladungen; nützlich, wen
 
 \SubsectionBar[sec:dipole]{Dipol}
 \begin{runintext}
-Formeln für \ZSFkeyword{Dipolmoment}, \ZSFkeyword{Drehmoment} und Energie eines Dipols im Feld; brauchst du bei Aufgaben zu polaren Molekülen oder kleinen Ladungspaaren im homogenen \ZSFkeyword{elektrischen Feld}. \ZSFkeyword{Dipol}: zwei entgegengesetzt gleiche Ladungen, Abstand $\vec{\ell}$ (von $-$ nach $+$).
+Formeln für \ZSFkeyword{Dipolmoment}, \ZSFkeyword{Drehmoment} und Energie eines Dipols im Feld; brauchst du bei Aufgaben zu polaren Molekülen oder kleinen Ladungspaaren im homogenen \ZSFkeyword[Elektrisches Feld]{elektrischen Feld}. \ZSFkeyword{Dipol}: zwei entgegengesetzt gleiche Ladungen, Abstand $\vec{\ell}$ (von $-$ nach $+$).
 \end{runintext}
 
 \begin{defbox}[Elektrischer Dipol \& Feldlinien]
@@ -92,7 +94,7 @@ Formeln für \ZSFkeyword{Dipolmoment}, \ZSFkeyword{Drehmoment} und Energie eines
 
 \SubsectionBar[sec:charge-distributions]{Ladungsverteilungen}
 \begin{runintext}
-Formel, um das \ZSFkeyword{elektrische Feld} \ZSFkeyword{kontinuierlicher Ladungsverteilungen} (Volumen-, Flächen- oder Linienladungen) über ein Integral zu berechnen; nützlich bei ausgedehnten Ladungswolken, Drähten oder Flächen.
+Formel, um das \ZSFkeyword[Elektrisches Feld]{elektrische Feld} \ZSFkeyword[Ladungsverteilung]{kontinuierlicher Ladungsverteilungen} (Volumen-, Flächen- oder Linienladungen) über ein Integral zu berechnen; nützlich bei ausgedehnten Ladungswolken, Drähten oder Flächen.
 \end{runintext}
 \begin{formulabox}
 \[ \vec{E} = \int \mathrm{d}\vec{E} = \frac{1}{4\pi\varepsilon_0} \int \frac{\mathrm{d}q}{r^2}\,\hat{r} \]
@@ -118,7 +120,7 @@ $\mathrm{d}q = \rho\,\mathrm{d}V$ (Raum), $\mathrm{d}q = \sigma\,\mathrm{d}A$ (F
 
 \SubsectionBar[sec:1-winkel]{Winkelparametrisierung}
 \begin{runintext}
-\ZSFkeyword{Winkelparametrisierung}: Geniales Rezept für Integrale über Linienleiter ($\vec{E}, \vec{B}$). Wandelt die unschöne Integration über den Ort $x$ in eine simple trigonometrische Integration über den Winkel $\vartheta$ um.
+\ZSFkeyword*{Winkelparametrisierung}: Geniales Rezept für Integrale über Linienleiter ($\vec{E}, \vec{B}$). Wandelt die unschöne Integration über den Ort $x$ in eine simple trigonometrische Integration über den Winkel $\vartheta$ um.
 \end{runintext}
 \begin{procedure}[Winkelparametrisierung]
   \ProcStep{Substitution}{%
@@ -144,7 +146,7 @@ $\mathrm{d}q = \rho\,\mathrm{d}V$ (Raum), $\mathrm{d}q = \sigma\,\mathrm{d}A$ (F
 
 \SubsectionBar[sec:electric-flux]{Elektrischer Fluss}
 \begin{runintext}
-Formel für den \ZSFkeyword{elektrischen Fluss} durch eine Fläche; brauchst du, wenn in Aufgaben Feldlinienanzahl oder Fluss durch eine gegebene Fläche vorkommt und als Vorbereitung für das \ZSFkeyword{Gauss-Gesetz}.
+Formel für den \ZSFkeyword[Elektrischer Fluss]{elektrischen Fluss} durch eine Fläche; brauchst du, wenn in Aufgaben Feldlinienanzahl oder Fluss durch eine gegebene Fläche vorkommt und als Vorbereitung für das \ZSFkeyword{Gauss-Gesetz}.
 \end{runintext}
 \begin{formulabox}
 \[ \Phi_{\mathrm{el}} = \lim_{\Delta A_i\to 0} \sum_i \vec{E}_i\cdot\Delta\vec{A}_i = \int_A \vec{E}\cdot\mathrm{d}\vec{A} \]
@@ -153,7 +155,7 @@ Formel für den \ZSFkeyword{elektrischen Fluss} durch eine Fläche; brauchst du,
 
 \SubsectionBar[sec:gauss-law]{Gauss}
 \begin{runintext}
-Integralform des \ZSFkeyword{Gauss-Gesetzes} und Randwerte am Leiter; nützlich zur Bestimmung von \ZSFkeyword{elektrischen Feldern} stark symmetrischer Ladungsverteilungen ohne explizite Integration.
+Integralform des \ZSFkeyword[Gauss-Gesetz]{Gauss-Gesetzes} und Randwerte am Leiter; nützlich zur Bestimmung von \ZSFkeyword[Elektrisches Feld]{elektrischen Feldern} stark symmetrischer Ladungsverteilungen ohne explizite Integration.
 \end{runintext}
 \begin{formulabox}
 \[ \Phi_{\mathrm{el}} = \oint_A \vec{E}\cdot\mathrm{d}\vec{A} = \oint_A E_n\,\mathrm{d}A = \frac{q_{\mathrm{innen}}}{\varepsilon_0} \]
@@ -188,7 +190,7 @@ Integralform des \ZSFkeyword{Gauss-Gesetzes} und Randwerte am Leiter; nützlich 
 
 \SubsectionBar[sec:symmetric-fields]{Symmetrische Felder}
 \begin{runintext}
-Fertige Resultate für \ZSFkeyword{elektrische Felder} typischer Symmetrien (Linienladung, Ring, Scheibe, Ebene, Kugel); praktisch zum schnellen Einsetzen in Zahlenaufgaben mit diesen \ZSFkeyword{Standardgeometrien}.
+Fertige Resultate für \ZSFkeyword[Elektrisches Feld]{elektrische Felder} typischer Symmetrien (Linienladung, Ring, Scheibe, Ebene, Kugel); praktisch zum schnellen Einsetzen in Zahlenaufgaben mit diesen \ZSFkeyword*{Standardgeometrien}.
 \end{runintext}
 \begin{formulabox}
 \[

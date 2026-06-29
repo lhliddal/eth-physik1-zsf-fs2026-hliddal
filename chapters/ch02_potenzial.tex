@@ -5,19 +5,20 @@
 \StartChapter{Elektrisches Potenzial und Energie}
 
 \begin{runintext}
-Formeln zum \ZSFkeyword{elektrischen Potenzial} (skalar, analog zu Höhenlinien auf Karte) und zur gespeicherten potentiellen Energie: \ZSFkeyword{Potenzialdifferenzen}, Potenziale typischer Ladungsverteilungen und Zusammenhang zwischen Potenzial und Feld. Nützlich bei Aufgaben zu Spannungen, \ZSFkeyword{Energiebilanzen}, Arbeit des Feldes und beim Wechsel zwischen Feld- und Potenzialbeschreibung.
+Formeln zum \ZSFkeyword[Elektrisches Potenzial]{elektrischen Potenzial} (skalar, analog zu Höhenlinien auf Karte) und zur gespeicherten potentiellen Energie: \ZSFkeyword[Potenzialdifferenz]{Potenzialdifferenzen}, Potenziale typischer Ladungsverteilungen und Zusammenhang zwischen Potenzial und Feld. Nützlich bei Aufgaben zu Spannungen, \ZSFkeyword*{Energiebilanzen}, Arbeit des Feldes und beim Wechsel zwischen Feld- und Potenzialbeschreibung.
 \end{runintext}
 
 \SubsectionBar[sec:potential-difference]{Potenzialdifferenz}
+\ZSFindex{Spannung}
 \begin{runintext}
-Formeln, wie sich \ZSFkeyword{Potenzialdifferenzen} aus dem \ZSFkeyword{elektrischen Feld} ergeben und welche Einheiten zu \ZSFkeyword{Volt} gehören; nützlich, wenn Spannungen aus Feldern oder verrichteter Arbeit bestimmt werden.
+Formeln, wie sich \ZSFkeyword[Potenzialdifferenz]{Potenzialdifferenzen} aus dem \ZSFkeyword[Elektrisches Feld]{elektrischen Feld} ergeben und welche Einheiten zu \ZSFkeyword{Volt} gehören; nützlich, wenn Spannungen aus Feldern oder verrichteter Arbeit bestimmt werden.
 \end{runintext}
 \begin{defbox}[Potenzialdifferenz]
-Negativ der \ZSFkeyword{Arbeit pro Ladungseinheit}, die das Feld verrichtet bei Verschiebung von $a$ nach $b$.
+Negativ der \ZSFkeyword*{Arbeit pro Ladungseinheit}, die das Feld verrichtet bei Verschiebung von $a$ nach $b$.
 \end{defbox}
 
 \begin{warnbox}[Merke: Potenzial-Berechnung]
-Elektrisches Potenzial \textbf{immer vom \ZSFkeyword{Referenzpunkt}} (meist bei $\infty$, wo $\varphi=0$) zum Zielpunkt $\vec{r}$ integrieren (Weg frei wählbar, da das \ZSFkeyword{elektrische Feld} konservativ ist):
+Elektrisches Potenzial \textbf{immer vom \ZSFkeyword{Referenzpunkt}} (meist bei $\infty$, wo $\varphi=0$) zum Zielpunkt $\vec{r}$ integrieren (Weg frei wählbar, da das \ZSFkeyword[Elektrisches Feld]{elektrische Feld} konservativ ist):
 \[ \varphi(\vec{r}) = -\int_{\infty}^{\vec{r}} \vec{E}\cdot\mathrm{d}\vec{s} \]
 \end{warnbox}
 
@@ -41,8 +42,9 @@ Elektrisches Potenzial \textbf{immer vom \ZSFkeyword{Referenzpunkt}} (meist bei 
 \end{formulabox}
 
 \SubsectionBar[sec:potential-distributions]{Potenzial, Verteilungen}
+\ZSFindex{Faraday-Käfig}
 \begin{runintext}
-Ausdrücke für das Potenzial verschiedener \ZSFkeyword{Ladungsverteilungen}; brauchst du, wenn Potenziale in Punkten gesucht oder Energien später über Potenziale berechnet werden.
+Ausdrücke für das Potenzial verschiedener \ZSFkeyword[Ladungsverteilung]{Ladungsverteilungen}; brauchst du, wenn Potenziale in Punkten gesucht oder Energien später über Potenziale berechnet werden.
 \end{runintext}
 \begin{formulabox}
 \[ \varphi = \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r} - \overbrace{\frac{1}{4\pi\varepsilon_0}\,\frac{q}{r_B}}^{\text{Bezugspotenzial}} \quad \text{Punktladung} \]
@@ -74,7 +76,7 @@ Potenzial stetig im Raum.
 \end{runintext}
 
 \begin{runintext}
-\textbf{Dünne Kugelschale} (Radius $R$, Ladung $Q$): Im Inneren ist das \ZSFkeyword{elektrische Feld} null (Faraday-Käfig) und das Potenzial ortsunabhängig konstant. Aussen wirkt die Schale wie eine Punktladung im Zentrum.
+\textbf{Dünne Kugelschale} (Radius $R$, Ladung $Q$): Im Inneren ist das \ZSFkeyword[Elektrisches Feld]{elektrische Feld} null (Faraday-Käfig) und das Potenzial ortsunabhängig konstant. Aussen wirkt die Schale wie eine Punktladung im Zentrum.
 \end{runintext}
 \begin{formulabox}
 \[
@@ -85,7 +87,7 @@ E = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}, \hfill & r > R \\
 \varphi = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r}, \hfill & r > R
 \end{cases}
 \]
-\formulanote{\ZSFkeyword{Erden}: Zwingt Potenzial auf $\varphi = 0$ ($\infty$-Speicher). Bei \ZSFkeyword{Influenz} (geerdet): zugewandte Seite lädt sich entgegengesetzt, abgewandte bleibt neutral (Ladungsabfluss).}
+\formulanote{\ZSFkeyword[Erdung]{Erden}: Zwingt Potenzial auf $\varphi = 0$ ($\infty$-Speicher). Bei \ZSFkeyword{Influenz} (geerdet): zugewandte Seite lädt sich entgegengesetzt, abgewandte bleibt neutral (Ladungsabfluss).}
 \end{formulabox}
 
 \begin{runintext}
@@ -104,11 +106,12 @@ Superposition: Gesamtpotenzial einer gleichmässig geladenen \textbf{Vollkugel} 
 \end{formulabox}
 
 \SubsectionBar[sec:efield-from-potential]{E und Grad phi}
+\ZSFindex[Aquipotenzialflache]{Äquipotenzialfläche}
 \begin{runintext}
-Zusammenhang zwischen Potenzial und Feld über Ableitungen bzw.\ den \ZSFkeyword{Gradienten}; nützlich, um aus einem gegebenen Potenzial das \ZSFkeyword{elektrische Feld} oder aus dem Feld die Potenzialänderung zu bestimmen.
+Zusammenhang zwischen Potenzial und Feld über Ableitungen bzw.\ den \ZSFkeyword[Gradient]{Gradienten}; nützlich, um aus einem gegebenen Potenzial das \ZSFkeyword[Elektrisches Feld]{elektrische Feld} oder aus dem Feld die Potenzialänderung zu bestimmen.
 \end{runintext}
 \begin{runintext}
-$\vec{E}$ zeigt in Richtung \ZSFkeyword{stärkster Abnahme} von $\varphi$ (Feldlinien stehen senkrecht auf Äquipotenziallinien).
+$\vec{E}$ zeigt in Richtung \ZSFkeyword*{stärkster Abnahme} von $\varphi$ (Feldlinien stehen senkrecht auf Äquipotenziallinien).
 \end{runintext}
 \begin{runintext}
 \textbf{Bedeutung der Indizes:} $t$ = tangentiale Richtung entlang eines Wegstücks $\mathrm{d}\vec{s}$; $x$ = kartesische Koordinate (Richtung x-Achse); $r$ = radiale Koordinate (Kugelkoordinaten oder Zylinderkoordinaten, Abstand von einer Achse/einem Punkt).
@@ -125,8 +128,9 @@ $\vec{E}$ zeigt in Richtung \ZSFkeyword{stärkster Abnahme} von $\varphi$ (Feldl
 \end{formulabox}
 
 \SubsectionBar[sec:electric-energy]{Elektrische Energie}
+\ZSFindex{Energie}
 \begin{runintext}
-Formeln für \ZSFkeyword{gespeicherte elektrische Energie} einzelner Ladungen, Leiter und Leitersysteme; brauchst du bei Energiebilanzen und Kapazitäts- bzw.\ Potenzialaufgaben.
+Formeln für \ZSFkeyword*{gespeicherte elektrische Energie} einzelner Ladungen, Leiter und Leitersysteme; brauchst du bei Energiebilanzen und Kapazitäts- bzw.\ Potenzialaufgaben.
 \end{runintext}
 \begin{formulabox}
 \[ E_{\mathrm{el}} = q_0\varphi = \frac{1}{4\pi\varepsilon_0}\,\frac{q_0 q}{r} \quad \text{($E_{\mathrm{el}}=0$ bei $r\to\infty$)} \]
