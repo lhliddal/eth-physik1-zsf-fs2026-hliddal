@@ -157,6 +157,27 @@
   \fi
 }
 
+% ------------------------------------------------------------
+% SubsectionBar-Orchestrierung (analog zur ChapterBar oben):
+% Eine Box direkt nach einer SubsectionBar kollabiert ihren before-skip auf
+% \ZSFsubsectionAfterGap, damit sie an der Bar klebt. Das Flag wird beim
+% naechsten Absatzbeginn automatisch geloescht (wie bei der ChapterBar).
+% ------------------------------------------------------------
+\newif\ifzsfAfterSubsectionBar
+\zsfAfterSubsectionBarfalse
+\newcommand{\ZSFConsumeAfterSubsectionBar}{%
+  \global\zsfAfterSubsectionBarfalse
+}
+\newcommand{\ZSFMarkAfterSubsectionBar}{%
+  \global\zsfAfterSubsectionBartrue
+  \AddToHookNext{para/begin}{\ZSFConsumeAfterSubsectionBar}%
+}
+% Box-before-skip: kollabiert nach einer SubsectionBar, sonst Standard-Luft
+% der Titelboxen (\ZSFtitleboxBeforeSkip).
+\newcommand{\ZSFBoxBeforeSkip}{%
+  \ifzsfAfterSubsectionBar\ZSFsubsectionAfterGap\else\ZSFtitleboxBeforeSkip\fi
+}
+
 \makeatletter
 \newcommand{\ZSFPostChapterSpacing}{\vspace*{\ZSFpostChapterNudge}}
 \newcommand{\StartChapter}[2][]{%

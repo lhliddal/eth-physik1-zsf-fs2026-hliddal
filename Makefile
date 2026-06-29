@@ -12,7 +12,9 @@ LATEX_DEFS := \def\ZSFBuildStamp{$(BUILD_STAMP)}\def\ZSFGitCommit{$(GIT_COMMIT)}
 .PHONY: build lint format check-main-full check-chapters check-root-clean check-pdf-identity sync-rules check-rules check-rule-authorship check release-proof all test clean
 
 build:
+	INDEXSTYLE="$(CURDIR)/styles:" \
 	latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=$(BUILD_DIR) -auxdir=$(BUILD_DIR) \
+		-e '$$makeindex = q{makeindex -r -s zsfindex.ist %O -o %D %S};' \
 		-pdflatex="pdflatex %O '$(LATEX_DEFS)\input{%S}'" $(MAIN)
 	@cp $(BUILD_DIR)/main.pdf "$(OUTPUT_PDF)"
 	@if [ -f "$(BUILD_DIR)/main.synctex.gz" ]; then cp $(BUILD_DIR)/main.synctex.gz "$(OUTPUT_SYNC)"; fi

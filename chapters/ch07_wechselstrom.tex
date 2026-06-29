@@ -36,13 +36,18 @@ Grundlagen des Wechselstroms: Sinus-Signal, Peak-Strom und der zeitliche \ZSFkey
 Der elektrische Widerstand von Spule und Kondensator für Wechselströme (zur Speicherung temporärer Energieanteile ohne Wirkleistungsverbrauch) und deren \ZSFkeyword{Phasenverschiebung}.
 \end{runintext}
 \begin{formulabox}
-\ZSFItemHeading{Ohmscher Widerstand}
 \[ I_{\mathrm{eff}} = \frac{U_{R,\mathrm{eff}}}{R} \quad \text{Strom und Spannung in Phase} \]
-\ZSFItemHeading{Spule (induktiv)}
+\formulanote{Zweck: Ohm'scher Widerstand bei Wechselstrom (Strom und Spannung in Phase).}
+\end{formulabox}
+
+\begin{formulabox}
 \[ X_L = \omega L \quad \implies \quad I_{\mathrm{eff}} = \frac{U_{L,\mathrm{eff}}}{\omega L} = \frac{U_{L,\mathrm{eff}}}{X_L} \]
-\ZSFItemHeading{Kondensator (kapazitiv)}
+\formulanote{Zweck: Induktiver Blindwiderstand $X_L$ einer Spule (Spannung eilt Strom um 90° voraus).}
+\end{formulabox}
+
+\begin{formulabox}
 \[ X_C = \frac{1}{\omega C} \quad \implies \quad I_{\mathrm{eff}} = \frac{U_{C,\mathrm{eff}}}{X_C} \]
-\formulanote{Zweck: Ohm'sches Gesetz an den Einzelelementen bei Wechselstrom.}
+\formulanote{Zweck: Kapazitiver Blindwiderstand $X_C$ eines Kondensators (Strom eilt Spannung um 90° voraus).}
 \end{formulabox}
 \begin{factlist}
   \ZSFFact{\ZSFkeyword{Spule}}{Spannung eilt Strom um 90° voraus.}
@@ -57,19 +62,24 @@ Der elektrische Widerstand von Spule und Kondensator für Wechselströme (zur Sp
 \begin{formulabox}
 \[ Z_R = R \quad Z_L = i\omega L \quad Z_C = \frac{1}{i\omega C} = -\frac{i}{\omega C} \]
 \formulanote{Zweck: Komplexe Impedanzen der Einzelelemente.}
-\formulasep
+\end{formulabox}
+
+\begin{formulabox}
 \[ \begin{aligned}
   Z_{\mathrm{ser}} &= \underbrace{R}_{\text{Wirk (Wärme)}} + i\underbrace{\left(\omega L - \frac{1}{\omega C}\right)}_{\text{Blind (zurück)}} \\
   |Z|_{\mathrm{ser}} &= \sqrt{R^2 + \left(\omega L - \tfrac{1}{\omega C}\right)^2}
 \end{aligned} \]
 \[ \tan(\Delta\varphi)_{\mathrm{ser}} = \frac{\omega L - 1/(\omega C)}{R} \quad \text{(RLC seriell)} \]
-\formulasep
+\formulanote{Zweck: Impedanz, Betrag und Phasenwinkel im RLC-Serienkreis.}
+\end{formulabox}
+
+\begin{formulabox}
 \[ \begin{aligned}
   \frac{1}{Z_{\mathrm{par}}} &= \underbrace{\frac{1}{R}}_{\text{Wirk (Wärme)}} + i\underbrace{\left(\omega C - \frac{1}{\omega L}\right)}_{\text{Blind (zurück)}} \\
   \frac{1}{|Z|_{\mathrm{par}}} &= \sqrt{\frac{1}{R^2} + \left(\omega C - \tfrac{1}{\omega L}\right)^2}
 \end{aligned} \]
 \[ \tan(\Delta\varphi)_{\mathrm{par}} = R\!\left(\omega C - \frac{1}{\omega L}\right) \quad \text{(RLC parallel)} \]
-\formulanote{Zweck: Impedanz, Betrag und Phasenwinkel im RLC-Serien- und Parallelkreis.}
+\formulanote{Zweck: Impedanz, Betrag und Phasenwinkel im RLC-Parallelkreis.}
 \end{formulabox}
 
 \begin{warnbox}[Spannungs- \& Stromaddition]

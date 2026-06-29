@@ -1,6 +1,6 @@
 # ZSF Physik 1 — AGENTS.md
 
-> AUTO-GENERATED — rules-hash:320c208349962ad0
+> AUTO-GENERATED — rules-hash:7cd7bedc3131404c
 >
 > Quelle: `rules/*.md` (mit YAML-Frontmatter).
 > Nicht direkt bearbeiten. Änderungen: `rules/*.md` editieren → `make sync-rules`.
@@ -18,6 +18,7 @@ Bei Konflikt zwischen dieser Datei und `rules/*.md` gewinnen die Quelldateien.
 - `rules/30_spacing.md`
 - `rules/40_tables.md`
 - `rules/50_math.md`
+- `rules/55_index.md`
 - `rules/60_workflow.md`
 - `rules/70_github.md`
 - `rules/80_didaktik.md`
@@ -43,6 +44,7 @@ Bei Konflikt zwischen dieser Datei und `rules/*.md` gewinnen die Quelldateien.
 - `30_spacing.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/30_layout_spacing.tex` — Spacing-Register (ZSFspace*), Gap-Makros (ZSFgap*), Section-Gap — keine rohen Spacing-/Break-Befehle in Kapiteln, Overflow-Vermeidung
 - `40_tables.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/20_tables.tex` — Tabellen ausschließlich über ZSFtable/ZSFtableFlat/ZSFtablePlain, Spaltentypen L/C/R und Y/Z/Q/F, verbotene Roh-Tabellen-Befehle
 - `50_math.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/10_math.tex` — Math-Makros zentral in styles/10_math.tex (\\sgn, \\vect, ZSFmhlA/B/C/D); neue Operatoren nur dort, keine rohen \\operatorname/\\mathbb in Kapiteln
+- `55_index.md` — Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/65_index.tex` — Stichwortverzeichnis: ZSFkeyword-Auto-Indexierung, ZSFindex/ZSFindexsee, Eintrags-Override, Umlaut-Sortkeys — Eintraege verweisen auf Abschnittsnummern
 - `60_workflow.md` — Project-wide — Build-/Check-Workflow (make build/check/sync-rules/check-rules), Agent-Build-Pflicht nach jeder Änderung, Datei-Platzierung
 - `70_github.md` — Scoped; gilt bei Änderungen an `.github/**`, `Makefile`, `tests/**`, `styles/75_pdf_identity.tex`, `README.md` — Naming-Konventionen (Repo, PDF, Tags), GitHub Actions (CI Build, Release), PDF-Identity als Single Source of Truth
 - `80_didaktik.md` — Project-wide; besonders relevant für `chapters/**/*.tex` — Didaktisches Prinzip für Inhalt/Erklärungen: nützlicher + intuitiver statt korrekter, Rezept-Charakter, Stolperfallen, scannbares Design + Übersichtlichkeit — keine eigenmächtigen Präzisierungen
@@ -245,6 +247,36 @@ Mathematische Makros liegen zentral in `styles/10_math.tex`.
 - Keine rohen `\operatorname{…}`-Wiederholungen in Kapiteln, wenn ein zentrales Makro existiert oder sinnvoll ist.
 - **Klammer-Annotationen (`\overbrace{...}^{\text{...}}` / `\underbrace{...}_{\text{...}}`):** Sollen gezielt eingesetzt werden, um physikalische Bedeutungen direkt an Formelbestandteilen zu annotieren (z. B. Potentialdifferenz über Termen). Dies erhöht die Übersichtlichkeit und Scannbarkeit in der Prüfung drastisch.
 - Lange Formeln über `aligned` umbrechen (siehe `30_spacing`).
+
+### `55_index.md`
+
+- Quelle: `rules/55_index.md`
+- Scope: Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/65_index.tex`
+- Beschreibung: Stichwortverzeichnis: ZSFkeyword-Auto-Indexierung, ZSFindex/ZSFindexsee, Eintrags-Override, Umlaut-Sortkeys — Eintraege verweisen auf Abschnittsnummern
+- Zuletzt aktualisiert: 2026-06-29 (claude)
+
+Am Dokumentanfang steht ein alphabetisches Stichwortverzeichnis (`chapters/ch00_index.tex`, Maschinerie in `styles/65_index.tex`). Einträge verweisen auf **Abschnittsnummern** („6.2") in der Farbe des Zielkapitels — konsistent zu `\ZSFref`. Der Index ist der erste Scan-Anker: in der Prüfung schlägt man hier nach und springt über die farbige Nummer ins richtige Kapitel.
+
+##### Eintrags-Makros
+
+- `\ZSFkeyword{Begriff}` erzeugt **automatisch** einen Indexeintrag (zusätzlich zur Fettung) — es ist keine manuelle Pflege nötig.
+  - `\ZSFkeyword*{Begriff}`: opt-out — nur fett, kein Eintrag (z.B. für Wiederholungen oder generische Begriffe).
+  - `\ZSFkeyword[sortkey@Anzeigeform]{Begriff}`: Override für Sortierung und/oder abweichende Indexform (Anzeigetext im Fließtext bleibt `Begriff`).
+- `\ZSFindex[sortkey]{Begriff}`: unsichtbarer Eintrag — für Begriffe, die nicht als `\ZSFkeyword` im Text stehen (defbox-Titel, Verfahrensnamen, Tabellen-Themen).
+- `\ZSFindexsee{Synonym}{Ziel}`: Verweis-Eintrag „Synonym, siehe Ziel" — am kanonischen Ort des Ziels platzieren.
+
+##### Konventionen
+
+- **Kein Mathe / keine Makros im Begriff:** Index-Begriffe sind reiner Text. Enthält ein `\ZSFkeyword` Mathe-Modus (`$...$`) oder Makros, per `[sortkey@Anzeige]`-Override eine reine Textform setzen (Beispiel: `\ZSFkeyword[Flussdichte@Flussdichte]{Flussdichte $\vec{B}$}`).
+- **Umlaut-Sortkeys bei Bedarf:** Begriffe, die mit Ä/Ö/Ü/ß beginnen oder im sortierrelevanten Teil Umlaute enthalten, brauchen einen Sortkey mit Transliteration nach DIN 5007-1 (ä→a, ö→o, ü→u, ß→ss) — sonst sortiert makeindex sie hinter Z. Beispiel: `\ZSFkeyword[Leitfahigkeit@Leitfähigkeit]{Leitfähigkeit}`.
+- **Verbotene Zeichen** in Index-Begriffen: `!`, `@`, `|`, `"` (makeindex-Steuerzeichen).
+- **Platzierung:** Unsichtbare `\ZSFindex`/`\ZSFindexsee`-Einträge direkt nach der zugehörigen `\SubsectionBar` bzw. Box — nie in Formeln, Titeln oder `\formulanote`.
+- **Entweder–oder:** Ein Begriff ist entweder see-Eintrag oder nummerierter Eintrag, nie beides (makeindex-Encap-Konflikt).
+- Die Eintragsnummer ist die aktuelle Subsection; vor der ersten `\SubsectionBar` eines Kapitels die Kapitelnummer.
+
+##### Build
+
+`make build` ist verpflichtend — es setzt `INDEXSTYLE` und konfiguriert latexmk so, dass `makeindex` mit `styles/zsfindex.ist` läuft. Roh-Aufrufe (`pdflatex`/`makeindex` direkt) erzeugen kein korrektes Verzeichnis.
 
 ### `60_workflow.md`
 

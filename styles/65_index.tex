@@ -1,0 +1,100 @@
+% ============================================================
+% 65_index.tex — Stichwortverzeichnis (alphabetischer Index)
+% ============================================================
+% Index-Eintraege verweisen auf ABSCHNITTSNUMMERN ("6.2"), nicht auf
+% Seitenzahlen — konsistent zum \ZSFref-Wegweiser-Prinzip. Jede Nummer
+% wird in der Palette-Farbe des Zielkapitels gerendert.
+%
+% Mechanik: Eintraege werden SOFORT via \immediate\write in die .idx
+% geschrieben (Nummer per \edef eingefroren) — nicht beim Shipout, denn
+% dort waere \thesubsection laengst weitergezaehlt. makeindex sortiert
+% mit styles/zsfindex.ist (page_compositor ".") und merged identische
+% Duplikate aus tabularx/tblr-Mehrfach-Trials automatisch.
+%
+% Oeffentliche Makros (Verwendung in Kapiteln, siehe rules/55_index.md):
+%   \ZSFkeyword{X}              — fett + automatischer Indexeintrag
+%   \ZSFkeyword*{X}             — nur fett, KEIN Indexeintrag
+%   \ZSFkeyword[sort@Anzeige]{X}— Eintrag-Override (Umlaut-Sortkey,
+%                                 abweichende Indexform)
+%   \ZSFindex[sortkey]{Begriff} — unsichtbarer Eintrag
+%   \ZSFindexsee{Synonym}{Ziel} — Verweis "Synonym, siehe Ziel N.N"
+
+\makeindex
+\renewcommand{\seename}{siehe}
+
+% ------------------------------------------------------------
+% Sofort-Writer
+% ------------------------------------------------------------
+\makeatletter
+% Aktuelle Abschnittsnummer einfrieren; vor der ersten \SubsectionBar
+% eines Kapitels (subsection=0) Fallback auf die Kapitelnummer.
+\newcommand{\ZSF@idxnumnow}{%
+  \ifnum\value{subsection}>0 \thesubsection\else\thesection\fi}
+% #1 = Eintrag (ggf. sort@display), #2 = Encap (ZSFidxnum | see{...})
+\newcommand{\ZSF@writeidx}[2]{%
+  \@ifundefined{@indexfile}{}{%
+    \begingroup
+      \edef\ZSF@num{\ZSF@idxnumnow}%
+      \protected@edef\ZSF@line{\string\indexentry{#1|#2}{\ZSF@num}}%
+      \immediate\write\@indexfile{\ZSF@line}%
+    \endgroup}}
+
+% ------------------------------------------------------------
+% Oeffentliche Eintrags-Makros
+% ------------------------------------------------------------
+% (bleiben im \makeatletter-Block: Bodies referenzieren \ZSF@writeidx)
+\NewDocumentCommand{\ZSFindex}{o m}{%
+  \IfNoValueTF{#1}%
+    {\ZSF@writeidx{#2}{ZSFidxnum}}%
+    {\ZSF@writeidx{#1@#2}{ZSFidxnum}}}
+\NewDocumentCommand{\ZSFindexsee}{o m m}{%
+  \IfNoValueTF{#1}%
+    {\ZSF@writeidx{#2}{see{#3}}}%
+    {\ZSF@writeidx{#1@#2}{see{#3}}}}
+
+% \ZSFkeyword (Basisdefinition in 50_typography_semantics) indexiert
+% jetzt automatisch mit — Rendering bleibt \textbf.
+\RenewDocumentCommand{\ZSFkeyword}{s o m}{%
+  \textbf{#3}%
+  \IfBooleanF{#1}{%
+    \IfNoValueTF{#2}{\ZSFindex{#3}}{\ZSFindex{#2}}}}
+\makeatother
+
+% ------------------------------------------------------------
+% Rendering der Eintragsnummern (Encap)
+% ------------------------------------------------------------
+% makeindex emittiert \ZSFidxnum{6.2}; Kapitelziffer-Extraktion wie bei
+% \ZSFref (\ZSF@refExtractChap aus 50_typography_semantics).
+\makeatletter
+\newcommand{\ZSFidxnum}[1]{%
+  {\upshape\bfseries\color{ChapterColor\expandafter\ZSF@refExtractChap#1.\@nil}#1}}
+% see-Eintraege: Ziel + Abschnittsnummer direkt (kein Nachschlagen noetig).
+% makeindex liefert \see{Ziel}{Abschnitt}; #2 ist die am Zielort
+% eingefrorene Nummer (Konvention: \ZSFindexsee am kanonischen Ort).
+\renewcommand*\see[2]{\emph{\seename} #1\enspace\ZSFidxnum{#2}}
+\makeatother
+
+% ------------------------------------------------------------
+% theindex-Umgebung (Override) + Buchstaben-Heading
+% ------------------------------------------------------------
+% article-Default macht \twocolumn — illegal in multicols*. Stattdessen
+% einfache haengende Liste im laufenden 4-Spalten-Fluss.
+\makeatletter
+\newcommand{\ZSF@idxitem}{\par\hangindent 1.2em\relax}
+\newcommand{\ZSF@idxsubitem}{\par\hangindent 2em\hspace*{1em}}
+\newcommand{\ZSF@idxsubsubitem}{\par\hangindent 2.6em\hspace*{1.8em}}
+\newcommand{\ZSF@idxspace}{\par\addvspace{\ZSFspaceM}}
+\renewenvironment{theindex}{%
+  \begingroup
+  \RaggedRight
+  \setlength{\parindent}{0pt}%
+  \setlength{\parskip}{0pt plus 0.3pt}%
+  \let\item\ZSF@idxitem
+  \let\subitem\ZSF@idxsubitem
+  \let\subsubitem\ZSF@idxsubsubitem
+  \let\indexspace\ZSF@idxspace
+}{\par\endgroup}
+\makeatother
+\newcommand{\ZSFIndexLetter}[1]{%
+  \par\addvspace{\ZSFspaceM}%
+  {\ZSFfontBoxTitle #1}\par\nobreak\addvspace{\ZSFspaceXS}}

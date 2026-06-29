@@ -107,6 +107,7 @@
     \textcolor{white}{\thesubsection. #2}
   \end{subsectionbar}
   \penalty10000
+  \ZSFMarkAfterSubsectionBar
 }
 \newcommand{\SubsectionBarStar}[2][]{
   \ZSFSubsectionBarTopSpacing
@@ -116,6 +117,7 @@
     \textcolor{white}{#2}
   \end{subsectionbar}
   \penalty10000
+  \ZSFMarkAfterSubsectionBar
 }
 \makeatother
 
@@ -153,7 +155,7 @@
   boxsep=0pt,
   arc=\ZSFboxArc,
   outer arc=\ZSFboxArc,
-  before skip=\ZSFtitleboxBeforeSkip,
+  before skip=\ZSFBoxBeforeSkip,
   after skip=\ZSFspaceS,
   before={\ZSFConsumeAfterChapterBar},
   zsftitlebar,
@@ -184,7 +186,7 @@
   right=\ZSFspaceM,
   top=\ZSFspaceM,
   bottom=\ZSFspaceM,
-  before skip=\ZSFtitleboxBeforeSkip,
+  before skip=\ZSFBoxBeforeSkip,
   after skip=\ZSFspaceS,
   before={\ZSFConsumeAfterChapterBar},
   before upper={\parskip=\ZSFspaceS\relax\ZSFReadableAuto},
@@ -377,7 +379,7 @@
   right=\ZSFspaceS,
   top=\ZSFspaceXS,
   bottom=\ZSFspaceXS,
-  before skip=\ZSFtitleboxBeforeSkip,
+  before skip=\ZSFBoxBeforeSkip,
   after skip=\ZSFspaceS,
   before={\ZSFConsumeAfterChapterBar},
   before upper={\ZSFReadableAuto},

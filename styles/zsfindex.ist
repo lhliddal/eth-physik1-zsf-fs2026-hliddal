@@ -1,0 +1,12 @@
+% zsfindex.ist — makeindex-Style fuer das Stichwortverzeichnis
+% "Seitenzahlen" sind Abschnittsnummern (6.2): page_compositor "." laesst
+% makeindex sie als zusammengesetzte Nummern parsen und sortieren.
+page_compositor "."
+headings_flag 1
+heading_prefix "\\ZSFIndexLetter{"
+heading_suffix "}"
+symhead_positive "Symbole"
+numhead_positive "Zahlen"
+delim_0 "\\enspace "
+delim_1 "\\enspace "
+delim_n ", "
