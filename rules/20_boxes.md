@@ -4,8 +4,8 @@ globs: ["chapters/**/*.tex", "styles/60_boxes.tex", "styles/40_colors_structure.
 alwaysApply: false
 decisionOwner: ai
 decisionStatus: final
-lastUpdatedBy: codex
-lastUpdatedAt: 2026-06-27
+lastUpdatedBy: claude
+lastUpdatedAt: 2026-06-29
 ---
 
 Für inhaltliche Darstellungen die vordefinierten Umgebungen nutzen.
@@ -48,6 +48,7 @@ Niemals `\section` / `\subsection` / `\chapter` direkt.
 - `\ZSFdanger{Achtung-Text}` — Inline-Pill für Stolperfallen / kritische Ausnahmen.
 - `\ZSFconclusion{Folgerung}` — leitet eine Folgerung ein.
 - `\ZSFref{label}` — Querverweis, gerendert als `(→ 6.6)` in der Farbe des Zielkapitels. Nur wenn eine Stelle ein Verfahren/Gesetz aus einem **anderen** Kapitel nutzt. Ziel-Label via `\SubsectionBar[sec:...]{Titel}`.
+- **Label-Konvention:** Abschnitts-Labels sind **deskriptiv** und englisch (`sec:faradays-law`, `sec:rc-circuits`) — **nicht** numerisch (`sec:6-2`). Numerische Labels brechen bei jeder Umsortierung und sind in `\ZSFref` nicht lesbar; deskriptive bleiben stabil. Tote Verweise (`\ZSFref`/`\hyperref` auf ein fehlendes Label) fängt `make check` über `tests/check_refs.sh`.
 - Niemals `\textbf{}` / `\textit{}` zur semantischen Hervorhebung — die obigen Marker nutzen.
 
 ## Semantisches Formel-Highlighting

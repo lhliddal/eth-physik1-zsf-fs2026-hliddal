@@ -1,6 +1,6 @@
 # ZSF Physik 1 — .github/copilot-instructions.md
 
-> AUTO-GENERATED — rules-hash:7cd7bedc3131404c
+> AUTO-GENERATED — rules-hash:e6cea7b66a945b72
 >
 > Quelle: `rules/*.md` (mit YAML-Frontmatter).
 > Nicht direkt bearbeiten. Änderungen: `rules/*.md` editieren → `make sync-rules`.
@@ -124,7 +124,7 @@ Die Konfiguration ist modular organisiert. Bei Layout-Änderungen NICHT die Kapi
 - Quelle: `rules/20_boxes.md`
 - Scope: Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/60_boxes.tex`, `styles/40_colors_structure.tex`, `styles/50_typography_semantics.tex`
 - Beschreibung: Box-Auswahl (Decision Tree), Struktur-Makros (StartChapter, SubsectionBar), Inline-Marker (ZSFkeyword, ZSFdanger, ZSFconclusion), Formel-Highlighting
-- Zuletzt aktualisiert: 2026-06-27 (codex)
+- Zuletzt aktualisiert: 2026-06-29 (claude)
 
 Für inhaltliche Darstellungen die vordefinierten Umgebungen nutzen.
 
@@ -166,6 +166,7 @@ Niemals `\section` / `\subsection` / `\chapter` direkt.
 - `\ZSFdanger{Achtung-Text}` — Inline-Pill für Stolperfallen / kritische Ausnahmen.
 - `\ZSFconclusion{Folgerung}` — leitet eine Folgerung ein.
 - `\ZSFref{label}` — Querverweis, gerendert als `(→ 6.6)` in der Farbe des Zielkapitels. Nur wenn eine Stelle ein Verfahren/Gesetz aus einem **anderen** Kapitel nutzt. Ziel-Label via `\SubsectionBar[sec:...]{Titel}`.
+- **Label-Konvention:** Abschnitts-Labels sind **deskriptiv** und englisch (`sec:faradays-law`, `sec:rc-circuits`) — **nicht** numerisch (`sec:6-2`). Numerische Labels brechen bei jeder Umsortierung und sind in `\ZSFref` nicht lesbar; deskriptive bleiben stabil. Tote Verweise (`\ZSFref`/`\hyperref` auf ein fehlendes Label) fängt `make check` über `tests/check_refs.sh`.
 - Niemals `\textbf{}` / `\textit{}` zur semantischen Hervorhebung — die obigen Marker nutzen.
 
 ##### Semantisches Formel-Highlighting
@@ -283,13 +284,13 @@ Am Dokumentanfang steht ein alphabetisches Stichwortverzeichnis (`chapters/ch00_
 - Quelle: `rules/60_workflow.md`
 - Scope: Project-wide
 - Beschreibung: Build-/Check-Workflow (make build/check/sync-rules/check-rules), Agent-Build-Pflicht nach jeder Änderung, Datei-Platzierung
-- Zuletzt aktualisiert: 2026-06-10 (loris)
+- Zuletzt aktualisiert: 2026-06-29 (claude)
 
 ##### Workflow-Befehle
 
 ```bash
 make build                  # latexmk -> physik1_fs2026_hliddal.pdf (Aux nach build/)
-make check                  # check-main-full + check-chapters + check-root-clean
+make check                  # check-main-full + check-chapters + check-refs + check-root-clean
                             #   + check-pdf-identity + lint + check-rule-authorship + check-rules
 make sync-rules             # rules/*.md -> MODULAR_SYSTEM.md, CLAUDE.md, AGENTS.md,
                             #   .github/copilot-instructions.md, .cursor/rules/*.mdc

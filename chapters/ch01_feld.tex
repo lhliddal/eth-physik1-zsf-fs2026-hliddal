@@ -8,7 +8,7 @@
 Formeln zu Kräften und Feldern von Punktladungen und Ladungsverteilungen: \ZSFkeyword{Coulomb-Kraft}, elektrisches Feld einzelner und vieler Ladungen, \ZSFkeyword{Dipole}, Feldlinien, Fluss und \ZSFkeyword{Gauss-Gesetz}. Nützlich bei Aufgaben mit Ladungen, Feldverläufen, Fluss und Symmetrie-Gauss-Flächen.
 \end{runintext}
 
-\SubsectionBar[sec:1-1]{Ladung, Coulomb}
+\SubsectionBar[sec:coulomb-charge]{Ladung, Coulomb}
 \begin{runintext}
 Formeln für Ladungsmengen und die Kraft zwischen zwei \ZSFkeyword{Punktladungen}; brauchst du, wenn in Aufgaben einzelne Ladungen und ihre Wechselwirkung im Abstand $r$ vorkommen.
 \end{runintext}
@@ -34,27 +34,31 @@ Kraft von $q_1$ auf $q_2$ im Abstand $r$; $\hat{r}$ von $q_1$ nach $q_2$.
 \formulanote{Zweck: Coulomb-Konstante bzw.\ Einheit.}
 \end{formulabox}
 
-\SubsectionBar[sec:1-2]{E-Feld, Superposition}
+\SubsectionBar[sec:efield-superposition]{Elektrisches Feld, Superposition}
 \begin{runintext}
 Formeln für das elektrische Feld durch eine oder viele Ladungen; nützlich, wenn Feldstärken in Punkten und die Überlagerung mehrerer Ladungen gefragt sind.
 \end{runintext}
 \begin{formulabox}
 \[ \vec{E} = \frac{\vec{F}}{q_0} \]
-\formulanote{Zweck: E-Feld Definition (Kraft $\vec{F}$ pro Probeladung $q_0$).}
-\formulasep
+\formulanote{Zweck: Definition des elektrischen Feldes (Kraft $\vec{F}$ pro Probeladung $q_0$).}
+\end{formulabox}
+
+\begin{formulabox}
 \[ \vec{E} = \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r^2}\,\hat{r} \quad \text{Punktladung} \]
-\formulanote{Zweck: E-Feld einer Punktladung.}
-\formulasep
+\formulanote{Zweck: Elektrisches Feld einer Punktladung.}
+\end{formulabox}
+
+\begin{formulabox}
 \[ \vec{E} = \sum_i \vec{E}_i = \sum_i \frac{1}{4\pi\varepsilon_0}\,\frac{q_i}{r_i^2}\,\hat{r}_i \quad \text{Superposition} \]
-\formulanote{Zweck: Superposition (E-Feld mehrerer Punktladungen).}
+\formulanote{Zweck: Superposition (elektrisches Feld mehrerer Punktladungen).}
 \end{formulabox}
 \begin{runintext}
 \ZSFkeyword{Feldlinien}: von + nach $-$; Dichte $\propto$ Feldstärke.
 \end{runintext}
 
-\SubsectionBar[sec:1-3]{Dipol}
+\SubsectionBar[sec:dipole]{Dipol}
 \begin{runintext}
-Formeln für \ZSFkeyword{Dipolmoment}, \ZSFkeyword{Drehmoment} und Energie eines Dipols im Feld; brauchst du bei Aufgaben zu polaren Molekülen oder kleinen Ladungspaaren im homogenen E-Feld. \ZSFkeyword{Dipol}: zwei entgegengesetzt gleiche Ladungen, Abstand $\vec{\ell}$ (von $-$ nach $+$).
+Formeln für \ZSFkeyword{Dipolmoment}, \ZSFkeyword{Drehmoment} und Energie eines Dipols im Feld; brauchst du bei Aufgaben zu polaren Molekülen oder kleinen Ladungspaaren im homogenen \ZSFkeyword{elektrischen Feld}. \ZSFkeyword{Dipol}: zwei entgegengesetzt gleiche Ladungen, Abstand $\vec{\ell}$ (von $-$ nach $+$).
 \end{runintext}
 
 \begin{defbox}[Elektrischer Dipol \& Feldlinien]
@@ -73,11 +77,11 @@ Formeln für \ZSFkeyword{Dipolmoment}, \ZSFkeyword{Drehmoment} und Energie eines
 \[ \vec{p} = q\,\vec{\ell} \quad \text{Dipolmoment} \]
 \formulanote{Zweck: Definition des elektrischen Dipolmoments.}
 \formulasep
-\[ \vec{M} = \vec{p} \times \vec{E} \quad \text{Drehmoment im homogenen E-Feld} \]
-\formulanote{Zweck: Drehmoment auf Dipol im E-Feld.}
+\[ \vec{M} = \vec{p} \times \vec{E} \quad \text{Drehmoment im homogenen elektrischen Feld} \]
+\formulanote{Zweck: Drehmoment auf Dipol im elektrischen Feld.}
 \formulasep
 \[ E_{\mathrm{pot}} = -\vec{p}\cdot\vec{E} + U_0 \quad \text{($U_0$ oft $=0$)} \]
-\formulanote{Zweck: Potenzielle Energie des Dipols im E-Feld.}
+\formulanote{Zweck: Potenzielle Energie des Dipols im elektrischen Feld.}
 \formulasep
 \[ \vec{E}_{\mathrm{axial}} \approx \frac{1}{4\pi\varepsilon_0}\frac{2\vec{p}}{r^3}, \quad \vec{E}_{\mathrm{quer}} \approx -\frac{1}{4\pi\varepsilon_0}\frac{\vec{p}}{r^3} \quad (r \gg \ell) \]
 \formulanote{Zweck: Dipol-Fernfeld auf Achse (axial) und quer dazu (Mittelsenkrechte).}
@@ -86,19 +90,18 @@ Formeln für \ZSFkeyword{Dipolmoment}, \ZSFkeyword{Drehmoment} und Energie eines
 \ZSFkeyword{Polare Moleküle}: permanentes $\vec{p}$; nichtpolar: induzierbar.
 \end{runintext}
 
-\begin{minipage}{\linewidth}
-\SubsectionBar[sec:1-4]{Ladungsverteilungen}
+\SubsectionBar[sec:charge-distributions]{Ladungsverteilungen}
 \begin{runintext}
-Formel, um das E-Feld \ZSFkeyword{kontinuierlicher Ladungsverteilungen} (Volumen-, Flächen- oder Linienladungen) über ein Integral zu berechnen; nützlich bei ausgedehnten Ladungswolken, Drähten oder Flächen.
+Formel, um das \ZSFkeyword{elektrische Feld} \ZSFkeyword{kontinuierlicher Ladungsverteilungen} (Volumen-, Flächen- oder Linienladungen) über ein Integral zu berechnen; nützlich bei ausgedehnten Ladungswolken, Drähten oder Flächen.
 \end{runintext}
 \begin{formulabox}
 \[ \vec{E} = \int \mathrm{d}\vec{E} = \frac{1}{4\pi\varepsilon_0} \int \frac{\mathrm{d}q}{r^2}\,\hat{r} \]
-\formulanote{Zweck: E-Feld durch Integration über Ladungsverteilung.}
+\formulanote{Zweck: elektrisches Feld durch integration über Ladungsverteilung.}
 \end{formulabox}
 \begin{runintext}
 $\mathrm{d}q = \rho\,\mathrm{d}V$ (Raum), $\mathrm{d}q = \sigma\,\mathrm{d}A$ (Fläche), $\mathrm{d}q = \lambda\,\mathrm{d}\ell$ (Linie).
 \end{runintext}
-\begin{procedure}[Rezept zur E-Feld-Herleitung]
+\begin{procedure}[Rezept zur Herleitung des elektrischen Feldes]
   \ProcStep{Ladungselement aufstellen}{%
     \[ \mathrm{d}q = \lambda\,\mathrm{d}x \quad / \quad \sigma\,\mathrm{d}A \quad / \quad \rho\,\mathrm{d}V \]
   }
@@ -112,7 +115,6 @@ $\mathrm{d}q = \rho\,\mathrm{d}V$ (Raum), $\mathrm{d}q = \sigma\,\mathrm{d}A$ (F
     \[ E_x = \int \mathrm{d}E_x \]
   }
 \end{procedure}
-\end{minipage}
 
 \SubsectionBar[sec:1-winkel]{Winkelparametrisierung}
 \begin{runintext}
@@ -126,7 +128,7 @@ $\mathrm{d}q = \rho\,\mathrm{d}V$ (Raum), $\mathrm{d}q = \sigma\,\mathrm{d}A$ (F
         r &= \frac{h}{\cos\vartheta} \quad\implies\quad \frac{\mathrm{d}x}{r^2} = \frac{1}{h}\,\mathrm{d}\vartheta
     \end{aligned} \]
   }
-  \ProcStep{E-Feld einer Linienladung $\lambda$}{%
+  \ProcStep{Elektrisches Feld einer Linienladung $\lambda$}{%
     \[ \begin{aligned}
         E_{\parallel} &= \frac{\lambda}{4\pi\varepsilon_0 h} \int_{\vartheta_1}^{\vartheta_2} \sin\vartheta\,\mathrm{d}\vartheta = \frac{\lambda}{4\pi\varepsilon_0 h} \Bigl[-\cos\vartheta\Bigr]_{\vartheta_1}^{\vartheta_2} \\[2ex]
         E_{\perp} &= \frac{\lambda}{4\pi\varepsilon_0 h} \int_{\vartheta_1}^{\vartheta_2} \cos\vartheta\,\mathrm{d}\vartheta = \frac{\lambda}{4\pi\varepsilon_0 h} \Bigl[\sin\vartheta\Bigr]_{\vartheta_1}^{\vartheta_2}
@@ -140,7 +142,7 @@ $\mathrm{d}q = \rho\,\mathrm{d}V$ (Raum), $\mathrm{d}q = \sigma\,\mathrm{d}A$ (F
   }
 \end{procedure}
 
-\SubsectionBar[sec:1-5]{Elektrischer Fluss}
+\SubsectionBar[sec:electric-flux]{Elektrischer Fluss}
 \begin{runintext}
 Formel für den \ZSFkeyword{elektrischen Fluss} durch eine Fläche; brauchst du, wenn in Aufgaben Feldlinienanzahl oder Fluss durch eine gegebene Fläche vorkommt und als Vorbereitung für das \ZSFkeyword{Gauss-Gesetz}.
 \end{runintext}
@@ -149,9 +151,9 @@ Formel für den \ZSFkeyword{elektrischen Fluss} durch eine Fläche; brauchst du,
 \formulanote{Zweck: Elektrischer Fluss durch Fläche $A$ (anschaulich: Nettozahl der Feldlinien durch $A$).}
 \end{formulabox}
 
-\SubsectionBar[sec:1-6]{Gauss}
+\SubsectionBar[sec:gauss-law]{Gauss}
 \begin{runintext}
-Integralform des \ZSFkeyword{Gauss-Gesetzes} und Randwerte am Leiter; nützlich zur Bestimmung von E-Feldern stark symmetrischer Ladungsverteilungen ohne explizite Integration.
+Integralform des \ZSFkeyword{Gauss-Gesetzes} und Randwerte am Leiter; nützlich zur Bestimmung von \ZSFkeyword{elektrischen Feldern} stark symmetrischer Ladungsverteilungen ohne explizite Integration.
 \end{runintext}
 \begin{formulabox}
 \[ \Phi_{\mathrm{el}} = \oint_A \vec{E}\cdot\mathrm{d}\vec{A} = \oint_A E_n\,\mathrm{d}A = \frac{q_{\mathrm{innen}}}{\varepsilon_0} \]
@@ -184,9 +186,9 @@ Integralform des \ZSFkeyword{Gauss-Gesetzes} und Randwerte am Leiter; nützlich 
 \formulanote{Zweck: Feld-Sprung ($\Delta E_n$) beim Durchqueren einer geladenen Fläche. Am Leiter gilt $E_{n,-}=0$ (innen) $\implies E_n = \frac{\sigma}{\varepsilon_0}$ (aussen).}
 \end{formulabox}
 
-\SubsectionBar[sec:1-7]{Symmetrische Felder}
+\SubsectionBar[sec:symmetric-fields]{Symmetrische Felder}
 \begin{runintext}
-Fertige Resultate für E-Felder typischer Symmetrien (Linienladung, Ring, Scheibe, Ebene, Kugel); praktisch zum schnellen Einsetzen in Zahlenaufgaben mit diesen \ZSFkeyword{Standardgeometrien}.
+Fertige Resultate für \ZSFkeyword{elektrische Felder} typischer Symmetrien (Linienladung, Ring, Scheibe, Ebene, Kugel); praktisch zum schnellen Einsetzen in Zahlenaufgaben mit diesen \ZSFkeyword{Standardgeometrien}.
 \end{runintext}
 \begin{formulabox}
 \[
@@ -236,7 +238,7 @@ E = \dfrac{1}{4\pi\varepsilon_0}\,\dfrac{q}{r^2}\;\text{für $r>r_K$};\quad E=0\
 \text{Kugelschale}
 \end{gathered}
 \]
-\formulanote{Zweck: E-Feld typischer symmetrischer Verteilungen (Linie, Ring, Scheibe, Ebene, Kugel).}
+\formulanote{Zweck: elektrisches Feld typischer symmetrischer Verteilungen (Linie, Ring, Scheibe, Ebene, Kugel).}
 \end{formulabox}
 
 \begin{formulabox}
@@ -255,7 +257,7 @@ E = \dfrac{1}{4\pi\varepsilon_0}\,\dfrac{q}{r^2}\;\text{für $r>r_K$};\quad E=0\
     \ZSFdanger{Achtung:} Falls $\rho = \rho(r)$, zuerst die eingeschlossene Ladung bis zum aktuellen Radius bestimmen.
     \[ q_{\mathrm{in}}(r) = 4\pi \int_0^r \rho(r') (r')^2\,\mathrm{d}r' \]
   }
-  \ProcStep{E-Feld innen bestimmen}{%
+  \ProcStep{Elektrisches Feld innen bestimmen}{%
     \[ E_{\mathrm{innen}}(r) = \frac{q_{\mathrm{in}}(r)}{4\pi\varepsilon_0 r^2} = \frac{1}{\varepsilon_0 r^2}\int_0^r \rho(r') (r')^2\,\mathrm{d}r' \]
     \formulanote{Aussen ($r > R$): Das Feld verhält sich wie eine Punktladung mit der Gesamtladung $Q = q_{\mathrm{in}}(R)$ im Ursprung.}
   }

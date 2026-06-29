@@ -7,7 +7,7 @@ decisionStatus: final
 lastUpdatedBy: loris
 lastUpdatedAt: 2026-06-10
 ---
-<!-- AUTO-GENERATED — rules-hash:7cd7bedc3131404c —
+<!-- AUTO-GENERATED — rules-hash:e6cea7b66a945b72 —
      Quelle: rules/00_meta.md. Nicht direkt bearbeiten. Änderungen → `make sync-rules`. -->
 
 LaTeX-Zusammenfassung Physik 1 (D-MAVT FS2026). A4 Querformat, 4 Spalten, 8pt, strikt modular (`extarticle`). Layout, Farben und Boxen werden zentral in `styles/` gesteuert; Kapitel fokussieren sich vollständig auf Fach-Inhalt.

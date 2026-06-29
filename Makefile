@@ -9,7 +9,7 @@ BUILD_STAMP ?= $(shell date -u +%Y%m%dT%H%M%SZ)
 GIT_COMMIT ?= $(shell git rev-parse --short HEAD 2>/dev/null || echo nogit)
 LATEX_DEFS := \def\ZSFBuildStamp{$(BUILD_STAMP)}\def\ZSFGitCommit{$(GIT_COMMIT)}
 
-.PHONY: build lint format check-main-full check-chapters check-root-clean check-pdf-identity sync-rules check-rules check-rule-authorship check release-proof all test clean
+.PHONY: build lint format check-main-full check-chapters check-refs check-root-clean check-pdf-identity sync-rules check-rules check-rule-authorship check release-proof all test clean
 
 build:
 	INDEXSTYLE="$(CURDIR)/styles:" \
@@ -31,6 +31,9 @@ check-main-full:
 check-chapters:
 	./tests/check_chapter_rules.sh
 
+check-refs:
+	./tests/check_refs.sh
+
 check-root-clean:
 	./tests/check_root_clean.sh
 
@@ -46,7 +49,7 @@ check-rules:
 check-rule-authorship:
 	@node tools/check-rule-authorship.mjs
 
-check: check-main-full check-chapters check-root-clean check-pdf-identity lint check-rule-authorship check-rules
+check: check-main-full check-chapters check-refs check-root-clean check-pdf-identity lint check-rule-authorship check-rules
 
 release-proof:
 	@mkdir -p $(BUILD_DIR)

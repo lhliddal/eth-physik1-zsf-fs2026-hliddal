@@ -8,7 +8,7 @@
 Formeln zu \ZSFkeyword{Kapazitäten} und \ZSFkeyword{Dielektrika}: Definition der Kapazität, typische Geometrien (Platte, Zylinder, Kugel), gespeicherte Energie und \ZSFkeyword{Energiedichte}, \ZSFkeyword{Reihen-} und \ZSFkeyword{Parallelschaltungen} sowie Einfluss von Dielektrika. Nützlich bei Aufgaben zu \ZSFkeyword{Kondensatoren}, Energiespeicherung, Schaltungen und Feldänderungen durch Materialeinbau.
 \end{runintext}
 
-\SubsectionBar[sec:3-1]{Kapazität}
+\SubsectionBar[sec:capacitance]{Kapazität}
 \begin{runintext}
 Grundformeln für Spannung und \ZSFkeyword{Kapazität} von \ZSFkeyword{Kondensatoren}; nützlich, wenn aus Ladung und Spannung die Kapazität oder umgekehrt gesucht ist.
 \end{runintext}
@@ -27,7 +27,7 @@ Zwei \ZSFkeyword{isolierte Leiter} mit gleich grosser, entgegengesetzter Ladung;
 
 \ZSFfig{graphics/kondensator_grafik.png}{Kondensator mit Spannungsquelle}{Ladung $q$ proportional zur Spannung $U$: $C=q/U$}
 
-\SubsectionBar[sec:3-2]{Energie Kondensator}
+\SubsectionBar[sec:capacitor-energy]{Energie Kondensator}
 \begin{runintext}
 Formeln für Energie und \ZSFkeyword{Energiedichte} im Kondensatorfeld; nützlich bei Energiespeicher-Aufgaben und Feldstärkeabschätzungen.
 \end{runintext}
@@ -40,7 +40,7 @@ Formeln für Energie und \ZSFkeyword{Energiedichte} im Kondensatorfeld; nützlic
 \formulanote{Zweck: Elektrische Energiedichte im Feld; Gesamtenergie bei homogenem Feld über Volumen $V = A \cdot d$ (Fläche $A$, Abstand $d$).}
 \end{formulabox}
 
-\SubsectionBar[sec:3-3]{Platte, Zylinder, Kugel}
+\SubsectionBar[sec:capacitor-geometries]{Platte, Zylinder, Kugel}
 \begin{runintext}
 Spezielle Kapazitäten typischer Geometrien; brauchst du bei Aufgaben zu einzelnen realen Kondensatoren (\ZSFkeyword{Platte}, \ZSFkeyword{Koaxkabel}, \ZSFkeyword{Kugel}).
 \end{runintext}
@@ -50,7 +50,7 @@ Spezielle Kapazitäten typischer Geometrien; brauchst du bei Aufgaben zu einzeln
     \includegraphics[width=\linewidth, keepaspectratio]{graphics/Elektrotechnik_Plattenkondensator_Dielektrikum_Modell.png}
     \tcblower
     \begin{formulabox}
-        \textVorFormel{E-Feld (homogen):}
+        \textVorFormel{Elektrisches Feld (homogen):}
         $E = \frac{U}{d}$\par
         \tcbline
         \textVorFormel{Kapazität:}
@@ -67,7 +67,7 @@ Spezielle Kapazitäten typischer Geometrien; brauchst du bei Aufgaben zu einzeln
         \textVorFormel{Kapazität:}
         $C = \frac{2\pi\varepsilon_0\,\ell}{\ln(r_2/r_1)}$\par
         \tcbline
-        \textVorFormel{E-Feld (radial):}
+        \textVorFormel{Elektrisches Feld (radial):}
         $E(r) = \frac{U}{r\,\ln(r_2/r_1)}$
     \end{formulabox}
 \end{splitbox}
@@ -88,7 +88,7 @@ Spezielle Kapazitäten typischer Geometrien; brauchst du bei Aufgaben zu einzeln
 \end{defbox}
 
 \begin{minipage}{\linewidth}
-\SubsectionBar[sec:3-4]{Reihenschaltung}
+\SubsectionBar[sec:capacitors-series]{Reihenschaltung}
 \begin{runintext}
 Ersatzkapazität bei \ZSFkeyword{Serie}. Gleiche Ladung, Spannungen addieren sich (\ZSFkeyword{Maschenregel} $\sum U_k = 0$).
 \end{runintext}
@@ -113,7 +113,7 @@ Ersatzkapazität bei \ZSFkeyword{Serie}. Gleiche Ladung, Spannungen addieren sic
 \ZSFSectionGap
 
 \begin{minipage}{\linewidth}
-\SubsectionBar*[sec:3-4-2]{Parallelschaltung}
+\SubsectionBar*[sec:capacitors-parallel]{Parallelschaltung}
 \begin{runintext}
 Ersatzkapazität bei \ZSFkeyword{Parallel}. Gleicher Spannungsabfall, Ladungen addieren sich.
 \end{runintext}
@@ -134,7 +134,7 @@ Ersatzkapazität bei \ZSFkeyword{Parallel}. Gleicher Spannungsabfall, Ladungen a
 \end{defbox}
 \end{minipage}
 
-\SubsectionBar[sec:3-5]{Dielektrika}
+\SubsectionBar[sec:dielectrics]{Dielektrika}
 \begin{runintext}
 Formeln, wie isolierende Materialien (\ZSFkeyword{Dielektrika}) das Feld und die Kapazität verändern; nützlich beim Einbau von Medien zwischen Platten.
 \end{runintext}
@@ -146,8 +146,8 @@ Formeln, wie isolierende Materialien (\ZSFkeyword{Dielektrika}) das Feld und die
 \formulanote{Zweck: Kapazität $C$ mit Dielektrikum steigt gegenüber Vakuumkapazität $C_0$ um $\varepsilon_{\mathrm{rel}}$ (rel. Dielektrizitätskonstante).}
 \end{formulabox}
 \begin{propertylist}[Verhalten beim Einschub eines Dielektrikums]
-  \ZSFFact{Mit Spannungsquelle}{Spannung $U$ bleibt konstant. $C$ steigt proportional zu $\varepsilon_{\mathrm{rel}}$. Damit fliesst Ladung nach ($q$ steigt). E-Feld $\vec{E}$ bleibt konstant ($E = U/d$).}
-  \ZSFFact{Ohne Spannungsquelle}{Ladung $q$ bleibt konstant (kann nicht ab- oder zufliessen). $C$ steigt. Spannung $U$ sinkt ($U=q/C$), und das E-Feld sinkt proportional ($E = E_0 / \varepsilon_{\mathrm{rel}}$).}
+  \ZSFFact{Mit Spannungsquelle}{Spannung $U$ bleibt konstant. $C$ steigt proportional zu $\varepsilon_{\mathrm{rel}}$. Damit fliesst Ladung nach ($q$ steigt). Das \ZSFkeyword{elektrische Feld} $\vec{E}$ bleibt konstant ($E = U/d$).}
+  \ZSFFact{Ohne Spannungsquelle}{Ladung $q$ bleibt konstant (kann nicht ab- oder zufliessen). $C$ steigt. Spannung $U$ sinkt ($U=q/C$), und das \ZSFkeyword{elektrische Feld} sinkt proportional ($E = E_0 / \varepsilon_{\mathrm{rel}}$).}
 \end{propertylist}
 \begin{runintext}
 Mikroskopisch: \ZSFkeyword{Dipole} richten sich aus, erzeugen Gegenfeld. Anwendung: höhere Kapazität, \ZSFkeyword{Durchschlagfestigkeit}, mechanische Trennung.

@@ -8,7 +8,7 @@
 Formeln zu Strömen und Spannungen in Gleichstromschaltungen: Definition von \ZSFkeyword{Strom} und \ZSFkeyword{Stromdichte}, \ZSFkeyword{Ohm'sches Gesetz}, Widerstände, Leistung, reale Spannungsquellen, \ZSFkeyword{Kirchhoff-Regeln}, Ersatzwiderstände und \ZSFkeyword{RC-Zeitkonstanten}. Nützlich bei allen Aufgaben zu einfachen und zusammengesetzten Gleichstromkreisen, Messgeräten und Ent- bzw.\ Aufladung von Kondensatoren.
 \end{runintext}
 
-\SubsectionBar[sec:4-1]{Strom, Drift}
+\SubsectionBar[sec:current-drift]{Strom, Drift}
 \begin{runintext}
 Zusammenhänge zwischen \ZSFkeyword{mikroskopischer Ladungsbewegung} und makroskopischem Strom; wichtig für das Verständnis des Ladungstransports.
 \end{runintext}
@@ -32,7 +32,7 @@ I = \frac{\Delta q}{\Delta t} \quad \text{mit } q = N e \quad\Rightarrow\quad \f
 $N$: Anzahl Teilchen (z.\,B.\ Elektronen), $e$: \ZSFkeyword{Elementarladung}, $n/V$: \ZSFkeyword{Ladungsträgerdichte} (Teilchen/Volumen), $A$: Querschnitt, $v_{\mathrm{d}}$: \ZSFkeyword{Driftgeschwindigkeit}. $I$ = Fluss von $\vec{\jmath}$ durch Fläche.
 \end{runintext}
 
-\SubsectionBar[sec:4-2]{Ohm}
+\SubsectionBar[sec:ohms-law]{Ohm}
 \begin{runintext}
 Das \ZSFkeyword{Ohm'sche Gesetz} und die Berechnung von Widerständen aus Materialeigenschaften; zentral für die Analyse von Stromkreisen.
 \end{runintext}
@@ -55,13 +55,13 @@ Das \ZSFkeyword{Ohm'sche Gesetz} und die Berechnung von Widerständen aus Materi
 
 \begin{formulabox}
 \[ \vec{E} = \rho\,\vec{\jmath} = \frac{\vec{\jmath}}{\sigma} \quad \text{lokales Ohm'sches Gesetz} \]
-\formulanote{Zweck: Lokales Ohm'sches Gesetz (Zusammenhang zwischen E-Feld und Stromdichte).}
+\formulanote{Zweck: Lokales Ohm'sches Gesetz (Zusammenhang zwischen elektrischem Feld und Stromdichte).}
 \end{formulabox}
 \begin{runintext}
 $\ell$: Länge, $A$: Querschnitt, $\rho$: spez.\ Widerstand, $\sigma$: Leitfähigkeit ($1/\rho$), $\alpha$: Temp.-Koeff., $T_0$: Bezugstemp.\ (meist $20^\circ\text{C}$).
 \end{runintext}
 
-\SubsectionBar[sec:4-3]{Leistung}
+\SubsectionBar[sec:electric-power]{Leistung}
 \begin{runintext}
 Berechnung von \ZSFkeyword{elektrischer Leistung} und umgesetzter Energie; grundlegend für Leistungsbilanzen und Erwärmung von Bauteilen.
 \end{runintext}
@@ -77,7 +77,7 @@ Berechnung von \ZSFkeyword{elektrischer Leistung} und umgesetzter Energie; grund
 \end{formulabox}
 
 \begin{minipage}{\linewidth}
-\SubsectionBar[sec:4-4-1]{Knotenregel}
+\SubsectionBar[sec:kirchhoff-current]{Knotenregel}
 \begin{runintext}
 Summe der zufliessenden Ströme ist gleich der Summe der abfliessenden Ströme an einer \ZSFkeyword{Verzweigung}.
 \end{runintext}
@@ -95,7 +95,7 @@ Summe der zufliessenden Ströme ist gleich der Summe der abfliessenden Ströme a
 \end{minipage}
 
 \begin{minipage}{\linewidth}
-\SubsectionBar[sec:4-4-2]{Maschenregel}
+\SubsectionBar[sec:kirchhoff-voltage]{Maschenregel}
 \begin{runintext}
 Die Summe aller Spannungsabfälle in einer geschlossenen Schleife (\ZSFkeyword{Masche}) ist null.
 \end{runintext}
@@ -114,8 +114,7 @@ Die Summe aller Spannungsabfälle in einer geschlossenen Schleife (\ZSFkeyword{M
 \end{defbox}
 \end{minipage}
 
-\begin{minipage}{\linewidth}
-\SubsectionBar[sec:4-5]{Ersatzwiderstände}
+\SubsectionBar[sec:equivalent-resistance]{Ersatzwiderstände}
 \begin{runintext}
 Regeln zur Kombination von \ZSFkeyword{in Reihe} und \ZSFkeyword{parallel} geschalteten Widerständen zur einfachen Reduktion von Teilschaltungen.
 \end{runintext}
@@ -126,9 +125,8 @@ Regeln zur Kombination von \ZSFkeyword{in Reihe} und \ZSFkeyword{parallel} gesch
 \[ R = \frac{R_1 R_2}{R_1 + R_2} \quad \text{2 Stück parallel} \]
 \formulanote{Zweck: Ersatzwiderstand Reihen- bzw.\ Parallelschaltung.}
 \end{formulabox}
-\end{minipage}
 
-\SubsectionBar[sec:4-6]{RC-Kreise}
+\SubsectionBar[sec:rc-circuits]{RC-Kreise}
 \begin{runintext}
 Zeitabhängiges Verhalten von Strom und Ladung beim \ZSFkeyword{Auf-} und \ZSFkeyword{Entladen} von Kondensatoren über Widerstände.
 \end{runintext}
@@ -138,9 +136,15 @@ Zeitabhängiges Verhalten von Strom und Ladung beim \ZSFkeyword{Auf-} und \ZSFke
 \begin{formulabox}
 \[ q(t) = q_0\,\mathrm{e}^{-t/(RC)} = q_0\,\mathrm{e}^{-t/\tau} \quad \text{Entladung} \]
 \[ I(t) = -\frac{\mathrm{d}q}{\mathrm{d}t} = \frac{U_{C,0}}{R}\,\mathrm{e}^{-t/\tau} = I_0\,\mathrm{e}^{-t/\tau} \]
-\formulasep
+\formulanote{Zweck: Zeitlicher Verlauf von Ladung $q(t)$ und Entladestrom $I(t)$ beim Entladen eines Kondensators.}
+\end{formulabox}
+
+\begin{formulabox}
 \[ \tau = R\,C \quad \text{Zeitkonstante} \]
-\formulasep
+\formulanote{Zweck: Definition der RC-Zeitkonstante $\tau$ (Zeit, nach der Ladung/Strom auf $1/\mathrm{e} \approx 37\%$ abgefallen bzw. Ladung auf $1 - 1/\mathrm{e} \approx 63\%$ angestiegen ist).}
+\end{formulabox}
+
+\begin{formulabox}
 \[ q(t) = C\,U\,(1 - \mathrm{e}^{-t/\tau}) = q_E\,(1 - \mathrm{e}^{-t/\tau}) \quad \text{Aufladung} \]
 \[ I(t) = \frac{U}{R}\,\mathrm{e}^{-t/\tau} = I_0\,\mathrm{e}^{-t/\tau} \]
 \formulanote{$q_E = C\,U$ (max.\ Ladung). \ZSFdanger{Achtung:} $U$ ist die konstante Quellspannung (Batterie), NICHT die veränderliche Kondensatorspannung $U_C(t) = q(t)/C$.}

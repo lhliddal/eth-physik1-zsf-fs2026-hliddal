@@ -8,7 +8,7 @@
 Zusammenhang zwischen zeitlich veränderlichen Magnetfeldern und induzierten elektrischen Spannungen. Kernthemas sind der \ZSFkeyword{magnetische Fluss}, das \ZSFkeyword{Faraday'sche Gesetz}, die \ZSFkeyword{Lenz'sche Regel} sowie induktive Bauteile und deren Energiedichte.
 \end{runintext}
 
-\SubsectionBar[sec:6-1]{Magnetischer Fluss}
+\SubsectionBar[sec:magnetic-flux]{Magnetischer Fluss}
 \begin{runintext}
 Das "Zählen" der Magnetfeldlinien durch eine vorgegebene Querschnittsfläche; die entscheidende Grosse zur Berechnung von \ZSFkeyword{Induktionsphänomenen}.
 \end{runintext}
@@ -24,9 +24,9 @@ Das "Zählen" der Magnetfeldlinien durch eine vorgegebene Querschnittsfläche; d
 \formulanote{Konvention: $\Phi_{\mathrm{mag}}$ = Fluss \emph{pro Windung}; Gesamtfluss einer Spule mit $n$ Wind.\ ist $n\,\Phi_{\mathrm{mag}}$.}
 \end{formulabox}
 
-\SubsectionBar[sec:6-2]{Faraday}
+\SubsectionBar[sec:faradays-law]{Faraday}
 \begin{runintext}
-Das \ZSFkeyword{Induktionsgesetz}: Jede Änderung des \ZSFkeyword{magnetischen Flusses} ruft eine \ZSFkeyword{Ringspannung} (und damit ein E-Feld) hervor.
+Das \ZSFkeyword{Induktionsgesetz}: Jede Änderung des \ZSFkeyword{magnetischen Flusses} ruft eine \ZSFkeyword{Ringspannung} (und damit ein \ZSFkeyword{elektrisches Feld}) hervor.
 \end{runintext}
 
 \ZSFfig{graphics/Induktion_Leiterschleife_Flaechenaenderung_Delta_A_v.png}{{Bewegter Stab, Flächenänderung}}{$\Delta A=\ell\,v\,\Delta t$ liefert $U_{\text{ind}}=-B\ell v$}
@@ -52,7 +52,7 @@ Das \ZSFkeyword{Induktionsgesetz}: Jede Änderung des \ZSFkeyword{magnetischen F
 \formulanote{Zweck: Induzierte Gegenspannung durch zeitliche Änderung des eigenen Stroms (Selbstinduktion).}
 \end{formulabox}
 
-\SubsectionBar[sec:6-3]{Lenz}
+\SubsectionBar[sec:lenz-law]{Lenz}
 \begin{runintext}
 Wichtige Regel, um aus der \ZSFkeyword{Energieerhaltung} schnell die Richtung des induzierten Stromes zu bestimmen.
 \end{runintext}
@@ -60,7 +60,7 @@ Wichtige Regel, um aus der \ZSFkeyword{Energieerhaltung} schnell die Richtung de
 Induktionsspannung und -strom wirken ihrer \ZSFkeyword{Ursache entgegen}. Oder: Der durch Flussänderung induzierte Strom erzeugt einen Fluss, der der Änderung entgegenwirkt.
 \end{defbox}
 
-\SubsectionBar[sec:6-4]{Selbst-, Gegeninduktion}
+\SubsectionBar[sec:self-mutual-inductance]{Selbst-, Gegeninduktion}
 \begin{runintext}
 Die \ZSFkeyword{Induktivität} beschreibt die Eigenschaft von Spulen und Leitern, den Stromfluss aufgrund des selbstaufgebauten oder externen Magnetfeldes zu trägen (\ZSFkeyword{Selbst-} und \ZSFkeyword{Gegeninduktion}).
 \end{runintext}
@@ -68,20 +68,25 @@ Die \ZSFkeyword{Induktivität} beschreibt die Eigenschaft von Spulen und Leitern
 \[ L = \frac{n\,\Phi_{\mathrm{mag}}}{I} \]
 \formulanote{Selbstinduktivität (Def., Spule mit $n$ Wind., $[L] = \si{H}$).}
 \[ L = \mu_0\,\frac{n^2\,A}{\ell} \quad \text{Selbstind.\ Zylinderspule} \]
-\formulasep
+\formulanote{Zweck: Definition der Selbstinduktivität $L$ und deren Geometrieformel für eine lange Zylinderspule.}
+\end{formulabox}
+
+\begin{formulabox}
 \[ M = L_{\underbrace{\scriptstyle 12}_{\text{\tiny in 1 von 2}}} = L_{\underbrace{\scriptstyle 21}_{\text{\tiny in 2 von 1}}} = \frac{\overbrace{n_2}^{\text{\tiny Wind.\ 2}}\,\overbrace{\Phi_{\mathrm{mag},21}}^{\text{\tiny Fluss in 2 von 1}}}{\underbrace{I_1}_{\text{\tiny Strom 1}}} \]
 \formulanote{Def.\ Gegeninduktivität ($[M] = \si{H}$), symmetrisch: $M_{12} = M_{21} = M$ (Reihenfolge egal). Indexkonvention: $\Phi_{\mathrm{mag},ab}$ = Fluss in Spule~$a$ (Ort) durch Strom $I_b$ in Spule~$b$ (Quelle).}
 \[ U_{\mathrm{ind},2} = -M\,\frac{\mathrm{d}I_1}{\mathrm{d}t} \]
 \formulanote{Induzierte Spannung in Spule 2 durch Stromänderung in Spule 1.}
-\formulasep
+\end{formulabox}
+
+\begin{formulabox}
 \[ M \approx \mu_0\,\frac{n_1\,n_2\,A_{\mathrm{innen}}}{\ell_{\mathrm{aussen}}} \quad \text{koaxiale lange Spulen} \]
 \formulanote{Zweck: Geometrieformel für $M$ bei eng gekoppelten Spulen ($A_{\mathrm{innen}}$: Querschnitt der inneren Spule, $\ell_{\mathrm{aussen}}$: Länge der äußeren Spule).}
 \[ 1\,\si{H} = 1\,\si{V.s/A} \]
 \[ \mu_0 = 4\pi\times 10^{-7}\,\si{H/m} \]
-\formulanote{Zweck: $L$ = Selbstinduktivität (eine Spule); $M$ = Gegeninduktivität (zwei gekoppelte Spulen).}
+\formulanote{Zweck: Einheiten und Naturkonstanten für Induktivitäten; $L$ = Selbstinduktivität (eine Spule); $M$ = Gegeninduktivität (zwei gekoppelte Spulen).}
 \end{formulabox}
 
-\SubsectionBar[sec:6-5]{RL-Schaltungen}
+\SubsectionBar[sec:rl-circuits]{RL-Schaltungen}
 \begin{runintext}
 Zeitabhängiges Anwachsen und Abklingen von Strömen in einem Schaltkreis mit \ZSFkeyword{Spule} und Serienwiderstand.
 \end{runintext}
@@ -95,7 +100,7 @@ Zeitabhängiges Anwachsen und Abklingen von Strömen in einem Schaltkreis mit \Z
 \formulanote{Zweck: RL-Kreis. \ZSFdanger{Achtung:} Beim Einschalten wirkt die induzierte Spannung der Quelle entgegen (Lenz). Der Strom steigt träge mit Zeitkonstante $\tau = L/R$ an.}
 \end{formulabox}
 
-\SubsectionBar[sec:6-6]{Energie Magnetfeld}
+\SubsectionBar[sec:magnetic-field-energy]{Energie Magnetfeld}
 \begin{runintext}
 Die im Magnetfeld und besonders in \ZSFkeyword{Induktivitäten} (wie Spulen) zwischengespeicherte Energie, welche nach Abbau den Strom noch fliessen lässt.
 \end{runintext}
@@ -107,7 +112,7 @@ Die im Magnetfeld und besonders in \ZSFkeyword{Induktivitäten} (wie Spulen) zwi
 \formulanote{Zweck: Gespeicherte magnetische Energie; Energiedichte im B-Feld; Gesamtenergie bei homogenem Feld über Volumen $V$.}
 \end{formulabox}
 
-\SubsectionBar[sec:6-7]{Wirbelströme}
+\SubsectionBar[sec:eddy-currents]{Wirbelströme}
 \begin{runintext}
 Induzierte kreisförmige Ströme in massiven Leitern bei einer Änderung des \ZSFkeyword{magnetischen Flusses}.
 \end{runintext}

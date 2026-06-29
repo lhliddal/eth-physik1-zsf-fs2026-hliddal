@@ -4,15 +4,15 @@ globs: []
 alwaysApply: true
 decisionOwner: ai
 decisionStatus: final
-lastUpdatedBy: loris
-lastUpdatedAt: 2026-06-10
+lastUpdatedBy: claude
+lastUpdatedAt: 2026-06-29
 ---
 
 ## Workflow-Befehle
 
 ```bash
 make build                  # latexmk -> physik1_fs2026_hliddal.pdf (Aux nach build/)
-make check                  # check-main-full + check-chapters + check-root-clean
+make check                  # check-main-full + check-chapters + check-refs + check-root-clean
                             #   + check-pdf-identity + lint + check-rule-authorship + check-rules
 make sync-rules             # rules/*.md -> MODULAR_SYSTEM.md, CLAUDE.md, AGENTS.md,
                             #   .github/copilot-instructions.md, .cursor/rules/*.mdc
