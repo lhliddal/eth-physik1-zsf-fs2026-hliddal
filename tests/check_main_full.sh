@@ -7,7 +7,7 @@ MAIN_TEX="${ROOT_DIR}/main.tex"
 
 required_chapters=(
   "chapters/ch00_zeichen"
-  "chapters/ch00_wichtige"
+  "chapters/ch00_index"
   "chapters/ch01_feld"
   "chapters/ch02_potenzial"
   "chapters/ch03_kapazitaet"

@@ -62,6 +62,36 @@ Ausdrücke für das Potenzial verschiedener \ZSFkeyword{Ladungsverteilungen}; br
 Potenzial stetig im Raum.
 \end{runintext}
 
+\begin{runintext}
+\textbf{Dünne Kugelschale} (Radius $R$, Ladung $Q$): Im Inneren ist das E-Feld null (Faraday-Käfig) und das Potenzial ortsunabhängig konstant. Aussen wirkt die Schale wie eine Punktladung im Zentrum.
+\end{runintext}
+\begin{formulabox}
+\[
+\text{Schale:} \begin{cases}
+E = 0, \hfill & r < R \\
+\varphi = \frac{1}{4\pi\varepsilon_0}\frac{Q}{R}, \hfill & r < R \\[1ex]
+E = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}, \hfill & r > R \\
+\varphi = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r}, \hfill & r > R
+\end{cases}
+\]
+\formulanote{\ZSFkeyword{Erden}: Zwingt Potenzial auf $\varphi = 0$ ($\infty$-Speicher). Bei \ZSFkeyword{Influenz} (geerdet): zugewandte Seite lädt sich entgegengesetzt, abgewandte bleibt neutral (Ladungsabfluss).}
+\end{formulabox}
+
+\begin{runintext}
+Superposition: Gesamtpotenzial einer gleichmässig geladenen \textbf{Vollkugel} ($R_1$, $Q_1$) innerhalb zweier konzentrischer \textbf{Kugelschalen} ($R_2, R_3$). Oft als Prüfungstrick geprüft. Mit $k = \frac{1}{4\pi\varepsilon_0}$:
+\end{runintext}
+\begin{formulabox}
+\[
+\varphi(r) = k \begin{cases}
+ \begin{aligned}&\tfrac{Q_1}{2R_1^3}(3R_1^2 - r^2)\\ &+ \tfrac{Q_2}{R_2} + \tfrac{Q_3}{R_3}\end{aligned}, & r < R_1 \\[2ex]
+ \frac{Q_1}{r} + \frac{Q_2}{R_2} + \frac{Q_3}{R_3}, & R_1 \le r < R_2 \\[1ex]
+ \frac{Q_1 + Q_2}{r} + \frac{Q_3}{R_3}, & R_2 \le r < R_3 \\[1ex]
+ \frac{Q_1 + Q_2 + Q_3}{r}, & r \ge R_3
+\end{cases}
+\]
+\formulanote{Zweck: Gesamtpotenzial addiert sich aus den inneren und äusseren Schalenbeiträgen (innen = konstant, aussen = $1/r$).}
+\end{formulabox}
+
 \SubsectionBar[sec:2-3]{E und Grad phi}
 \begin{runintext}
 Zusammenhang zwischen Potenzial und Feld über Ableitungen bzw.\ den \ZSFkeyword{Gradienten}; nützlich, um aus einem gegebenen Potenzial das E-Feld oder aus dem Feld die Potenzialänderung zu bestimmen.

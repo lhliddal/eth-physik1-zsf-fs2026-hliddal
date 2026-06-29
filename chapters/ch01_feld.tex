@@ -105,7 +105,7 @@ $\mathrm{d}q = \rho\,\mathrm{d}V$ (Raum), $\mathrm{d}q = \sigma\,\mathrm{d}A$ (F
   \ProcStep{Symmetrien nutzen \& Komponenten zerlegen}{%
     Nur relevante Feldrichtung betrachten.
     \[ \mathrm{d}E_x = \mathrm{d}E \cos\theta = \frac{1}{4\pi\varepsilon_0}\,\frac{\mathrm{d}q}{r^2}\cos\theta \]
-    \formulanote{Tipp: Drücke $r$, $x$ und $\cos\theta$ geometrisch aus (oft über Winkel $\vartheta$, siehe Winkelparametrisierung \ZSFref{chap:wichtige}).}
+    \formulanote{Tipp: Drücke $r$, $x$ und $\cos\theta$ geometrisch aus (oft über Winkel $\vartheta$, siehe Winkelparametrisierung \ZSFref{sec:1-winkel}).}
   }
   \ProcStep{Aufintegrieren}{%
     Grenzen bestimmen und integrieren.
@@ -113,6 +113,32 @@ $\mathrm{d}q = \rho\,\mathrm{d}V$ (Raum), $\mathrm{d}q = \sigma\,\mathrm{d}A$ (F
   }
 \end{procedure}
 \end{minipage}
+
+\SubsectionBar[sec:1-winkel]{Winkelparametrisierung}
+\begin{runintext}
+\ZSFkeyword{Winkelparametrisierung}: Geniales Rezept für Integrale über Linienleiter ($\vec{E}, \vec{B}$). Wandelt die unschöne Integration über den Ort $x$ in eine simple trigonometrische Integration über den Winkel $\vartheta$ um.
+\end{runintext}
+\begin{procedure}[Winkelparametrisierung]
+  \ProcStep{Substitution}{%
+    $h$ = Lotabstand, $\vartheta$ = Winkel relativ zum Lot.
+    \[ \begin{aligned}
+        x &= h \cdot \tan\vartheta \quad\implies\quad \mathrm{d}x = \frac{h}{\cos^2\vartheta}\,\mathrm{d}\vartheta \\[1ex]
+        r &= \frac{h}{\cos\vartheta} \quad\implies\quad \frac{\mathrm{d}x}{r^2} = \frac{1}{h}\,\mathrm{d}\vartheta
+    \end{aligned} \]
+  }
+  \ProcStep{E-Feld einer Linienladung $\lambda$}{%
+    \[ \begin{aligned}
+        E_{\parallel} &= \frac{\lambda}{4\pi\varepsilon_0 h} \int_{\vartheta_1}^{\vartheta_2} \sin\vartheta\,\mathrm{d}\vartheta = \frac{\lambda}{4\pi\varepsilon_0 h} \Bigl[-\cos\vartheta\Bigr]_{\vartheta_1}^{\vartheta_2} \\[2ex]
+        E_{\perp} &= \frac{\lambda}{4\pi\varepsilon_0 h} \int_{\vartheta_1}^{\vartheta_2} \cos\vartheta\,\mathrm{d}\vartheta = \frac{\lambda}{4\pi\varepsilon_0 h} \Bigl[\sin\vartheta\Bigr]_{\vartheta_1}^{\vartheta_2}
+    \end{aligned} \]
+  }
+  \ProcStep{B-Feld eines geraden Stromleiters $I$}{%
+    \[
+        B = \frac{\mu_0 I}{4\pi h} \int_{\vartheta_1}^{\vartheta_2} \cos\vartheta\,\mathrm{d}\vartheta = \frac{\mu_0 I}{4\pi h} \Bigl[\sin\vartheta\Bigr]_{\vartheta_1}^{\vartheta_2}
+    \]
+    \formulanote{Unendlicher Leiter ($\vartheta \in [-\pi/2, \pi/2]$): $E_{\perp} = \frac{\lambda}{2\pi\varepsilon_0 h}$, $B = \frac{\mu_0 I}{2\pi h}$. Komponente $E_{\parallel}$ hebt sich auf.}
+  }
+\end{procedure}
 
 \SubsectionBar[sec:1-5]{Elektrischer Fluss}
 \begin{runintext}
