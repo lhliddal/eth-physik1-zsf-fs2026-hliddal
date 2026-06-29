@@ -134,6 +134,11 @@
   after title={},
 }}
 
+% Rechtsbuendiges Meta-/Kategorie-Tag im Titelbalken einer Titelbox.
+% Im Titel-Argument verwenden, z.B.:
+%   \begin{defbox}[Lorentzkraft\ZSFTitleTag{Magnetostatik}] ... \end{defbox}
+\newcommand{\ZSFTitleTag}[1]{\hfill{\ZSFfontTitleTag #1}}
+
 % ------------------------------------------------------------
 % Basis-Stil: Panel-Boxen mit Titelbalken (Goal-/Grid-System)
 % ------------------------------------------------------------

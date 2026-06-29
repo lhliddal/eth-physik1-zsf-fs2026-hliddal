@@ -11,3 +11,10 @@
 \newcommand{\ZSFmhlB}[1]{{\color{MathHLSecondary}#1}}
 \newcommand{\ZSFmhlC}[1]{{\color{MathHLTarget}#1}}
 \newcommand{\ZSFmhlD}[1]{{\color{MathHLTertiary}#1}}
+
+% --- Term-Annotation mit geschweifter Klammer (Stilmittel) ---
+% Beschriftet einen Formelteil unter/ueber einer geschweiften Klammer.
+% Label via \text (aufrecht); Mathe im Label als $...$.
+%   \[ \varphi = \frac{q}{r} - \ZSFbraceover{\frac{q}{r_B}}{Bezugspotenzial} \]
+\newcommand{\ZSFbraceunder}[2]{\underbrace{#1}_{\text{#2}}}
+\newcommand{\ZSFbraceover}[2]{\overbrace{#1}^{\text{#2}}}

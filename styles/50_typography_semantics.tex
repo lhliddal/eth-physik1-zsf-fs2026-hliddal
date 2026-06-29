@@ -12,6 +12,9 @@
 \newcommand{\ZSFfontProcedureStep}{\bfseries}
 \newcommand{\ZSFfontFactLead}{\bfseries}
 \newcommand{\ZSFfontDanger}{\sffamily\bfseries}
+% Rechtsbuendiges Meta-/Kategorie-Tag im Titelbalken (vgl. \ZSFTitleTag in
+% styles/60_boxes.tex). Etwas kleiner und kursiv, begleitet den Titel.
+\newcommand{\ZSFfontTitleTag}{\sffamily\fontsize{6.4bp}{7.0bp}\itshape\selectfont}
 
 % Tabellen-Hilfsmakros
 \newcommand{\TableCellNote}[1]{{\ZSFfontNote #1}}
@@ -44,6 +47,11 @@
 % hier vornehmen (z.B. Farbe, Underline) -- nicht in Kapiteln.
 \newcommand{\ZSFkeyword}[1]{\textbf{#1}}
 \newcommand{\ZSFScriptRef}[1]{\hfill\textcolor{white!80}{\small (S.#1)}}
+
+% \ZSFhl{...} — hebt die EINE pruefungskritischste Aussage pro Box hervor
+% (fett + unterstrichen). Sparsam: hoechstens einmal pro Block. Fuer
+% Fachbegriffe \ZSFkeyword, fuer Stolperfallen \ZSFdanger nutzen.
+\newcommand{\ZSFhl}[1]{\underline{\textbf{#1}}}
 
 % \ZSFref{label} — kompakter interner Querverweis, gerendert als "(→ 6.2)".
 % Verwendung:
