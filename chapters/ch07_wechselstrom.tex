@@ -10,42 +10,40 @@ Analyse von Stromkreisen bei \ZSFkeyword{sinusförmigen Spannungen}. Wichtige Ko
 
 \SubsectionBar[sec:7-1]{Wechselspannung, Effektiv}
 \begin{runintext}
-Grundlagen des Wechselstroms: Sinus-Signal, Peak-Strom und der zeitliche \ZSFkeyword{Effektivwert} (\ZSFkeyword{RMS}), um Leistungen einfach zu mitteln.
+Grundlagen des Wechselstroms: Sinus-Signal, Peak-Strom und der zeitliche \ZSFkeyword{Effektivwert} (\ZSFkeyword{RMS}) als thermisches Gleichstrom-Äquivalent, um mittlere Leistungen einfach zu berechnen.
 \end{runintext}
 \begin{runintext}
 \ZSFkeyword{Generator}: mechanisch $\to$ elektrisch (Spule im B-Feld oder Magnet in Spule).
 \end{runintext}
 
-\ZSFfig{graphics/Elektrotechnik_Wechselstrom_Widerstand_Phasenlage.png}{{Sinus $U(t)$, $I(t)$, Leistung $P(t)$}}{Am ohmschen Widerstand: $U$ und $I$ in Phase, $P\ge 0$}
+\ZSFfig{graphics/Elektrotechnik_Wechselstrom_Widerstand_Phasenlage.png}{{Kosinus $U(t)$, $I(t)$, Leistung $P(t)$}}{Am ohmschen Widerstand: $U$ und $I$ in Phase, $P\ge 0$}
 
 \begin{formulabox}
 % chktex 35
-\[ U_{\mathrm{ind}}(t) = U_{\mathrm{ind},\mathrm{max}}\,\cos(\omega t + \delta) \]
+\[ U_{\mathrm{ind}}(t) = \overbrace{U_{\mathrm{ind},\mathrm{max}}}^{\text{Peak\,/\,Amplitude}}\,\cos(\underbrace{\omega t + \delta}_{\text{Phase}}) \]
 \[ \omega = 2\pi\nu = 2\pi f = \frac{2\pi}{T} \]
-\formulanote{Zweck: Wechselspannung (Sinus).}
+\formulanote{Zweck: Wechselspannung (Kosinus-Form).}
 \formulasep
 \[ \langle \sin^2(\omega t)\rangle = \langle \cos^2(\omega t)\rangle = \tfrac{1}{2} \]
-\[ \int_0^T \sin^2(\omega t)\,dt = \int_0^T \cos^2(\omega t)\,dt = \tfrac{T}{2} \]
-\formulanote{Zweck: Mittelwerte über Periode $T$ $\to$ Ursprung des Faktors $1/\sqrt{2}$.}
+\formulanote{Zweck: Mittelwert über Periode $T$ $\to$ Ursprung des Faktors $1/\sqrt{2}$.}
 \formulasep
-\[ I_{\mathrm{eff}} = \sqrt{\langle I^2\rangle} = \frac{I_{\max}}{\sqrt{2}} \]
-\formulanote{Zweck: Effektivstrom (Definition; Sinus-Resultat).}
+\[ I_{\mathrm{eff}} = \underbrace{\sqrt{\langle I^2\rangle}}_{\text{zeitl. Mittelwert}} = \frac{I_{\max}}{\sqrt{2}}, \quad U_{\mathrm{eff}} = \frac{U_{\max}}{\sqrt{2}} \]
+\formulanote{Zweck: Effektivwerte (Gleichstromwert für dieselbe mittlere Leistung).}
 \end{formulabox}
 
 \ZSFmanualColumnBreak
 \SubsectionBar[sec:7-2]{Blindwiderstände}
 \begin{runintext}
-Der elektrische Widerstand von Spule und Kondensator für Wechselströme (ohne reale Leistung zu verbrauchen) und deren \ZSFkeyword{Phasenverschiebung}.
+Der elektrische Widerstand von Spule und Kondensator für Wechselströme (zur Speicherung temporärer Energieanteile ohne Wirkleistungsverbrauch) und deren \ZSFkeyword{Phasenverschiebung}.
 \end{runintext}
 \begin{formulabox}
-\[ I_{\mathrm{eff}} = \frac{U_{R,\mathrm{eff}}}{R} \quad \text{R: Strom und Spannung in Phase} \]
-\formulasep
-\[ X_L = \omega L \quad \text{induktiv} \]
-\[ I_{\mathrm{eff}} = \frac{U_{L,\mathrm{eff}}}{\omega L} = \frac{U_{L,\mathrm{eff}}}{X_L} \]
-\formulasep
-\[ X_C = \frac{1}{\omega C} \quad \text{kapazitiv} \]
-\[ I_{\mathrm{eff}} = \frac{U_{C,\mathrm{eff}}}{X_C} \]
-\formulanote{Zweck: Ohm am Widerstand; Blindwiderstände und Strom-Spannungs-Beziehung (Spule, Kondensator).}
+\ZSFItemHeading{Ohmscher Widerstand}
+\[ I_{\mathrm{eff}} = \frac{U_{R,\mathrm{eff}}}{R} \quad \text{Strom und Spannung in Phase} \]
+\ZSFItemHeading{Spule (induktiv)}
+\[ X_L = \omega L \quad \implies \quad I_{\mathrm{eff}} = \frac{U_{L,\mathrm{eff}}}{\omega L} = \frac{U_{L,\mathrm{eff}}}{X_L} \]
+\ZSFItemHeading{Kondensator (kapazitiv)}
+\[ X_C = \frac{1}{\omega C} \quad \implies \quad I_{\mathrm{eff}} = \frac{U_{C,\mathrm{eff}}}{X_C} \]
+\formulanote{Zweck: Ohm'sches Gesetz an den Einzelelementen bei Wechselstrom.}
 \end{formulabox}
 \begin{factlist}
   \ZSFFact{\ZSFkeyword{Spule}}{Spannung eilt Strom um 90° voraus.}
@@ -61,25 +59,48 @@ Der elektrische Widerstand von Spule und Kondensator für Wechselströme (ohne r
 \[ Z_R = R \quad Z_L = i\omega L \quad Z_C = \frac{1}{i\omega C} = -\frac{i}{\omega C} \]
 \formulanote{Zweck: Komplexe Impedanzen der Einzelelemente.}
 \formulasep
-\[ Z = R + i\!\left(\omega L - \frac{1}{\omega C}\right) \quad \text{RLC seriell} \]
-\[ |Z| = \sqrt{R^2 + \left(\omega L - \tfrac{1}{\omega C}\right)^2} \]
-\[ \tan(\Delta\varphi) = \frac{\omega L - 1/(\omega C)}{R} \]
-\formulanote{Zweck: Gesamtimpedanz, Betrag und Phasenwinkel im RLC-Serienkreis.}
+\[ \begin{aligned}
+  Z_{\mathrm{ser}} &= \underbrace{R}_{\text{Wirk (Wärme)}} + i\underbrace{\left(\omega L - \frac{1}{\omega C}\right)}_{\text{Blind (zurück)}} \\
+  |Z|_{\mathrm{ser}} &= \sqrt{R^2 + \left(\omega L - \tfrac{1}{\omega C}\right)^2}
+\end{aligned} \]
+\[ \tan(\Delta\varphi)_{\mathrm{ser}} = \frac{\omega L - 1/(\omega C)}{R} \quad \text{(RLC seriell)} \]
+\formulasep
+\[ \begin{aligned}
+  \frac{1}{Z_{\mathrm{par}}} &= \underbrace{\frac{1}{R}}_{\text{Wirk (Wärme)}} + i\underbrace{\left(\omega C - \frac{1}{\omega L}\right)}_{\text{Blind (zurück)}} \\
+  \frac{1}{|Z|_{\mathrm{par}}} &= \sqrt{\frac{1}{R^2} + \left(\omega C - \tfrac{1}{\omega L}\right)^2}
+\end{aligned} \]
+\[ \tan(\Delta\varphi)_{\mathrm{par}} = R\!\left(\omega C - \frac{1}{\omega L}\right) \quad \text{(RLC parallel)} \]
+\formulanote{Zweck: Impedanz, Betrag und Phasenwinkel im RLC-Serien- und Parallelkreis.}
 \end{formulabox}
+
+\begin{warnbox}[Spannungs- \& Stromaddition]
+Effektivwerte dürfen \ZSFdanger{nie} direkt addiert werden: $U_0 \neq U_R + U_L + U_C$.
+Stattdessen geometrische Addition (Pythagoras):\\
+\textbf{Reihe:} $U_0 = \sqrt{U_R^2 + (U_L - U_C)^2}$ \\
+Phasenwinkel $\Delta\varphi_{\mathrm{ser}}$:
+$>0 \to$ induktiv (Spule überwiegt, Strom eilt nach);
+$<0 \to$ kapazitiv (Kondensator überwiegt, Strom eilt voraus).\\
+\textbf{Parallel:} $I_0 = \sqrt{I_R^2 + (I_C - I_L)^2}$
+\end{warnbox}
 
 \SubsectionBar[sec:7-4]{Mittlere Leistung}
 \begin{runintext}
 Warum Spule und Kondensator die Energie nur hin- und herschieben und nur der Ohm'sche Widerstand Energie in Wärme umwandelt (\ZSFkeyword{Wirkleistung}).
 \end{runintext}
 \begin{formulabox}
-\[ \langle P \rangle = U_{R,\mathrm{eff}}\,I_{\mathrm{eff}} = R\,I_{\mathrm{eff}}^2 \quad \text{am Widerstand} \]
+\[ \begin{aligned}
+  \langle P \rangle &= \frac{P_{\max}}{2} = \frac{U_{\max}I_{\max}}{2} \\
+  &= U_{R,\mathrm{eff}}\,I_{\mathrm{eff}} = R\,I_{\mathrm{eff}}^2 \quad \text{am Widerstand}
+\end{aligned} \]
 \formulasep
 \[ \langle P \rangle = 0 \quad \text{an Spule oder Kondensator} \]
 \formulanote{Zweck: Mittlere Leistung nur am Ohm'schen Widerstand; Spule/Kondensator leistungsfrei.}
 \formulasep
-\[ \langle P \rangle = U_{\mathrm{eff}}\,I_{\mathrm{eff}}\,\cos(\Delta\varphi) \]
+\[ P = U_{\mathrm{eff}}\,I_{\mathrm{eff}}\,\cos(\Delta\varphi) \quad \text{Wirkleistung [W]} \]
+\[ Q = U_{\mathrm{eff}}\,I_{\mathrm{eff}}\,\sin(\Delta\varphi) \quad \text{Blindleistung [var]} \]
+\[ S = U_{\mathrm{eff}}\,I_{\mathrm{eff}} = \sqrt{P^2 + Q^2} \quad \text{Scheinleistung [VA]} \]
 \[ \cos(\Delta\varphi) = \frac{R}{|Z|} \quad \text{Leistungsfaktor} \]
-\formulanote{Zweck: Wirkleistung im Wechselstromkreis mit Phasenverschiebung $\Delta\varphi$.}
+\formulanote{Zweck: Wirk-, Blind- und Scheinleistung im Wechselstromkreis (reelle Darstellung).}
 \end{formulabox}
 
 \SubsectionBar[sec:7-5]{Transformatoren}
@@ -92,6 +113,10 @@ Hoch- oder Heruntertransformieren von Wechselspannungen mithilfe zweier \ZSFkeyw
 \[ U_{1,\mathrm{eff}}\,I_{1,\mathrm{eff}} = U_{2,\mathrm{eff}}\,I_{2,\mathrm{eff}} \quad \text{ideal} \]
 \formulanote{Zweck: Übersetzung Spannung (Windungszahlen); ideal: Primär- und Sekundärleistung gleich.}
 \end{formulabox}
+\begin{factlist}
+  \ZSFFact{Unbelastet}{Sekundärseite offen $\to$ kein Sekundärstrom ($I_2 = 0$).}
+  \ZSFFact{Belastet}{Sekundärstrom erzeugt Gegenfeld im Kern $\to$ Primärstrom $I_1 \uparrow$ (hält Fluss $\Phi$ konstant).}
+\end{factlist}
 
 \SubsectionBar[sec:7-6]{LC, RLC}
 \begin{runintext}

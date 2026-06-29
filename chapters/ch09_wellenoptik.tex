@@ -15,9 +15,9 @@ $T$ & \textbf{Periodendauer} & Zeit bis Welle sich wiederholt \\
 $\lambda$ & \textbf{Wellenlänge} & $\lambda = v \cdot T = \frac{v}{f}$ \newline Abstand zweier Wellenberge \\
 $f, \nu$ & \textbf{Frequenz} & $f = \frac{1}{T} = \frac{\omega}{2\pi} = \frac{v}{\lambda}$ \newline Schwingungen pro Sekunde \\
 $\omega$ & \textbf{Kreisfrequenz} & $\omega = 2\pi f = \frac{2\pi}{T}$ \newline Überstrichener Winkel pro Sekunde \\
-$v, c$ & \textbf{Phasengeschw.} & $v = f \lambda = \frac{\omega}{k}$ \newline Ausbreitungsgeschwindigkeit der Welle \\
+$v, c$ & \textbf{Phasengeschw.} & $v = f \lambda = \frac{\omega}{k}$ \newline Ausbreitungsgeschw. der Welle \\
 $k$ & \textbf{Wellenzahl} & $k = \frac{2\pi}{\lambda}$ \\
-$\varphi$ & \textbf{Phasenverschiebung}& Relativer Versatz zweier Wellen in $x$-Richtung \\
+$\varphi$ & \textbf{Phasenversch.} & Relativer Versatz zweier Wellen in $x$-Richtung \\
 \end{ZSFtableFlat}
 \end{defbox}
 
@@ -34,14 +34,24 @@ Grundlagen der Lichtausbreitung in verschiedenen Medien und Verhalten des elektr
 \[ n_1\sin\theta_1 = n_2\sin\theta_2 \quad \text{Snellius} \]
 \[ I = \left(\frac{n_1-n_2}{n_1+n_2}\right)^2 I_0 \quad \text{reflekt. Intensität, senkrecht} \]
 \[ \sin\theta_{\mathrm{k}} = \frac{n_2}{n_1} \quad \text{Totalreflexion, $n_1>n_2$} \]
+\[ \tan\theta_{\mathrm{p}} = \frac{n_2}{n_1} \quad \text{Brewster-Winkel} \]
 \formulasep
 \[ I_1 = \frac{1}{2}I_0 \quad \text{unpolarisiert} \]
 \[ I_2 = I_1\,\cos^2\alpha \quad \text{Malus} \]
-\formulanote{Zweck: Lichtgeschwindigkeit; Brechzahl; Reflexion; Snellius; Totalreflexion; reflekt. Intensität; Polarisation. Malus: $\alpha$ Winkel zwischen Polarisatoren.}
+\formulanote{Zweck: Lichtgeschw.; Brechzahl; Reflexion ($\theta_1'=\theta_1$: Einfallswinkel = Ausfallswinkel); Snellius; Totalreflexion ($\theta_{\mathrm{k}}$); reflekt. Intensität ($I_0$: einfallende Intensität); Polarisation. Malus: $\alpha$ Winkel zwischen Polarisatoren. Brewster-Winkel: $\theta_{\mathrm{p}}$ ($\theta_{\mathrm{p}}+\theta_2=90^\circ$, reflektiertes Licht s-polarisiert).}
 \end{formulabox}
 \begin{runintext}
-\ZSFkeyword{Dispersion}: $n(\lambda)$; Prisma zerlegt weisses Licht. Polarisation: \ZSFkeyword{linear}/\ZSFkeyword{zirkular}; Erzeugung durch Absorption, Streuung, Reflexion, \ZSFkeyword{Doppelbrechung}.
+\ZSFkeyword{Dispersion}: $n(\lambda)$; kurze Wellenlängen (blau/violett) werden stärker gebrochen/abgelenkt als lange (rot) (z.\,B.\ Prisma).
+\ZSFkeyword{Polarisation}: Ausrichtung des E-Feldvektors. \ZSFkeyword{linear}: schwingt entlang einer Achse; \ZSFkeyword{zirkular}: E-Feld-Vektor rotiert (beschreibt Helix/Spirale) in Ausbreitungsrichtung (Energiefluss $\vec{S}$ verläuft geradlinig).
+\ZSFkeyword{Brewster-Winkel}: Bei Einfall unter $\theta_{\mathrm{p}}$ stehen reflektierter und gebrochener Strahl senkrecht aufeinander ($\theta_{\mathrm{p}} + \theta_2 = 90^\circ$). Der reflektierte Strahl ist vollständig linear polarisiert (senkrecht zur Einfallsebene, s-polarisiert).
+Erzeugung durch Absorption (unpolarisiertes Licht verliert die Hälfte der Intensität $I_1 = \frac{1}{2}I_0$, da E-Feld-Orientierung zufällig variiert), Streuung, Reflexion, \ZSFkeyword{Doppelbrechung}.
 \end{runintext}
+
+\ZSFfig{graphics/Wellenoptik_Brechung_Totalreflexion.png}{Lichtbrechung \& Totalreflexion}{Brechung bei $\theta_1 < \theta_{\mathrm{k}}$, Grenzwinkel bei $\theta_{\mathrm{k}}$ ($\theta_2 = 90^\circ$), Totalreflexion bei $\theta_1 > \theta_{\mathrm{k}}$ (Übergang optisch dicht $n_1 \to$ dünn $n_2$).}
+
+\ZSFfig{graphics/Wellenoptik_Brewster_Polarisation.png}{Brewster-Winkel \& Polarisation}{Bei $\tan\theta_{\mathrm{p}} = n_2/n_1$ stehen reflektierter und gebrochener Strahl senkrecht ($90^\circ$). Reflektierter Strahl ist vollständig linear (s-)polarisiert.}
+
+
 
 \SubsectionBar[sec:9-1]{Interferenz, Gitter}
 \begin{runintext}
@@ -53,8 +63,10 @@ Grundlagen der Lichtausbreitung in verschiedenen Medien und Verhalten des elektr
 = \frac{\Delta r}{\lambda}\,360^\circ
 \end{longformula}
 \formulasep
-\[ d\,\sin\theta_m = m\,\lambda \quad m = 0,1,2,\ldots \quad \text{Maxima, Spalt} \]
-\[ d\,\sin\theta_m = \left(m-\frac{1}{2}\right)\lambda \quad m = 1,2,3,\ldots \quad \text{Minima, Spalt} \]
+\[ d\,\sin\theta_m = m\,\lambda \quad \text{D-Spalt Max. } (m=0,1,\dots) \]
+\[ d\,\sin\theta_m = \left(m-\frac{1}{2}\right)\lambda \quad \text{D-Spalt Min. } (m=1,2,\dots) \]
+\[ E_0 = 2\,A_0\,\cos(\delta/2) \quad \text{D-Spalt Gesamtamplitude} \]
+\[ I = 4\,I_0\,\cos^2(\delta/2) \quad \text{D-Spalt Intensität} \]
 \formulasep
 \[ y_m \approx \frac{m\,\lambda\,l}{d} \quad \text{$m$-tes Maximum auf Schirm} \]
 \[ \Delta y \approx \frac{\lambda\,l}{d} \quad \text{Abstand benachbarter Maxima} \]
@@ -62,9 +74,9 @@ Grundlagen der Lichtausbreitung in verschiedenen Medien und Verhalten des elektr
 \[ g\,\sin\theta_m = m\,\lambda \quad \text{Gitter} \]
 \[ \mathcal{A} = \frac{|\lambda|}{\Delta\lambda} = m\,N \quad \text{Auflösungsvermögen} \]
 \formulasep
-\[ 2nd = m\,\lambda \quad \text{dünne Schicht, beide Reflexionen gleich} \]
-\[ 2nd = \left(m+\tfrac{1}{2}\right)\lambda \quad \text{dünne Schicht, genau eine mit $\pi$} \]
-\formulanote{$\Delta r$: Gangunterschied; $d$ Spaltabstand (Doppelspalt) bzw.\ Schichtdicke; $g$ Gitterkonstante ($\neq$ Gegenstandsweite Kap.~10). $m$ Ordnung, $\theta_m$ Beugungswinkel. Gitter: $N$ beleuchtete Streifen; $\mathcal{A}$ Auflösungsvermögen. Phasensprung $\pi$ bei Reflexion $n_{\mathrm{klein}}\!\to\! n_{\mathrm{gross}}$, sonst $0$. Schirm: $l$, $y_m$; $\sin\theta \approx y/l$.}
+\[ 2nd = m\,\lambda \quad \text{dünne Schicht: konstr. (beide gleich)} \]
+\[ 2nd = \left(m+\tfrac{1}{2}\right)\lambda \quad \text{dünne Schicht: konstr. } (\text{eine } \pi) \]
+\formulanote{$\Delta r$: Gangunterschied (Wegdifferenz $s_2-s_1$); $d$ Spaltabstand (Doppelspalt) bzw.\ Schichtdicke; $g$ Gitterkonstante ($\neq$ Gegenstandsweite Kap.~10). $m$ Ordnung, $\theta_m$ Beugungswinkel. $I_0$ Intensität Einzelspalt ($I_{\mathrm{max}}=4I_0$, $I_{\mathrm{min}}=0$). Gitter: $N$ beleuchtete Gitterstriche; $\mathcal{A}$ Auflösungsvermögen. Phasensprung $\pi$ bei Reflexion $n_{\mathrm{klein}}\!\to\! n_{\mathrm{gross}}$, sonst $0$. Für destr. Interferenz konstr.-Bedingungen vertauschen. Schirm: $l$, $y_m$ (Abst.\ zum Hauptmax.), $\Delta y$ (Abst.\ benachb. Max.); $\sin\theta \approx y/l$.}
 \end{formulabox}
 \begin{runintext}
 \ZSFkeyword{Phasensprung} $\pi$ nur bei \ZSFkeyword{Reflexion} an optisch dichterem Medium ($n_1<n_2$); sonst $0$. Durchgang ohne Sprung.

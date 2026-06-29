@@ -34,14 +34,14 @@ Das \ZSFkeyword{Induktionsgesetz}: Jede Änderung des \ZSFkeyword{magnetischen F
 \begin{formulabox}
 \[ U_{\mathrm{ind}} = -\frac{\mathrm{d}\Phi_{\mathrm{mag}}}{\mathrm{d}t} \quad \text{Faraday, eine Windung} \]
 \[ U_{\mathrm{ind}} = -n\,\frac{\mathrm{d}\Phi_{\mathrm{mag}}}{\mathrm{d}t} \quad \text{Spule mit $n$ Wind.} \]
-\formulanote{Zweck: Faraday: induzierte Spannung bei Flussänderung ($\Phi_{\mathrm{mag}}$ pro Windung, Faktor $n$ für Spule).}
+\formulanote{Zweck: Induzierte Spannung bei Flussänderung ($U_{\mathrm{ind}, \mathrm{mittel}} = -n\,\frac{\Delta\Phi_{\mathrm{mag}}}{\Delta t}$ für zeitliche Mittelwerte; Minuszeichen gemäß Lenz).}
 \formulasep
 \[ U_{\mathrm{ind}} = \oint_C \vec{E}\cdot\mathrm{d}\vec{\ell} \quad \text{zeitabhängiges B} \]
 \formulasep
 \[ U_{\mathrm{ind}} = |\vec{v}|\,|\vec{B}|\,\ell \quad \text{bewegter Stab $\perp$ zu $\vec{B}$} \]
 \formulasep
 \[ U_{\mathrm{ind}} = -L\,\frac{\mathrm{d}I}{\mathrm{d}t} \quad \text{Selbstinduktion} \]
-\formulanote{Zweck: Induktion (Linienintegral, bewegter Leiter, Selbstinduktion).}
+\formulanote{Zweck: Induktion durch Bewegung ($vB\ell$), Selbstinduktion ($-L\,\mathrm{d}I/\mathrm{d}t$) oder zeitabhängiges $B$ (Umlauf-Integral).}
 \end{formulabox}
 
 \SubsectionBar[sec:6-3]{Lenz}
@@ -57,14 +57,17 @@ Induktionsspannung und -strom wirken ihrer \ZSFkeyword{Ursache entgegen}. Oder: 
 Die \ZSFkeyword{Induktivität} beschreibt die Eigenschaft von Spulen und Leitern, den Stromfluss aufgrund des selbstaufgebauten oder externen Magnetfeldes zu trägen (\ZSFkeyword{Selbst-} und \ZSFkeyword{Gegeninduktion}).
 \end{runintext}
 \begin{formulabox}
-\[ L = \frac{n\,\Phi_{\mathrm{mag}}}{I} \quad \text{Selbstinduktivität (Def., Spule mit $n$ Wind.)} \]
-\[ L = \mu_0\,(n/\ell)^2\,A\,\ell \quad \text{Selbstind.\ Zylinderspule} \]
+\[ L = \frac{n\,\Phi_{\mathrm{mag}}}{I} \]
+\formulanote{Selbstinduktivität (Def., Spule mit $n$ Wind., $[L] = \si{H}$).}
+\[ L = \mu_0\,\frac{n^2\,A}{\ell} \quad \text{Selbstind.\ Zylinderspule} \]
 \formulasep
-\[ M = \frac{n_2\,\Phi_{\mathrm{mag},21}}{I_1} = \frac{n_1\,\Phi_{\mathrm{mag},12}}{I_2} \quad \text{Gegeninduktivität (Def.)} \]
-\formulanote{Indexkonvention: $\Phi_{\mathrm{mag},ab}$ = Fluss \emph{pro Windung} in Spule~$a$ (Ort), erzeugt vom Strom $I_b$ in Spule~$b$ (Quelle); Faktor $n_a$ für die gesamte Spule $a$.}
+\[ M = L_{\underbrace{\scriptstyle 12}_{\text{\tiny in 1 von 2}}} = L_{\underbrace{\scriptstyle 21}_{\text{\tiny in 2 von 1}}} = \frac{\overbrace{n_2}^{\text{\tiny Wind.\ 2}}\,\overbrace{\Phi_{\mathrm{mag},21}}^{\text{\tiny Fluss in 2 von 1}}}{\underbrace{I_1}_{\text{\tiny Strom 1}}} \]
+\formulanote{Def.\ Gegeninduktivität ($[M] = \si{H}$), symmetrisch: $M_{12} = M_{21} = M$ (Reihenfolge egal). Indexkonvention: $\Phi_{\mathrm{mag},ab}$ = Fluss in Spule~$a$ (Ort) durch Strom $I_b$ in Spule~$b$ (Quelle).}
+\[ U_{\mathrm{ind},2} = -M\,\frac{\mathrm{d}I_1}{\mathrm{d}t} \]
+\formulanote{Induzierte Spannung in Spule 2 durch Stromänderung in Spule 1.}
 \formulasep
-\[ M \approx \mu_0\,\frac{n_1\,n_2\,A}{\ell} \quad \text{koaxiale lange Spulen} \]
-\formulanote{Zweck: Geometrieformel für $M$ bei eng gekoppelten langen Spulen ($A$, $\ell$: Querschnitt, Länge der äußeren Spule).}
+\[ M \approx \mu_0\,\frac{n_1\,n_2\,A_{\mathrm{innen}}}{\ell_{\mathrm{aussen}}} \quad \text{koaxiale lange Spulen} \]
+\formulanote{Zweck: Geometrieformel für $M$ bei eng gekoppelten Spulen ($A_{\mathrm{innen}}$: Querschnitt der inneren Spule, $\ell_{\mathrm{aussen}}$: Länge der äußeren Spule).}
 \[ 1\,\si{H} = 1\,\si{V.s/A} \]
 \[ \mu_0 = 4\pi\times 10^{-7}\,\si{H/m} \]
 \formulanote{Zweck: $L$ = Selbstinduktivität (eine Spule); $M$ = Gegeninduktivität (zwei gekoppelte Spulen).}
@@ -75,13 +78,13 @@ Die \ZSFkeyword{Induktivität} beschreibt die Eigenschaft von Spulen und Leitern
 Zeitabhängiges Anwachsen und Abklingen von Strömen in einem Schaltkreis mit \ZSFkeyword{Spule} und Serienwiderstand.
 \end{runintext}
 \begin{formulabox}
-\[ U_L = U_{\mathrm{ind}} - I R = -L\,\frac{\mathrm{d}I}{\mathrm{d}t} - I R \]
+\[ U_0 - L\,\frac{\mathrm{d}I}{\mathrm{d}t} - I R = 0 \quad \text{Maschengl.\ (Laden)} \]
 \formulasep
 \[ I(t) = \frac{U_0}{R}\,(1 - \mathrm{e}^{-t/\tau}) = I_E\,(1 - \mathrm{e}^{-t/\tau}) \quad \text{Einschalten} \]
 \[ \tau = L/R \quad \text{Zeitkonstante} \]
 \formulasep
-\[ I(t) = I_0\,\mathrm{e}^{-t/\tau} \quad \text{Abbau} \]
-\formulanote{Zweck: RL-Kreis; Einschalt-/Ausschaltstrom; Zeitkonstante $\tau=L/R$.}
+\[ I(t) = I_0\,\mathrm{e}^{-t/\tau} \quad \text{Ausschalten / Abbau} \]
+\formulanote{Zweck: RL-Kreis. \ZSFdanger{Achtung:} Beim Einschalten wirkt die induzierte Spannung der Quelle entgegen (Lenz). Der Strom steigt träge mit Zeitkonstante $\tau = L/R$ an.}
 \end{formulabox}
 
 \SubsectionBar[sec:6-6]{Energie Magnetfeld}
@@ -91,9 +94,18 @@ Die im Magnetfeld und besonders in \ZSFkeyword{Induktivitäten} (wie Spulen) zwi
 \begin{formulabox}
 \[ E_{\mathrm{mag}} = \frac{1}{2}\,L\,I^2 \]
 \formulasep
-\[ w_{\mathrm{mag}} = \frac{B^2}{2\mu_0} \quad \text{Energiedichte} \]
+\[ w_{\mathrm{mag}} = \frac{B^2}{2\mu_0} \quad \text{Energiedichte (für jedes $B$-Feld)} \]
 \[ E_{\mathrm{mag}} = w_{\mathrm{mag}}\,V \quad \text{(homogenes Feld)} \]
 \formulanote{Zweck: Gespeicherte magnetische Energie; Energiedichte im B-Feld; Gesamtenergie bei homogenem Feld über Volumen $V$.}
 \end{formulabox}
+
+\SubsectionBar[sec:6-7]{Wirbelströme}
+\begin{runintext}
+Induzierte kreisförmige Ströme in massiven Leitern bei einer Änderung des \ZSFkeyword{magnetischen Flusses}.
+\end{runintext}
+\begin{statementbox}[Effekte \& Gegenmaßnahmen]
+\ZSFkeyword{Energieverlust}: Die Ströme erzeugen Joule'sche Wärme. Gegenmaßnahme in Transformatoren: \ZSFkeyword{lamellierte} (geblechte) Eisenkerne. \ZSFgapXS
+\ZSFkeyword{Bremswirkung}: Induzierte Ströme erzeugen ein Gegenfeld, das der Bewegung entgegenwirkt (Lenz'sche Regel). Anwendung: \ZSFkeyword{Wirbelstrombremse}.
+\end{statementbox}
 
 % ============================================================
