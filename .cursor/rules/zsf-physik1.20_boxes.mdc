@@ -7,7 +7,7 @@ decisionStatus: final
 lastUpdatedBy: codex
 lastUpdatedAt: 2026-06-27
 ---
-<!-- AUTO-GENERATED — rules-hash:8e559dd0ca662066 —
+<!-- AUTO-GENERATED — rules-hash:320c208349962ad0 —
      Quelle: rules/20_boxes.md. Nicht direkt bearbeiten. Änderungen → `make sync-rules`. -->
 
 Für inhaltliche Darstellungen die vordefinierten Umgebungen nutzen.

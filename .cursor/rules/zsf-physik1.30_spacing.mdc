@@ -7,7 +7,7 @@ decisionStatus: final
 lastUpdatedBy: loris
 lastUpdatedAt: 2026-06-10
 ---
-<!-- AUTO-GENERATED — rules-hash:8e559dd0ca662066 —
+<!-- AUTO-GENERATED — rules-hash:320c208349962ad0 —
      Quelle: rules/30_spacing.md. Nicht direkt bearbeiten. Änderungen → `make sync-rules`. -->
 
 Die 4 Spalten auf A4-Querformat sind schmal. Abstände zentral in `styles/30_layout_spacing.tex`. **Nie** hardcodierte `pt`-Werte in Kapiteln.

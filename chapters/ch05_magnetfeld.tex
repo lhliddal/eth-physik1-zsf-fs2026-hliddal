@@ -7,6 +7,9 @@
 \begin{runintext}
 Grundlagen des \ZSFkeyword{Magnetfelds}: magnetische Kräfte auf bewegte Ladungen und Ströme, die Erzeugung von \ZSFkeyword{B-Feldern} durch Leiter (\ZSFkeyword{Biot-Savart}, \ZSFkeyword{Ampère}) sowie magnetische Eigenschaften der Materie. Zentral für Aufgaben zur Teilchenablenkung und Felderzeugung.
 \end{runintext}
+\begin{runintext}
+\ZSFkeyword{Feldlinien} bilden immer geschlossene Schleifen (keine magnetischen Monopole).
+\end{runintext}
 
 \SubsectionBar[sec:5-1]{Lorentz}
 \begin{runintext}
@@ -17,15 +20,16 @@ Die elementare \ZSFkeyword{Kraft} auf Einzelteilchen und Leiterstücke im extern
 
 \begin{formulabox}
 \[ \vec{F} = q\,\vec{v}\times\vec{B} \quad \text{bewegte Ladung} \]
-\formulanote{Zweck: Lorentzkraft auf bewegte Ladung.}
+\formulanote{Zweck: Lorentzkraft auf bewegte Ladung. Einheit: $1\,\si{T} = 1\,\si{N}/(\si{A}\cdot\si{m})$.}
 \formulasep
-\[ \mathrm{d}\vec{F} = I\,\mathrm{d}\vec{\ell}\times\vec{B} \quad \text{Stromelement} \]
-\formulanote{Zweck: Kraft auf Stromelement im B-Feld.}
+\[ \mathrm{d}\vec{F} = I\,\mathrm{d}\vec{\ell}\times\vec{B} \quad \text{Stromelement (differentiell)} \]
+\[ \vec{F} = I\,\vec{\ell}\times\vec{B} \quad \text{Gerader Leiter (homogenes Feld)} \]
+\formulanote{Zweck: Kraft auf Stromelement/Leiter. Vektor $\vec{\ell}$ zeigt in Stromrichtung, $|\vec{\ell}| = \text{Leiterlänge}$.}
 \formulasep
 \[ \frac{F}{\ell} = \frac{\mu_0\,I_1\,I_2}{2\pi\,r} \quad \text{parallele Leiter} \]
 \formulanote{Zweck: Kraft pro Länge zwischen zwei parallelen Leitern im Abstand $r$. Gleichsinnig anziehend, gegensinnig abstossend.}
 \formulasep
-\[ 1\,\si{G} = 10^{-4}\,\si{T} \]
+\[ 1\,\si{G} = 10^{-4}\,\si{T} \quad (\text{Erdmagnetfeld} \approx 0.5\,\si{G}) \]
 \end{formulabox}
 
 \begin{defbox}[Kraft auf Leiter im Magnetfeld]
@@ -48,25 +52,24 @@ Dynamik von geladenen Teilchen in Magnetfeldern, speziell \ZSFkeyword{Kreisbahne
 Senkrecht zu $\vec{B}$: \ZSFkeyword{Kreisbahn}; Periode/Frequenz unabhängig von $r$ und $v$.
 \end{runintext}
 \begin{formulabox}
-\[ \frac{q}{m}\,v\,B = \frac{v^2}{r} \]
+\[ |q|\,v\,B = m\,\frac{v^2}{r} \quad (\text{Lorentzkraft} = \text{Zentripetalkraft}) \]
+\formulanote{Kreisbahn: magnetische Kraft = Zentripetalkraft.}
 \formulasep
 \[ T = \frac{2\pi m}{|q|B} = \frac{2\pi r}{v} \quad \text{Zyklotronperiode} \]
 \[ f = \frac{1}{T} = \frac{|q|B}{2\pi m} \quad \text{Zyklotronfrequenz} \]
+\[ \omega = 2\pi\,f = \frac{|q|\,B}{m} \quad \text{Zyklotron-Winkelfrequenz} \]
+\formulanote{Umlaufzeit $T$, Frequenz $f$ und $\omega$ hängen nur von $q/m$ und $B$ ab (unabhängig von $r$ und $v$!).}
 \formulasep
-\[ |\vec{v}| = \frac{|\vec{E}|}{|\vec{B}|} \quad \text{Geschwindigkeitsfilter} \]
-\formulanote{Zweck: Kreisbahn im B-Feld; Zyklotronperiode/-frequenz; Geschwindigkeitsfilter (E$\perp$B).}
+\[ |\vec{v}| = \frac{|\vec{E}|}{|\vec{B}|} \quad \text{Geschwindigkeitsfilter (Wien-Filter)} \]
+\formulanote{Wien-Filter: $\vec{E}\perp\vec{B}$. Die Kräfte $F_{\mathrm{el}}=qE$ und $F_{\mathrm{Lorentz}}=qvB$ heben sich auf für $v=E/B$ (Teilchen fliegen geradeaus).}
+\formulasep
+\[ q\,U = \frac{1}{2}\,m\,v^2 \implies \frac{m}{|q|} = \frac{B^2\,r^2}{2\,U} \quad \text{Massenspektrometer} \]
+\formulanote{Massenspektrometer: Beschleunigung mit Spannung $U$, anschliessend Ablenkung auf Radius $r$ im homogenen Feld $B$.}
 \end{formulabox}
 \begin{runintext}
 \ZSFkeyword{Thomson}: $q/m$ über gekreuzte Felder + E-Ablenkung. \ZSFkeyword{Massenspektrometer}: $q/m$ aus Bahnradius.
 \end{runintext}
 
-\begin{runintext}
-In vielen Aufgaben wird die \ZSFkeyword{Zentripetalkraft} als notwendige Bedingung für Kreisbahnen im Magnetfeld verwendet:
-\end{runintext}
-\begin{formulabox}
-\[ F_{\mathrm{Z}} = m\,\frac{v^2}{r} = m\,\omega^2 r \]
-\formulanote{Zentripetalkraft: Notwendig für Kreisbewegung, z.B. geladene Teilchen im B-Feld. Oft in Kombination mit der Lorentzkraft $qvB$.}
-\end{formulabox}
 
 \SubsectionBar[sec:5-3]{Moment, Drehmoment}
 \begin{runintext}
@@ -77,11 +80,11 @@ Wirkung von Magnetfeldern auf \ZSFkeyword{Stromschleifen} (\ZSFkeyword{magnetisc
 
 \begin{formulabox}
 \[ \vec{\mu} = n\,I\,\vec{A} \quad \text{magnetisches Dipolmoment} \]
-\formulanote{Zweck: Magnetisches Dipolmoment einer Leiterschleife.}
+\formulanote{Zweck: Magnetisches Dipolmoment einer Leiterschleife ($n$: Windungszahl, $A = |\vec{A}|$: Schleifenfläche, Einheit: $\si{A.m^2}$).}
 \formulasep
-\[ \vec{M} = \vec{\mu}\times\vec{B} \quad \text{Drehmoment} \]
+\[ \vec{M} = \vec{\mu}\times\vec{B} \quad \text{Drehmoment} \implies |\vec{M}| = n\,I\,A\,B\sin(\theta) \]
 \[ E_{\mathrm{pot}} = -\vec{\mu}\cdot\vec{B} \]
-\formulanote{Zweck: Drehmoment und potenzielle Energie der Schleife im B-Feld.}
+\formulanote{Zweck: Drehmoment und potenzielle Energie im B-Feld. \ZSFdanger{Achtung:} $\theta$ ist der Winkel zwischen Normalenvektor $\vec{A}$ und $\vec{B}$ (nicht zur Schleifenebene!).}
 \end{formulabox}
 \begin{runintext}
 Homogenes $\vec{B}$: resultierende Kraft auf Schleife $=0$.
@@ -96,13 +99,13 @@ Das grundlegende Gesetz zur Berechnung des Magnetfelds aus einer beliebigen \ZSF
 
 \begin{formulabox}
 \[ \vec{B} = \frac{\mu_0}{4\pi}\,\frac{q\,\vec{v}\times\hat{r}}{r^2} \quad \text{bewegte Punktladung} \]
-\[ \mu_0 = 4\pi\times 10^{-7}\,\si{T.m/A} = 4\pi\times 10^{-7}\,\si{N/A^2} \]
+\[ \mu_0 = 4\pi\times 10^{-7}\,\si{T.m/A} = 4\pi\times 10^{-7}\,\si{N/A^2} \quad \text{(magnetische Feldkonstante)} \]
 \formulasep
 \[ \mathrm{d}\vec{B} = \frac{\mu_0}{4\pi}\,\frac{I\,\mathrm{d}\vec{\ell}\times\hat{r}}{r^2} \quad \text{Biot-Savart} \]
 \formulanote{Zweck: B-Feld bewegte Punktladung / Stromelement (Biot-Savart).}
 \end{formulabox}
 \begin{runintext}
-$\hat{r}$ von Ladung/Stromelement zum Feldpunkt.
+$\hat{r}$: Einheitsvektor von der Quelle (Ladung $q$ bzw. Stromelement $\mathrm{d}\vec{\ell}$) zum Feldpunkt.
 \end{runintext}
 
 \begin{formulabox}
@@ -118,7 +121,7 @@ $\hat{r}$ von Ladung/Stromelement zum Feldpunkt.
         \textVorFormel{Gerader Leiterabschnitt:}
         $B = \frac{\mu_0}{4\pi}\,\frac{I}{r_\perp}\,(\cos\theta_1 - \cos\theta_2)$\par
         \tcbline
-        \textVorFormel{Langer gerader Leiter ($\theta_1=0^\circ, \theta_2=180^\circ$):}
+        \textVorFormel{Unendlich langer gerader Leiter ($\theta_1=0^\circ, \theta_2=180^\circ$):}
         $B = \frac{\mu_0 I}{2\pi r_\perp}$
     \end{formulabox}
 \end{splitbox}
@@ -164,10 +167,10 @@ Berechnung des Magnetfelds bei \ZSFkeyword{hoher Symmetrie} (lange Leiter, Spule
 \end{figbox}
 
 \begin{formulabox}
-\[ \Phi_{\mathrm{mag}} = \oint_A \vec{B}\cdot\hat{n}\,\mathrm{d}A = \oint_A B_n\,\mathrm{d}A = 0 \quad \text{Gauss Magnetfeld} \]
+\[ \Phi_{\mathrm{mag}} = \oint_A \vec{B}\cdot\hat{n}\,\mathrm{d}A = \oint_A B_n\,\mathrm{d}A = 0 \quad \text{mag. Fluss (Gauss)} \]
 \formulasep
 \[ \oint_C \vec{B}\cdot\mathrm{d}\vec{\ell} = B \cdot 2\pi r = \mu_0\,I_C \quad \text{Ampère} \]
-\formulanote{Zweck: Keine magnetischen Monopole; Ampère: Zirkulation $\vec{B}$ $\propto$ eingeschlossener Strom.}
+\formulanote{Zweck: Keine magnetischen Monopole ($\Phi_{\mathrm{mag}}$: mag. Fluss); Ampère: Zirkulation $\vec{B}$ $\propto$ eingeschlossener Strom.}
 \end{formulabox}
 \begin{runintext}
 Gültig für stetige Ströme; nützlich bei hoher Symmetrie.
@@ -187,7 +190,7 @@ Para-, Ferro-, Diamagnetismus. $\vec{M}$: magnetisches Dipolmoment pro Volumen.
     \includegraphics[width=0.90\linewidth,height=\ZSFfigMaxHeight,keepaspectratio]{graphics/Magnetismus_Dipolfeld_Feldlinienverlauf.png}
     \tcblower
     \begin{formulabox}
-    \[ \vec{M} = \frac{\mathrm{d}\vec{\mu}}{\mathrm{d}V} \]
+    \[ \vec{M} = \frac{\mathrm{d}\vec{\mu}}{\mathrm{d}V} \quad \text{Magnetisierung} \]
     \formulasep
     \[ \vec{B} = \vec{B}_{\mathrm{aus}} + \mu_0\vec{M} \]
     \[ \vec{M} = \chi_{\mathrm{mag}}\,\frac{\vec{B}_{\mathrm{aus}}}{\mu_0} \]
@@ -195,7 +198,7 @@ Para-, Ferro-, Diamagnetismus. $\vec{M}$: magnetisches Dipolmoment pro Volumen.
     \[ \mu_{\mathrm{rel}} = 1 + \chi_{\mathrm{mag}} \]
     \formulasep
     \[ \vec{\mu} = \frac{q}{2m}\,\vec{L} \quad \text{Bahndrehimpuls $\vec{L}$} \]
-    \formulanote{Zweck: Magnetisierung; B in Materie; Suszeptibilität; Bahnmoment. $\chi_{\mathrm{mag}}$: magnetische Suszeptibilität.}
+    \formulanote{Zweck: Magnetisierung $\vec{M}$, Gesamtfeld $\vec{B}$, äußeres Feld $\vec{B}_{\mathrm{aus}}$ (ohne Material). $\chi_{\mathrm{mag}}$: magnetische Suszeptibilität.}
     \end{formulabox}
 \end{splitbox}
 \ZSFfigcaption{Feldlinien von N nach S — analog zum elektrischen Dipol}
@@ -208,7 +211,7 @@ Para-, Ferro-, Diamagnetismus. $\vec{M}$: magnetisches Dipolmoment pro Volumen.
 \formulanote{Zweck: Curie-Gesetz (paramagnetisch, schwaches Feld).}
 \end{formulabox}
 \begin{runintext}
-\ZSFkeyword{Paramagnetisch}: $\chi_{\mathrm{mag}}>0$, T-abhängig. \ZSFkeyword{Diamagnetisch}: $\chi_{\mathrm{mag}}<0$ (Supraleiter $-1$). \ZSFkeyword{Ferromagnetisch}: \ZSFkeyword{Hysterese}, Weiss'sche Bezirke.
+\ZSFkeyword{Paramagnetisch}: $\chi_{\mathrm{mag}}>0$ (leicht feldverstärkend, T-abhängig). \ZSFkeyword{Diamagnetisch}: $\chi_{\mathrm{mag}}<0$ (leicht feldschwächend, Supraleiter $-1$). \ZSFkeyword{Ferromagnetisch}: sehr starke Verstärkung, \ZSFkeyword{Hysterese}, Weiss'sche Bezirke (kann permanent magnetisiert werden).
 \end{runintext}
 
 % ============================================================

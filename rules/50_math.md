@@ -4,8 +4,8 @@ globs: ["chapters/**/*.tex", "styles/10_math.tex"]
 alwaysApply: false
 decisionOwner: ai
 decisionStatus: final
-lastUpdatedBy: codex
-lastUpdatedAt: 2026-06-27
+lastUpdatedBy: antigravity
+lastUpdatedAt: 2026-06-29
 ---
 
 Mathematische Makros liegen zentral in `styles/10_math.tex`.
@@ -14,4 +14,5 @@ Mathematische Makros liegen zentral in `styles/10_math.tex`.
 - Formel-Highlighting nur semantisch einsetzen: `\ZSFmhlA{...}` (Quelle/gegeben), `\ZSFmhlB{...}` (Gegenstück/zweiter Strang), `\ZSFmhlD{...}` (dritter Strang, selten), `\ZSFmhlC{...}` (Ziel/Resultat).
 - Neue Operatoren/Symbole **nur** in `styles/10_math.tex` ergänzen (nach Rücksprache), nicht inline in Kapiteln.
 - Keine rohen `\operatorname{…}`-Wiederholungen in Kapiteln, wenn ein zentrales Makro existiert oder sinnvoll ist.
+- **Klammer-Annotationen (`\overbrace{...}^{\text{...}}` / `\underbrace{...}_{\text{...}}`):** Sollen gezielt eingesetzt werden, um physikalische Bedeutungen direkt an Formelbestandteilen zu annotieren (z. B. Potentialdifferenz über Termen). Dies erhöht die Übersichtlichkeit und Scannbarkeit in der Prüfung drastisch.
 - Lange Formeln über `aligned` umbrechen (siehe `30_spacing`).

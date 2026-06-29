@@ -16,9 +16,9 @@ Grundformeln für Spannung und \ZSFkeyword{Kapazität} von \ZSFkeyword{Kondensat
 Zwei \ZSFkeyword{isolierte Leiter} mit gleich grosser, entgegengesetzter Ladung; speichert Ladung und Energie.
 \end{defbox}
 \begin{formulabox}
-\[ U = \varphi_b - \varphi_a \quad \text{Spannung} \]
+\[ U = \overbrace{\varphi_b - \varphi_a}^{\text{Potentialdiff.}} \quad \text{Spannung } [\si{V}] \]
 \formulasep
-\[ C = \frac{q}{U} \quad \text{Kapazität} \]
+\[ C = \frac{q}{U} \quad \text{Kapazität } [\si{F} = \si{C/V}] \]
 \formulanote{Zweck: Spannung zwischen Leitern; Definition Kapazität (Ladung pro Spannung).}
 \end{formulabox}
 \begin{runintext}
@@ -33,11 +33,11 @@ Formeln für Energie und \ZSFkeyword{Energiedichte} im Kondensatorfeld; nützlic
 \end{runintext}
 \begin{formulabox}
 \[ E_{\mathrm{el}} = \frac{1}{2}\,qU = \frac{q^2}{2C} = \frac{1}{2}\,CU^2 \]
-\formulanote{Zweck: Im Kondensator gespeicherte Energie.}
+\formulanote{Zweck: Im Kondensator gespeicherte Energie. \ZSFdanger{Beim Laden an konstanter Quelle geht 50\% der Energie als Wärme verloren!}}
 \formulasep
 \[ w_{\mathrm{el}} = \frac{1}{2}\,\varepsilon_0 E^2 \quad \text{Energiedichte} \]
 \[ E_{\mathrm{el}} = w_{\mathrm{el}}\,V \quad \text{(homogenes Feld)} \]
-\formulanote{Zweck: Elektrische Energiedichte im Feld; Gesamtenergie bei homogenem Feld über Volumen $V$.}
+\formulanote{Zweck: Elektrische Energiedichte im Feld; Gesamtenergie bei homogenem Feld über Volumen $V = A \cdot d$ (Fläche $A$, Abstand $d$).}
 \end{formulabox}
 
 \SubsectionBar[sec:3-3]{Platte, Zylinder, Kugel}
@@ -143,7 +143,7 @@ Formeln, wie isolierende Materialien (\ZSFkeyword{Dielektrika}) das Feld und die
 \[ \varepsilon = \varepsilon_{\mathrm{rel}}\varepsilon_0 \]
 \formulasep
 \[ \vec{D} = \varepsilon_{\mathrm{rel}}\varepsilon_0 \vec{E} \quad \text{Elektrische Verschiebungsdichte} \]
-\formulanote{Zweck: Kapazitätserhöhung durch Dielektrikum; Permittivität; Verschiebungsdichte.}
+\formulanote{Zweck: Kapazität $C$ mit Dielektrikum steigt gegenüber Vakuumkapazität $C_0$ um $\varepsilon_{\mathrm{rel}}$ (rel. Dielektrizitätskonstante).}
 \end{formulabox}
 \begin{propertylist}[Verhalten beim Einschub eines Dielektrikums]
   \ZSFFact{Mit Spannungsquelle}{Spannung $U$ bleibt konstant. $C$ steigt proportional zu $\varepsilon_{\mathrm{rel}}$. Damit fliesst Ladung nach ($q$ steigt). E-Feld $\vec{E}$ bleibt konstant ($E = U/d$).}

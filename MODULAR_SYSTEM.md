@@ -1,6 +1,6 @@
 # ZSF Physik 1 — MODULAR_SYSTEM.md
 
-> AUTO-GENERATED — rules-hash:8e559dd0ca662066
+> AUTO-GENERATED — rules-hash:320c208349962ad0
 >
 > Quelle: `rules/*.md` (mit YAML-Frontmatter).
 > Nicht direkt bearbeiten. Änderungen: `rules/*.md` editieren → `make sync-rules`.
@@ -235,7 +235,7 @@ Tabellendesign ist entkoppelt. Formatierung direkt in Kapiteln ist verboten.
 - Quelle: `rules/50_math.md`
 - Scope: Scoped; gilt bei Änderungen an `chapters/**/*.tex`, `styles/10_math.tex`
 - Beschreibung: Math-Makros zentral in styles/10_math.tex (\\sgn, \\vect, ZSFmhlA/B/C/D); neue Operatoren nur dort, keine rohen \\operatorname/\\mathbb in Kapiteln
-- Zuletzt aktualisiert: 2026-06-27 (codex)
+- Zuletzt aktualisiert: 2026-06-29 (antigravity)
 
 Mathematische Makros liegen zentral in `styles/10_math.tex`.
 
@@ -243,6 +243,7 @@ Mathematische Makros liegen zentral in `styles/10_math.tex`.
 - Formel-Highlighting nur semantisch einsetzen: `\ZSFmhlA{...}` (Quelle/gegeben), `\ZSFmhlB{...}` (Gegenstück/zweiter Strang), `\ZSFmhlD{...}` (dritter Strang, selten), `\ZSFmhlC{...}` (Ziel/Resultat).
 - Neue Operatoren/Symbole **nur** in `styles/10_math.tex` ergänzen (nach Rücksprache), nicht inline in Kapiteln.
 - Keine rohen `\operatorname{…}`-Wiederholungen in Kapiteln, wenn ein zentrales Makro existiert oder sinnvoll ist.
+- **Klammer-Annotationen (`\overbrace{...}^{\text{...}}` / `\underbrace{...}_{\text{...}}`):** Sollen gezielt eingesetzt werden, um physikalische Bedeutungen direkt an Formelbestandteilen zu annotieren (z. B. Potentialdifferenz über Termen). Dies erhöht die Übersichtlichkeit und Scannbarkeit in der Prüfung drastisch.
 - Lange Formeln über `aligned` umbrechen (siehe `30_spacing`).
 
 ### `60_workflow.md`
