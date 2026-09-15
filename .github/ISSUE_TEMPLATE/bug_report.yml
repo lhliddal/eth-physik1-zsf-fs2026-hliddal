@@ -1,0 +1,42 @@
+name: Fehler melden
+description: Melde einen Fehler in PDF, LaTeX oder Build.
+title: "Fehler: "
+body:
+  - type: input
+    id: fach
+    attributes:
+      label: Fach
+      description: Welche Zusammenfassung betrifft es?
+      placeholder: z.B. Analysis 2
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: PDF-Dateiname, Release oder Commit, falls bekannt.
+      placeholder: z.B. v2.0.0
+    validations:
+      required: false
+  - type: input
+    id: stelle
+    attributes:
+      label: Stelle
+      description: Seite, Abschnitt oder Formelnummer.
+      placeholder: z.B. Seite 4, Abschnitt Integralsatz
+    validations:
+      required: true
+  - type: textarea
+    id: beschreibung
+    attributes:
+      label: Beschreibung
+      description: Was ist falsch oder unklar?
+    validations:
+      required: true
+  - type: textarea
+    id: vorschlag
+    attributes:
+      label: Vorschlag
+      description: Optionaler Korrekturvorschlag.
+    validations:
+      required: false

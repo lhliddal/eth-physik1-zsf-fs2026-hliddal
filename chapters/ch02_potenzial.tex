@@ -1,0 +1,181 @@
+% !TEX root = ../main.tex
+% SECTION 2: POTENZIAL UND ENERGIE
+% ============================================================
+
+\StartChapter{Elektrisches Potenzial und Energie}
+
+\begin{runintext}
+Formeln zum \ZSFkeyword*{elektrischen Potenzial} (skalar, analog zu Höhenlinien auf Karte) und zur gespeicherten potentiellen Energie: \ZSFkeyword*{Potenzialdifferenzen}, Potenziale typischer Ladungsverteilungen und Zusammenhang zwischen Potenzial und Feld. Nützlich bei Aufgaben zu Spannungen, \ZSFkeyword*{Energiebilanzen}, Arbeit des Feldes und beim Wechsel zwischen Feld- und Potenzialbeschreibung.
+\end{runintext}
+
+\SubsectionBar[sec:potential-difference]{Potenzialdifferenz}
+\ZSFindex{Spannung}
+\ZSFindex{Elektrisches Potenzial}
+\ZSFindex{Potenzial}
+\ZSFindex{Elektronenvolt}
+\ZSFindex{Arbeit}
+\ZSFindex{Beschleunigung}
+\ZSFindex{Kinetische Energie}
+\begin{runintext}
+Formeln, wie sich \ZSFkeyword[Potenzialdifferenz]{Potenzialdifferenzen} aus dem \ZSFkeyword*{elektrischen Feld} ergeben und welche Einheiten zu \ZSFkeyword{Volt} gehören; nützlich, wenn Spannungen aus Feldern oder verrichteter Arbeit bestimmt werden.
+\end{runintext}
+\begin{defbox}[Potenzialdifferenz]
+Negativ der \ZSFkeyword*{Arbeit pro Ladungseinheit}, die das Feld verrichtet bei Verschiebung von $a$ nach $b$.
+\end{defbox}
+
+\begin{warnbox}[Merke: Potenzial-Berechnung]
+Elektrisches Potenzial \textbf{immer vom \ZSFkeyword*{Referenzpunkt}} (meist bei $\infty$, wo $\varphi=0$) zum Zielpunkt $\vec{r}$ integrieren (Weg frei wählbar, da das \ZSFkeyword*{elektrische Feld} konservativ ist):
+\[ \varphi(\vec{r}) = -\int_{\infty}^{\vec{r}} \vec{E}\cdot\mathrm{d}\vec{s} \]
+\end{warnbox}
+
+\begin{formulabox}
+\[ \Delta\varphi = \varphi_b - \varphi_a = \frac{\Delta E_{\mathrm{el}}}{q_0} = -\int_a^b \vec{E}\cdot\mathrm{d}\vec{s} \]
+\formulanote{Zweck: Potenzialdifferenz (Spannung $U = \Delta\varphi$) als Linienintegral. Umgekehrt: $\vec{E}=-\nabla\varphi$, zu abnehmendem $\varphi$ und senkrecht auf Äquipotenzialflächen; $E_x=-\mathrm{d}\varphi/\mathrm{d}x$, radial $E_r=-\mathrm{d}\varphi/\mathrm{d}r$.}
+\end{formulabox}
+
+\begin{formulabox}
+\[ \mathrm{d}\varphi = -\vec{E}\cdot\mathrm{d}\vec{s} \]
+\[ 1\,\si{V} = 1\,\si{J/C} \]
+\[ 1\,\si{N/C} = 1\,\si{V/m} \]
+\[ 1\,\si{eV} = 1{,}60\times 10^{-19}\,\si{C\cdot V} = 1{,}60\times 10^{-19}\,\si{J} \]
+\formulanote{Zweck: Definition Volt, Einheit des elektrischen Feldes, Elektronenvolt.}
+\end{formulabox}
+
+\begin{formulabox}
+\[ E_{\mathrm{kin}} = \frac{1}{2}mv^2 \quad \text{Kinetische Energie} \]
+\[ W_{\mathrm{el}} = qU = \frac{1}{2}mv^2 \quad \text{Beschleunigung} \]
+\formulanote{Zweck: Beschleunigung von Ladung $q$ durch Spannung $U$ aus Ruhe.}
+\end{formulabox}
+
+\SubsectionBar[sec:potential-distributions]{Allgemeine Potenziale}
+\ZSFindex{Elektrisches Potenzial}
+\ZSFindex{Potenzial}
+\begin{runintext}
+Ausdrücke für das Potenzial verschiedener \ZSFkeyword[Ladungsverteilung]{Ladungsverteilungen}; brauchst du, wenn Potenziale in Punkten gesucht oder Energien später über Potenziale berechnet werden.
+Die zugehörigen Feldresultate stehen in \ZSFref{sec:standard-fields}.
+\end{runintext}
+\begin{formulabox}
+\[ \varphi = \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r} - \overbrace{\frac{1}{4\pi\varepsilon_0}\,\frac{q}{r_B}}^{\text{Bezugspotenzial}} \quad \text{Punktladung} \]
+\[ \varphi = \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r} \quad \text{Coulomb, $\varphi=0$ bei $r\to\infty$} \]
+\formulanote{Zweck: Potenzial einer Punktladung mit oder ohne Referenzpunkt $r_B$.}
+\end{formulabox}
+
+\begin{formulabox}
+\[ \varphi = \sum_i \frac{1}{4\pi\varepsilon_0}\,\frac{q_i}{r_i} \quad \text{System} \]
+\[ \varphi = \int \frac{1}{4\pi\varepsilon_0}\,\frac{\mathrm{d}q'}{r} \quad \text{Kontinuierlich} \]
+\formulanote{Zweck: Superposition für diskrete und kontinuierliche Ladungsverteilungen (Abstand $r$ siehe \ZSFref{sec:efield-superposition}).}
+\end{formulabox}
+
+\begin{formulabox}
+\[ \varphi = \frac{1}{4\pi\varepsilon_0}\,\frac{q}{\sqrt{z^2+a^2}} \quad \text{Ringachse} \]
+\formulasep
+\[ \varphi = \frac{\sigma}{2\varepsilon_0}\,|z|\left(\sqrt{1+\frac{r_S^2}{z^2}}-1\right) \quad \text{Kreisscheibe Achse} \]
+\formulanote{Zweck: Potenziale auf der Symmetrieachse (z-Achse) für einen geladenen Ring (Radius $a$) und eine Kreisscheibe (Radius $r_S$).}
+\end{formulabox}
+
+\begin{formulabox}
+\[ \varphi = \varphi_0 - \frac{\sigma}{2\varepsilon_0}\,|x| \quad \text{Ebene} \]
+\formulasep
+\[ \varphi = \frac{\lambda}{2\pi\varepsilon_0}\,\ln\frac{r_B}{r} \quad \text{Linienladung (Ref.\ $r_B$)} \]
+\formulanote{Zweck: Potenziale für unendliche Ebene und Linienladung. Variablen: $r, r_i$ = Feldpunktabstand; $r_B, x_B$ = Nullpotenzialabstand; $a$ = Ringradius; $z$ = Achsenabstand; $r_S$ = Scheibenradius; $\sigma$ = Flächenladung; $\lambda$ = Linienladung.}
+\end{formulabox}
+\begin{runintext}
+Potenzial stetig im Raum.
+\end{runintext}
+
+\SubsectionBar[sec:spherical-potentials]{Potenziale kugelsymmetrischer Verteilungen}
+\ZSFindex{Elektrisches Potenzial}
+\ZSFindex{Potenzial}
+\ZSFindex{Kugelschale}
+\ZSFindex{Vollkugel}
+\ZSFindex{Dicke Kugelschale}
+\begin{runintext}
+Für kugelsymmetrische Verteilungen wird das Potenzial stückweise aus dem radialen Feld (\ZSFref{sec:spherical-fields}) bestimmt. In ladungsfreien Bereichen ist es konstant oder fällt wie $1/r$; an jeder Grenzfläche bleibt $\varphi$ stetig. Aus einem gegebenen $\varphi(r)$ folgt umgekehrt $E_r=-\mathrm{d}\varphi/\mathrm{d}r$.
+\end{runintext}
+
+\begin{formulabox}[Dünne Kugelschale]
+\[
+\varphi(r)=\begin{cases}
+\dfrac{1}{4\pi\varepsilon_0}\dfrac{Q}{R}, & r<R,\\[1ex]
+\dfrac{1}{4\pi\varepsilon_0}\dfrac{Q}{r}, & r>R.
+\end{cases}
+\]
+\formulanote{Hier wird das aus dem radialen Feld integrierte Potenzial benötigt.}
+\end{formulabox}
+
+\begin{formulabox}[Homogene Vollkugel]
+\[
+\varphi(r)=\begin{cases}
+\dfrac{1}{4\pi\varepsilon_0}\dfrac{Q}{2R}\left(3-\dfrac{r^2}{R^2}\right), & r<R,\\[2ex]
+\dfrac{1}{4\pi\varepsilon_0}\dfrac{Q}{r}, & r>R.
+\end{cases}
+\]
+\formulanote{Innen fällt das Potenzial quadratisch ab; aussen ist es das Coulomb-Potenzial der Gesamtladung.}
+\end{formulabox}
+
+\begin{formulabox}[Dicke Kugelschale]
+\[
+k=\frac{1}{4\pi\varepsilon_0},\qquad
+Q=\frac{4\pi\rho}{3}\left(R_a^3-R_i^3\right)
+\]
+\[
+\varphi(r)=k\begin{cases}
+2\pi\rho\left(R_a^2-R_i^2\right), & r<R_i,\\[1ex]
+\tfrac{2\pi\rho}{3}(3R_a^2-r^2-2R_i^3/r), & R_i<r<R_a,\\[2ex]
+\dfrac{Q}{r}, & r>R_a.
+\end{cases}
+\]
+\formulanote{Im Hohlraum ist $\varphi$ konstant; im geladenen Material fällt es stetig ab; aussen gilt $\varphi\propto 1/r$.}
+\end{formulabox}
+
+\begin{formulabox}[Superposition konzentrischer Kugeln]
+\[
+\varphi(r) = k \begin{cases}
+ \begin{aligned}&\tfrac{Q_1}{2R_1^3}(3R_1^2 - r^2)\\ &+ \tfrac{Q_2}{R_2} + \tfrac{Q_3}{R_3}\end{aligned}, & r < R_1 \\[2ex]
+ \frac{Q_1}{r} + \frac{Q_2}{R_2} + \frac{Q_3}{R_3}, & R_1 \le r < R_2 \\[1ex]
+ \frac{Q_1 + Q_2}{r} + \frac{Q_3}{R_3}, & R_2 \le r < R_3 \\[1ex]
+ \frac{Q_1 + Q_2 + Q_3}{r}, & r \ge R_3
+\end{cases}
+\]
+\formulanote{Vollkugel $(R_1,Q_1)$ in zwei Kugelschalen $(R_2,Q_2)$, $(R_3,Q_3)$: Jeder Beitrag ist innen konstant und aussen $\propto1/r$; alle Beiträge addieren.}
+\end{formulabox}
+
+\SubsectionBar[sec:electric-energy]{Elektrische Energie}
+\ZSFindex{Energie / elektrische Energie}
+\ZSFindex{Elektrisches Potenzial}
+\ZSFindex{Potenzial}
+\ZSFindexsee{Joule}{Energie / elektrische Energie}
+\begin{runintext}
+Formeln für \ZSFkeyword*{gespeicherte elektrische Energie} einzelner Ladungen, Leiter und Leitersysteme; brauchst du bei Energiebilanzen und Kapazitäts- bzw.\ Potenzialaufgaben.
+\end{runintext}
+\begin{formulabox}
+\[ E_{\mathrm{el}} = q_0\varphi = \frac{1}{4\pi\varepsilon_0}\,\frac{q_0 q}{r} \quad \text{($E_{\mathrm{el}}=0$ bei $r\to\infty$)} \]
+\formulanote{Zweck: Elektrostatische Energie einer Probeladung im Potenzial (analog zu $mgh$: Ladung $\cdot$ Potenzial) bzw.\ Zweiladungssystem.}
+\end{formulabox}
+
+\begin{formulabox}
+\[ E_{\mathrm{el}} = \frac{1}{2}\sum_{i=1}^n q_i\varphi_i \quad \text{Punktladungen} \]
+\[ E_{\mathrm{el}} = \frac{1}{4\pi\varepsilon_0}\left(\frac{q_1 q_2}{r_{12}} + \frac{q_1 q_3}{r_{13}} + \frac{q_2 q_3}{r_{23}}\right) \quad \text{Beispiel } N=3 \]
+\formulanote{Zweck: Gesamtenergie eines Punktladungssystems. Das Potenzial $\varphi_i$ am Ort $i$ wird nur durch alle \emph{anderen} Ladungen erzeugt (siehe Beispiel für $N=3$; Faktor $1/2$ verhindert Doppelzählung). Merkregel für alle Energieformeln: $1/2$ steht dort, wo die Ladung in dem Potenzial sitzt, das sie selbst mit aufbaut (auch $\frac{1}{2}CU^2$ \ZSFref{sec:capacitor-energy}); eine Probeladung im fremden, festen Feld bekommt keinen Faktor.}
+\end{formulabox}
+
+\begin{formulabox}
+\[ E_{\mathrm{el}} = \frac{1}{2}\,q\varphi \quad \text{Leiter} \]
+\[ E_{\mathrm{el}} = \frac{1}{2}\sum_{i=1}^n q_i\varphi_i \quad \text{Leitersystem} \]
+\formulanote{Zweck: Energie geladener Leiter. Leiter: einzelner Körper (z.B. Metallkugel mit Gesamtladung $q$ auf Potenzial $\varphi$). Leitersystem: mehrere Körper (Wechselwirkung über gegenseitige Abstände).}
+\end{formulabox}
+
+\SubsectionBar[sec:dielectric-strength]{Durchschlagfestigkeit}
+\ZSFindex{Dielektrischer Durchschlag / Durchschlagfestigkeit}
+\begin{runintext}
+Richtwert für maximale Feldstärke vor elektrischer \ZSFkeyword*{Durchschlagionisation}; nützlich, um abzuschätzen, ob eine reale Anordnung bei gegebenem Feld noch isolierend bleibt.
+\end{runintext}
+\begin{runintext}
+Nicht-kugelförmiger Leiter: $\sigma$ maximal wo Krümmungsradius minimal. \ZSFkeyword*{Dielektrischer Durchschlag}: bei hohem Feld wird Medium leitend.
+\end{runintext}
+\begin{formulabox}
+\[ E_{\max} \approx 3\times 10^6\,\si{V/m} = 3\,\si{MV/m} \quad \text{trockene Luft} \]
+\formulanote{Zweck: Ungefähre Durchschlagfeldstärke trockene Luft.}
+\end{formulabox}
+
+% ============================================================

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "physik1-fs2026",
+  "kind": "zsf",
+  "title": "Physik 1",
+  "semesterCode": "fs2026",
+  "semesterLabel": "FS 2026",
+  "status": "archive",
+  "githubRepository": "lhliddal/eth-physik1-zsf-fs2026-hliddal",
+  "pdfFilename": "physik1_fs2026_hliddal.pdf",
+  "presentation": {
+    "drawingNumber": "PH · FS26",
+    "description": "Physik-1-Zusammenfassung von Grund auf neu aufgebaut, damit Formeln, Konzepte und typische Zusammenhänge in der Prüfung schnell auffindbar und direkt nutzbar sind.",
+    "stage": "layout-final",
+    "diagram": "physics"
+  },
+  "releaseBaseline": "v3.8.2"
+}

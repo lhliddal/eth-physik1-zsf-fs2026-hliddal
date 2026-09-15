@@ -1,0 +1,235 @@
+% !TEX root = ../main.tex
+% SECTION 0: ZEICHEN & EINHEITEN
+% ============================================================
+
+\ZSFTitleHeader{Physik~1 Zusammenfassung}{Loris Hliddal}
+\StartFrontChapter{Zeichen \& Einheiten (SI)}
+
+% Nur direkt nutzbare Formeln und Einheitenbeziehungen führen im Index
+% hierhin; reine Symboldefinitionen bleiben beim erklärenden Fachabschnitt.
+% Kapitelgebundene Begriffe stehen bei ihrer Symbol-Tabelle, die aus den
+% Beziehungs-/Ableitungstabellen abgeleiteten weiter unten.
+
+% Spaltenkopf einmal für alle Symbol-Tabellen; die Boxen darunter tragen
+% dieselbe Spaltenstruktur und brauchen keine eigene Kopfzeile.
+\ZSFlegendband[\ZSFfontTableDense]{Y{0.6} Y{1.55} Y{0.85}}{%
+\ZSFhead{Symbol} & \ZSFhead{Bedeutung} & \ZSFhead{SI-Einheit} \\
+}
+
+\begin{ZSFtightBoxGroup}
+
+\begingroup\ZSFSetChapterPaletteByIndex{1}
+\ZSFindexfront{E-Feld / Elektrisches Feld}
+\ZSFindexfront{Kraft / Kraft auf Leiter}
+\begin{tablebox}[\ZSFchapterTableTitle{1}{Elektrisches Feld}]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.6} Y{1.55} Y{0.85}}
+$e$ & Elementarladung & \si{C} \\
+$q$, $Q$ & elektrische Ladung & \si{C} \\
+$\vec{E}$ & elektrische Feldstärke & \si{V/m} = \si{N/C} \\
+$\Phi_{\mathrm{el}}$ & elektrischer Fluss & \si{N.m^2/C} \\
+$\varepsilon_0$ & Vakuumpermittivität & \si{C^2/(N.m^2)} \\
+$\vec{p}$ & elektrisches Dipolmoment & \si{C.m} \\
+$\rho$ & Raumladungsdichte & \si{C/m^3} \\
+$\sigma$ & Flächenladungsdichte & \si{C/m^2} \\
+$\lambda$ & Linienladungsdichte & \si{C/m} \\
+\end{ZSFtableFlat}
+\end{tablebox}
+\endgroup
+
+\begingroup\ZSFSetChapterPaletteByIndex{2}
+\ZSFindexfront{Elektrisches Potenzial}
+\ZSFindexfront{Potenzial}
+\ZSFindexfront{Spannung}
+\begin{tablebox}[\ZSFchapterTableTitle{2}{Potenzial \& Energie}]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.6} Y{1.55} Y{0.85}}
+$\varphi$ & elektrisches Potenzial & \si{V} \\
+$U$ & Spannung, Potenzialdiff. & \si{V} \\
+$E_{\mathrm{el}}$ & elektrische Energie & \si{J} \\
+$W$ & Arbeit (Energie\-übertrag) & \si{J} \\
+\end{ZSFtableFlat}
+\end{tablebox}
+\endgroup
+
+\begingroup\ZSFSetChapterPaletteByIndex{3}
+\ZSFindexfront{Kapazität}
+\begin{tablebox}[\ZSFchapterTableTitle{3}{Kapazität \& Dielektrika}]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.6} Y{1.55} Y{0.85}}
+$C$ & Kapazität & \si{F} \\
+$\varepsilon_{\mathrm{rel}}$, $\varepsilon$ & Permittivität (rel./abs.) & 1, \si{F/m} \\
+\end{ZSFtableFlat}
+\end{tablebox}
+\endgroup
+
+\begingroup\ZSFSetChapterPaletteByIndex{4}
+\ZSFindexfront{Strom}
+\ZSFindexfront{Widerstand}
+\begin{tablebox}[\ZSFchapterTableTitle{4}{Gleichstromkreise}]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.6} Y{1.55} Y{0.85}}
+$I$ & elektrischer Strom & \si{A} \\
+$\vec{\jmath}$ & Stromdichte & \si{A/m^2} \\
+$R$ & elektrischer Widerstand & \si{\ohm} \\
+$\rho$ & spez.\ Widerstand & \si{\ohm.m} \\
+$\sigma$ & elektrische Leitfähigkeit & \si{S/m} \\
+$P$ & elektrische Leistung & \si{W} \\
+\end{ZSFtableFlat}
+\end{tablebox}
+\endgroup
+
+\begingroup\ZSFSetChapterPaletteByIndex{5}
+\ZSFindexfront{B-Feld}
+\ZSFindexfront{Magnetische Flussdichte}
+\begin{tablebox}[\ZSFchapterTableTitle{5}{Magnetfeld}]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.6} Y{1.55} Y{0.85}}
+$\vec{B}$ & magnetische Flussdichte & \si{T} \\
+$\mu_0$ & Vakuumpermeabilität & \si{H/m} = \si{T.m/A} \\
+$\vec{\mu}$ & magnetisches Dipolmoment & \si{A.m^2} \\
+$\vec{M}$ & Drehmoment (oder Magnetisierung) & \si{N.m} bzw.\ \si{A/m} \\
+\end{ZSFtableFlat}
+\end{tablebox}
+\endgroup
+
+\begingroup\ZSFSetChapterPaletteByIndex{6}
+\ZSFindexfront{Magnetischer Fluss}
+\ZSFindexfront{Induktivität}
+\begin{tablebox}[\ZSFchapterTableTitle{6}{Induktion}]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.6} Y{1.55} Y{0.85}}
+$\Phi_{\mathrm{mag}}$ & magnetischer Fluss (pro Windung; Spule: $N\,\Phi_{\mathrm{mag}}$) & \si{Wb} = \si{T.m^2} \\
+$U_{\mathrm{ind}}$ & induzierte Spannung & \si{V} \\
+$L$ & Induktivität & \si{H} \\
+$M$ & Gegeninduktivität & \si{H} \\
+$N$ & Windungszahl & 1 \\
+$N'$ & Windungsdichte $N/\ell$ & \si{m^{-1}} \\
+\end{ZSFtableFlat}
+\end{tablebox}
+\endgroup
+
+\begingroup\ZSFSetChapterPaletteByIndex{7}
+\begin{tablebox}[\ZSFchapterTableTitle{7}{Wechselstromkreise}]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.6} Y{1.55} Y{0.85}}
+$\omega$ & Kreisfrequenz & \si{rad/s} \\
+$X_L$, $X_C$ & Blindwiderstand (ind./kap.) & \si{\ohm} \\
+$Z$ & Scheinwiderstand (Impedanz) & \si{\ohm} \\
+\end{ZSFtableFlat}
+\end{tablebox}
+\endgroup
+
+\begingroup\ZSFSetChapterPaletteByIndex{8}
+\begin{tablebox}[\ZSFchapterTableTitle{8}{Maxwell \& EM-Wellen}]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.6} Y{1.55} Y{0.85}}
+$c$ & Lichtgeschwindigkeit (Vakuum) & \si{m/s} \\
+$\vec{S}$ & Poynting-Vektor & \si{W/m^2} \\
+$\lambda$ & Wellenlänge & \si{m} \\
+$\nu$, $f$ & Frequenz & \si{Hz} \\
+\end{ZSFtableFlat}
+\end{tablebox}
+\endgroup
+
+\begingroup\ZSFSetChapterPaletteByIndex{9}
+\begin{tablebox}[\ZSFchapterTableTitle{9}{Wellenoptik}]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.6} Y{1.55} Y{0.85}}
+$n$ & Brechzahl & 1 \\
+$g$ & Gitterkonstante & \si{m} \\
+$D$ & Öffnungsdurchmesser (Beugung) & \si{m} \\
+\end{ZSFtableFlat}
+\end{tablebox}
+\endgroup
+
+\begingroup\ZSFSetChapterPaletteByIndex{10}
+\ZSFindexfront{Brechkraft}
+\begin{tablebox}[\ZSFchapterTableTitle{10}{Geometrische Optik}]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.6} Y{1.55} Y{0.85}}
+$g$, $b$ & Gegenstands-, Bildweite & \si{m} \\
+$G$, $B$ & Gegenstands-, Bildgrösse & \si{m} \\
+$f$ & Brennweite & \si{m} \\
+$V$ & Vergrösserung (Lateralvergrösserung) & 1 \\
+$D$ & Brechkraft $1/f$ (Linse) & \si{m^{-1}} \\
+\end{ZSFtableFlat}
+\end{tablebox}
+\endgroup
+
+% Kein \ZSFSetChapterPaletteByIndex: Slot 0 (Frontchapter) markiert
+% bewusst die kapitelübergreifenden Zeichen.
+\begin{tablebox}[Allgemein \& Mechanik]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.6} Y{1.55} Y{0.85}}
+$\vec{F}$ & Kraft & \si{N} \\
+$m$ & Masse & \si{kg} \\
+$v$ & Geschwindigkeit & \si{m/s} \\
+\end{ZSFtableFlat}
+\end{tablebox}
+
+\end{ZSFtightBoxGroup}
+
+\columnbreak
+
+\begin{runintext}
+Weitere \ZSFkeyword*{Zeichen} im Kontext (z.\,B. $T$ \ZSFkeyword*{Periode}/\ZSFkeyword*{Temperatur}, $\theta$ \ZSFkeyword*{Winkel}, $A$ \ZSFkeyword*{Fläche}, $\ell$ \ZSFkeyword*{Länge}) wie in den Kapiteln verwendet.
+\end{runintext}
+
+\textVorBox{Zusammenhänge wichtiger \ZSFkeyword*{abgeleiteter Einheiten} (hilfreich zum \ZSFkeyword*{Kürzen in Rechnungen}):}
+
+\begin{tablebox}[Zusammenhänge SI-Einheiten]
+\begin{ZSFtableFlat}{Y{0.6} Y{1.4}}
+\textbf{Kraft}        & $1\,\si{N} = 1\,\si{kg.m/s^2} = 1\,\si{J/m}$ \\
+\textbf{Energie}      & $\begin{aligned} 1\,\si{J} &= 1\,\si{N.m} = 1\,\si{W.s} = 1\,\si{C.V} \\ &= 1\,\si{kg.m^2/s^2} \end{aligned}$ \\
+\textbf{Leistung}     & $1\,\si{W} = 1\,\si{J/s} = 1\,\si{V.A}$ \\
+\textbf{Ladung}       & $1\,\si{C} = 1\,\si{A.s} = 1\,\si{Wb/\ohm}$ \\
+\textbf{Spannung}     & $1\,\si{V} = 1\,\si{J/C} = 1\,\si{W/A}$ \\
+\textbf{Widerstand}   & $1\,\si{\ohm} = 1\,\si{V/A}$ \\
+\textbf{Kapazität}    & $1\,\si{F} = 1\,\si{C/V} = 1\,\si{s/\ohm}$ \\
+\textbf{Elektrisches Feld}       & $1\,\si{V/m} = 1\,\si{N/C}$ \\
+\textbf{Magn.\ Feld}  & $1\,\si{T} = 1\,\si{V.s/m^2} = 1\,\si{N/(A.m)}$ \\
+\textbf{Magn.\ Fluss} & $1\,\si{Wb} = 1\,\si{V.s} = 1\,\si{T.m^2}$ \\
+\textbf{Induktivität} & $1\,\si{H} = 1\,\si{V.s/A} = 1\,\si{\ohm.s}$ \\
+\end{ZSFtableFlat}
+\end{tablebox}
+
+\textVorBox{Zusammenhänge wichtiger \ZSFkeyword*{physikalischer Grössen} durch \ZSFkeyword*{Ableitungen} (und \ZSFkeyword*{Integrale}):}
+\ZSFindexfront{Arbeit}
+\ZSFindexfront{Beschleunigung}
+\ZSFindexfront{Energie / elektrische Energie}
+\ZSFindexfront{Geschwindigkeit}
+\ZSFindexfront{Leistung}
+\ZSFindexfront{Zentripetalkraft}
+\begin{tablebox}[Wichtige physikalische Ableitungen]
+\begin{ZSFtableFlat}{Y{0.64} Y{1.36}}
+\textbf{Stromstärke}     & $I = \frac{\mathrm{d}Q}{\mathrm{d}t} = \dot{Q}, \quad I_{\mathrm{mittel}} = \frac{\Delta Q}{\Delta t}$ \\
+\textbf{Elektrisches Feld \& Potenzial}  & $\vec{E} = -\nabla\varphi, \quad E_x = -\frac{\mathrm{d}\varphi}{\mathrm{d}x}$ \\
+\textbf{Potenzialdiff.}  & $\Delta\varphi_{ab} = \varphi_b - \varphi_a = -\int_a^b \vec{E}\cdot\mathrm{d}\vec{s}$ \\
+\textbf{Kraft \& Energie}& $\vec{F} = -\nabla E_{\mathrm{pot}}, \quad F_x = -\frac{\mathrm{d}E_{\mathrm{pot}}}{\mathrm{d}x}$ \\
+\textbf{Arbeit}          & $W = \int \vec{F} \cdot \mathrm{d}\vec{s} = \Delta E$ \\
+\textbf{Leistung}        & $P = \frac{\mathrm{d}E}{\mathrm{d}t} = \dot{E}$ \\
+\textbf{Magn.\ Induktion}& $U_{\mathrm{ind}} = -\frac{\mathrm{d}\Phi_{\mathrm{mag}}}{\mathrm{d}t} = -\dot{\Phi}_{\mathrm{mag}}$ \\
+                         & $U_{\mathrm{mittel}} = -\frac{\Delta\Phi_{\mathrm{mag}}}{\Delta t}$ \\
+\textbf{Geschwindigkeit} & $v = \frac{\mathrm{d}x}{\mathrm{d}t} = \dot{x}$ \\
+\textbf{Beschleunigung}  & $a = \frac{\mathrm{d}v}{\mathrm{d}t} = \ddot{x}$ \\
+\textbf{Zentripetalkraft} & $F_{\mathrm{Z}} = m\,\frac{v^2}{r} = m\,\omega^2 r$ \\
+\end{ZSFtableFlat}
+\end{tablebox}
+
+\begin{tablebox}[Geometrie: Flächen \& Volumen]
+\begin{ZSFtableFlat}{Y{0.5} Y{1.5}}
+\textbf{Kreis}    & Fläche: $A = \pi r^2$ \\
+                  & Umfang: $U = 2\pi r$ \\
+\textbf{Kugel}    & Volumen: $V = \frac{4}{3}\pi r^3$ \\
+                  & Oberfläche: $A = 4\pi r^2$ \\
+\textbf{Zylinder} & Volumen: $V = \pi r^2 h$ \\
+                  & Mantelfläche: $M = 2\pi r h$ \\
+                  & Oberfläche: $A = 2\pi r^2 + 2\pi r h$ \\
+\textbf{Torus}    & Volumen: $V = 2\pi^2 r R^2$ \quad {\scriptsize $r = \text{gross}$, $R = \text{klein}$} \\
+                  & Oberfläche: $A = 4\pi^2 r R$ \\
+\end{ZSFtableFlat}
+\end{tablebox}
+
+\begin{tablebox}[SI-Präfixe (Vorsätze)]
+\begin{ZSFtable}{Y{1.2} Y{0.8} Y{1.2} Y{0.8}}
+\ZSFheaderRow \ZSFhead{Präfix} & \ZSFhead{Faktor} & \ZSFhead{Präfix} & \ZSFhead{Faktor} \\
+Tera (T) & $10^{12}$ & Dezi (d) & $10^{-1}$ \\
+Giga (G) & $10^{9}$  & Zenti (c) & $10^{-2}$ \\
+Mega (M) & $10^{6}$  & Milli (m) & $10^{-3}$ \\
+Kilo (k) & $10^{3}$  & Mikro ($\mu$) & $10^{-6}$ \\
+Hekto (h) & $10^{2}$  & Nano (n) & $10^{-9}$ \\
+Deka (da) & $10^{1}$  & Piko (p) & $10^{-12}$ \\
+\end{ZSFtable}
+\end{tablebox}
+
+% ============================================================

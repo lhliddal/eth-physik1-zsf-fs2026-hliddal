@@ -1,0 +1,131 @@
+% !TEX root = ../main.tex
+% SECTION 10: GEOMETRISCHE OPTIK
+% ============================================================
+
+\StartChapter{Geometrische Optik}
+
+\begin{runintext}
+Näherung der Optik durch \ZSFkeyword*{Lichtstrahlen} ($\lambda \to 0$): \ZSFkeyword*{Bildentstehung} und \ZSFkeyword*{Abbildungsgesetze} an Spiegeln, brechenden Grenzflächen und Linsen.
+\end{runintext}
+
+\begin{tablebox}[Optische Grössen \& Vorzeichenkonventionen]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.32} Y{0.95} Y{1.73}}
+\ZSFheaderRow \ZSFhead{Grösse} & \ZSFhead{Bedeutung} & \ZSFhead{Vorzeichenregeln (positiv $>0$)} \\
+$g$ & \textbf{Gegenstandsweite} & $g>0$: reeller Gegenstand (vor Optik) \\
+$b$ & \textbf{Bildweite} & $b>0$ reelles, $b<0$ virtuelles Bild \newline reell = Spiegel: vor / Linse: hinter Optik \\
+$f, r$ & \textbf{Brennweite / Radius} & Hohlspiegel \& Sammellinse: $f,r>0$ \newline Wölbspiegel \& Zerstreuungslinse: $f,r<0$ \\
+$G, B$ & \textbf{Gegenstands-/Bildgrösse} & Ausdehnung senkrecht zur optischen Achse \\
+$V$ & \textbf{Vergrösserung} $V = \frac{B}{G}$ & $V>0$ aufrecht (virtuell); $V<0$ umgekehrt (reell) \\
+$D$ & \textbf{Brechkraft} $D = \frac{1}{f}$ & Dioptrien ($\si{m^{-1}}$); Sammellinse $D>0$, Zerstreuungslinse $D<0$ \\
+\end{ZSFtableFlat}
+\end{tablebox}
+
+\SubsectionBar[sec:reflection-refraction]{Reflexion, Brechung}
+\ZSFindex{Abbildungsgesetz}
+\ZSFindex{Vergrösserung}
+\begin{runintext}
+\ZSFkeyword{Reelles Bild}: Lichtstrahlen treffen sich tatsächlich; \ZSFkeyword[Virtuelles Bild]{virtuelles Bild}: nur rückwärtige Verlängerungen treffen sich. Vorzeichen: $g>0$ auf Einfallsseite; $b>0$ auf Transmissionsseite; $r>0$ wenn Krümmungsmittelpunkt $M$ auf Transmissionsseite liegt.
+\end{runintext}
+\ZSFfig{graphics/GeometrischeOptik_Brechung_Kugel_Strahlenkonstruktion.png}{Brechung an Kugelfläche}{Gegenstand $P$, Bild $P'$, Gegenstandsweite $g$, Bildweite $b$, Krümmungsradius $r$.}
+\begin{formulabox}[Sphärische Grenzfläche]
+\[ \frac{n_1}{g} + \frac{n_2}{b} = \frac{n_2-n_1}{r} \quad \text{Brechung an Kugelfläche} \]
+\formulanote{$n_1,n_2$: Brechzahlen; $r$: Krümmungsradius. Paralleles Licht ($g\to\infty$): $n_1/g = 0$. $g$ hier $\neq$ Gitterkonstante \ZSFref{sec:interference-grating}.}
+\end{formulabox}
+\ZSFfigside{graphics/GeometricOptics_LateralMagnification.pdf}{Lateralvergrösserung}{%
+\[ V = \frac{B}{G} = -\frac{n_1 b}{n_2 g} \]
+\formulanote{$|V|>1$: vergrössert; $V<0$: umgekehrt.}}
+
+\SubsectionBar[sec:snells-law]{Snellius}
+\ZSFindex{Snellius'sches Gesetz}
+\begin{formulabox}[Brechungsgesetz von Snellius]
+\[ n_1\sin\theta_1 = n_2\sin\theta_2 \]
+\formulanote{$\theta_1,\theta_2$: Einfall-/Brechungswinkel zur Normalen \ZSFref{sec:light-refraction-polarization}. \ZSFkeyword{Brennweite}: Bildweite $b$ bei $g\to\infty$. Totalreflexion \& Brewster-Winkel \ZSFref{sec:light-refraction-polarization}.}
+\end{formulabox}
+
+\SubsectionBar[sec:mirrors]{Spiegel}
+\ZSFindex{Spiegel / Spiegelgleichung}
+\ZSFindex{Hauptstrahl}
+\ZSFfigside{graphics/GeometricOptics_Mirror_FocalLength.pdf}{Brennweite sphärischer Spiegel}{%
+\[ f = \frac{r}{2} \]
+\formulanote{\ZSFkeyword{Hohlspiegel} (konkav): $r,f>0$; \ZSFkeyword[Wolbspiegel@Wölbspiegel]{Wölbspiegel} (konvex): $r,f<0$. Achsenparallele Strahlen treffen sich in $F$ auf halbem Krümmungsradius; $C$: Krümmungsmittelpunkt.}}
+\begin{formulabox}[Sphärische Spiegel: Abbildung]
+\[ \frac{1}{g} + \frac{1}{b} = \frac{1}{f} = \frac{2}{r} \quad \text{Spiegelgleichung} \]
+\[ b = \frac{f\,g}{g-f} \qquad V = \frac{B}{G} = -\frac{b}{g} \quad \text{Vergrösserung} \]
+\end{formulabox}
+\ZSFfig[1.73cm]{graphics/GeometricOptics_Mirror_ImageConstruction.pdf}{Bildkonstruktion am Hohlspiegel}{Parallelstrahl (petrol), Radialstrahl durch $C$ (magenta) und Brennpunktstrahl (grün) schneiden sich im reellen, umgekehrten Bild $B$.}
+\ZSFfigside{graphics/GeometricOptics_Mirror_Plane.pdf}{Ebener Spiegel}{%
+\[ r\to\infty: \quad b = -g, \quad V = +1 \]
+\formulanote{Virtuelles, aufrechtes Bild gleicher Grösse, gleich weit hinter dem Spiegel.}}
+
+\begin{tablebox}[Hauptstrahlen: Spiegel \& Linse]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.78} Y{1.14} Y{1.08}}
+\ZSFheaderRow \ZSFhead{Strahl} & \ZSFhead{Spiegel} & \ZSFhead{Linse} \\
+\textbf{Achsenparallelstrahl} & $\to$ durch Brennpunkt $F$ reflektiert & $\to$ durch bildseitigen Fokus $F'$ \\
+\textbf{Brennpunktstrahl} & durch $F$ $\to$ achsenparallel & durch gegenstandsseitigen $F$ $\to$ achsenparallel \\
+\textbf{Mittelpunktstrahl} & durch $C$ $\to$ in sich reflektiert & durch Linsenmitte $\to$ ungebrochen \\
+\textbf{Scheitelstrahl} & am Scheitel symmetrisch zur Achse & --- \\
+\end{ZSFtableFlat}
+\end{tablebox}
+
+\SubsectionBar[sec:lenses]{Linsen}
+\ZSFindex{Brechkraft}
+\ZSFindexsee{Dioptrie}{Brechkraft}
+\ZSFindex{Linse / Linsengleichung}
+\ZSFindex{Linsenschleiferformel}
+\ZSFindex[Dunne Linse]{Dünne Linse}
+\ZSFindex{Brennweite}
+\begin{formulabox}[Dünne Linsen]
+\[ \frac{1}{f} = \left(\frac{n}{n_{\mathrm{Luft}}}-1\right)\left(\frac{1}{r_1}-\frac{1}{r_2}\right) \quad \text{Linsenschleiferformel} \]
+\formulasep
+\[ \frac{1}{g} + \frac{1}{b} = \frac{1}{f} \quad \text{Linsengleichung} \]
+\[ b = \frac{f\,g}{g-f} \qquad d = g + b \]
+\[ V = \frac{B}{G} = -\frac{b}{g} \quad \text{Vergrösserung} \]
+\formulanote{Sammellinse: $f>0$; Zerstreuungslinse: $f<0$. $d$: Abstand Gegenstand--Bild. Abbildungsgleichung identisch zum Spiegel \ZSFref{sec:mirrors}.}
+\end{formulabox}
+\ZSFfigside{graphics/GeometricOptics_LensmakerRadii.pdf}{Vorzeichen der Radien}{%
+\ZSFdanger{Licht von links nach rechts}: Radius ist \textbf{positiv}, wenn der Krümmungsmittelpunkt \textbf{rechts} der Linsenfläche liegt, und \textbf{negativ}, wenn er \textbf{links} liegt.\newline
+\formulanote{Bikonvex: $r_1 > 0$ (da $C_1$ rechts) und $r_2 < 0$ (da $C_2$ links).}}
+\ZSFfigside{graphics/GeometricOptics_RefractivePower.pdf}{Brechkraft \& Linsenkombination}{%
+\[ D = \frac{1}{f} \qquad D_{\mathrm{ges}} = \sum_i D_i \]
+\formulanote{\ZSFdanger{Brechkräfte addieren} nur bei dünnen, dicht aufliegenden Linsen (Abstand $\approx 0$). Brechkraft $D \neq$ Blendenöffnung $D$ \ZSFref{sec:rayleigh-criterion}.}}
+\ZSFfig[1.60cm]{graphics/GeometricOptics_Lens_ImageConstruction.pdf}{Bildkonstruktion Sammellinse}{Dieselben drei Hauptstrahlen wie am Spiegel. $F$ gegenstandsseitig, $F'$ bildseitig.}
+
+\ZSFfigside{graphics/GeometricOptics_Lens_FocalPoints.pdf}{{Brennpunkte $F$, $F'$}}{%
+Aus dem gegenstandsseitigen $F$ austretende Strahlen verlassen die Linse achsenparallel; achsenparallel einfallende Strahlen werden im bildseitigen $F'$ gesammelt. Bei der Zerstreuungslinse sind beide vertauscht.}
+\ZSFfig[1.73cm]{graphics/GeometricOptics_DivergingLens.pdf}{Zerstreuungslinse ($f<0$)}{$b<0$ immer: Bild stets virtuell, aufrecht und verkleinert, unabhängig von $g$.}
+
+\SubsectionBar[sec:aberrations]{Abbildungsfehler}
+\ZSFindex{Abbildungsfehler}
+\begin{tablebox}[Abbildungsfehler realer Linsen]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.62} Y{1.38}}
+\textbf{Sphärische Aberration} & Achsenferne Strahlen stärker gebrochen $\to$ Unschärfe. Abhilfe: Blende, asphärische Linsen. \\
+\textbf{Chromatische Aberration} & Dispersion $n(\lambda) \to$ Blaulicht stärker gebrochen als Rotlicht. Abhilfe: Achromat. \ZSFdanger{Nur bei Linsen} -- tritt nie bei Spiegeln auf. Davon verschieden: Beugungsgrenze \ZSFref{sec:rayleigh-criterion}. \\
+\end{ZSFtableFlat}
+\end{tablebox}
+
+\SubsectionBar[sec:eye]{Auge}
+\ZSFindex{Auge}
+\begin{runintext}
+Hornhaut--Linse erzeugt ein reelles, umgekehrtes Bild auf der \ZSFkeyword*{Netzhaut}; Abstand Linse--Netzhaut $f \approx 2{,}5\,\si{cm}$. \ZSFkeyword*{Akkommodation}: Krümmungsänderung für Nahfokussierung. \ZSFkeyword{Nahpunkt} $d_{\mathrm{N}} \approx 25\,\si{cm}$ (wächst im Alter).
+\end{runintext}
+
+\begin{tablebox}[Sehfehler \& Optische Korrektur]
+\begin{ZSFtableFlat}[\ZSFfontTableDense]{Y{0.56} Y{1.44}}
+\textbf{Kurzsichtigkeit} \newline (Myopie) & Augapfel zu lang $\to$ Bild vor Netzhaut $\Rightarrow$ \ZSFkeyword{Zerstreuungslinse} ($f<0$) \\
+\textbf{Weitsichtigkeit} \newline (Hyperopie) & Augapfel zu kurz $\to$ Bild hinter Netzhaut $\Rightarrow$ \ZSFkeyword{Sammellinse} ($f>0$) \\
+\end{ZSFtableFlat}
+\end{tablebox}
+
+% ============================================================
+
+\ZSFStartClosingSubsection
+\SubsectionBar*{Schlusswort}
+
+\begin{statementbox}
+Ich wünsche allen viel Erfolg bei der Prüfung! Aufgrund des Professoren- und Konventionswechsels wurde diese ZSF von Grund auf neu erstellt. Sie ist so aufgebaut, dass Formeln, Konzepte und typische Zusammenhänge schnell auffindbar und direkt nutzbar sind. Für viele Formeln dienten die Tipler-Unterlagen als Orientierung. Fehler oder Ergänzungen gerne als Issue melden.
+
+\ZSFgapS
+\noindent\textbf{Links \& Ressourcen:}\\
+\textbf{Aktuelle Version \& Hliddal Template:}\\
+\href{https://garcon-studios.ch/zsf}{garcon-studios.ch/zsf}
+\end{statementbox}

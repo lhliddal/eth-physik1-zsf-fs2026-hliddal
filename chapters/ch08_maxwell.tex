@@ -1,0 +1,98 @@
+% !TEX root = ../main.tex
+% SECTION 8: MAXWELL & EM-WELLEN
+% ============================================================
+
+\StartChapter{Maxwell-Gleichungen \& EM-Wellen}
+
+\begin{runintext}
+Zusammenfassung aller elektromagnetischen Phänomene durch vier fundamentale Gleichungen, deren wichtigste Konsequenz die Existenz von \ZSFkeyword*{elektromagnetischen Wellen} (\ZSFkeyword*{Licht}) im Vakuum ist.
+\end{runintext}
+
+\SubsectionBar[sec:maxwell-equations]{Maxwell}
+\ZSFindex{Strom}
+\ZSFindex{Maxwell-Gleichungen}
+\begin{runintext}
+Das vollständige Gleichungssystem (\ZSFkeyword[Gauss-Gesetz / Gesetz von Gauss]{Gauss} \ZSFref{sec:gauss-law}, \ZSFkeyword[Faraday'sches Induktionsgesetz]{Faraday} \ZSFref{sec:faradays-law}, \ZSFkeyword[Ampère'sches Gesetz]{Ampère} \ZSFref{sec:amperes-law} mit \ZSFkeyword*{Verschiebungsstrom}) als Basis der gesamten klassischen Elektrodynamik. \ZSFkeyword{Verschiebungsstrom}: Ampère verallgemeinert für nichtstationäre Ströme.
+\end{runintext}
+\begin{formulabox}[Verschiebungsstrom]
+\[ I_V = \varepsilon_0\,\frac{\mathrm{d}\Phi_{\mathrm{el}}}{\mathrm{d}t} \]
+\[ \oint_C \vec{B}\cdot\mathrm{d}\vec{\ell} = \mu_0\,(I + I_V) = \mu_0 I + \mu_0\varepsilon_0\,\frac{\mathrm{d}\Phi_{\mathrm{el}}}{\mathrm{d}t} \]
+\formulanote{Erweitert Ampère für zeitabhängige Felder (z.\,B.\ im Kondenstorspalt beim Laden \ZSFref{sec:capacitor-energy}). Ein sich ändernder el. Fluss $\Phi_{\mathrm{el}} = \int_A \vec{E}\cdot\mathrm{d}\vec{A}$ \ZSFref{sec:electric-flux} erzeugt ein B-Feld analog zu $I$.}
+\end{formulabox}
+\begin{formulabox}[Maxwell-Gleichungen (integral)]
+\[ \oint_A E_n\,\mathrm{d}A = \frac{\overbrace{q_{\mathrm{innen}}}^{\text{eingeschl. Ladung}}}{\varepsilon_0} \quad \text{Gauss E: Feldquelle} \]
+\formulasep
+\[ \oint_A B_n\,\mathrm{d}A = \underbrace{0}_{\text{keine Monopole}} \quad \text{Gauss B: Nettofluss null} \]
+\formulasep
+\[ \underbrace{\oint_C \vec{E}\cdot\mathrm{d}\vec{\ell}}_{= U_{\mathrm{ind}}\text{ (EMK)}} = -\frac{\mathrm{d}\Phi_{\mathrm{mag}}}{\mathrm{d}t} \quad \text{Faraday: Induktion} \]
+\formulasep
+\[ \oint_C \vec{B}\cdot\mathrm{d}\vec{\ell} = \mu_0\Big(\!\underbrace{I}_{\text{Leitung}} + \underbrace{\varepsilon_0\,\frac{\mathrm{d}\Phi_{\mathrm{el}}}{\mathrm{d}t}}_{I_V\text{ (Versch.)}}\!\Big) \quad \text{Ampère-Maxwell} \]
+\formulanote{Vier fundamentale Gleichungen. Im Vakuum ($q=0, I=0$) induzieren zeitlich veränderte E- und B-Felder sich gegenseitig ($\Rightarrow$ EM-Welle \ZSFref{sec:wave-equation}).}
+\end{formulabox}
+
+\SubsectionBar[sec:wave-equation]{Wellengleichung}
+\ZSFindex{Wellenzahl / Wellengleichung}
+\ZSFindex{Elektromagnetische Welle}
+\ZSFindex{Kreisfrequenz}
+\begin{runintext}
+Aus Maxwell folgt die Ausbreitung von E- und B-Feldern als \ZSFkeyword[Transversalwelle]{transversale Wellen} mit \ZSFkeyword{Lichtgeschwindigkeit} im Vakuum.
+\end{runintext}
+\begin{formulabox}[Wellengleichung: Geschwindigkeit erkennen]
+\[ \frac{\partial^2 E}{\partial x^2} = \frac{1}{c^2}\,\frac{\partial^2 E}{\partial t^2}, \quad \frac{\partial^2 B}{\partial x^2} = \frac{1}{c^2}\,\frac{\partial^2 B}{\partial t^2} \]
+\[ c = \frac{1}{\sqrt{\mu_0\varepsilon_0}} = 3{,}00\times 10^8\,\si{m/s} \]
+\[ E = c\,B \quad \text{in der Welle} \]
+\formulanote{Prüfungsnutzen: Am Faktor $1/c^2$ erkennt man, dass sich E- und B-Feld mit Lichtgeschwindigkeit ausbreiten. Ausserdem gilt das Amplitudenverhältnis $E/B=c$.}
+\end{formulabox}
+\begin{formulabox}[Harmonische Laufwelle: Form und Kennwerte]
+\[ y(x,t) = A\,\cos\!\left(\underbrace{kx \mp \omega t + \varphi}_{\text{Phase}}\right) \]
+\[ k = \frac{2\pi}{\lambda} \quad \omega = \frac{2\pi}{T} = 2\pi f \quad v = f\lambda = \frac{\omega}{k} \]
+\formulanote{$A$ Amplitude (bei EM-Welle $A = E_0$; Intensität $I \propto A^2$); \\ $k$ Wellenzahl; $\omega$ Kreisfrequenz; $\varphi$ Anfangsphase. Sinus und Cosinus beschreiben dieselbe Welle mit anderer \ZSFkeyword{Phasenverschiebung} ($\cos\theta = \sin(\theta + \pi/2)$); Anwendung bei Interferenz \ZSFref{sec:interference-grating}.}
+\end{formulabox}
+\begin{statementbox}[Laufrichtung aus der Phase]
+Einen festen Wellenberg verfolgen: Seine Phase bleibt konstant. Bei $kx-\omega t=\text{konst.}$ muss $x$ mit der Zeit wachsen $\Rightarrow +x$; bei $kx+\omega t=\text{konst.}$ muss $x$ abnehmen $\Rightarrow -x$.
+\end{statementbox}
+\begin{statementbox}[Orientierung der elektromagnetischen Welle]
+$\vec{E}$, $\vec{B}$ und Ausbreitungsrichtung sind paarweise senkrecht. $\vec{E}\times\vec{B}$ zeigt in Ausbreitungsrichtung.
+\end{statementbox}
+
+\ZSFfig{graphics/Wellenlehre_Transversalwelle_Vektoren_senkrecht.png}{Transversalwelle}{$\vec{E}\perp\vec{B}\perp\vec{k}$; Ausbreitung in $\vec{k}$-Richtung}
+
+\SubsectionBar[sec:poynting-vector]{Poynting}
+\ZSFindex{Poynting-Vektor}
+\ZSFindex{Energiedichte}
+\begin{runintext}
+Berechnung von Energiedichte, Energiestrom (\ZSFkeyword{Intensität}) sowie Impuls und \ZSFkeyword*{Strahlungsdruck} einer elektromagnetischen Welle.
+\end{runintext}
+\begin{formulabox}
+\[ w_{\mathrm{em}} = w_{\mathrm{el}} + w_{\mathrm{mag}} = \varepsilon_0 E^2 = \frac{B^2}{\mu_0} = \frac{E\,B}{\mu_0 c} \quad \text{Energied.} \]
+\formulanote{Zweck: Elektromagnetische Energiedichte einer ebenen Welle (zu gleichen Teilen elektrisch \ZSFref{sec:capacitor-energy} und magnetisch \ZSFref{sec:magnetic-field-energy}).}
+\end{formulabox}
+
+\begin{formulabox}
+\[ I_{\mathrm{em}} = \overbrace{\langle w_{\mathrm{em}}\rangle}^{\text{Mittelwert}}\,c = \frac{E_{\mathrm{eff}}B_{\mathrm{eff}}}{\mu_0} = \frac{E_0 B_0}{2\mu_0} = \langle|\vec{S}|\rangle \quad \text{Intens.} \]
+\[ \vec{S} = \frac{\vec{E}\times\vec{B}}{\mu_0} \quad \text{Poynting }(\parallel\text{Ausbreitung}) \]
+\formulanote{Zweck: Intensität (zeitlicher Mittelwert des Poynting-Vektors) und Definition des Poynting-Vektors $\vec{S}$.}
+\end{formulabox}
+
+\begin{formulabox}
+\[ p = \frac{E_{\mathrm{em}}}{c} \quad \text{Impuls} \]
+\[ P_S = \frac{I_{\mathrm{em}}}{c} \quad \text{Strahlungsdruck} \]
+\formulanote{Zweck: Impuls $p$ und Strahlungsdruck $P_S$ (absorbierend; bei vollständiger Reflexion verdoppelt sich der Wert: $2I_{\mathrm{em}}/c$).}
+\end{formulabox}
+
+\begin{formulabox}
+\[ I = \frac{P}{A} \quad I(r) = \frac{P}{4\pi r^2} \quad \text{Kugelwelle} \]
+\formulanote{Zweck: Intensität als Leistung pro Fläche; $1/r^2$-Abnahme einer punktförmigen Quelle.}
+\end{formulabox}
+
+\SubsectionBar[sec:em-spectrum]{EM-Spektrum}
+\ZSFindex{EM-Spektrum / elektromagn. Spektrum}
+\ZSFindexsee{Hertz}{Frequenz}
+\begin{runintext}
+Die Einteilung der elektromagnetischen Wellen nach \ZSFkeyword{Frequenz} bzw.\ \ZSFkeyword{Wellenlänge}, von Radiowellen bis Gammastrahlung; sichtbares Licht in Medien \ZSFref{sec:light-refraction-polarization}.
+\end{runintext}
+\begin{runintext}
+Licht, Radio, Röntgen, Gamma, Mikrowellen: gleiche Natur, unterschiedliche $\lambda$ und $f$. \ZSFkeyword*{Dipolstrahlung}: beschleunigte Ladungen; Antenne: Intensität $\perp$ Antenne max, entlang Achse null; $\vec{E}$ der Welle $\parallel$ Antenne.
+\end{runintext}
+
+% ============================================================

@@ -1,0 +1,250 @@
+% ============================================================
+% 40_colors_structure.tex — Farbpaletten & Kapitel-Orchestrierung
+% ============================================================
+
+% Index-Palette (18 Slots, kuratiert fuer 3-Fenster-Kontrast)
+% ------------------------------------------------------------
+% Reihenfolge: ETH-Signaturfarben zuerst, danach global distanzierte
+% Zusatzfarben. Benachbarte Kapitel (Abstand 1 UND 2) bleiben deutlich
+% unterscheidbar; globale Fast-Dopplungen werden vermieden, soweit es mit
+% 18 kontraststarken Slots und fixierten ETH-Seeds sinnvoll moeglich ist.
+% Slot 0 ist reserviert fuer den Frontchapter (\StartFrontChapter) -- ETH-Blau.
+% Niemals ChapterColor* in Kapiteldateien hart-coden; ueber \chaptercolor /
+% \chaptercolorlight / \chaptercolortext referenzieren.
+\definecolor{ChapterColor0}{HTML}{215CAF}       % ETH Blue
+\definecolor{ChapterColor0Light}{HTML}{CEDBED}
+\definecolor{ChapterColor0Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor1}{HTML}{6E3B6E}       % ETH Purple
+\definecolor{ChapterColor1Light}{HTML}{DFD4DF}
+\definecolor{ChapterColor1Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor2}{HTML}{5A7F2B}       % ETH Green
+\definecolor{ChapterColor2Light}{HTML}{DBE3D0}
+\definecolor{ChapterColor2Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor3}{HTML}{8C6239}       % ETH Bronze
+\definecolor{ChapterColor3Light}{HTML}{E6DCD3}
+\definecolor{ChapterColor3Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor4}{HTML}{007894}       % ETH Petrol
+\definecolor{ChapterColor4Light}{HTML}{C7E1E7}
+\definecolor{ChapterColor4Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor5}{HTML}{B7352D}       % ETH Red
+\definecolor{ChapterColor5Light}{HTML}{EFD3D1}
+\definecolor{ChapterColor5Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor6}{HTML}{23523B}       % Dark Spruce
+\definecolor{ChapterColor6Light}{HTML}{CFD9D4}
+\definecolor{ChapterColor6Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor7}{HTML}{8F2459}       % Raspberry
+\definecolor{ChapterColor7Light}{HTML}{E6CFDA}
+\definecolor{ChapterColor7Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor8}{HTML}{17205E}       % Midnight Blue
+\definecolor{ChapterColor8Light}{HTML}{CCCEDC}
+\definecolor{ChapterColor8Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor9}{HTML}{2D8659}       % Emerald
+\definecolor{ChapterColor9Light}{HTML}{D1E4DA}
+\definecolor{ChapterColor9Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor10}{HTML}{523523}      % Walnut
+\definecolor{ChapterColor10Light}{HTML}{D9D3CF}
+\definecolor{ChapterColor10Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor11}{HTML}{8F2481}      % Orchid
+\definecolor{ChapterColor11Light}{HTML}{E6CFE3}
+\definecolor{ChapterColor11Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor12}{HTML}{1D581D}      % Deep Green
+\definecolor{ChapterColor12Light}{HTML}{CDDACD}
+\definecolor{ChapterColor12Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor13}{HTML}{5E1720}      % Oxblood
+\definecolor{ChapterColor13Light}{HTML}{DCCCCE}
+\definecolor{ChapterColor13Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor14}{HTML}{4C248F}      % Violet
+\definecolor{ChapterColor14Light}{HTML}{D8CFE6}
+\definecolor{ChapterColor14Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor15}{HTML}{233552}      % Slate Navy
+\definecolor{ChapterColor15Light}{HTML}{CFD3D9}
+\definecolor{ChapterColor15Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor16}{HTML}{207E73}      % Sea Teal
+\definecolor{ChapterColor16Light}{HTML}{CEE3E0}
+\definecolor{ChapterColor16Text}{HTML}{FFFFFF}
+\definecolor{ChapterColor17}{HTML}{58581D}      % Olive Brown
+\definecolor{ChapterColor17Light}{HTML}{DADACD}
+\definecolor{ChapterColor17Text}{HTML}{FFFFFF}
+
+% ------------------------------------------------------------
+% Warn-/Semantik-Farben
+% ------------------------------------------------------------
+\definecolor{ETHRot}{HTML}{CC0000}
+\colorlet{WarnboxBack}{ETHRot!15}
+\colorlet{DangerBackColor}{ETHRot!85!black}
+\colorlet{DangerTextColor}{white}
+
+% Semantisches Formel-Highlighting (kapitelunabhängig, siehe \ZSFmhlA/B/C/D).
+\definecolor{MathHLPrimary}{HTML}{00796B}    % Quelle / gegeben / erster Strang
+\definecolor{MathHLSecondary}{HTML}{C2410C}  % Gegenstueck / abgeleitet / zweiter Strang
+\definecolor{MathHLTertiary}{HTML}{A50D68}   % dritter paralleler Strang (sparsam)
+\definecolor{MathHLTarget}{HTML}{1D4ED8}     % Ziel / Endform / Resultat
+
+% Farben für textVorBox / textNachBox (Text-Box-Bindungen)
+\definecolor{TextVorBoxColor}{HTML}{0A0A1E}  % Sehr dunkles Blau (einleitend)
+\definecolor{TextNachBoxColor}{HTML}{0A1A0A}  % Sehr dunkles Grün (ergänzend)
+
+% ------------------------------------------------------------
+% Dokumenttitel-Masthead: bewusst unabhängig von der Kapitelrotation.
+\colorlet{ZSFDocumentTitleBarColor}{ChapterColor0}
+\colorlet{ZSFDocumentTitleTextColor}{ChapterColor0Text}
+\colorlet{ZSFDocumentTitleBylineColor}{ChapterColor0Text!88}
+
+% Schlusswörter in eingebetteten Kapiteln: ETH-Palette für den Inhalt,
+% aber dieselbe klare Leistenfarbe wie der Dokumenttitel.
+\newcommand{\ZSFStartClosingSubsection}{%
+  \ZSFSetChapterPaletteByIndex{0}%
+  \renewcommand{\SubsectionBarColor}{ZSFDocumentTitleBarColor}%
+  \renewcommand{\SubsectionBarTextColor}{ZSFDocumentTitleTextColor}%
+}
+
+% Aktive Kapitelfarben (werden pro Kapitel umgeschaltet)
+% ------------------------------------------------------------
+\newcommand{\chaptercolor}{ChapterColor1}
+\newcommand{\chaptercolorlight}{ChapterColor1Light}
+\newcommand{\chaptercolortext}{ChapterColor1Text}
+\newcommand{\ChapterBarColor}{\chaptercolor}
+\newcommand{\ChapterBarTextColor}{\chaptercolortext}
+\newcommand{\SubsectionBarColor}{\chaptercolor!75}
+\newcommand{\SubsectionBarTextColor}{\chaptercolortext}
+\newcommand{\SubsubsectionBarColor}{\chaptercolorlight!78!white}
+\newcommand{\SubsubsectionTitleColor}{\chaptercolor!72!black}
+\newcommand{\FormulaboxBackColor}{\chaptercolorlight!40}
+\newcommand{\ZSFtableFrameColor}{\chaptercolor}         % Duenner Aussenrahmen der Tabellen
+
+% Friert die Tabellen-Rahmenfarbe auf die AKTUELL aktive Kapitelfarbe ein.
+% Gedacht fuer Box-Gruppen, die als ein Block gelesen werden, deren Boxen
+% aber intern verschiedene Kapitelpaletten fuehren (Symbol-Tabellen in
+% ch00): innen bleibt jede Box kapitelfarbig, der Rahmen bleibt einheitlich.
+% Wirkt nur bis zum Ende der umgebenden TeX-Gruppe.
+\newcommand{\ZSFPinTableFrameColor}{\edef\ZSFtableFrameColor{\chaptercolor}}
+\newcommand{\BoxTitleColor}{\chaptercolorlight}
+\newcommand{\BoxTitleTextColor}{TextVorBoxColor}        % Titeltext-Farbe (dunkel auf Pastell)
+\newcommand{\BoxBackColor}{\chaptercolorlight!8}        % Sehr sanfter Box-Hintergrund
+\newcommand{\BoxFrameColor}{\chaptercolorlight!25}      % Rahmen in der Farbe des vorherigen Hintergrunds
+
+% Aussage-, Ziel- und Grid-Boxen.
+\newcommand{\StatementBarColor}{\chaptercolor}
+\newcommand{\StatementTitleColor}{\chaptercolor}
+\newcommand{\GoalConditionBackColor}{white}
+\newcommand{\GoalConditionFrameColor}{\chaptercolorlight!22}
+\newcommand{\GoalConditionBorderColor}{black}
+\newcommand{\GoalTargetBackColor}{\chaptercolorlight!22}
+\newcommand{\GoalTargetFrameColor}{\chaptercolor}
+\newcommand{\CompactGridFrameColor}{black!20}
+
+% Index-basierte Palette (automatisch via \StartChapter, Loop mit Wrap-Warnung)
+\newcount\ZSFchapterPaletteIndex
+\newcount\ZSFchapterPaletteLookupIndex
+\newcommand{\ZSFchapterPaletteSize}{18}       % Anzahl verfügbarer Indexfarben (0..17)
+\newcommand{\ZSFSetChapterPaletteByIndex}[1]{%
+  \renewcommand{\chaptercolor}{ChapterColor#1}%
+  \renewcommand{\chaptercolorlight}{ChapterColor#1Light}%
+  \renewcommand{\chaptercolortext}{ChapterColor#1Text}%
+}
+\newcommand{\ZSFSetPaletteColorNameFromNumber}[2]{%
+  \ZSFchapterPaletteLookupIndex=#1\relax
+  \loop
+  \ifnum\ZSFchapterPaletteLookupIndex>\numexpr\ZSFchapterPaletteSize-1\relax
+    \advance\ZSFchapterPaletteLookupIndex by -\ZSFchapterPaletteSize
+  \repeat
+  \edef#2{ChapterColor\the\ZSFchapterPaletteLookupIndex}%
+}
+\newcommand{\SetChapterPaletteByNumber}{%
+  \ZSFchapterPaletteIndex=\value{section}%
+  \loop
+  \ifnum\ZSFchapterPaletteIndex>\numexpr\ZSFchapterPaletteSize-1\relax
+    \advance\ZSFchapterPaletteIndex by -\ZSFchapterPaletteSize
+  \repeat
+  \ifnum\value{section}>\numexpr\ZSFchapterPaletteSize-1\relax
+    \PackageWarning{ZSF}{Chapter palette wrapped at section \thesection. Increase palette if unique colors are required.}%
+  \fi
+  \ZSFSetChapterPaletteByIndex{\the\ZSFchapterPaletteIndex}%
+}
+
+% ------------------------------------------------------------
+% Chapter-Start-Orchestrierung
+% ------------------------------------------------------------
+\newif\ifzsfAfterChapterBar
+\zsfAfterChapterBarfalse
+\newcommand{\ZSFConsumeAfterChapterBar}{%
+  \global\zsfAfterChapterBarfalse
+}
+\newcommand{\ZSFMarkAfterChapterBar}{%
+  \global\zsfAfterChapterBartrue
+  \AddToHookNext{para/begin}{\ZSFConsumeAfterChapterBar}%
+}
+% Kollabiert den before-skip der SubsectionBar auf \ZSFsubsectionAfterChapterGap,
+% wenn sie direkt nach einer ChapterBar steht. Reset nach Verwendung.
+\newcommand{\ZSFCollapseAfterChapterBar}{%
+  \ifzsfAfterChapterBar
+    \vspace*{\dimexpr\ZSFsubsectionAfterChapterGap-\ZSFsubsectionBarBeforeSkip\relax}%
+    \ZSFConsumeAfterChapterBar
+  \fi
+}
+
+% ------------------------------------------------------------
+% SubsectionBar-Orchestrierung (analog zur ChapterBar oben):
+% Eine Box direkt nach einer SubsectionBar kollabiert ihren before-skip auf
+% \ZSFsubsectionAfterGap, damit sie an der Bar klebt. Das Flag wird beim
+% nächsten Absatzbeginn automatisch gelöscht (wie bei der ChapterBar).
+% ------------------------------------------------------------
+\newif\ifzsfAfterSubsectionBar
+\zsfAfterSubsectionBarfalse
+\newcommand{\ZSFConsumeAfterSubsectionBar}{%
+  \global\zsfAfterSubsectionBarfalse
+}
+\newcommand{\ZSFMarkAfterSubsectionBar}{%
+  \global\zsfAfterSubsectionBartrue
+  \AddToHookNext{para/begin}{\ZSFConsumeAfterSubsectionBar}%
+}
+% Box-before-skip: kollabiert nach einer SubsectionBar, sonst Standard-Luft
+% der Titelboxen (\ZSFtitleboxBeforeSkip).
+\newcommand{\ZSFBoxBeforeSkip}{%
+  \ifzsfAfterSubsectionBar\ZSFsubsectionAfterGap\else\ZSFtitleboxBeforeSkip\fi
+}
+
+% Jedes Kapitel bekommt automatisch ein Seiten-Label `zsfchap:<nr>`, damit
+% Register (z. B. die Symbol-Tabellen in ch00) die Startseite eines Kapitels
+% nennen koennen, ohne dass in jeder Kapiteldatei ein Label gepflegt werden
+% muss. Der Zugriff laeuft ueber \ZSFChapterPage.
+\newcommand{\ZSFchapPageLabel}{}
+\newcommand{\ZSFMarkChapterPage}{%
+  \edef\ZSFchapPageLabel{zsfchap:\the\value{section}}%
+  \expandafter\label\expandafter{\ZSFchapPageLabel}%
+}
+% Bewusst \pageref* (ohne Hyperlink): im Titelbalken würde die globale
+% Linkfarbe als Fremdkörper lesen; so erbt die Zahl die Titeltext-Farbe.
+\newcommand{\ZSFChapterPage}[1]{\pageref*{zsfchap:#1}}
+
+\makeatletter
+\newcommand{\ZSFPostChapterSpacing}{\vspace*{\ZSFpostChapterNudge}}
+\newcommand{\StartChapter}[2][]{%
+  \ifnum\value{zsfFirstChap}=1\setcounter{zsfFirstChap}{0}\fi
+  \refstepcounter{section}
+  \ZSFMarkChapterPage
+  \SetChapterPaletteByNumber
+  \setcounter{subsection}{0}
+  \if\relax\detokenize{#1}\relax\else\label{#1}\fi
+  \ChapterBar{\thesection. #2}
+  \ZSFMarkAfterChapterBar
+  \ZSFPostChapterSpacing
+}
+\makeatother
+
+% Variante: Kapitel explizit auf neuer Spalte beginnen (wie Analysis)
+\newcommand{\StartChapterOnNewColumn}[2][]{%
+  \columnbreak
+  \StartChapter[#1]{#2}%
+}
+
+\newcommand{\StartFrontChapter}[1]{%
+  \ifnum\value{zsfFirstChap}=1\setcounter{zsfFirstChap}{0}\else\columnbreak\fi
+  \renewcommand{\chaptercolor}{ChapterColor0}%
+  \renewcommand{\chaptercolorlight}{ChapterColor0Light}%
+  \renewcommand{\chaptercolortext}{ChapterColor0Text}%
+  \setcounter{subsection}{0}%
+  \ChapterBar{#1}%
+  \ZSFMarkAfterChapterBar
+  \ZSFPostChapterSpacing
+}

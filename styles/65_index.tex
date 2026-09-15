@@ -1,0 +1,189 @@
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+
+\makeindex
+\renewcommand{\seename}{siehe}
+\newif\ifZSFIndexShowPageNumber
+\ZSFIndexShowPageNumberfalse
+
+% ------------------------------------------------------------
+% Sofort-Writer
+% ------------------------------------------------------------
+\makeatletter
+% Aktuelle Abschnittsnummer einfrieren; vor der ersten \SubsectionBar
+% eines Kapitels (subsection=0) Fallback auf die Kapitelnummer.
+\newcommand{\ZSF@idxnumnow}{%
+  \ifnum\value{subsection}>0 \thesubsection\else\thesection\fi}
+% #1 = Eintrag (ggf. sort@display), #2 = Encap (ZSFidxnum | see{...}).
+% Im Seitenzahl-Modus wird ein zusammengesetzter Locator Abschnitt.Seite
+% geschrieben. makeindex kann ihn mit page_compositor "." sortieren und
+% verdichten; die Ausgabe trennt beide Teile erst am Schluss wieder.
+\newcommand{\ZSF@writeidx}[2]{%
+  \@ifundefined{@indexfile}{}{%
+    \begingroup
+      \edef\ZSF@num{\ZSF@idxnumnow}%
+      \ifZSFIndexShowPageNumber
+        \edef\ZSF@locator{\ZSF@num.\thepage}%
+        \protected@edef\ZSF@line{\string\indexentry{#1|#2}{\ZSF@locator}}%
+      \else
+        \protected@edef\ZSF@line{\string\indexentry{#1|#2}{\ZSF@num}}%
+      \fi
+      \immediate\write\@indexfile{\ZSF@line}%
+    \endgroup}}
+% «siehe»-Verweise bleiben reine Abschnitts-Wegweiser und erhalten nie
+% eine Seitenzahl.
+\newcommand{\ZSF@writeidxsee}[2]{%
+  \@ifundefined{@indexfile}{}{%
+    \begingroup
+      \edef\ZSF@num{\ZSF@idxnumnow}%
+      \protected@edef\ZSF@line{\string\indexentry{#1|see{#2}}{\ZSF@num}}%
+      \immediate\write\@indexfile{\ZSF@line}%
+    \endgroup}}
+% Frontmatter hat technisch die Abschnittsnummer -1. makeindex akzeptiert
+% keine negativen Locator-Werte, deshalb bekommt Z&E den internen Wert 0;
+% \ZSFidxfront rendert ihn ausschliesslich als sichtbares "Z&E".
+\newcommand{\ZSF@writeidxfront}[1]{%
+  \@ifundefined{@indexfile}{}{%
+    \begingroup
+      \ifZSFIndexShowPageNumber
+        \protected@edef\ZSF@line{\string\indexentry{#1|ZSFidxfront}{0.0.0}}%
+      \else
+        \protected@edef\ZSF@line{\string\indexentry{#1|ZSFidxfront}{0.0}}%
+      \fi
+      \immediate\write\@indexfile{\ZSF@line}%
+    \endgroup}}
+
+% ------------------------------------------------------------
+% Öffentliche Eintrags-Makros
+% ------------------------------------------------------------
+% (bleiben im \makeatletter-Block: Bodies referenzieren \ZSF@writeidx)
+\NewDocumentCommand{\ZSFindex}{o m}{%
+  \IfNoValueTF{#1}%
+    {\ZSF@writeidx{#2}{ZSFidxnum}}%
+    {\ZSF@writeidx{#1@#2}{ZSFidxnum}}}
+\NewDocumentCommand{\ZSFindexsee}{o m m}{%
+  \IfNoValueTF{#1}%
+    {\ZSF@writeidxsee{#2}{#3}}%
+    {\ZSF@writeidxsee{#1@#2}{#3}}}
+\NewDocumentCommand{\ZSFindexfront}{o m}{%
+  \IfNoValueTF{#1}%
+    {\ZSF@writeidxfront{#2}}%
+    {\ZSF@writeidxfront{#1@#2}}}
+
+% \ZSFkeyword (Basisdefinition in 50_typography_semantics) indexiert
+% jetzt automatisch mit — Rendering bleibt \textbf.
+\RenewDocumentCommand{\ZSFkeyword}{s o m}{%
+  \textbf{#3}%
+  \IfBooleanF{#1}{%
+    \IfNoValueTF{#2}{\ZSFindex{#3}}{\ZSFindex{#2}}}}
+\makeatother
+
+% ------------------------------------------------------------
+% Rendering der Eintragsnummern (Encap)
+% ------------------------------------------------------------
+% makeindex emittiert \ZSFidxnum{6.2} bzw. im Seitenzahl-Modus
+% \ZSFidxnum{6.2.14}; Kapitelziffer-Extraktion wie bei
+% \ZSFref (\ZSF@refExtractChap aus 50_typography_semantics). Die Farbwahl
+% laeuft durch denselben Modulo-Lookup wie \StartChapter.
+\makeatletter
+\newcommand{\ZSF@idxrendersection}[1]{%
+  \edef\ZSF@idxTargetChap{\expandafter\ZSF@refExtractChap#1.\@nil}%
+  \ZSFSetPaletteColorNameFromNumber{\ZSF@idxTargetChap}{\ZSF@idxTargetColor}%
+  {\upshape\bfseries\color{\ZSF@idxTargetColor}#1}}
+\ExplSyntaxOn
+\seq_new:N \l__zsf_index_locator_seq
+\tl_new:N \l__zsf_index_section_tl
+\tl_new:N \l__zsf_index_page_tl
+\tl_new:N \l__zsf_index_pending_section_tl
+\tl_new:N \l__zsf_index_pending_page_tl
+\bool_new:N \l__zsf_index_locator_multiple_bool
+\cs_new_protected:Npn \ZSFIndexLocatorListStart
+  {\tl_clear:N \l__zsf_index_pending_section_tl \tl_clear:N \l__zsf_index_pending_page_tl \bool_set_false:N \l__zsf_index_locator_multiple_bool}
+\cs_new_protected:Npn \ZSFIndexLocatorListMultiple
+  {
+    \bool_set_true:N \l__zsf_index_locator_multiple_bool
+    \tl_if_empty:NF \l__zsf_index_pending_section_tl
+      {\exp_args:NV \ZSF@idxrendersection \l__zsf_index_pending_section_tl}
+    \tl_clear:N \l__zsf_index_pending_section_tl
+    \tl_clear:N \l__zsf_index_pending_page_tl
+  }
+\cs_new_protected:Npn \ZSFIndexLocatorListFinish
+  {
+    \bool_if:NF \l__zsf_index_locator_multiple_bool
+      {\tl_if_empty:NF \l__zsf_index_pending_section_tl
+        {\mbox{\exp_args:NV \ZSF@idxrendersection \l__zsf_index_pending_section_tl\hspace{.2em}\textperiodcentered\hspace{.2em}(S.~\tl_use:N \l__zsf_index_pending_page_tl)}}}
+    \tl_clear:N \l__zsf_index_pending_section_tl
+    \tl_clear:N \l__zsf_index_pending_page_tl
+  }
+\cs_new_protected:Npn \ZSFIndexRenderLocator #1
+  {
+    \seq_set_split:Nnn \l__zsf_index_locator_seq {.} {#1}
+    \seq_pop_right:NN \l__zsf_index_locator_seq \l__zsf_index_page_tl
+    \tl_set:Nx \l__zsf_index_section_tl
+      {\seq_use:Nn \l__zsf_index_locator_seq {.}}
+    \bool_if:NTF \l__zsf_index_locator_multiple_bool
+      {\exp_args:NV \ZSF@idxrendersection \l__zsf_index_section_tl}
+      {\tl_set:Nx \l__zsf_index_pending_section_tl {\tl_use:N \l__zsf_index_section_tl}\tl_set:Nx \l__zsf_index_pending_page_tl {\tl_use:N \l__zsf_index_page_tl}}
+  }
+\ExplSyntaxOff
+\newcommand{\ZSFidxnum}[1]{%
+  \ifZSFIndexShowPageNumber
+    \ZSFIndexRenderLocator{#1}%
+  \else
+    \ZSF@idxrendersection{#1}%
+  \fi}
+\newcommand{\ZSFidxsee}[1]{\ZSF@idxrendersection{#1}}
+% Frontmatter-Locator: Die technische Indexnummer wird ignoriert; die
+% sichtbare Kennung verweist auf "Zeichen & Einheiten" links vom Index.
+\newcommand{\ZSFidxfront}[1]{%
+  \ZSFSetPaletteColorNameFromNumber{0}{\ZSF@idxFrontColor}%
+  {\upshape\bfseries\color{\ZSF@idxFrontColor}Z\&E}}
+% see-Einträge: Ziel + Abschnittsnummer direkt (kein Nachschlagen nötig).
+% makeindex liefert \see{Ziel}{Abschnitt}; #2 ist die am Zielort
+% eingefrorene Nummer (Konvention: \ZSFindexsee am kanonischen Ort).
+\renewcommand*\see[2]{\emph{\seename} #1\enspace\ZSFidxsee{#2}}
+\makeatother
+
+% ------------------------------------------------------------
+% theindex-Umgebung (Override) + Buchstaben-Heading
+% ------------------------------------------------------------
+% article-Default macht \twocolumn — illegal in multicols*. Stattdessen
+% einfache hängende Liste im laufenden 4-Spalten-Fluss.
+\makeatletter
+\newcommand{\ZSF@idxitem}{\par\hangindent 1.2em\relax}
+\newcommand{\ZSF@idxsubitem}{\par\hangindent 2em\hspace*{1em}}
+\newcommand{\ZSF@idxsubsubitem}{\par\hangindent 2.6em\hspace*{1.8em}}
+\newcommand{\ZSF@idxspace}{\par\addvspace{\ZSFspaceM}}
+\renewenvironment{theindex}{%
+  \begingroup
+  \RaggedRight
+  \setlength{\parindent}{0pt}%
+  \setlength{\parskip}{0pt plus 0.3pt}%
+  \let\item\ZSF@idxitem
+  \let\subitem\ZSF@idxsubitem
+  \let\subsubitem\ZSF@idxsubsubitem
+  \let\indexspace\ZSF@idxspace
+}{\par\endgroup}
+\makeatother
+\newcommand{\ZSFIndexLetter}[1]{%
+  \par\addvspace{\ZSFspaceM}%
+  {\ZSFfontBoxTitle #1}\par\nobreak\addvspace{\ZSFspaceXS}}

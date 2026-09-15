@@ -1,0 +1,34 @@
+name: CI Build
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install LaTeX toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            latexmk \
+            texlive-latex-extra \
+            texlive-fonts-extra \
+            texlive-science \
+            texlive-lang-german \
+            poppler-utils
+      # Pull Requests bauen die PDF; main-Pushes erzeugen einen Release.
+      - name: Build PDF
+        run: make SYNCTEX=0 build
+      - name: Resolve PDF name
+        id: pdf
+        run: echo "name=$(make -s print-pdf-basename)" >> "$GITHUB_OUTPUT"
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.pdf.outputs.name }}-pdf
+          path: ${{ steps.pdf.outputs.name }}.pdf
+          retention-days: 14

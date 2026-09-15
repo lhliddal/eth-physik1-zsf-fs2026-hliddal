@@ -1,0 +1,32 @@
+name: Release PDF
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: SemVer-Komponente
+        required: true
+        default: patch
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.repository }}
+  queue: max
+
+jobs:
+  release:
+    uses: lhliddal/zsf-template-hliddal/.github/workflows/release-reusable.yml@main
+    with:
+      bump: ${{ github.event_name == 'workflow_dispatch' && inputs.bump || 'patch' }}
+      release_sha: ${{ github.sha }}
+      publish_to_r2: false

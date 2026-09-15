@@ -1,0 +1,38 @@
+% ============================================================
+% 70_document_settings.tex — Finale Dokument-Einstellungen
+% ============================================================
+% Hinweis: hyperref wird bereits in 00_packages.tex geladen.
+
+% Link-Farben: stabile Slots aus der Index-Palette, unabhängig von der aktiven Kapitelfarbe.
+\hypersetup{colorlinks=true, linkcolor=ChapterColor0, urlcolor=ChapterColor4}
+
+% Build-Kennung unten mittig, Seitenzahl unten rechts (overlay, layout-neutral).
+% Lokal automatisch DEV + Datum; im Release-Workflow der SemVer-Tag.
+\AddToShipoutPictureFG{%
+  \AtPageLowerLeft{%
+    \put(\dimexpr\paperwidth/2\relax,1mm){%
+      \makebox(0,0)[b]{{\transparent{0.5}\sffamily\bfseries\fontsize{9.5pt}{9.5pt}\selectfont\color{black}\ZSFReleaseLabel}}%
+    }%
+    \put(\dimexpr\paperwidth-2mm\relax,1mm){%
+      \makebox(0,0)[rb]{\sffamily\bfseries\fontsize{9.5pt}{9.5pt}\selectfont\color{black}\thepage}%
+    }%
+  }%
+}
+
+% Enge Math-Display-Abstände (wie Analysis: keine grossen Lücken um Formeln)
+\AtBeginDocument{
+  \setlength{\abovedisplayskip}{\ZSFspaceXS}
+  \setlength{\belowdisplayskip}{\ZSFspaceXS}
+  \setlength{\abovedisplayshortskip}{\ZSFspaceXS}
+  \setlength{\belowdisplayshortskip}{\ZSFspaceXS}
+  \setlength{\mathsurround}{\ZSFspaceXS}
+}
+
+% Kompakte Listen (wie Analysis: kein überschüssiges Whitespace)
+\setlist{nosep, itemsep=0pt, parsep=0pt, topsep=\ZSFspaceXS, partopsep=0pt}
+\setlist[itemize]{leftmargin=3mm}
+\setlist[enumerate]{leftmargin=4mm}
+
+% Tabellen-Zellenabstand einheitlich
+\setlength{\tabcolsep}{\ZSFspaceM}
+\setlength{\extrarowheight}{\ZSFtextMinPad}

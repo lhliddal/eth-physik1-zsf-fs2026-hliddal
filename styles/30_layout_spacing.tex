@@ -1,0 +1,174 @@
+% ============================================================
+% 30_layout_spacing.tex — Layout-Grundlagen & zentrale Spacing-Stellschrauben
+% ============================================================
+
+\setlength{\parskip}{4.0pt plus 1pt minus 0.5pt} % Mehr Luft zwischen Absätzen
+\setlength{\parindent}{0pt}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\brokenpenalty=4000
+\predisplaypenalty=10000
+
+\raggedcolumns
+\newcounter{zsfFirstChap}\setcounter{zsfFirstChap}{1}
+
+% ------------------------------------------------------------
+% SPACING-SCALE (4 Stufen)
+% ------------------------------------------------------------
+\newlength{\ZSFspaceXS}\setlength{\ZSFspaceXS}{1pt}
+\newlength{\ZSFspaceS} \setlength{\ZSFspaceS}{2pt}
+\newlength{\ZSFspaceM} \setlength{\ZSFspaceM}{4pt}
+\newlength{\ZSFspaceL} \setlength{\ZSFspaceL}{8pt}
+
+% Abstand ober-/unterhalb von Text-Box-Bindungen und Trennlinien
+\newlength{\ZSFspaceOuter}  \setlength{\ZSFspaceOuter}{3pt}
+\newlength{\ZSFspaceSep}    \setlength{\ZSFspaceSep}{0pt}
+
+% ------------------------------------------------------------
+% Spalten-Layout
+% ------------------------------------------------------------
+\setlength{\columnsep}{\ZSFspaceL} % Konsistent mit Skala
+\setlength{\multicolsep}{\ZSFspaceS}
+\setlength{\emergencystretch}{2em}
+
+% ------------------------------------------------------------
+% Titelbalken & Hilfsgrössen
+% ------------------------------------------------------------
+\newlength{\ZSFtitleBarHeight}    \setlength{\ZSFtitleBarHeight}{9.2pt}
+\newlength{\ZSFtableTitleBarHeight}\setlength{\ZSFtableTitleBarHeight}{7.8pt}
+\newcommand{\ZSFtableArrayStretch}{1.04}
+\newlength{\ZSFtitleboxBeforeSkip}\setlength{\ZSFtitleboxBeforeSkip}{6pt} % Mehr Luft vor defbox/tablebox/figbox/warnbox
+\newlength{\ZSFtitleboxAfterSkip} \setlength{\ZSFtitleboxAfterSkip}{3pt} % Abstand NACH defbox/tablebox/figbox/warnbox (siehe ZSFtightBoxGroup)
+\newlength{\ZSFsubsectionBarBeforeSkip}\setlength{\ZSFsubsectionBarBeforeSkip}{8pt}     % Sichtbarer Standard-Abstand vor SubsectionBar
+\newlength{\ZSFsubsectionAfterChapterGap}\setlength{\ZSFsubsectionAfterChapterGap}{1pt} % Restabstand wenn SubsectionBar direkt nach ChapterBar steht
+\newlength{\ZSFsubsectionAfterGap}\setlength{\ZSFsubsectionAfterGap}{\ZSFspaceXS}        % Restabstand wenn Box direkt nach SubsectionBar steht (Box klebt an Bar)
+\newlength{\ZSFtextMinPad}        \setlength{\ZSFtextMinPad}{\ZSFspaceXS}
+\newlength{\ZSFpostChapterNudge}  \setlength{\ZSFpostChapterNudge}{0pt} % Kein Zusatzabstand nach ChapterBar; verhindert gestapeltes Spacing
+\newlength{\ZSFbreakThreshold}    \setlength{\ZSFbreakThreshold}{2\baselineskip} % Mindesthöhe für BreakIfNotEnoughSpace
+\newlength{\ZSFbreakThresholdChapter} \setlength{\ZSFbreakThresholdChapter}{5\baselineskip} % Grössere Mindesthöhe für Hauptkapitel
+
+% Tokens für statementbox / procedure / valuegrid.
+\newlength{\ZSFstatementBarWidth}\setlength{\ZSFstatementBarWidth}{2pt}
+\newlength{\ZSFstatementLeftPad} \setlength{\ZSFstatementLeftPad}{\ZSFspaceM}
+\newlength{\ZSFprocStepGap}      \setlength{\ZSFprocStepGap}{\ZSFspaceXS}
+\newlength{\ZSFprocItemSep}      \setlength{\ZSFprocItemSep}{\ZSFspaceXS}
+\newlength{\ZSFprocLeftMargin}   \setlength{\ZSFprocLeftMargin}{1.6em}
+\newlength{\ZSFprocLabelSep}     \setlength{\ZSFprocLabelSep}{0.4em}
+\newlength{\ZSFfactLeftMargin}   \setlength{\ZSFfactLeftMargin}{1.2em}
+\newlength{\ZSFfactLabelSep}     \setlength{\ZSFfactLabelSep}{0.4em}
+\newlength{\ZSFvaluegridColSep}  \setlength{\ZSFvaluegridColSep}{4pt}
+\newlength{\ZSFvaluegridRowSep}  \setlength{\ZSFvaluegridRowSep}{3pt}
+\newlength{\ZSFboxArc}           \setlength{\ZSFboxArc}{\ZSFspaceXS}
+\newlength{\ZSFsubtleRuleWidth}  \setlength{\ZSFsubtleRuleWidth}{0.2pt}
+\newlength{\ZSFemphasisRuleWidth}\setlength{\ZSFemphasisRuleWidth}{1.5pt}
+\newlength{\ZSFtableFrameWidth} \setlength{\ZSFtableFrameWidth}{\ZSFsubtleRuleWidth} % Aussenrahmen der tablebox (umfasst Titelleiste + Tabelle)
+
+% Maximale Höhe für eingebettete Grafiken: verhindert, dass Bilder
+% mit hoher Aspect-Ratio (z.B. Toroid-Portrait) übermässig Platz
+% einnehmen. Kombiniert mit width=\linewidth + keepaspectratio wird
+% jedes Bild auf min(Spaltenbreite, ZSFfigMaxHeight) skaliert.
+% Siehe \ZSFfig in styles/60_boxes.tex.
+\newlength{\ZSFfigMaxHeight}      \setlength{\ZSFfigMaxHeight}{2.6cm}
+
+% ------------------------------------------------------------
+% TEXT-BOX-BINDUNGEN
+% Koppeln Fliesstext direkt an Boxen — verhindert visuellen Bruch.
+% ------------------------------------------------------------
+\newcommand{\ZSFRobustUnskip}{%
+  \ifdim\lastskip>0pt\relax\unskip\fi
+  \ifnum\lastpenalty=0\else\unpenalty\fi
+  \ifdim\lastskip>0pt\relax\unskip\fi
+}
+
+% Text der zur Box DARUNTER gehört (Einleitung)
+\newcommand{\textVorBox}[1]{%
+  \par
+  \addvspace{\ZSFspaceOuter}%
+  \begingroup
+  \setlength{\parskip}{0pt}%
+  {\small\color{TextVorBoxColor} \noindent #1\par}%
+  \endgroup
+  \nopagebreak
+  \vspace{-\ZSFtitleboxBeforeSkip}%
+  \vspace{1.5pt}%
+}
+
+% Text der zur Box DARÜBER gehört (Ergänzung/Folgerung)
+\newcommand{\textNachBox}[1]{%
+  \par
+  \ZSFRobustUnskip
+  \vspace{-\ZSFtitleboxAfterSkip}%
+  \vspace{1.5pt}%
+  \begingroup
+  \setlength{\parskip}{0pt}%
+  \nopagebreak
+  {\small\color{TextNachBoxColor} \noindent #1\par}%
+  \endgroup
+  \addvspace{\ZSFspaceOuter}%
+}
+
+% Titel/Text vor einer Formel (innerhalb der formulabox)
+\newcommand{\textVorFormel}[1]{%
+  \par
+  \begingroup
+  \setlength{\parskip}{0pt}%
+  \noindent\raggedright\textcolor{black!60}{\textbf{#1}}\par
+  \endgroup
+  \vspace{\ZSFspaceXS}%
+  \centering
+}
+
+% Erklärungstext nach einer Formel (innerhalb der formulabox)
+\newcommand{\textNachFormel}[1]{%
+  \par
+  \vspace{\ZSFspaceXS}%
+  \begingroup
+  \setlength{\parskip}{0pt}%
+  \noindent\raggedright\textcolor{black!60}{\small #1}\par
+  \endgroup
+  \centering
+}
+
+% ------------------------------------------------------------
+% Semantische Gap-Helfer für Kapiteldateien
+% ------------------------------------------------------------
+\newcommand{\ZSFSectionGap}{\vspace{8pt}} % Etwas mehr Luft vor Unterkapiteln
+\newcommand{\ZSFgapXS}{\vspace{\ZSFspaceXS}}
+\newcommand{\ZSFgapS}{\vspace{\ZSFspaceS}}
+\newcommand{\ZSFgapM}{\vspace{\ZSFspaceM}}
+\newcommand{\ZSFgapL}{\vspace{\ZSFspaceL}}
+\newcommand{\ZSFmanualColumnBreak}{\columnbreak} % Expliziter Spaltenumbruch an gewünschter Stelle
+
+% ------------------------------------------------------------
+% Box-Gruppe ohne Zwischenabstand
+% ------------------------------------------------------------
+% Für Serien gleichartiger Titelboxen, die als EIN Block gelesen werden
+% sollen (z. B. die kapitelweisen Symbol-Tabellen in ch00_zeichen): die
+% Titelbalken übernehmen die Gruppierung, ein zusätzlicher Abstand
+% zwischen den Boxen zerfasert den Block nur.
+%
+% Die Abstände werden lokal auf 0 gesetzt; da eine Umgebung eine
+% TeX-Gruppe bildet, stellt \end{ZSFtightBoxGroup} die Defaults
+% automatisch wieder her — es gibt keinen manuellen Reset, der
+% vergessen werden könnte.
+% Der Block soll als EINE Einheit gelesen werden: die Rahmenfarbe wird
+% deshalb auf die beim Gruppenstart aktive Kapitelfarbe eingefroren, auch
+% wenn einzelne Boxen darin die Palette umschalten (siehe
+% \ZSFPinTableFrameColor in styles/40_colors_structure.tex).
+% Aus demselben Grund werden die Titel linksbündig gesetzt: der Block wird
+% wie eine Liste von oben nach unten gescannt, nicht Box für Box gelesen —
+% linksbündige Titel bilden eine gemeinsame Lesekante, und rechts bleibt
+% Platz für die Seitenzahl (\ZSFchapterTableTitle in styles/60_boxes.tex).
+\NewDocumentEnvironment{ZSFtightBoxGroup}{}{%
+  \setlength{\ZSFtitleboxBeforeSkip}{0pt}%
+  \setlength{\ZSFtitleboxAfterSkip}{0pt}%
+  \setlength{\ZSFsubsectionAfterGap}{0pt}%
+  \ZSFPinTableFrameColor
+  \tcbset{%
+    zsftabletitlealign/.style={halign title=flush left},%
+    zsftabletitlepadding/.style={toptitle=0.7pt, bottomtitle=0.7pt},%
+    zsftabletitlecolors/.style={colbacktitle=\chaptercolor, coltitle=\chaptercolortext}%
+  }%
+}{}
+\newcommand{\ZSFtabColGap}{\hspace{1.5em}}

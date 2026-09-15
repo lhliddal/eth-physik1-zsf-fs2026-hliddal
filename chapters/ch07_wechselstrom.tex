@@ -1,0 +1,228 @@
+% !TEX root = ../main.tex
+% SECTION 7: WECHSELSTROM
+% ============================================================
+
+\ZSFmanualColumnBreak
+\StartChapter{Wechselstromkreise}
+
+\begin{runintext}
+Analyse von Stromkreisen bei \ZSFkeyword*{sinusförmigen Spannungen}. Wichtige Konzepte umfassen \ZSFkeyword*{Effektivwerte}, Blind- und Scheinwiderstände (\ZSFkeyword*{Impedanz}) bei Spulen und Kondensatoren, sowie Leistung und oszillierende \ZSFkeyword*{LC-Netzwerke}.
+\end{runintext}
+
+\SubsectionBar[sec:ac-voltage-rms]{Wechselspannung, Effektiv}
+\ZSFindex{Spannung}
+\ZSFindex{Strom}
+\ZSFindex{Wechselspannung}
+\begin{runintext}
+Grundlagen des Wechselstroms: Sinus-Signal, Peak-Strom und der zeitliche \ZSFkeyword{Effektivwert} (\ZSFkeyword{RMS}) als thermisches Gleichstrom-Äquivalent, um mittlere Leistungen einfach zu berechnen.
+\end{runintext}
+\begin{runintext}
+\ZSFkeyword{Generator}: mechanisch $\to$ elektrisch (Spule im B-Feld oder Magnet in Spule) via Faraday \ZSFref{sec:faradays-law}.
+\end{runintext}
+
+\ZSFfig{graphics/Elektrotechnik_Wechselstrom_Widerstand_Phasenlage.png}{{Kosinus $U(t)$, $I(t)$, Leistung $P(t)$}}{Am ohmschen Widerstand: $U$ und $I$ in Phase, $P\ge 0$}
+
+\begin{formulabox}
+% chktex 35
+\[ U_{\mathrm{ind}}(t) = \overbrace{U_{\mathrm{ind},\mathrm{max}}}^{\text{Peak\,/\,Amplitude}}\,\cos(\underbrace{\omega t + \delta}_{\text{Phase}}) \]
+\[ \omega = 2\pi\nu = 2\pi f = \frac{2\pi}{T} \]
+\formulanote{Zweck: Wechselspannung (Kosinus-Form).}
+\formulasep
+\[ \langle \sin^2(\omega t)\rangle = \langle \cos^2(\omega t)\rangle = \tfrac{1}{2} \]
+\formulanote{Zweck: Mittelwert über Periode $T$ $\to$ Ursprung des Faktors $1/\sqrt{2}$.}
+\formulasep
+\[ I_{\mathrm{eff}} = \underbrace{\sqrt{\langle I^2\rangle}}_{\text{zeitl. Mittelwert}} = \frac{I_{\max}}{\sqrt{2}}, \quad U_{\mathrm{eff}} = \frac{U_{\max}}{\sqrt{2}} \]
+\formulanote{Zweck: Effektivwerte (Gleichstromwert für dieselbe mittlere Leistung); Leistungsrechnung \ZSFref{sec:average-power}.}
+\end{formulabox}
+
+\SubsectionBar[sec:reactance]{Blindwiderstände}
+\ZSFindex{Blindwiderstand}
+\ZSFindex{Induktivität}
+\begin{runintext}
+Der elektrische Widerstand von Spule und Kondensator für Wechselströme (zur Speicherung temporärer Energieanteile ohne Wirkleistungsverbrauch) und deren \ZSFkeyword{Phasenverschiebung}.
+\end{runintext}
+\begin{formulabox}
+\[ I_{\mathrm{eff}} = \frac{U_{R,\mathrm{eff}}}{R} \quad \text{Strom und Spannung in Phase} \]
+\formulanote{Zweck: Ohm'scher Widerstand bei Wechselstrom (Strom und Spannung in Phase).}
+\end{formulabox}
+
+\begin{formulabox}
+\[ X_L = \omega L \quad \implies \quad I_{\mathrm{eff}} = \frac{U_{L,\mathrm{eff}}}{\omega L} = \frac{U_{L,\mathrm{eff}}}{X_L} \]
+\formulanote{Zweck: Induktiver Blindwiderstand $X_L$ einer Spule (Spannung eilt Strom um 90° voraus); Ursache: Selbstinduktion \ZSFref{sec:self-mutual-inductance}.}
+\end{formulabox}
+
+\begin{formulabox}
+\[ X_C = \frac{1}{\omega C} \quad \implies \quad I_{\mathrm{eff}} = \frac{U_{C,\mathrm{eff}}}{X_C} \]
+\formulanote{Zweck: Kapazitiver Blindwiderstand $X_C$ eines Kondensators (Strom eilt Spannung um 90° voraus); Kapazitätsdefinition \ZSFref{sec:capacitance}.}
+\end{formulabox}
+\begin{factlist}
+  \ZSFFact{\ZSFkeyword{Spule} (Induktivität $L$)}{Spannung eilt Strom um 90° voraus (Trägheit gegen Stromänderungen).}
+  \ZSFFact{\ZSFkeyword{Kondensator}}{Strom eilt Spannung um 90° voraus.}
+  \ZSFFact{Frequenzverhalten}{Kondensator blockiert niedrige Frequenzen / Spule blockiert hohe Frequenzen.}
+\end{factlist}
+
+\SubsectionBar[sec:impedance]{Impedanz}
+\ZSFindexsee{Scheinwiderstand}{Impedanz}
+\begin{runintext}
+\ZSFkeyword{Impedanz} $Z$: frequenzabhängiger Gesamtwiderstand einer Wechselstrommasche, welcher Wirk- und Blindanteile vereint; Phasenbeziehungen via \ZSFkeyword{Zeigerdiagramm}.
+\end{runintext}
+\begin{formulabox}
+\[ Z_R = R \quad Z_L = i\omega L \quad Z_C = \frac{1}{i\omega C} = -\frac{i}{\omega C} \]
+\formulanote{Zweck: Komplexe Impedanzen der Einzelelemente. Kombination genau wie bei Widerständen \ZSFref{sec:equivalent-resistance}: Reihe $Z = Z_1 + Z_2 + \cdots$, parallel $1/Z = 1/Z_1 + 1/Z_2 + \cdots$ — die beiden Fälle unten sind nur die ausgerechnete Form davon.}
+\end{formulabox}
+
+\begin{formulabox}
+\[ \begin{aligned}
+  Z_{\mathrm{ser}} &= \underbrace{R}_{\text{Wirk (Wärme)}} + i\underbrace{\left(\omega L - \frac{1}{\omega C}\right)}_{\text{Blind (zurück)}} \\
+  |Z|_{\mathrm{ser}} &= \sqrt{R^2 + \left(\omega L - \tfrac{1}{\omega C}\right)^2}
+\end{aligned} \]
+\[ \tan(\Delta\varphi)_{\mathrm{ser}} = \frac{\omega L - 1/(\omega C)}{R} \quad \text{(RLC seriell)} \]
+\formulanote{Zweck: Impedanz, Betrag und Phasenwinkel im RLC-Serienkreis.}
+\end{formulabox}
+
+\begin{formulabox}
+\[ \begin{aligned}
+  \frac{1}{Z_{\mathrm{par}}} &= \underbrace{\frac{1}{R}}_{\text{Wirk (Wärme)}} + i\underbrace{\left(\omega C - \frac{1}{\omega L}\right)}_{\text{Blind (zurück)}} \\
+  \frac{1}{|Z|_{\mathrm{par}}} &= \sqrt{\frac{1}{R^2} + \left(\omega C - \tfrac{1}{\omega L}\right)^2}
+\end{aligned} \]
+\[ \tan(\Delta\varphi)_{\mathrm{par}} = R\!\left(\omega C - \frac{1}{\omega L}\right) \quad \text{(RLC parallel)} \]
+\formulanote{Zweck: Impedanz, Betrag und Phasenwinkel im RLC-Parallelkreis.}
+\end{formulabox}
+
+\begin{warnbox}[Spannungs- \& Stromaddition]
+Effektivwerte \ZSFdanger{nie} direkt addieren ($U_0 \neq U_R + U_L + U_C$). Geometrisch:\\
+\textbf{Reihe:} $U_0 = \sqrt{U_R^2 + (U_L - U_C)^2}$ ($\Delta\varphi > 0$ ind., $< 0$ kap.) \quad \textbf{Parallel:} $I_0 = \sqrt{I_R^2 + (I_C - I_L)^2}$
+\end{warnbox}
+
+{
+\setlength{\ZSFspaceS}{0.2pt}
+\setlength{\ZSFspaceXS}{0.2pt}
+\begin{figbox}[Transformator-Prinzip \ZSFref{sec:transformers}]
+\centering
+\begin{tikzpicture}[scale=0.9, >=Stealth, line cap=round, line join=round]
+  % Farbdefinitionen
+  \colorlet{corecolor}{black!15}
+  \colorlet{primarycolor}{red!80!black}
+  \colorlet{secondarycolor}{blue!80!black}
+  \colorlet{fluxcolor}{black!65}
+  \colorlet{indcolor}{green!60!black}
+
+  % 1. Eisenkern zeichnen (mit Loch in der Mitte)
+  \filldraw[fill=corecolor, draw=black!45, line width=0.8pt, even odd rule]
+    (-1.8, -1.0) rectangle (1.8, 1.0)
+    (-1.1, -0.4) rectangle (1.1, 0.4);
+
+  % Beschriftung Kernschenkel
+  \node[anchor=north, font=\tiny\bfseries, text=black!70] at (-1.45, -1.0) {Primär ($N_1$)};
+  \node[anchor=north, font=\tiny\bfseries, text=black!70] at (1.45, -1.0) {Sekundär ($N_2$)};
+
+  % 2. Primärspule (rot, linker Schenkel)
+  % Hintenliegende Drähte (gestrichelt)
+  \draw[primarycolor, dashed, line width=0.8pt] (-1.1, 0.25) -- (-1.8, 0.15);
+  \draw[primarycolor, dashed, line width=0.8pt] (-1.1, -0.1) -- (-1.8, -0.2);
+  \draw[primarycolor, dashed, line width=0.8pt] (-1.1, -0.45) -- (-1.8, -0.55);
+
+  % Vorneliegende Drähte (durchgezogen und dick)
+  \draw[primarycolor, line width=1.4pt] (-2.2, 0.5) -- (-1.8, 0.5);
+  \draw[primarycolor, line width=1.4pt] (-1.8, 0.5) -- (-1.1, 0.25);
+  \draw[primarycolor, line width=1.4pt] (-1.8, 0.15) -- (-1.1, -0.1);
+  \draw[primarycolor, line width=1.4pt] (-1.8, -0.2) -- (-1.1, -0.45);
+  \draw[primarycolor, line width=1.4pt] (-1.8, -0.55) -- (-1.1, -0.8);
+  \draw[primarycolor, line width=1.4pt] (-1.1, -0.8) -- (-2.2, -0.8);
+
+  % 3. Sekundärspule (blau, rechter Schenkel - symmetrisch gewickelt wie primär)
+  % Hintenliegende Drähte (gestrichelt)
+  \draw[secondarycolor, dashed, line width=0.8pt] (1.1, 0.25) -- (1.8, 0.15);
+  \draw[secondarycolor, dashed, line width=0.8pt] (1.1, -0.1) -- (1.8, -0.2);
+  \draw[secondarycolor, dashed, line width=0.8pt] (1.1, -0.45) -- (1.8, -0.55);
+
+  % Vorneliegende Drähte (durchgezogen und dick)
+  \draw[secondarycolor, line width=1.4pt] (2.2, 0.5) -- (1.8, 0.5);
+  \draw[secondarycolor, line width=1.4pt] (1.8, 0.5) -- (1.1, 0.25);
+  \draw[secondarycolor, line width=1.4pt] (1.8, 0.15) -- (1.1, -0.1);
+  \draw[secondarycolor, line width=1.4pt] (1.8, -0.2) -- (1.1, -0.45);
+  \draw[secondarycolor, line width=1.4pt] (1.8, -0.55) -- (1.1, -0.8);
+  \draw[secondarycolor, line width=1.4pt] (1.1, -0.8) -- (2.2, -0.8);
+
+  % 4. Stromrichtungspfeile (symmetrisch eingezeichnet)
+  \draw[primarycolor, ->, >=Stealth, line width=1.2pt] (-2.2, 0.5) -- (-1.95, 0.5) node[above, midway, font=\tiny\bfseries] {$I_1$};
+  \draw[secondarycolor, ->, >=Stealth, line width=1.2pt] (1.8, 0.5) -- (2.15, 0.5) node[above, midway, font=\tiny\bfseries] {$I_2$};
+
+  % 5. Spannungspfeile (U1 & U2 zeigen beide nach unten für gleiche Phase)
+  \draw[primarycolor, ->, >=Stealth, line width=0.6pt] (-2.35, 0.5) -- (-2.35, -0.8)
+    node[midway, left, font=\scriptsize] {$U_1$};
+  \draw[secondarycolor, ->, >=Stealth, line width=0.6pt] (2.35, 0.5) -- (2.35, -0.8)
+    node[midway, right, font=\scriptsize] {$U_2$};
+
+  % 6. Fluss-Pfeile im oberen Joch (einfache Richtungspfeile im Eisenkern)
+  % Hauptfluss \Phi nach links (gegen den Uhrzeigersinn)
+  \draw[fluxcolor, ->, line width=1.2pt] (0.8, 0.75) -- (-0.8, 0.75)
+    node[above, midway, font=\tiny\bfseries, text=fluxcolor] {$\Phi$};
+
+  % Gegenfluss \Phi_ind nach rechts (im Uhrzeigersinn)
+  \draw[indcolor, ->, line width=1.2pt] (-0.8, 0.55) -- (0.8, 0.55)
+    node[below, midway, font=\tiny\bfseries, text=indcolor] {$\Phi_{\text{ind}}$ (Gegenind.)};
+\end{tikzpicture}
+\ZSFfigcaption{Gegeninduktion $M$ \ZSFref{sec:self-mutual-inductance} im magnetischen Fluss $\Phi$.}
+\end{figbox}
+}
+
+\SubsectionBar[sec:average-power]{Mittlere Leistung}
+\ZSFindex{Leistung}
+\ZSFindex{Blindleistung}
+\ZSFindex{Scheinleistung}
+\ZSFindex{Leistungsfaktor}
+\begin{runintext}
+Warum Spule und Kondensator die Energie nur hin- und herschieben und nur der Ohm'sche Widerstand Energie in Wärme umwandelt (\ZSFkeyword{Wirkleistung}).
+\end{runintext}
+\begin{formulabox}
+\[ \begin{aligned}
+  \langle P \rangle &= \frac{P_{\max}}{2} = \frac{U_{\max}I_{\max}}{2} = U_{R,\mathrm{eff}}\,I_{\mathrm{eff}} = R\,I_{\mathrm{eff}}^2 \\
+  W_{\mathrm{Periode}} &= \int_0^T P(t)\,\mathrm{d}t = \langle P \rangle T \quad \text{(Energie)}
+\end{aligned} \]
+\formulasep
+\[ \langle P \rangle = 0 \quad \text{an Spule oder Kondensator} \]
+\formulanote{Zweck: Mittlere Wirkleistung am Widerstand (Spule/Kondensator leistungsfrei); Energie pro Periode $W = \langle P \rangle T$.}
+\formulasep
+\[ P = U_{\mathrm{eff}}\,I_{\mathrm{eff}}\,\cos(\Delta\varphi) \quad \text{Wirkleistung [W]} \]
+\[ Q = U_{\mathrm{eff}}\,I_{\mathrm{eff}}\,\sin(\Delta\varphi) \quad \text{Blindleistung [var]} \]
+\[ S = U_{\mathrm{eff}}\,I_{\mathrm{eff}} = \sqrt{P^2 + Q^2} \quad \text{Scheinleistung [VA]} \]
+\[ \cos(\Delta\varphi) = \frac{R}{|Z|} \quad \text{Leistungsfaktor} \]
+\formulanote{Zweck: Wirk-, Blind- und Scheinleistung im Wechselstromkreis (reelle Darstellung).}
+\end{formulabox}
+
+\SubsectionBar[sec:transformers]{Transformatoren}
+\ZSFindex{Transformator}
+\begin{runintext}
+Hoch- oder Heruntertransformieren von Wechselspannungen mithilfe zweier \ZSFkeyword*{magnetisch gekoppelter Spulen} (\ZSFkeyword*{Primär-} und \ZSFkeyword*{Sekundärseite}, siehe Skizze \ZSFref{sec:impedance}); Gegeninduktion \ZSFref{sec:self-mutual-inductance}.
+\end{runintext}
+\begin{formulabox}
+\[ U_2 = \frac{N_2}{N_1}\,U_1 \quad (1 = \text{Primär\,/\,Netz},\ 2 = \text{Sekundär\,/\,Gerät}) \]
+\formulasep
+\[ U_{1,\mathrm{eff}}\,I_{1,\mathrm{eff}} = U_{2,\mathrm{eff}}\,I_{2,\mathrm{eff}} \quad \text{ideal} \]
+\formulanote{Zweck: Übersetzung Spannung (Windungszahlen); ideal: Primär- und Sekundärleistung gleich.}
+\end{formulabox}
+\begin{factlist}
+  \ZSFFact{Unbelastet}{Sekundärseite offen $\to$ kein Sekundärstrom ($I_2 = 0$).}
+  \ZSFFact{Belastet}{Sekundärstrom erzeugt Gegenfeld im Kern $\to$ Primärstrom $I_1 \uparrow$ (hält Fluss $\Phi$ konstant; Lenz \ZSFref{sec:lenz-law}).}
+\end{factlist}
+
+\SubsectionBar[sec:lc-rlc-circuits]{LC, RLC}
+\ZSFindex{Energie / elektrische Energie}
+\ZSFindexsee{Resonanzfrequenz}{Resonanz}
+\ZSFindex{LC-Kreis}
+\begin{runintext}
+Der elektrische \ZSFkeyword{Schwingkreis}: \ZSFkeyword{Resonanz}phänomene bei spezifischen Frequenzen, wenn sich induktiver und kapazitiver Blindwiderstand gegenseitig auslöschen.
+\end{runintext}
+\begin{runintext}
+Kondensator über Spule: Ladung und Strom oszillieren; Energie wandert zwischen $E_{\mathrm{el}}$ (\ZSFref{sec:capacitor-energy}) und $E_{\mathrm{mag}}$ (\ZSFref{sec:magnetic-field-energy}). \ZSFkeyword[RLC-Kreis]{RLC}: Dämpfung durch Joule'sche Wärme.
+\end{runintext}
+\begin{formulabox}
+\[ \omega_0 = \frac{1}{\sqrt{LC}} \quad \text{Eigenfrequenz} \]
+\formulanote{Zweck: Eigenfrequenz ungedämpfter LC-Schwingkreis; Resonanz wenn Generatorfrequenz $=\omega_0$; Aufhebung der Blindanteile \ZSFref{sec:impedance}.}
+\end{formulabox}
+\begin{runintext}
+\ZSFkeyword{Resonanz}: Generatorfrequenz $= \omega_0$.
+\end{runintext}
+
+% ============================================================

@@ -1,0 +1,22 @@
+# LaTeX build artifacts
+build/
+main.pdf
+physik1_fs2026_hliddal.pdf
+main.synctex.gz
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.idx
+*.ilg
+*.ind
+
+# Local system files
+.DS_Store
